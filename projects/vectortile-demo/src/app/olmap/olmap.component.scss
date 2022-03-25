@@ -7,8 +7,8 @@
 
 .toprightpanel {
   position: absolute;
-  left: var(--buttonbarleft, 65vw);
-  width: var(--buttonbarwidth, 32vw);
+  left: var(--buttonbarleft, 63vw);
+  width: var(--buttonbarwidth, 36vw);
   height: var(--buttonheight, 9vh);
   top: var(--buttontop, 1vh);
   z-index: 4;
@@ -43,10 +43,6 @@
   flex: 1;
 }
 
-.featuretablecaption {
-  text-align: left;
-  font-weight: bold;
-}
 
 .leftbutton {
   float: right;

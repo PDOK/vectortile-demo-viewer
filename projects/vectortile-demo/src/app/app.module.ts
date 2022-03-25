@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OlmapComponent } from './olmap/olmap.component';
 import { SearchComponent } from './search/search.component';
+import { ObjectinfoComponent } from './objectinfo/objectinfo.component';
 
 
 
@@ -14,7 +15,8 @@ import { SearchComponent } from './search/search.component';
   declarations: [
     AppComponent,
     OlmapComponent,
-    SearchComponent
+    SearchComponent,
+    ObjectinfoComponent
 
   ],
   imports: [

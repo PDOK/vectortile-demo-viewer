@@ -73,15 +73,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   public selectedFeature: Feature<Geometry> | undefined;
 
-  public selectedFeatureProperties(): proprow[] {
-    var proptable: proprow[] = [];
-    var prop = this.selectedFeature!.getProperties();
-    for (var val in prop) {
-      var p: proprow = { title: val, value: prop[val] };
-      proptable.push(p)
-    }
-    return proptable;
-  }
+  
 
   public selectedFeatures: [Feature<Geometry>] | undefined = undefined;
   currentlocation: ViewLocation | undefined;
@@ -195,11 +187,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     }
   }
 
-  selectedFillStyle() {
-    return {
-      'background-color': this.getFillColor(this.selectedFeature!)
-    };
-  }
+ 
 
   getFillColor(feature: Feature<Geometry>) {
     var mpstyle = this.vectorTileLayer.getStyleFunction();

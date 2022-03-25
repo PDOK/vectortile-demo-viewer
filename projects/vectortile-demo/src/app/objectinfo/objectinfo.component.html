@@ -1,0 +1,20 @@
+<div class = "objectinfo">
+<table class="featuretable">
+    <caption class="featuretablecaption">Object Informatie:</caption>
+    <thead>
+        <th id="Veld">Veld</th>
+        <th id="Waarde">Waarde</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Kleur</td>
+            <td [ngStyle]="selectedFillStyle()"></td>
+        </tr>
+        <tr *ngFor="let f of  getFeatureProperties()">
+            <td>{{f.title }}</td>
+            <td>{{f.value}}</td>
+        </tr>
+
+    </tbody>
+</table>
+</div>

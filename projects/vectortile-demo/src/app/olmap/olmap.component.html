@@ -1,0 +1,104 @@
+<div class="map-container" id="map1">
+    <div class="toprightpanel">
+        <div class="topbuttons">
+            <button class="topbutton" (click)="toggleShowDetails()" type="checkbox">Toon object (aan/uit)</button>
+            <button *ngIf="hasLegend()" class="topbutton" (click)="toggleShowLegend()" type="checkbox">Toon Legenda
+                (aan/uit)</button>
+            <button class="topbutton" (click)="toggleShowDemo()" type="checkbox">Toon Demo opties (aan/uit)</button>
+        </div>
+        <div>
+            <div *ngIf="isShowDetails" class="row container-fluid">
+                <div *ngIf="showselectedFeature()">
+                    <table class="featuretable">
+                        <caption class="featuretablecaption">Object Informatie:</caption>
+                        <thead>
+                            <th id="Veld">Veld</th>
+                            <th id="Waarde">Waarde</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Kleur</td>
+                                <td [ngStyle]="selectedFillStyle()"></td>
+                            </tr>
+                            <tr *ngFor="let f of selectedFeatureProperties()">
+                                <td>{{f.title }}</td>
+                                <td>{{f.value}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div *ngIf="hasLegend()">
+                <div *ngIf="isShowLegend" class="row container-fluid" id="divshow">
+                    <table class="featuretable">
+                        <caption class="legendtablecaption">Legenda:</caption>
+                        <thead>
+                            <th id="Veld">Waarde</th>
+                            <th id="Veld">Tonen</th>
+                            <th id="Waarde">Visualisatie</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alle waarden</td>
+                                <td> <input type="checkbox" (change)="onCheckboxAllChange($event)" />
+                                <td>
+                                    <button class="leftbutton" (click)="  NewColorMap() " type="checkbox">Reset</button>
+                                </td>
+
+                            </tr>
+                            <tr *ngFor="let x of colorArray() | keyvalue">
+
+                                <td>{{x.key }}</td>
+                                <td> <input type="checkbox" [checked]="x.value.show"
+                                        (change)="onCheckboxChange($event, x)" />
+                                <td>
+                                    <div *ngIf="x.value.show">
+                                        <div class="colorpick"><input [(colorPicker)]="x.value.rbgString"
+                                                [style.background]="x.value.rbgString" [cpOutputFormat]="'rgba'"
+                                                [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange(x)">
+                                        </div>
+                                    </div>
+
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="colorfillerbox"></div>
+                </div>
+            </div>
+
+
+            <div *ngIf="isShowDemo" class="row container-fluid" id="divshow">
+                <div class="infotextbox">
+                    <div class='demobox'>
+                        Deze viewer is gemaakt om BGT vectortiles te demonstreren
+
+
+
+                        <div class='demobox'>
+                            <button (click)="DemogotoStartLocationOnMap()" type="submit">Reset (einde demo)</button>
+                        </div>
+                        <div class='demobox'>
+                            <button (click)="DemoRandomLocationToggle()" type="checkbox">{{demotextLocatie}}</button>
+                        </div>
+                        <div class='demobox'>
+                            <button (click)="DemoVisualisationToggle()"
+                                type="checkbox">{{demotextVisualisatie}}</button>
+                        </div>
+
+                        Huidige Zoomlevel {{getZoomLevel()}}
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div>
+    <div class=app-container>
+        <div class="head">
+            <img class="logo" alt="PDOK" src="../assets/images/logo-pdok.svg">
+        </div>
+        <div>
+            <app-search></app-search>
+        </div>
+        <div class="vispanel">
+            
+                <button class="selectbutton" (click)="toggleShow()" type="checkbox">{{currentVis}}</button>
+                <div *ngIf="isShow" id="divshow">
+                    <div>
+                        <div *ngFor="let v of visualisatie | keyvalue" (click)="onSelect(v.value)">
+                            <button class="selectbutton">
+                                <span>{{v.value}}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+
+        <app-olmap class="maparea" [visualisation]=currentVis (titelEmit)="receiveTitle($event)">
+       </app-olmap>
+
+    </div>
+</div>
+
+<router-outlet></router-outlet>

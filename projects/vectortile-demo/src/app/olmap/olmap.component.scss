@@ -1,0 +1,58 @@
+#map1 {
+  z-index: 1;
+  height: var(--mapheight, 99vh);
+  width: var (--mapwidth, 98vw);
+  margin: 0 auto;
+}
+
+.toprightpanel {
+  position: absolute;
+  left: var(--buttonbarleft, 65vw);
+  width: var(--buttonbarwidth, 32vw);
+  height: var(--buttonheight, 9vh);
+  top: var(--buttontop, 1vh);
+  z-index: 4;
+}
+.topbuttons {
+  display: flex;
+  min-height: var(--buttonheight, 1vh);
+}
+.topbutton {
+  flex: 1;
+  min-height: var(--buttonheight, 1vh);
+  font-size: var(--fontsize, 2.5vh);
+  margin-top: 0.5vh;
+  margin-left: 0.5vw;
+}
+
+.featuretable {
+  text-align: left;
+  background-color: white;
+}
+
+.infotextbox {
+  text-align: left;
+  background-color: white;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+}
+.demobox {
+  margin: 1em;
+  flex: 1;
+}
+
+.featuretablecaption {
+  text-align: left;
+  font-weight: bold;
+}
+
+.leftbutton {
+  float: right;
+  text-align: right;
+  margin-right: 16vw;
+}
+.colorpick {
+  z-index: 3;
+}

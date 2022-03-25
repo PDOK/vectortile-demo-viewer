@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --buttonheight: 5vh;
+  --buttontop: 2.25vh;
+  --fontsize: 2.3vmin ;
+
+  --mapheight: 99vmin;
+  --mapwidth: 99vmin; 
+
+  --headerheight: 9vh;
+  --headertop: 1vh; 
+  --headerwidth:  99vw ; 
+
+  --searchleft: 1vw;
+  --searchwidth: 20vw;
+  --searchtop:12vh; 
+
+
+
+  --visselectleft: 43vw;
+  --visselectwidth: 20vw;
+
+  overflow: hidden !important;
+}

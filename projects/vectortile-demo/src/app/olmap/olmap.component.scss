@@ -9,9 +9,10 @@
   position: absolute;
   left: var(--buttonbarleft, 63vw);
   width: var(--buttonbarwidth, 36vw);
-  height: var(--buttonheight, 9vh);
+  height: var(--buttonxheight, 98vh);
   top: var(--buttontop, 1vh);
   z-index: 4;
+ 
 }
 .topbuttons {
   display: flex;
@@ -25,10 +26,20 @@
   margin-left: 0.5vw;
 }
 
-.featuretable {
+.legend {
   text-align: left;
   background-color: white;
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  .legendtablecaption{
+    text-align: left;
+    font-weight: bold;
+  }
+  
 }
+
+
 
 .infotextbox {
   text-align: left;

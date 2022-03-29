@@ -4,6 +4,8 @@ export const tileurl : VectorTileUrl = {
     extension: ''
 };
 
+
+
 //export const tileurl: VectorTileUrl = {
 //    url: 'https://service.pdok.nl/lv/bgt/vt-otf/v1_0-preprod/poc',
 //    extension: '.pbf'

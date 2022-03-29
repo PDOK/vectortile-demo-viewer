@@ -2,10 +2,10 @@ export enum Visualisatie {
 
   achtergrond = "BGT Vectortile Achtergrond Visualisatie",
   standaard = "BGT Vectortile Standaard Visualisatie",
-  zerodefaultA = "Vectortile Inspect (Blanco) Visualisatie",
-  zerodefaultB = "Vectortile Inspect (Kleurrijk tegels zichtbaar) Visualisatie",
-  zerodefaultC_Bron = "Vectortile Inspect Bronhouder Visualisatie",
-  zerodefaultD = "Vectortile Inspect (Kleurrijk) Visualisatie"
+  zerodefaultA = "Vectortile (Blanco) Visualisatie",
+  zerodefaultB = "Vectortile (Kleurrijk tegels zichtbaar) Visualisatie",
+  zerodefaultC_Bron = "Vectortile BGT Bronhouder Visualisatie",
+  zerodefaultD = "Vectortile (Kleurrijk) Visualisatie"
 }
 
 

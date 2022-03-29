@@ -7,10 +7,9 @@
             <button class="topbutton" (click)="toggleShowDemo()" type="checkbox">Toon Demo opties (aan/uit)</button>
         </div>
         <div>
-            <div *ngIf="isShowDetails" >
+            <div *ngIf="isShowDetails">
                 <div *ngIf="showselectedFeature()">
-                    <div>  
-                                                 
+                    <div>
                         <app-objectinfo [feature]="this.selectedFeature" [resolution]="this.view.getResolution()"
                             [styleFunction]="this.vectorTileLayer.getStyleFunction()">
                         </app-objectinfo>
@@ -18,7 +17,7 @@
                 </div>
             </div>
             <div *ngIf="hasLegend()">
-                <div class="legend" *ngIf="isShowLegend" >
+                <div class="legend" *ngIf="isShowLegend">
                     <table>
                         <caption class="legendtablecaption">Legenda:</caption>
                         <thead>
@@ -58,6 +57,9 @@
                 <div class="infotextbox">
                     <div class='demobox'>
                         Deze viewer is gemaakt om BGT vectortiles te demonstreren
+                        <div class="demobox">
+                            <app-mapexport [map]="this.map1"></app-mapexport>
+                        </div>
                         <div class='demobox'>
                             <button (click)="DemogotoStartLocationOnMap()" type="submit">Reset (einde demo)</button>
                         </div>
@@ -68,7 +70,9 @@
                             <button (click)="DemoVisualisationToggle()"
                                 type="checkbox">{{demotextVisualisatie}}</button>
                         </div>
-                        Huidige Zoomlevel {{getZoomLevel()}}
+                        <div>
+                            Huidige Zoomlevel {{getZoomLevel()}}
+                        </div>
                     </div>
                 </div>
             </div>

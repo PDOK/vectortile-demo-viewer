@@ -167,7 +167,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   getZoomLevel() {
     let view = this.map1.getView();
-    return (view.getZoom());
+    return (view.getZoom()?.toFixed(1));
   }
 
   getResolutionsVt(z = 9) {

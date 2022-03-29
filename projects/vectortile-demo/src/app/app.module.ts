@@ -7,16 +7,15 @@ import { AppComponent } from './app.component';
 import { OlmapComponent } from './olmap/olmap.component';
 import { SearchComponent } from './search/search.component';
 import { ObjectinfoComponent } from './objectinfo/objectinfo.component';
-
-
-
+import { MapexportComponent } from './mapexport/mapexport.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OlmapComponent,
     SearchComponent,
-    ObjectinfoComponent
+    ObjectinfoComponent,
+    MapexportComponent
 
   ],
   imports: [

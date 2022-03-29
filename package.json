@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng deploy"
+    "deploy": "ng deploy --base-href=https://jlschaap.github.io/vectortile-demo-viewer/ --repo=https://github.com/JLSchaap/vectortile-demo-viewer.git --name=JLSchaap --email=John.Schaap@Kadaster.nl"
   },
   "private": true,
   "dependencies": {

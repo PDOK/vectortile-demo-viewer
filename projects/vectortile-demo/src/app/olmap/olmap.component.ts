@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Feature, Map as olMap, View, } from 'ol';
 import stylefunction from 'ol-mapbox-style/dist/stylefunction'
 import { getTopLeft, getWidth } from 'ol/extent.js';
@@ -18,6 +19,19 @@ import { KeyValue } from '@angular/common';
 import { getJsonurl, Visualisatie, getRandomEnumValue } from '../enumVisualisatie';
 import { DrawColor } from "../color"
 import { FeatureLike } from 'ol/Feature';
+import { DEVICE_PIXEL_RATIO } from 'ol/has';
+
+interface MapboxStyle {
+  version: number;
+  name: string;
+  id: string;
+  zoom: number;
+  pitch: number;
+  center: number[];
+  sprite: string;
+  glyphs: string;
+
+}
 
 type proprow = {
   title: string
@@ -73,7 +87,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   public selectedFeature: Feature<Geometry> | undefined;
 
-  
+
 
   public selectedFeatures: [Feature<Geometry>] | undefined = undefined;
   currentlocation: ViewLocation | undefined;
@@ -94,7 +108,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   detailsupdate: boolean = true;
 
-  constructor(private locationService: LocationService) {
+  constructor(private router: Router, private locationService: LocationService) {
 
   }
 
@@ -170,6 +184,15 @@ export class OlmapComponent implements OnInit, OnChanges {
     return (view.getZoom()?.toFixed(1));
   }
 
+  getDevicePixelRatio() {
+    const ratio = DEVICE_PIXEL_RATIO;
+    return ratio;
+  }
+
+  getStyleUrl() {
+  return (window.location.href +  getJsonurl(this.SelectedVisualisation))
+  }
+
   getResolutionsVt(z = 9) {
     return this.getMatrixIdsVt(z).map(x => 3440.64 / 2 ** (x))
   }
@@ -187,7 +210,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     }
   }
 
- 
+
 
   getFillColor(feature: Feature<Geometry>) {
     var mpstyle = this.vectorTileLayer.getStyleFunction();
@@ -220,9 +243,16 @@ export class OlmapComponent implements OnInit, OnChanges {
     if (StyleJson !== '') {
       fetch(StyleJson).then((response) => {
         response.json().then((glStyle) => {
+          //  const pixelRatio = this.map1..pixelRatio; 
+          const mapbox: MapboxStyle = glStyle;
+          //  const spriteUrl =mapbox.sprite + (pixelRatio > 1 ? '@2x' : '') + '.json';
+          // const spriteImageUrl =mapbox.sprite + (pixelRatio > 1 ? '@2x' : '') + '.png';
+          //    const font = 
+
+
           //if you just want simply apply on style use "applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions); "
           //instead of the following: 
-          var stfunction = stylefunction(vectorTileLayer, glStyle, "bgt", resolutions) as StyleFunction;
+          var stfunction = stylefunction(vectorTileLayer, glStyle, "bgt", resolutions, mapbox.sprite, mapbox.glyphs) as StyleFunction;
           this.collectLayers(vectorTileLayer, stfunction);
         });
       });
@@ -372,7 +402,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
 
-  getVectorTileSource(projection: Projection, tileEndpoint: VectorTileUrl) {
+  getVectorTileSource(projection: Projection) {
     this.resolutions = this.getResolutionsVt(12)
     return new VectorTileSource({
       format: new MVT(),
@@ -383,14 +413,19 @@ export class OlmapComponent implements OnInit, OnChanges {
         tileSize: [256, 256],
         origin: getTopLeft(projection.getExtent())
       }),
-      url: `${tileEndpoint.url}/{z}/{x}/{y}${tileEndpoint.extension}`,
+      url: this.getVectorTileUrl(),
       cacheSize: 0
     })
   }
 
-  setTileSource(projection: Projection, vectorTileLayer: VectorTileLayer) {
+  getVectorTileUrl() {
     let tileEndpoint: VectorTileUrl = tileurl;
-    let vtSource = this.getVectorTileSource(projection, tileEndpoint)
+    return `${tileEndpoint.url}/{z}/{x}/{y}${tileEndpoint.extension}`;
+  }
+
+  setTileSource(projection: Projection, vectorTileLayer: VectorTileLayer) {
+  
+    let vtSource = this.getVectorTileSource(projection)
     // set invisible to prevent unstyled flashing of vectorTileLayer
     vectorTileLayer.setVisible(false)
     vectorTileLayer.setSource(vtSource)
@@ -484,11 +519,13 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   repeating_style_function() {
-     if (this.isDemoVisualisatieRotate) {
+    if (this.isDemoVisualisatieRotate) {
       this.SelectedVisualisation = getRandomEnumValue(Visualisatie);
       this.changeStyleJson(this.vectorTileLayer, this.resolutions);
       setTimeout(() => { this.repeating_style_function() }, Math.round(Math.random() * 4000));
     }
   }
+
+
 
 }

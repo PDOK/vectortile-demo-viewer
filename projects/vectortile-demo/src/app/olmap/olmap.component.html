@@ -56,7 +56,9 @@
             <div *ngIf="isShowDemo" class="row container-fluid">
                 <div class="infotextbox">
                     <div class='demobox'>
+                        <h3>Vector tile viewer</h3>
                         Deze viewer is gemaakt om BGT vectortiles te demonstreren
+
                         <div class="demobox">
                             <app-mapexport [map]="this.map1"></app-mapexport>
                         </div>
@@ -70,14 +72,38 @@
                             <button (click)="DemoVisualisationToggle()"
                                 type="checkbox">{{demotextVisualisatie}}</button>
                         </div>
-                        <div>
-                            Huidige Zoomlevel {{getZoomLevel()}}
-                        </div>
+
+                        <table>
+                            <caption class="techcaption">Technische informatie:</caption>
+                            <thead>
+                                <th id="Veld">Veld</th>
+                                <th id="Waarde">Waarde</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Huidige Zoomlevel</td>
+                                    <td>{{getZoomLevel()}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Pixel Ratio scherm</td>
+                                    <td>{{getDevicePixelRatio()}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vectortile api</td>
+                                    <td>{{getVectorTileUrl()}} </td>
+                                </tr>
+                                <tr>
+                                    <td>Style api</td>
+                                    <td>{{getStyleUrl()}}</td>
+                            </tbody>
+                        </table>
+
+
+
                     </div>
                 </div>
             </div>
+
+
         </div>
-
-
     </div>
-</div>

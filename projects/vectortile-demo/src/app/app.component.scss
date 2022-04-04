@@ -8,6 +8,7 @@
   align-items: center;
   z-index: 3;
   top: var(  --headertop, 0.5vh) ; 
+  right: var(  --headerright, 0.5vh) ;  ;
   width: var(  --headerwidth, 99vw) ; 
 
 }
@@ -36,9 +37,12 @@
 
 .selectbutton {
   min-height: var(--buttonheight, 1vh) ; 
+  height: var(--buttonheight, 1vh) ; 
   font-size: var(--fontsize, 1vh);
   width: var(--searchwidth,  20vw);
   margin-top: 0.5vh;
+  flex: 1;
+
  
 }
 

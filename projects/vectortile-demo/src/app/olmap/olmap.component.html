@@ -4,7 +4,7 @@
             <button class="topbutton" (click)="toggleShowDetails()" type="checkbox">Toon object (aan/uit)</button>
             <button *ngIf="hasLegend()" class="topbutton" (click)="toggleShowLegend()" type="checkbox">Toon Legenda
                 (aan/uit)</button>
-            <button class="topbutton" (click)="toggleShowDemo()" type="checkbox">Toon Demo opties (aan/uit)</button>
+            <button class="topbutton" (click)="toggleShowDemo()" type="checkbox">Demo Menu (aan/uit)</button>
         </div>
         <div>
             <div *ngIf="isShowDetails">
@@ -28,10 +28,15 @@
                         <tbody>
                             <tr>
                                 <td>Alle waarden</td>
+                               
                                 <td> <input type="checkbox" (change)="onCheckboxAllChange($event)" />
                                 <td>
-                                    <button class="leftbutton" (click)="  NewColorMap() " type="checkbox">Reset</button>
+                                    <div class = "button-area">
+                                    <button (click)="NewColorMap()" type="checkbox">Reset</button>
+                                    <app-mapexport [map]="this.map1"></app-mapexport>
+                                    </div>
                                 </td>
+
 
                             </tr>
                             <tr *ngFor="let x of colorArray() | keyvalue">
@@ -59,16 +64,14 @@
                         <h3>Vector tile viewer</h3>
                         Deze viewer is gemaakt om BGT vectortiles te demonstreren
 
-                        <div class="demobox">
-                            <app-mapexport [map]="this.map1"></app-mapexport>
-                        </div>
-                        <div class='demobox'>
+                        
+                        <div >
                             <button (click)="DemogotoStartLocationOnMap()" type="submit">Reset (einde demo)</button>
                         </div>
-                        <div class='demobox'>
+                        <div >
                             <button (click)="DemoRandomLocationToggle()" type="checkbox">{{demotextLocatie}}</button>
                         </div>
-                        <div class='demobox'>
+                        <div >
                             <button (click)="DemoVisualisationToggle()"
                                 type="checkbox">{{demotextVisualisatie}}</button>
                         </div>

@@ -7,7 +7,7 @@
 
 }
 .searchBox{
-  height: var(--buttonheight, 1vh) ; 
+  height:calc( var(--buttonheight, 1vh) *0.5); 
   font-size: var(--fontsize, 1vh); 
   background-color: whitesmoke; 
   width: var(--searchwidth,  20vw);

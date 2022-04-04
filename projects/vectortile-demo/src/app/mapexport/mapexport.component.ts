@@ -7,6 +7,7 @@ declare global {
   }
 }
 
+const BackgroundColor = '#FFFFFF';
 @Component({
   selector: 'app-mapexport',
   templateUrl: './mapexport.component.html',
@@ -25,16 +26,20 @@ export class MapexportComponent {
   downloadMap() {
     if (this.mapCanvas) {
       this.mapContext = this.mapCanvas.nativeElement.getContext('2d');
+   
+
       var that = this
       this.map.once('rendercomplete', function () {
         if (that.mapCanvas) {
+        
+          
           const elements = that.map.getViewport().querySelectorAll('.ol-layer canvas')
           elements.forEach(element => {
             that.makecanvas(element as HTMLImageElement)
           });
         }
 
-        that.mapContext!.globalAlpha = 1;
+       
         if (navigator.msSaveBlob) {
           // do this old browsers stil exist? 
           navigator.msSaveBlob(that.mapCanvas!.nativeElement.toBlob(), 'map.png');
@@ -55,6 +60,7 @@ export class MapexportComponent {
     this.mapCanvas!.nativeElement.width = width;
     this.mapCanvas!.nativeElement.height = height;
     if (this.mapContext) {
+      this.mapContext.fillStyle=BackgroundColor;
       this.mapContext.fillRect(0, 0, width, height);
       this.mapContext.drawImage(canvas, 0, 0);
     }

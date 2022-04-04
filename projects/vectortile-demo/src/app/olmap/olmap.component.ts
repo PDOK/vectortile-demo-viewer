@@ -157,6 +157,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     })
 
     this.setTileSource(this.rdProjection, this.vectorTileLayer);
+
   }
 
   ngOnChanges(): void {
@@ -190,7 +191,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   getStyleUrl() {
-  return (window.location.href +  getJsonurl(this.SelectedVisualisation))
+    return (window.location.href + getJsonurl(this.SelectedVisualisation))
   }
 
   getResolutionsVt(z = 9) {
@@ -243,17 +244,22 @@ export class OlmapComponent implements OnInit, OnChanges {
     if (StyleJson !== '') {
       fetch(StyleJson).then((response) => {
         response.json().then((glStyle) => {
-          //  const pixelRatio = this.map1..pixelRatio; 
-          const mapbox: MapboxStyle = glStyle;
-          //  const spriteUrl =mapbox.sprite + (pixelRatio > 1 ? '@2x' : '') + '.json';
-          // const spriteImageUrl =mapbox.sprite + (pixelRatio > 1 ? '@2x' : '') + '.png';
-          //    const font = 
+     
+          //if you just want simply apply on style use "
+          //import { applyStyle } from 'ol-mapbox-style';
+          // applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
+          //"instead of the following: 
 
+          fetch(this.getSpriteDataUrl(glStyle.sprite)).then((response2) => {
+            response2.json().then((spritedata) => {
+            const imageUrl =  this.getSpriteImageUrl(glStyle.sprite); 
+            var stfunction = stylefunction(vectorTileLayer, glStyle, "bgt", resolutions, spritedata,  imageUrl) as StyleFunction;
+            this.collectLayers(vectorTileLayer, stfunction);
+       
+            })
+          });
+          // end of apply 
 
-          //if you just want simply apply on style use "applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions); "
-          //instead of the following: 
-          var stfunction = stylefunction(vectorTileLayer, glStyle, "bgt", resolutions, mapbox.sprite, mapbox.glyphs) as StyleFunction;
-          this.collectLayers(vectorTileLayer, stfunction);
         });
       });
 
@@ -424,7 +430,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   setTileSource(projection: Projection, vectorTileLayer: VectorTileLayer) {
-  
+
     let vtSource = this.getVectorTileSource(projection)
     // set invisible to prevent unstyled flashing of vectorTileLayer
     vectorTileLayer.setVisible(false)
@@ -527,5 +533,31 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
 
+  getSpriteImageUrl(url: string) {
+    const spriteScale = window.devicePixelRatio >= 1.5 ? 0.5 : 1;
+    const sizeFactor = spriteScale == 0.5 ? '@2x' : '';
+    return (url + sizeFactor + '.png')
+
+  }
+
+  getSpriteDataUrl(url: string) {
+    const spriteScale = window.devicePixelRatio >= 1.5 ? 0.5 : 1;
+    const sizeFactor = spriteScale == 0.5 ? '@2x' : '';
+    return (url + sizeFactor + '.json')
+
+  }
+
+
+ 
+
+
+
+
+
+       
+    
+    
+
 
 }
+

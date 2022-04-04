@@ -21,9 +21,12 @@
 .topbutton {
   flex: 1;
   min-height: var(--buttonheight, 1vh);
+  height: var(--buttonheight, 1vh) ; 
   font-size: var(--fontsize, 2.5vh);
   margin-top: 0.5vh;
   margin-left: 0.5vw;
+  margin-right: 0.2vw
+
 }
 
 .legend {
@@ -31,13 +34,34 @@
   background-color: white;
   margin-top: 1em;
   margin-bottom: 1em;
+  margin-right:1em; 
+  overflow-y: auto;
+  font-size: var(--fontsize, 2.5vh);
+ 
 
   .legendtablecaption{
     text-align: left;
     font-weight: bold;
   }
+}
+  .button-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;  
+   align-items:center ;
+
+     
+}
+
+.button-area button {
+ 
+  margin-right: 0.2vw;
+  margin-top: 0.2vh;
+  margin-bottom: 0.2vh;
   
 }
+
+
 
 
 
@@ -46,12 +70,28 @@
   background-color: white;
   margin-top: 1em;
   margin-bottom: 1em;
+  margin-right:1em; 
   display: flex;
   flex-direction: column;
+ 
+  font-size: var(--fontsize, 2.5vh);
+
 }
 .demobox {
   margin: 1em;
   flex: 1;
+  max-height: 70vh;
+}
+
+.demobox button{
+  width: 80%;
+  margin-left:1vw; 
+  text-align: left;
+  margin-right: 1vw;
+  margin-top: 1vh;
+  margin-bottom: 1vh
+
+
 }
 
 

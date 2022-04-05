@@ -10,7 +10,6 @@ import 'ol/ol.css';
 
 import Projection from 'ol/proj/Projection';
 import VectorTileSource from 'ol/source/VectorTile.js';
-import Stroke from 'ol/style/Stroke';
 import Style, { StyleFunction } from 'ol/style/Style';
 import TileGrid from 'ol/tilegrid/TileGrid';
 import { LocationService, ViewLocation } from '../location.service';
@@ -58,7 +57,6 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   }
   colorMap = new Map<string, DrawColor>();
-  newcolorMap = new Map<string, DrawColor>();
   vectorTileLayer = new VectorTileLayer(
     {
       renderMode: 'hybrid',
@@ -186,8 +184,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   getDevicePixelRatio() {
-    const ratio = DEVICE_PIXEL_RATIO;
-    return ratio;
+    return DEVICE_PIXEL_RATIO;
   }
 
   getStyleUrl() {
@@ -244,7 +241,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     if (StyleJson !== '') {
       fetch(StyleJson).then((response) => {
         response.json().then((glStyle) => {
-     
+
           //if you just want simply apply on style use "
           //import { applyStyle } from 'ol-mapbox-style';
           // applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
@@ -252,10 +249,10 @@ export class OlmapComponent implements OnInit, OnChanges {
 
           fetch(this.getSpriteDataUrl(glStyle.sprite)).then((response2) => {
             response2.json().then((spritedata) => {
-            const imageUrl =  this.getSpriteImageUrl(glStyle.sprite); 
-            var stfunction = stylefunction(vectorTileLayer, glStyle, "bgt", resolutions, spritedata,  imageUrl) as StyleFunction;
-            this.collectLayers(vectorTileLayer, stfunction);
-       
+              const imageUrl = this.getSpriteImageUrl(glStyle.sprite);
+              var stfunction = stylefunction(vectorTileLayer, glStyle, "bgt", resolutions, spritedata, imageUrl) as StyleFunction;
+              this.collectLayers(vectorTileLayer, stfunction);
+
             })
           });
           // end of apply 
@@ -278,6 +275,16 @@ export class OlmapComponent implements OnInit, OnChanges {
     this.colorMap.clear();
   }
 
+  private toBraile(instring: string) {
+    if (this.SelectedVisualisation === Visualisatie.tactiel) {
+      return (instring.toUpperCase().split("").map(c => "⠀⠁⠂⠃⠄⠅⠆⠇⠈⠉⠊⠋⠌⠍⠎⠏⠐⠑⠒⠓⠔⠕⠖⠗⠘⠙⠚⠛⠜⠝⠞⠟⠠⠡⠢⠣⠤⠥⠦⠧⠨⠩⠪⠫⠬⠭⠮⠯⠰⠱⠲⠳⠴⠵⠶⠷⠸⠹⠺⠻⠼⠽⠾⠿"[" A1B'K2L@CIF/MSP\"E3H9O6R^DJG>NTQ,*5<-U8V.%[$+X!&;:4\\0Z7(_?W]#Y)=".indexOf(c)]).join(""));
+
+    } else
+      return instring
+  }
+
+
+
   private collectLayers(vectorTileLayer: VectorTileLayer, stfunction: StyleFunction | undefined) {
     var that = this;
     var font = "";
@@ -287,10 +294,13 @@ export class OlmapComponent implements OnInit, OnChanges {
       var color: DrawColor | undefined = undefined;
       var featurelabeltext = { text: "", rotation: 0 };
       switch (that.SelectedVisualisation) {
+        case Visualisatie.tactiel:
         case Visualisatie.standaard:
         case Visualisatie.achtergrond:
+
           var colorprop = 'layer'
           BGTlabeltexthandling(prop, colorprop, featurelabeltext);
+
           if (stfunction) {
             var tmpstyle = stfunction(feature as FeatureLike, this.view.getResolution()!);
             if (that.colorMap.has(prop[colorprop])) {
@@ -371,42 +381,27 @@ export class OlmapComponent implements OnInit, OnChanges {
           }
 
       }
+
       return color!.style(featurelabeltext, font);
     }
     vectorTileLayer.setStyle(style as any);
 
     function BGTlabeltexthandling(prop: any, colorprop: string, featurelabeltext: { text: string; rotation: number; }) {
+
       if (prop[colorprop] === 'pand_nummeraanduiding') {
-        featurelabeltext.text = prop['tekst'];
+        featurelabeltext.text = that.toBraile(prop['tekst']);
+        
         var deg = prop['hoek'];
         featurelabeltext.rotation = (deg * Math.PI) / 180.0;
       }
       if (prop[colorprop] === 'openbareruimtelabel') {
-        featurelabeltext.text = prop['openbareruimtenaam'];
+        featurelabeltext.text = that.toBraile(prop['openbareruimtenaam']);
+        
         var deg = prop['hoek'];
         featurelabeltext.rotation = (deg * Math.PI) / 180.0;
       }
     }
   }
-
-  setimageline(vectorlayer: any) {
-    var style = [
-      new Style({
-        stroke: new Stroke({
-          color: 'blue',
-          width: 4
-        })
-      }),
-      new Style({
-        stroke: new Stroke({
-          color: 'red',
-          width: 2
-        })
-      })
-    ]
-    vectorlayer.setStyle(style);
-  }
-
 
   getVectorTileSource(projection: Projection) {
     this.resolutions = this.getResolutionsVt(12)
@@ -548,15 +543,15 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
 
- 
 
 
 
 
 
-       
-    
-    
+
+
+
+
 
 
 }

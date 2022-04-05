@@ -1,0 +1,616 @@
+{
+    "version": 8,
+    "name": "Tactiele Visualisatie in ontwikkeling",
+    "id": "1",
+    "zoom": 12,
+    "pitch": 50,
+    "center": [
+        0,
+        0
+    ],
+    "sprite": "styles/standaardsprites/sprites",
+    "glyphs": "styles/font/{fontstack}/{range}.pbf",
+    "layers": [
+        {
+            "id": "Single symbol waterdeel fill0 h0 ",
+            "type": "fill",
+            "paint": {
+                "fill-outline-color": "#000000",
+                "fill-pattern": "diagonaal"
+            },
+            "source": "bgt",
+            "source-layer": "waterdeel",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    0
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Single symbol waterdeel outline h0 ",
+            "type": "line",
+            "paint": {
+                "line-color": "#000000",
+                "line-width": 3
+            },
+            "source": "bgt",
+            "source-layer": "waterdeel",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    0
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Single symbol wegdeel fill0",
+            "type": "fill",
+            "paint": {
+                "fill-color": "#beb297",
+                "fill-outline-color": "#232323"
+            },
+            "source": "bgt",
+            "metadata": {
+                "name": "Tactiele VisualisatieWEGDEEL_vlak",
+                "id": "Single symbol",
+                "sourcelayer": "wegdeel",
+                "sld": "sld\\tactielevisualisatie\\sld-0005-wegdeel.sld"
+            },
+            "source-layer": "wegdeel",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    0
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Spoor level 0 ",
+            "type": "line",
+            "paint": {
+                "line-color": "#000000",
+                "line-width": 3
+            },
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "source": "bgt",
+            "source-layer": "spoor",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    0
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "spoor level 0 Single symbol spoor line0 Thick line with dash array for the perpendicular lines",
+            "type": "line",
+            "layout": {
+                "line-miter-limit": 0
+            },
+            "paint": {
+                "line-color": "#000000",
+                "line-dasharray": [
+                    0.15,
+                    0.4
+                ],
+                "line-width": 11
+            },
+            "source": "bgt",
+            "source-layer": "spoor",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    0
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Spoor level 1 ",
+            "type": "line",
+            "paint": {
+                "line-color": "#000000",
+                "line-width": 3
+            },
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "source": "bgt",
+            "source-layer": "spoor",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    1
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "spoor level 1 Single symbol spoor line0 Thick line with dash array for the perpendicular lines",
+            "type": "line",
+            "layout": {
+                "line-miter-limit": 0
+            },
+            "paint": {
+                "line-color": "#000000",
+                "line-dasharray": [
+                    0.15,
+                    0.4
+                ],
+                "line-width": 11
+            },
+            "source": "bgt",
+            "source-layer": "spoor",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    1
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Spoor level 2 ",
+            "type": "line",
+            "paint": {
+                "line-color": "#000000",
+                "line-width": 3
+            },
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "source": "bgt",
+            "source-layer": "spoor",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    2
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "spoor level 2 Single symbol spoor line0 Thick line with dash array for the perpendicular lines",
+            "type": "line",
+            "layout": {
+                "line-miter-limit": 0
+            },
+            "paint": {
+                "line-color": "#000000",
+                "line-dasharray": [
+                    0.15,
+                    0.4
+                ],
+                "line-width": 11
+            },
+            "source": "bgt",
+            "source-layer": "spoor",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    2
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Single symbol pand line0",
+            "type": "line",
+            "paint": {
+                "line-color": "#000000",
+                "line-width": 2
+            },
+            "layout": {
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "source": "bgt",
+            "metadata": {
+                "name": "Tactiele VisualisatiePAND_vlak",
+                "id": "Single symbol",
+                "sourcelayer": "pand",
+                "sld": "sld\\tactielevisualisatie\\sld-0001-pand.sld"
+            },
+            "source-layer": "pand",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    0
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Single symbol overigbouwwerk line0",
+            "type": "line",
+            "paint": {
+                "line-color": "#000000",
+                "line-width": 2
+            },
+            "layout": {
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "source": "bgt",
+            "metadata": {
+                "name": "Tactiele VisualisatieOVERIGBOUWWERK_vlak",
+                "id": "Single symbol",
+                "sourcelayer": "overigbouwwerk",
+                "sld": "sld\\tactielevisualisatie\\sld-0002-overigbouwwerk.sld"
+            },
+            "source-layer": "overigbouwwerk",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    0
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Single symbol waterdeel fill 1",
+            "type": "fill",
+            "paint": {
+                "fill-outline-color": "#FFFFFFF",
+                "fill-pattern": "diagonaal"
+            },
+            "source": "bgt",
+            "source-layer": "waterdeel",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    1
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Single symbol waterdeel outline h0 ",
+            "type": "line",
+            "paint": {
+                "line-color": "#000000",
+                "line-width": 3
+            },
+            "source": "bgt",
+            "source-layer": "waterdeel",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    1
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Single symbol wegdeel fill1",
+            "type": "fill",
+            "paint": {
+                "fill-color": "#beb297",
+                "fill-outline-color": "#232323"
+            },
+            "source": "bgt",
+            "source-layer": "wegdeel",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    1
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Single symbol pand line1",
+            "type": "line",
+            "paint": {
+                "line-color": "#000000",
+                "line-width": 2
+            },
+            "layout": {
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "source": "bgt",
+            "source-layer": "pand",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    1
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Single symbol overigbouwwerk line1",
+            "type": "line",
+            "paint": {
+                "line-color": "#000000",
+                "line-width": 2
+            },
+            "layout": {
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "source": "bgt",
+            "source-layer": "overigbouwwerk",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    1
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Single symbol waterdeel fill2",
+            "type": "fill",
+            "paint": {
+                "fill-outline-color": "#FFFFFFF",
+                "fill-pattern": "diagonaal"
+            },
+            "source": "bgt",
+            "source-layer": "waterdeel",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    2
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Single symbol waterdeel outline h0 ",
+            "type": "line",
+            "paint": {
+                "line-color": "#000000",
+                "line-width": 3
+            },
+            "source": "bgt",
+            "source-layer": "waterdeel",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    2
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Single symbol wegdeel fill2",
+            "type": "fill",
+            "paint": {
+                "fill-color": "#beb297",
+                "fill-outline-color": "#232323"
+            },
+            "source": "bgt",
+            "source-layer": "wegdeel",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    2
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "Single symbol pand h2",
+            "type": "line",
+            "paint": {
+                "line-color": "#000000",
+                "line-width": 2
+            },
+            "layout": {
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "source": "bgt",
+            "source-layer": "pand",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    2
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "overigbouwwerk line2 h2",
+            "type": "line",
+            "paint": {
+                "line-color": "#000000",
+                "line-width": 2
+            },
+            "layout": {
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "source": "bgt",
+            "source-layer": "overigbouwwerk",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "relatieve_hoogteligging",
+                    2
+                ],
+                [
+                    "==",
+                    "status",
+                    "bestaand"
+                ]
+            ]
+        },
+        {
+            "id": "labels_z1 pand_nummeraanduiding symbol1000",
+            "type": "symbol",
+            "paint": {
+                "text-opacity": 0.00001,
+                "text-color": "#050505"
+            },
+            "layout": {
+                "text-field": "{tekst}"
+            },
+            "source": "bgt",
+            "source-layer": "pand_nummeraanduiding",
+            "filter": [
+                "==",
+                "status",
+                "bestaand"
+            ]
+        },
+        {
+            "id": "Kunstwerk openbareruimtelabel symbol1000",
+            "type": "symbol",
+            "paint": {
+                "text-opacity": 0.00001,
+                "text-color": "#000000"
+            },
+            "layout": {
+                "text-field": "{openbareruimtenaam}",
+                "text-font": [
+                    "Arial"
+                ],
+                "text-size": 15
+            },
+            "source": "bgt",
+            "source-layer": "openbareruimtelabel"
+        }
+    ],
+    "sources": {
+        "bgt": {
+            "type": "vector",
+            "tiles": [
+                "https://api.pdok.nl/lv/bgt/oat/v1_0-preprod/tiles/EPSG:28992/{z}/{x}/{y}"
+            ]
+        }
+    }
+}

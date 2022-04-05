@@ -120,8 +120,15 @@ export class DrawColor {
     }
 
     parse_rgb_string(rgb: string): number[] {
-        var rgbout = (rgb.replace(/[^\d,]/g, '').split(',')) as unknown as number[];
-        return rgbout;
+        if (typeof rgb.replace === 'function') {
+           var rgbout = (rgb.replace(/[^\d,]/g, '').split(',')) as unknown as number[];
+            return rgbout;
+        }
+        else {
+            return [0, 0, 0, 0];
+        }
+
+
     }
 
     backgroundRbgString() {
@@ -131,6 +138,10 @@ export class DrawColor {
     private makerbgString() {
         return `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`;
     }
+
+
+
+
 
 
 

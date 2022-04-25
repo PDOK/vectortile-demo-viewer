@@ -18,50 +18,16 @@
             </div>
             <div *ngIf="hasLegend()">
                 <div class="legend" *ngIf="isShowLegend">
-                    <table>
-                        <caption class="legendtablecaption">Legenda:</caption>
-                        <thead>
-                            <th id="Veld">Waarde</th>
-                            <th id="Veld">Tonen</th>
-                            <th id="Waarde">Visualisatie</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Alle waarden</td>
-                               
-                                <td> <input type="checkbox" (change)="onCheckboxAllChange($event)" />
-                                <td>
-                                    <div class = "button-area">
-                                    <button (click)="NewColorMap()" type="checkbox">Reset</button>
-                                    <app-mapexport [map]="this.map1"></app-mapexport>
-                                    </div>
-                                </td>
-
-
-                            </tr>
-                            <tr *ngFor="let x of colorArray() | keyvalue">
-
-                                <td>{{x.key }}</td>
-                                <td> <input type="checkbox" [checked]="x.value.show"
-                                        (change)="onCheckboxChange($event, x)" />
-                                <td>
-                                    <div *ngIf="x.value.show">
-                                        <div class="colorpick"><input [(colorPicker)]="x.value.rbgString"
-                                                [style.background]="x.value.rbgString" [cpOutputFormat]="'rgba'"
-                                                [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange(x)">
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <app-mapstyler [Layer]="this.vectorTileLayer"
+                    [ColorMap]= "this.colorMap" > </app-mapstyler>
+                   
                 </div>
             </div>
 
             <div *ngIf="isShowDemo" class="row container-fluid">
                 <div class="infotextbox">
                     <div class='demobox'>
-                        <h3>Vector tile viewer</h3>
+                        <h3>Vectortile Demo Viewer</h3>
                         Deze viewer is gemaakt om BGT vectortiles te demonstreren
 
                         
@@ -76,6 +42,7 @@
                                 type="checkbox">{{demotextVisualisatie}}</button>
                         </div>
 
+                   
                         <table>
                             <caption class="techcaption">Technische informatie:</caption>
                             <thead>
@@ -100,6 +67,9 @@
                                     <td>{{getStyleUrl()}}</td>
                             </tbody>
                         </table>
+
+                        <app-mapexport [map]="this.map1"></app-mapexport>
+
                     </div>
                 </div>
             </div>

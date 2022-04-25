@@ -8,11 +8,20 @@ import Feature from 'ol/Feature';
 import { Geometry, Polygon } from "ol/geom";
 import RenderFeature from "ol/render/Feature";
 
-
+export type Annotation = string | false
 
 export class DrawColor {
+    isText() {
+        if (this.annotation === false) {
+            return false
+        }
+        else {
+            return true
+        }
+    }
 
     label: string;
+
     r: number;
     b: number;
     g: number;
@@ -20,6 +29,10 @@ export class DrawColor {
     type: string = '';
     private _rbgString = '';
     mapbox: boolean;
+    annotation: Annotation;
+    defaulttext: string = "";
+    style: Style | undefined;
+
     public get rbgString() {
         return this._rbgString;
     }
@@ -77,7 +90,7 @@ export class DrawColor {
     }
     */
 
-    constructor(label: string, alegendfeature: Feature<Geometry>, hashstring = '', mapbox: boolean = false) {
+    constructor(label: string, alegendfeature: Feature<Geometry>, mapbox: boolean, anno: Annotation) {
 
 
         this.mapbox = mapbox;
@@ -86,25 +99,58 @@ export class DrawColor {
         //  this.legendfeature.properties_ = {};
 
         this.type = this.legendfeature.type_;
+        switch (this.type) {
+            case 'Point':
+                {
+                    //console.log("point")
+                    this.r = 0;
+                    this.g = 0;
+                    this.b = 0;
+                    this.a = 1;
+                    break;
+
+                }
+            case 'Polygon':
+                {
+                    //console.log("Polygon")
+
+                    this.r = Math.round(Math.random() * 255);
+                    this.g = Math.round(Math.random() * 255);
+                    this.b = Math.round(Math.random() * 255);
+                    this.a = 1;
+
+                    this._rbgString = this.makerbgString();
+                    break;
+                }
+
+            case 'LineString':
+                {
+                    //console.log("linestring")
+                    this.r = 0;
+                    this.g = 0;
+                    this.b = 0;
+                    this.a = 1;
+                    break;
+                }
+            default: {
+                console.log(this.type + " not supported")
+                this.r = 0;
+                this.g = 0;
+                this.b = 0;
+                this.a = 1;
+                break;
+            }
+        }
+
         this.label = label;
+        this.annotation = anno;
 
-        if (hashstring === '') {
-            this.r = Math.round(Math.random() * 255);
-            this.g = Math.round(Math.random() * 255);
-            this.b = Math.round(Math.random() * 255);
-            this.a = 1;
-        }
-        else {
 
-            this.r = Math.round(this.decimalHash(hashstring) * 255);
-            this.g = Math.round(this.decimalHash(hashstring) * 255);
-            this.b = Math.round(this.decimalHash(hashstring) * 255);
-            this.a = 1;
-        }
-        this._rbgString = this.makerbgString();
+
     }
 
-    decimalHash(hashstring: string) {
+
+    decimalHashString(hashstring: string) {
         let sum = 0;
         for (let i = 0; i < hashstring.length; i++) {
             var j = hashstring.codePointAt(i);
@@ -121,7 +167,7 @@ export class DrawColor {
 
     parse_rgb_string(rgb: string): number[] {
         if (typeof rgb.replace === 'function') {
-           var rgbout = (rgb.replace(/[^\d,]/g, '').split(',')) as unknown as number[];
+            var rgbout = (rgb.replace(/[^\d,]/g, '').split(',')) as unknown as number[];
             return rgbout;
         }
         else {
@@ -135,6 +181,11 @@ export class DrawColor {
         return { 'background-color': `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})` };
     }
 
+    textcolorRbgString() {
+        return { 'color': `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})` };
+    }
+
+
     private makerbgString() {
         return `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`;
     }
@@ -146,12 +197,19 @@ export class DrawColor {
 
 
 
-    style(labeltext: { text: any; rotation: any; }, font: string): Style {
+    showfreshstyle(labeltext: { text: any; rotation: any; font: string }, currentstyle: void | Style | Style[]) {
 
 
+        var f = new Fill({
+            color: `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`
+        });
+        if (this.mapbox) {
+            return currentstyle;
 
-        return (
-            new Style({
+
+        }
+        else {
+            this.style = new Style({
                 fill: new Fill({
                     color: `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`
 
@@ -160,7 +218,7 @@ export class DrawColor {
                     color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})`
                 }),
                 text: new Text({
-                    font: font,
+                    font: labeltext.font,
                     text: `${labeltext.text}`,
                     rotation: labeltext.rotation,
                     fill: new Fill({ color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})` }),
@@ -168,11 +226,13 @@ export class DrawColor {
                         color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})`, width: 2
                     })
                 }
-
                 )
+            }
+            )
+        }
+        return this.style;
 
-
-
-            }))
     }
 }
+
+

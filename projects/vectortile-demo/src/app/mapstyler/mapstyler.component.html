@@ -1,0 +1,64 @@
+<table>
+    <caption class="legendtablecaption">Legenda</caption>
+    <thead>
+        <th id="Veld">Waarde</th>
+        <th id="Veld">Tonen</th>
+        <th id="Waarde">Visualisatie</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>alle waarden</td>
+            <td> <input type="checkbox" checked (change)="onCheckboxAllChange($event)" />
+            </td>
+            <td>
+                <div class="button-area">
+                    <button (click)="NewColorMap()" type="checkbox">Reset</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <ng-container *ngIf="colorArray(true).size>0">
+                <td>labels</td>
+                <td> <input type="checkbox" [checked]="colorArrayChecked(true)"
+                        (change)="onCheckboxLabelsChange($event)" />
+                <td>
+        <tr *ngFor="let x of colorArray(true) | keyvalue">
+
+            <td>
+                <input type="checkbox" [checked]="x.value.show" (change)="onCheckboxChange($event, x)">
+                {{x.key }}
+                <ng-container *ngIf="x.value.show">
+                    <div [ngStyle]="x.value.textcolorRbgString()">{{ x.value.annotation}} </div>
+
+
+                    <div class="colorpick"><input [(colorPicker)]="x.value.rbgString"
+                            [style.background]="x.value.rbgString" [cpOutputFormat]="'rgba'"
+                            [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange(x)">
+                    </div>
+                </ng-container>
+            </td>
+        </tr>
+
+        </td>
+
+
+        </ng-container>
+
+
+
+        <tr *ngFor="let x of colorArray(false) | keyvalue">
+
+            <td>{{x.key }}</td>
+            <!--td [ngStyle]="x.value.backgroundRbgString()">hier </td-->
+            <td> <input type="checkbox" [checked]="x.value.show" (change)="onCheckboxChange($event, x)" />
+            <td>
+                <div *ngIf="x.value.show">
+                    <div class="colorpick"><input [(colorPicker)]="x.value.rbgString"
+                            [style.background]="x.value.rbgString" [cpOutputFormat]="'rgba'"
+                            [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange(x)">
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

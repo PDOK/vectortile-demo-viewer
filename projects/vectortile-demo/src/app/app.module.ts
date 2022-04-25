@@ -8,6 +8,7 @@ import { OlmapComponent } from './olmap/olmap.component';
 import { SearchComponent } from './search/search.component';
 import { ObjectinfoComponent } from './objectinfo/objectinfo.component';
 import { MapexportComponent } from './mapexport/mapexport.component';
+import { MapstylerComponent } from './mapstyler/mapstyler.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MapexportComponent } from './mapexport/mapexport.component';
     OlmapComponent,
     SearchComponent,
     ObjectinfoComponent,
-    MapexportComponent
+    MapexportComponent,
+    MapstylerComponent
 
   ],
   imports: [

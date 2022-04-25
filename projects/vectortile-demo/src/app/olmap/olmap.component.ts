@@ -16,9 +16,10 @@ import { LocationService, ViewLocation } from '../location.service';
 import { VectorTileUrl, tileurl } from './tileurl';
 import { KeyValue } from '@angular/common';
 import { getJsonurl, Visualisatie, getRandomEnumValue } from '../enumVisualisatie';
-import { DrawColor } from "../color"
+import { Annotation, DrawColor } from "../color"
 import { FeatureLike } from 'ol/Feature';
 import { DEVICE_PIXEL_RATIO } from 'ol/has';
+import { applyStyle } from 'ol-mapbox-style';
 
 interface MapboxStyle {
   version: number;
@@ -42,6 +43,8 @@ type styleRow = {
   style: Style
 };
 
+
+
 @Component({
   selector: 'app-olmap',
   templateUrl: './olmap.component.html',
@@ -52,6 +55,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   @Output() titelEmit: EventEmitter<Visualisatie> = new EventEmitter();
   color = 'geen'
   private SelectedVisualisation: Visualisatie = Visualisatie.achtergrond;
+  stfunction: StyleFunction | undefined;
   @Input() set visualisation(vis: Visualisatie) {
     this.SelectedVisualisation = vis;
 
@@ -72,7 +76,8 @@ export class OlmapComponent implements OnInit, OnChanges {
     projection: this.rdProjection,
     center: [155000, 463000],
     zoom: 13,
-    minZoom: 13
+    minZoom: 13,
+    enableRotation: false
   });
 
   map1: olMap = new olMap({
@@ -250,8 +255,9 @@ export class OlmapComponent implements OnInit, OnChanges {
           fetch(this.getSpriteDataUrl(glStyle.sprite)).then((response2) => {
             response2.json().then((spritedata) => {
               const imageUrl = this.getSpriteImageUrl(glStyle.sprite);
-              var stfunction = stylefunction(vectorTileLayer, glStyle, "bgt", resolutions, spritedata, imageUrl) as StyleFunction;
-              this.collectLayers(vectorTileLayer, stfunction);
+              this.stfunction = stylefunction(vectorTileLayer, glStyle, "bgt", resolutions, spritedata, imageUrl) as StyleFunction;
+              //applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
+              vectorTileLayer.setStyle(this.bgtstyle.bind(this) as any);
 
             })
           });
@@ -266,140 +272,137 @@ export class OlmapComponent implements OnInit, OnChanges {
         vectorTileLayer.setStyle();
       }
       else {
-        this.collectLayers(vectorTileLayer, vectorTileLayer.getStyleFunction());
+        vectorTileLayer.setStyle(this.bgtstyle.bind(this) as any);
       }
     }
   }
 
-  clearColorMap() {
-    this.colorMap.clear();
-  }
+
 
   private toBraile(instring: string) {
-    if (this.SelectedVisualisation === Visualisatie.tactiel) {
-      return (instring.toUpperCase().split("").map(c => "⠀⠁⠂⠃⠄⠅⠆⠇⠈⠉⠊⠋⠌⠍⠎⠏⠐⠑⠒⠓⠔⠕⠖⠗⠘⠙⠚⠛⠜⠝⠞⠟⠠⠡⠢⠣⠤⠥⠦⠧⠨⠩⠪⠫⠬⠭⠮⠯⠰⠱⠲⠳⠴⠵⠶⠷⠸⠹⠺⠻⠼⠽⠾⠿"[" A1B'K2L@CIF/MSP\"E3H9O6R^DJG>NTQ,*5<-U8V.%[$+X!&;:4\\0Z7(_?W]#Y)=".indexOf(c)]).join(""));
 
-    } else
-      return instring
+    return (instring.toUpperCase().split("").map(c => "⠀⠁⠂⠃⠄⠅⠆⠇⠈⠉⠊⠋⠌⠍⠎⠏⠐⠑⠒⠓⠔⠕⠖⠗⠘⠙⠚⠛⠜⠝⠞⠟⠠⠡⠢⠣⠤⠥⠦⠧⠨⠩⠪⠫⠬⠭⠮⠯⠰⠱⠲⠳⠴⠵⠶⠷⠸⠹⠺⠻⠼⠽⠾⠿"[" A1B'K2L@CIF/MSP\"E3H9O6R^DJG>NTQ,*5<-U8V.%[$+X!&;:4\\0Z7(_?W]#Y)=".indexOf(c)]).join(""));
+
   }
 
 
+  bgtstyle(feature: Feature<Geometry>, resolution: number) {
+    const geometry = feature.getGeometry();
+    const prop = feature.getProperties();
+    // var color: DrawColor | undefined = undefined;
+    var featurelabeltext = { text: "", rotation: 0, font: "12px Arial" };
 
-  private collectLayers(vectorTileLayer: VectorTileLayer, stfunction: StyleFunction | undefined) {
-    var that = this;
-    var font = "";
-    const style = (feature: { getGeometry: () => any; getProperties: () => any; }) => {
-      const geometry = feature.getGeometry();
-      const prop = feature.getProperties();
-      var color: DrawColor | undefined = undefined;
-      var featurelabeltext = { text: "", rotation: 0 };
-      switch (that.SelectedVisualisation) {
-        case Visualisatie.tactiel:
-        case Visualisatie.standaard:
-        case Visualisatie.achtergrond:
+    switch (this.SelectedVisualisation) {
+      case Visualisatie.tactiel:
+      case Visualisatie.standaard:
+      case Visualisatie.achtergrond:
+        var colorprop = 'layer'
+        var isText = GetBGTlabelAnnotation(prop, colorprop, featurelabeltext);
+        if (this.SelectedVisualisation === Visualisatie.tactiel && isText) {
+          isText = this.toBraile(isText);
+          featurelabeltext.text = isText;
 
+        }
+
+        if (this.stfunction) {
+          var tmpstyle = this.stfunction(feature as FeatureLike, resolution);
+
+          if (this.colorMap.has(prop[colorprop])) {
+            var exitingColor = this.colorMap.get(prop[colorprop]);
+            if (exitingColor!.show) {
+              return (exitingColor!.showfreshstyle(featurelabeltext, tmpstyle));
+
+            }
+          }
+          else {
+            //set style 
+
+            var newcolor = new DrawColor(prop[colorprop], feature, true, isText);
+            if (this.SelectedVisualisation === Visualisatie.tactiel && isText) {
+              newcolor.mapbox = false;
+            }
+
+            if (tmpstyle) {
+              var stylearray = tmpstyle as Style[];
+              var fill = stylearray[0].getFill()
+              if (fill) {
+                var fillcolor = fill.getColor();
+                newcolor.rbgString = fillcolor as string;
+                this.colorMap.set(prop[colorprop], newcolor)
+                //add modified fill 
+              }
+              else {
+                // newcolor.rbgString = 'rgba(0,0,0,1)'
+                newcolor.style = stylearray[0];
+                this.colorMap.set(prop[colorprop], newcolor)
+                // add modified else
+              }
+            }
+
+            return tmpstyle;
+          }
+        }
+        break;
+
+      case Visualisatie.zerodefaultB:
+        return (new DrawColor("default zero", feature, false, false).showfreshstyle(featurelabeltext));
+
+        break;
+
+      case Visualisatie.zerodefaultC_Bron:
+        var colorprop = 'bronhouder';
+        var zcolor: DrawColor
+        {
+          if (this.colorMap.has(prop[colorprop])) {
+            zcolor = this.colorMap.get(prop[colorprop])!;
+          }
+
+          else {
+            var newbroncolor = new DrawColor(prop[colorprop], feature, false, false);
+            this.colorMap.set(prop[colorprop], newbroncolor)
+            zcolor = newbroncolor;
+          }
+        }
+        return zcolor.showfreshstyle(featurelabeltext);
+        break;
+
+      case Visualisatie.zerodefaultD:
+        {
           var colorprop = 'layer'
-          BGTlabeltexthandling(prop, colorprop, featurelabeltext);
-
-          if (stfunction) {
-            var tmpstyle = stfunction(feature as FeatureLike, this.view.getResolution()!);
-            if (that.colorMap.has(prop[colorprop])) {
-              var color = that.colorMap.get(prop[colorprop]);
-              if (color!.show) {
-                if (color!.mapbox) {
-                  return tmpstyle;
-                }
-              }
-            }
-
-            else {
-              var newcolor = new DrawColor(prop[colorprop], geometry, '', true);
-              if (tmpstyle) {
-                var stylearray = tmpstyle as Style[];
-                var fill = stylearray[0].getFill()
-
-                if (fill) {
-                  var fillcolor = fill.getColor();
-                  newcolor.rbgString = fillcolor as string;
-                  that.colorMap.set(prop[colorprop], newcolor)
-                }
-                else {
-                  newcolor.rbgString = 'rgba(225,255,255,0)'
-                  that.colorMap.set(prop[colorprop], newcolor)
-
-                }
-              }
-              return tmpstyle;
-            }
+          var isText = GetBGTlabelAnnotation(prop, colorprop, featurelabeltext);
+          if (this.colorMap.has(prop[colorprop])) {
+            return this.colorMap.get(prop[colorprop])!.showfreshstyle(featurelabeltext);
           }
-          break;
-
-        case Visualisatie.zerodefaultB:
-          color = new DrawColor("default zero", geometry);
-          break;
-
-        case Visualisatie.zerodefaultC_Bron:
-          var colorprop = 'bronhouder';
-          {
-            if (that.colorMap.has(prop[colorprop])) {
-              color = that.colorMap.get(prop[colorprop]);
-            }
-
-            else {
-              var newcolor = new DrawColor(prop[colorprop], geometry);
-              that.colorMap.set(prop[colorprop], newcolor)
-              color = newcolor;
-            }
+          else {
+            var newcolor = new DrawColor(prop[colorprop], feature, false, isText);
+            this.colorMap.set(prop[colorprop], newcolor)
+            return newcolor.showfreshstyle(featurelabeltext);
           }
-          break;
-
-        case Visualisatie.zerodefaultD:
-          {
-            var colorprop = 'layer'
-            BGTlabeltexthandling(prop, colorprop, featurelabeltext);
-            if (that.colorMap.has(prop[colorprop])) {
-              color = that.colorMap.get(prop[colorprop]);
-            }
-            else {
-              var newcolor = new DrawColor(prop[colorprop], geometry);
-              that.colorMap.set(prop[colorprop], newcolor)
-              color = newcolor;
-            }
-          }
-          break;
-        default:
-          {
-            var colorprop = 'layer'
-            if (that.colorMap.has(prop[colorprop])) {
-            }
-            else {
-              var newcolor = new DrawColor(prop[colorprop], geometry);
-              that.colorMap.set(prop[colorprop], newcolor)
-
-            }
-            return (vectorTileLayer.getStyle());
-          }
-
+        }
+        break;
+      default: {
+        throw new Error("Visualisatie not found");
       }
 
-      return color!.style(featurelabeltext, font);
     }
-    vectorTileLayer.setStyle(style as any);
 
-    function BGTlabeltexthandling(prop: any, colorprop: string, featurelabeltext: { text: string; rotation: number; }) {
+    function GetBGTlabelAnnotation(prop: any, colorprop: string, featurelabeltext: { text: string; rotation: number; }): Annotation {
 
       if (prop[colorprop] === 'pand_nummeraanduiding') {
-        featurelabeltext.text = that.toBraile(prop['tekst']);
-        
+        featurelabeltext.text = prop['tekst'];
+
         var deg = prop['hoek'];
         featurelabeltext.rotation = (deg * Math.PI) / 180.0;
+        return prop['tekst']
       }
       if (prop[colorprop] === 'openbareruimtelabel') {
-        featurelabeltext.text = that.toBraile(prop['openbareruimtenaam']);
-        
+        featurelabeltext.text = prop['openbareruimtenaam'];
+
         var deg = prop['hoek'];
         featurelabeltext.rotation = (deg * Math.PI) / 180.0;
+        return prop['openbareruimtenaam']
       }
+      return false
     }
   }
 
@@ -438,32 +441,16 @@ export class OlmapComponent implements OnInit, OnChanges {
     return (this.selectedFeature !== undefined);
   }
 
-  colorArray() {
-    return new Map<string, DrawColor>([...this.colorMap.entries()].sort());
-  }
 
-  onCheckboxAllChange(event: any) {
-    this.colorMap.forEach(x => { x.show = event.target.checked })
-    this.vectorTileLayer.getSource()!.refresh();
-  }
 
-  onColorChange(row: KeyValue<string, DrawColor>) {
-    row.value.mapbox = false;
-    this.vectorTileLayer.getSource()!.refresh();
-  }
 
-  onCheckboxChange(event: any, row: KeyValue<string, DrawColor>) {
-    var ui = row.value;
-    var newvalue = new DrawColor(ui.label, ui.legendfeature);
-    newvalue.show = event.target.checked;
-    if (this.colorMap.has(ui.label)) {
-      this.colorMap.set(ui.label, newvalue)
-    }
-    this.vectorTileLayer.getSource()!.refresh();
-  }
+
+
+
+
 
   NewColorMap() {
-    this.clearColorMap();
+    this.colorMap.clear();
     this.vectorTileLayer.getSource()!.refresh();
   }
 
@@ -512,7 +499,9 @@ export class OlmapComponent implements OnInit, OnChanges {
       const newloc = new View({
         projection: this.locationService.rdProjection,
         center: [dx, dy],
-        zoom: 13
+        zoom: 13,
+        enableRotation: false
+
       });
       this.locationService.changeView(newloc);
       setTimeout(() => { this.gotoRandomLocation() }, 8000);

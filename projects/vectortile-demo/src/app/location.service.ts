@@ -34,7 +34,8 @@ export class LocationService {
   public initialView = new View({
     projection: this.rdProjection,
     center: [155000, 463000],
-    zoom: 13
+    zoom: 13, 
+    enableRotation: false
 
   });
 

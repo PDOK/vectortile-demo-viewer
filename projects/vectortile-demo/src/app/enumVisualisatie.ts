@@ -6,7 +6,7 @@ export enum Visualisatie {
   zerodefaultB = "Vectortile (Kleurrijk tegels zichtbaar) Visualisatie",
   zerodefaultC_Bron = "Vectortile BGT Bronhouder Visualisatie",
   zerodefaultD = "Vectortile (Kleurrijk) Visualisatie",
-  tactiel = "Vectortile Tactiele (Experimentele) Visualisatie"
+  tactiel = "Vectortile Tactiele Visualisatie"
 }
 
 

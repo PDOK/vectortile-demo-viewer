@@ -61,7 +61,7 @@
             "id": "Single symbol wegdeel fill0",
             "type": "fill",
             "paint": {
-                "fill-color": "#beb297",
+                "fill-color": "#FFFFFF",
                 "fill-outline-color": "#232323"
             },
             "source": "bgt",
@@ -591,7 +591,7 @@
             "id": "Kunstwerk openbareruimtelabel symbol1000",
             "type": "symbol",
             "paint": {
-                "text-opacity": 0.00001,
+                "text-opacity": 0.0001,
                 "text-color": "#000000"
             },
             "layout": {

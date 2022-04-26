@@ -9,6 +9,7 @@ import { SearchComponent } from './search/search.component';
 import { ObjectinfoComponent } from './objectinfo/objectinfo.component';
 import { MapexportComponent } from './mapexport/mapexport.component';
 import { MapstylerComponent } from './mapstyler/mapstyler.component';
+import { LocationComponent } from './location/location.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MapstylerComponent } from './mapstyler/mapstyler.component';
     SearchComponent,
     ObjectinfoComponent,
     MapexportComponent,
-    MapstylerComponent
+    MapstylerComponent,
+    LocationComponent
 
   ],
   imports: [

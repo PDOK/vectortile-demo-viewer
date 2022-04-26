@@ -1,53 +1,74 @@
 .head {
   position: absolute;
-  
+
   background-color: #1a1e4f;
   height: var(--headerheight, 4em);
   display: flex;
   justify-content: left;
   align-items: center;
   z-index: 3;
-  top: var(  --headertop, 0.5vh) ; 
-  right: var(  --headerright, 0.5vh) ;  ;
-  width: var(  --headerwidth, 99vw) ; 
+  top: var(--headertop, 0.5vh);
+  right: var(--headerright, 0.5vh);
+  ;
+  width: var(--headerwidth, 99vw);
 
 }
 
-.logo{
+.logo {
   width: 10vw;
   margin: 1%;
 }
-.app-container{
+
+.app-container {
   height: 100%;
   width: 100%;
 }
 
-.vispanel{
+.vispanel {
   position: absolute;
-  background-color: transparant; 
- 
-  left: var(--visselectleft, 45vw);
-  width: var(--visselectwidth,  20vw);
+  background-color: transparant;
 
-  top: var(--buttontop, 0.5vh) ; 
+  left: var(--visselectleft, 45vw);
+  width: var(--visselectwidth, 20vw);
+
+  top: var(--buttontop, 0.5vh);
   font-size: var(--fontsize, 1vh);
-  z-index: 4; 
+  z-index: 4;
   overflow-wrap: break-word;
 }
 
 .selectbutton {
-  min-height: var(--buttonheight, 1vh) ; 
-  height: var(--buttonheight, 1vh) ; 
+  min-height: var(--buttonheight, 1vh);
+  height: var(--buttonheight, 1vh);
   font-size: var(--fontsize, 1vh);
-  width: var(--searchwidth,  20vw);
+  width: var(--searchwidth, 20vw);
   margin-top: 0.5vh;
   flex: 1;
 
- 
+
 }
 
 
+.foot {
+  
+  position: absolute;
+
+  background-color: #dedfe7;
+  height: var(--footerheight, 3vh);
+  display: flex;
+  justify-content: left;
+  align-items: left;
 
 
+  z-index: 5;
+  top: var(--footertop, 96.5vh);
+  right: var(--headerright, 0.5vh);
+  width: var(--headerwidth, 99vw);
 
+}
 
+.gitlink {
+  position: absolute;
+  right: var(--headerright, 0.5vh);
+  z-index:8;
+  }

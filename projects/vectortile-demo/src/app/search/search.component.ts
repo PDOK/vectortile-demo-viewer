@@ -1,10 +1,7 @@
-import { AfterContentInit, AfterViewInit, Component, OnInit } from '@angular/core';
-import { View } from 'ol';
+import {  Component, OnInit } from '@angular/core';
 import { LocationService } from '../location.service';
 import { DefaultService as PdokLocationService } from '../api/locatieserver/v3'
 import { Observable } from 'rxjs';
-import { HttpResponse } from '@angular/common/http';
-import { ResolveData } from '@angular/router';
 export interface Suggest {
   response: Response;
   highlighting: Highlighting;
@@ -30,7 +27,6 @@ export interface Spellcheck {
   collations?: (null)[] | null;
 }
 
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -41,14 +37,10 @@ export class SearchComponent implements OnInit {
   searchListVisible: boolean =false;
   searchLocation:string  ="" 
 
-
-
-
-
-
   constructor(private pdokLocationService: PdokLocationService, private locationService: LocationService) { }
 
   ngOnInit(): void {
+      
     // nothing 
 
   }
@@ -63,7 +55,7 @@ export class SearchComponent implements OnInit {
 
 
   onSelectSearch(row: DocsEntity) {
-    this.locationService.zoomto(row.centroide_rd)
+    this.locationService.zoomto(row.centroide_rd, row.weergavenaam)
     this.searchListVisible = false; 
     this.searchLocation= row.weergavenaam; 
    

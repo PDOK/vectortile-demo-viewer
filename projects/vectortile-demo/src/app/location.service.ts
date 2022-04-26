@@ -3,22 +3,42 @@ import { View } from 'ol'
 import { Injectable } from '@angular/core';
 import { HttpParams } from "@angular/common/http";
 import { HttpClient } from "@angular/common/http";
-import { Subject, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import WKT from 'ol/format/WKT';
 import { Point } from 'ol/geom';
 import Projection from 'ol/proj/Projection'
+import { Coordinate } from 'ol/coordinate';
 export enum ChangeType {
   search = "search",
   move = "move"
 
 }
 
+export interface Locserver {
+  response: Response;
+}
+
+export interface Response {
+  numFound: number;
+  start: number;
+  maxScore: number;
+  docs: Doc[];
+}
+
+export interface Doc {
+  type: string;
+  weergavenaam: string;
+  id: string;
+  score: number;
+  afstand: number;
+}
 
 
 
 export type ViewLocation = {
   change: ChangeType;
   view: View | undefined;
+  name: string;
 };
 
 
@@ -34,15 +54,16 @@ export class LocationService {
   public initialView = new View({
     projection: this.rdProjection,
     center: [155000, 463000],
-    zoom: 13, 
+    zoom: 13,
     enableRotation: false
 
   });
 
   readonly initialViewLocation: ViewLocation = {
     change: ChangeType.move,
-    view: this.initialView
-  }    ;
+    view: this.initialView,
+    name: ""
+  };
 
 
   private messageSource = new BehaviorSubject(this.initialViewLocation);
@@ -59,18 +80,20 @@ export class LocationService {
   }
 
 
-  changeView(view: View) {
+  async changeView(view: View) {
     const location = this.initialViewLocation;
     location.view = view;
     location.change = ChangeType.move;
+    location.name= await this.getLocationName(view.getCenter()!)
     this.messageSource.next((location))
   }
 
-  zoomto(wkt: string) {
+  zoomto(wkt: string, name: string) {
     var point = this.wktToCoordinates(wkt)
 
     const location = this.initialViewLocation;
     location.view!.setCenter(point)
+    location.name = name;
     location.change = ChangeType.search;
     this.messageSource.next((location))
 
@@ -83,11 +106,22 @@ export class LocationService {
       dataProjection: 'EPSG:28992',
       featureProjection: 'EPSG:28992',
     });
-    const point  = feature.getGeometry() as Point;
+    const point = feature.getGeometry() as Point;
     return (point!.getCoordinates());
   }
 
-
+  async getLocationName(xy: Coordinate): Promise<string> {
+    let params = new HttpParams().append('X', xy[0]).append('Y', xy[1]).append('rows', 1);
+    var doc = await this.http.get<Locserver>(`https://geodata.nationaalgeoregister.nl/locatieserver/revgeo`, {params}).toPromise();
+    if (doc.response.docs[0].weergavenaam) {
+      return doc.response.docs[0].weergavenaam
+    }
+    else {
+      return "";
+    }
+  }
 }
+
+
 
 

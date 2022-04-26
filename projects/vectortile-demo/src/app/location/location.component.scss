@@ -1,0 +1,12 @@
+.locationbox{
+    display: flex; 
+    flex-wrap: nowrap ; 
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: stretch ; 
+    width: 50vw ; 
+}
+
+.locitem {
+    flex-basis:   auto; 
+  }

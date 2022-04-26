@@ -502,7 +502,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         zoom: 13,
         enableRotation: false
 
-      });
+      }); 
       this.locationService.changeView(newloc);
       setTimeout(() => { this.gotoRandomLocation() }, 8000);
     }

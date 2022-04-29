@@ -20,6 +20,8 @@ import { Annotation, DrawColor } from "../color"
 import { FeatureLike } from 'ol/Feature';
 import { DEVICE_PIXEL_RATIO } from 'ol/has';
 import { applyStyle } from 'ol-mapbox-style';
+import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
+import { ColorMap, IProperties, LegendLevel } from '../colorMap';
 
 interface MapboxStyle {
   version: number;
@@ -45,6 +47,8 @@ type styleRow = {
 
 
 
+
+
 @Component({
   selector: 'app-olmap',
   templateUrl: './olmap.component.html',
@@ -56,11 +60,13 @@ export class OlmapComponent implements OnInit, OnChanges {
   color = 'geen'
   private SelectedVisualisation: Visualisatie = Visualisatie.achtergrond;
   stfunction: StyleFunction | undefined;
+  colorMap = new ColorMap(LegendLevel.d1_layer); 
   @Input() set visualisation(vis: Visualisatie) {
     this.SelectedVisualisation = vis;
 
   }
-  colorMap = new Map<string, DrawColor>();
+  
+
   vectorTileLayer = new VectorTileLayer(
     {
       renderMode: 'hybrid',
@@ -180,7 +186,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   hasLegend() {
-    return (this.colorMap.size > 0);
+    return (this.colorMap.items.size > 0);
   }
 
   getZoomLevel() {
@@ -296,8 +302,11 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.tactiel:
       case Visualisatie.standaard:
       case Visualisatie.achtergrond:
-        var colorprop = 'layer'
-        var isText = GetBGTlabelAnnotation(prop, colorprop, featurelabeltext);
+        var title  = this.colorMap.selector( prop)
+    
+      
+        
+        var isText = GetBGTlabelAnnotation(prop, prop['layer'], featurelabeltext);
         if (this.SelectedVisualisation === Visualisatie.tactiel && isText) {
           isText = this.toBraile(isText);
           featurelabeltext.text = isText;
@@ -307,8 +316,8 @@ export class OlmapComponent implements OnInit, OnChanges {
         if (this.stfunction) {
           var tmpstyle = this.stfunction(feature as FeatureLike, resolution);
 
-          if (this.colorMap.has(prop[colorprop])) {
-            var exitingColor = this.colorMap.get(prop[colorprop]);
+          if (this.colorMap.has(title)) {
+            var exitingColor = this.colorMap.get(title);
             if (exitingColor!.show) {
               return (exitingColor!.showfreshstyle(featurelabeltext, tmpstyle));
 
@@ -317,7 +326,7 @@ export class OlmapComponent implements OnInit, OnChanges {
           else {
             //set style 
 
-            var newcolor = new DrawColor(prop[colorprop], feature, true, isText);
+            var newcolor = new DrawColor(title, feature, true, isText);
             if (this.SelectedVisualisation === Visualisatie.tactiel && isText) {
               newcolor.mapbox = false;
             }
@@ -328,13 +337,13 @@ export class OlmapComponent implements OnInit, OnChanges {
               if (fill) {
                 var fillcolor = fill.getColor();
                 newcolor.rbgString = fillcolor as string;
-                this.colorMap.set(prop[colorprop], newcolor)
+                this.colorMap.set(title, newcolor)
                 //add modified fill 
               }
               else {
                 // newcolor.rbgString = 'rgba(0,0,0,1)'
                 newcolor.style = stylearray[0];
-                this.colorMap.set(prop[colorprop], newcolor)
+                this.colorMap.set(title, newcolor)
                 // add modified else
               }
             }
@@ -386,16 +395,16 @@ export class OlmapComponent implements OnInit, OnChanges {
 
     }
 
-    function GetBGTlabelAnnotation(prop: any, colorprop: string, featurelabeltext: { text: string; rotation: number; }): Annotation {
+    function GetBGTlabelAnnotation(prop: any, layer: string, featurelabeltext: { text: string; rotation: number; }): Annotation {
 
-      if (prop[colorprop] === 'pand_nummeraanduiding') {
+      if (layer === 'pand_nummeraanduiding') {
         featurelabeltext.text = prop['tekst'];
 
         var deg = prop['hoek'];
         featurelabeltext.rotation = (deg * Math.PI) / 180.0;
         return prop['tekst']
       }
-      if (prop[colorprop] === 'openbareruimtelabel') {
+      if (layer === 'openbareruimtelabel') {
         featurelabeltext.text = prop['openbareruimtenaam'];
 
         var deg = prop['hoek'];
@@ -530,6 +539,9 @@ export class OlmapComponent implements OnInit, OnChanges {
     return (url + sizeFactor + '.json')
 
   }
+
+
+ 
 
 
 

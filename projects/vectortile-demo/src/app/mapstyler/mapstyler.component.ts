@@ -4,6 +4,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Color } from 'ol/color';
 import VectorTileLayer from 'ol/layer/VectorTile';
 import { DrawColor } from '../color';
+import { IColorMap, LegendLevel } from '../colorMap';
+import { LocationService } from '../location.service';
 
 @Component({
   selector: 'app-mapstyler',
@@ -12,30 +14,49 @@ import { DrawColor } from '../color';
 })
 export class MapstylerComponent implements OnInit {
   @Input() Layer!: VectorTileLayer;
-  @Input() ColorMap!: Map<string, DrawColor>;
+  @Input() ColorMap!: IColorMap;
+  detaillevel = LegendLevel;
 
-
-
-  constructor() { }
+  valueAscOrder = (a: KeyValue<string,DrawColor>, b: KeyValue<string,DrawColor>): number => {
+    return a.value.label.toLowerCase().localeCompare(b.value.label.toLowerCase());
+  }
+ 
+  constructor() {
+     
+  }
 
   ngOnInit(): void {
+  
+
+  }
+
+  ngOnChange()
+  {
+ 
+
   }
 
   onCheckboxAllChange(event: any) {
-    this.ColorMap.forEach((x: { show: any; }) => { x.show = event.target.checked })
+
+    this.ColorMap.setShowAll(event.target.checked);
     this.Layer.getSource()!.refresh();
   }
+
+  onSelect(lev: LegendLevel) {
+    this.ColorMap.setSelector(lev);
+    this.Layer.getSource()!.refresh();
+  }
+
+  disEnabledLevel(level: KeyValue<string, LegendLevel>): boolean {
+    return (level.value === this.ColorMap.getLegendLevel());
+  }
+
 
   onCheckboxLabelsChange
     (event: any) {
-    this.ColorMap.forEach((x: DrawColor) => {
-      if (x.isText()) {
-        x.show = event.target.checked
-      }
-    })
+    this.ColorMap.setShowAll(event.target.checked)
     this.Layer.getSource()!.refresh();
   }
-
 
   NewColorMap() {
     this.clearColorMap();
@@ -46,28 +67,31 @@ export class MapstylerComponent implements OnInit {
     this.ColorMap.clear();
   }
 
+  getItems(isText:boolean)
+  {
+    return this.ColorMap.getItems(isText);
 
 
-  colorArray(isText: boolean) {
-    return new Map<string, DrawColor>([...this.ColorMap.entries()].filter(x => x[1].isText() === isText).sort());
   }
 
-  colorArrayChecked(isText: boolean) {
-    var array = this.colorArray(isText)
 
-    for (let a of array.keys()) {
-      var element = array.get(a)
+
+
+
+  colorArrayChecked(isText: boolean) {
+  
+    var  array = this.ColorMap.getItems(isText);
+  
+
+    for (let a of array!.keys()) {
+      var element = array!.get(a)
       if (element!.show) {
         return true;
 
       }
     }
     return false;
-
   }
-
-
-
 
   onCheckboxChange(event: any, row: KeyValue<string, DrawColor>) {
     var ui = row.value;

@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
     return _enum[enumName];
   };
 
-  title = 'vector-style-tester';
   visualisatie = Visualisatie;
   currentVis = Visualisatie.achtergrond
   isShow: boolean = false;

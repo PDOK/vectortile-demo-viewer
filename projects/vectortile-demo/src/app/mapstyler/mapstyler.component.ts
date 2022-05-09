@@ -42,7 +42,7 @@ export class MapstylerComponent implements OnInit {
     this.Layer.getSource()!.refresh();
   }
 
-  onSelect(lev: LegendLevel) {
+  onSelectLevel(lev: LegendLevel) {
     this.ColorMap.setSelector(lev);
     this.Layer.getSource()!.refresh();
   }

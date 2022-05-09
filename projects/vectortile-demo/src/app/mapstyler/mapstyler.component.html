@@ -25,7 +25,7 @@
                       </div-->
 
                         <div class="legend-button-area-item" *ngFor="let v of detaillevel | keyvalue"
-                            (click)="onSelect(v.value)">
+                            (click)="onSelectLevel(v.value)">
                             <button [disabled]=disEnabledLevel(v)>
                                 <span>{{v.value}}</span>
                             </button>

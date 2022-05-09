@@ -63,6 +63,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   colorMap = new ColorMap(LegendLevel.d1_layer); 
   @Input() set visualisation(vis: Visualisatie) {
     this.SelectedVisualisation = vis;
+    this.colorMap.setSelector(LegendLevel.d1_layer);
 
   }
   

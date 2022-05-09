@@ -12,8 +12,11 @@ export interface IProperties {
     [key: string]: string
 }
 export interface IColorMap {
-    getItems(isText: boolean) : Map<string, DrawColor>;
+
+    getItems(isText: boolean): Map<string, DrawColor>;
     setShowAll(checked: boolean): void;
+    hasText(): boolean;
+    setShowAllText(checked: boolean): void;
     getLegendLevel(): LegendLevel;
     setSelector(selector: LegendLevel): void;
     clear(): void;
@@ -56,6 +59,16 @@ export class ColorMap implements IColorMap {
         this.items.forEach((x) => { x.show = checked })
 
     }
+    setShowAllText(checked: boolean): void {
+        this.items.forEach((x) => {
+            if (x.isText()) { x.show = checked }
+        })
+
+    }
+    hasText(): boolean {
+        return [...this.items.values()] .filter(x => x.isText()).length > 0;
+    }
+
 
     selector(props: IProperties): string {
         if (this.legendLevel === LegendLevel.d2_details) {
@@ -68,7 +81,7 @@ export class ColorMap implements IColorMap {
 
     selectorBron(props: IProperties): string {
         if (this.legendLevel === LegendLevel.d2_details) {
-            return this.getTitle(props["layer"], props)+  " (bronhouder: "+ props['bronhouder'] + ")";
+            return this.getTitle(props["layer"], props) + " (bronhouder: " + props['bronhouder'] + ")";
         }
         else {
             return props['bronhouder'];
@@ -85,7 +98,7 @@ export class ColorMap implements IColorMap {
             title = layername;
 
         }
-        return  title.trim() 
+        return title.trim()
 
         function gettext(intitle: string, index: string): string {
             if (props[index]) {

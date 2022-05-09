@@ -34,7 +34,8 @@
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr *ngIf="hasTextlabels()" >
+
                 
                     <td>labels</td>
                     <td> <input type="checkbox" [checked]="colorArrayChecked(true)"

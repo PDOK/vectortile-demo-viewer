@@ -5,7 +5,7 @@ div.scroll {
   margin-bottom: 1em;
   margin-right: 1em;
   font-size: var(--fontsize, 2.5vh);
-  height: 80vh;
+  max-height: 80vh;
   overflow-x: hidden;
   overflow-y: auto;
  }

@@ -64,8 +64,15 @@ export class ColorMap implements IColorMap {
         else {
             return props['layer'];
         }
+    }
 
-
+    selectorBron(props: IProperties): string {
+        if (this.legendLevel === LegendLevel.d2_details) {
+            return this.getTitle(props["layer"], props)+  " (bronhouder: "+ props['bronhouder'] + ")";
+        }
+        else {
+            return props['bronhouder'];
+        }
     }
 
     private getTitle(layername: string, props: IProperties): string {

@@ -302,7 +302,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.tactiel:
       case Visualisatie.standaard:
       case Visualisatie.achtergrond:
-        var title  = this.colorMap.selector( prop)
+        var legendTitle  = this.colorMap.selector( prop)
     
       
         
@@ -316,8 +316,8 @@ export class OlmapComponent implements OnInit, OnChanges {
         if (this.stfunction) {
           var tmpstyle = this.stfunction(feature as FeatureLike, resolution);
 
-          if (this.colorMap.has(title)) {
-            var exitingColor = this.colorMap.get(title);
+          if (this.colorMap.has(legendTitle)) {
+            var exitingColor = this.colorMap.get(legendTitle);
             if (exitingColor!.show) {
               return (exitingColor!.showfreshstyle(featurelabeltext, tmpstyle));
 
@@ -326,7 +326,7 @@ export class OlmapComponent implements OnInit, OnChanges {
           else {
             //set style 
 
-            var newcolor = new DrawColor(title, feature, true, isText);
+            var newcolor = new DrawColor(legendTitle, feature, true, isText);
             if (this.SelectedVisualisation === Visualisatie.tactiel && isText) {
               newcolor.mapbox = false;
             }
@@ -337,13 +337,13 @@ export class OlmapComponent implements OnInit, OnChanges {
               if (fill) {
                 var fillcolor = fill.getColor();
                 newcolor.rbgString = fillcolor as string;
-                this.colorMap.set(title, newcolor)
+                this.colorMap.set(legendTitle, newcolor)
                 //add modified fill 
               }
               else {
                 // newcolor.rbgString = 'rgba(0,0,0,1)'
                 newcolor.style = stylearray[0];
-                this.colorMap.set(title, newcolor)
+                this.colorMap.set(legendTitle, newcolor)
                 // add modified else
               }
             }
@@ -360,15 +360,17 @@ export class OlmapComponent implements OnInit, OnChanges {
 
       case Visualisatie.zerodefaultC_Bron:
         var colorprop = 'bronhouder';
+        var bronLegendTitle  = this.colorMap.selectorBron( prop)
+
         var zcolor: DrawColor
         {
-          if (this.colorMap.has(prop[colorprop])) {
-            zcolor = this.colorMap.get(prop[colorprop])!;
+          if (this.colorMap.has(bronLegendTitle )) {
+            zcolor = this.colorMap.get(bronLegendTitle)!;
           }
 
           else {
-            var newbroncolor = new DrawColor(prop[colorprop], feature, false, false);
-            this.colorMap.set(prop[colorprop], newbroncolor)
+            var newbroncolor = new DrawColor(bronLegendTitle, feature, false, false);
+            this.colorMap.set(bronLegendTitle, newbroncolor)
             zcolor = newbroncolor;
           }
         }

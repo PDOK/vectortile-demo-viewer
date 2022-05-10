@@ -8,6 +8,8 @@ import Feature from 'ol/Feature';
 import { Geometry, Polygon } from "ol/geom";
 import RenderFeature from "ol/render/Feature";
 
+
+
 export type Annotation = string | false
 
 export class DrawColor {

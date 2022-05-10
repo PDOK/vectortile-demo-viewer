@@ -23,6 +23,7 @@
   min-height: var(--buttonheight, 1vh);
   height: var(--buttonheight, 1vh) ; 
   font-size: var(--fontsize, 2.5vh);
+  font-family: var(--font-family, "Roboto");
   margin-top: 0.5vh;
   margin-left: 0.5vw;
   margin-right: 0.2vw
@@ -47,15 +48,7 @@
   
 }
 
-.legend {
-  text-align: left;
-  background-color: white;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-right:1em; 
-  overflow-y: auto;
-  font-size: var(--fontsize, 2.5vh);
-}
+
 
 .infotextbox {
   text-align: left;
@@ -65,7 +58,7 @@
   margin-right:1em; 
   display: flex;
   flex-direction: column;
- 
+  font-family: var(--font-family, "Roboto");
   font-size: var(--fontsize, 2.5vh);
 
 }

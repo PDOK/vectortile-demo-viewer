@@ -9,6 +9,7 @@
 .searchBox{
   height:calc( var(--buttonheight, 1vh) *0.5); 
   font-size: var(--fontsize, 1vh); 
+  font-family: var(--fontfamily, "Roboto");
   background-color: whitesmoke; 
   width: var(--searchwidth,  20vw);
  
@@ -16,6 +17,7 @@
 .selectbutton {
   min-height: var(--buttonheight, 1vh) ; 
   font-size: var(--fontsize, 1vh);
+  font-family: var(--font-family, "Roboto");
   width: var(--searchwidth,  20vw);
   margin-top: 0.5vh;
  

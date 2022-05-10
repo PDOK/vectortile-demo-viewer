@@ -17,10 +17,10 @@
                 </div>
             </div>
             <div *ngIf="hasLegend()">
-                <div class="legend" *ngIf="isShowLegend">
+                <div *ngIf="isShowLegend">
                     <app-mapstyler [Layer]="this.vectorTileLayer"
                     [ColorMap]= "this.colorMap" > </app-mapstyler>
-                   
+                  
                 </div>
             </div>
 

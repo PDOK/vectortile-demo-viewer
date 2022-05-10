@@ -36,6 +36,10 @@ export class MapstylerComponent implements OnInit {
 
   }
 
+  hasTextlabels(){
+    return this.ColorMap.hasText();
+  }
+
   onCheckboxAllChange(event: any) {
 
     this.ColorMap.setShowAll(event.target.checked);
@@ -54,7 +58,7 @@ export class MapstylerComponent implements OnInit {
 
   onCheckboxLabelsChange
     (event: any) {
-    this.ColorMap.setShowAll(event.target.checked)
+    this.ColorMap.setShowAllText(event.target.checked)
     this.Layer.getSource()!.refresh();
   }
 

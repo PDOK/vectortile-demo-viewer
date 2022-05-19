@@ -12,8 +12,8 @@ export enum Visualisatie {
 
 
 export function getJsonurl(vis: Visualisatie) {
-  const mapboxachtergrondjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v1_1-preprod/styles/achtergrondvisualisatie?f=mapbox';
-  const mapboxstandaardjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v1_1-preprod/styles/standaardvisualisatie?f=mapbox'
+  const mapboxachtergrondjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/achtergrondvisualisatie?f=mapbox';
+  const mapboxstandaardjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/standaardvisualisatie?f=mapbox'
   const mapboxtactieljsonurl = 'styles/tactielevisualisatie.json'
   switch (vis) {
     case Visualisatie.achtergrond:

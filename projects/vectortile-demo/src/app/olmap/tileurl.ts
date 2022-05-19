@@ -1,7 +1,7 @@
 export type VectorTileUrl = { url: string; extension: string; }
 export const tileurl : VectorTileUrl = {
     url: 'https://api.pdok.nl/lv/bgt/ogc/v1_1-preprod/tiles/NetherlandsRDNewQuad',
-    extension: ''
+    extension: '.pbf'
 };
 
 

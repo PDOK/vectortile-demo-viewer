@@ -9,8 +9,8 @@ import { Geometry, Polygon } from "ol/geom";
 import RenderFeature from "ol/render/Feature";
 
 
-
-export type Annotation = string | false
+export type LabelType = { text: string; rotation: number; font: string ; backgroundfill:Fill}
+export type Annotation = LabelType | false
 
 export class DrawColor {
     isText() {
@@ -199,7 +199,7 @@ export class DrawColor {
 
 
 
-    showfreshstyle(labeltext: { text: any; rotation: any; font: string }, currentstyle: void | Style | Style[]) {
+    showfreshstyle(labeltext: Annotation, currentstyle: void | Style | Style[]) {
 
 
         var f = new Fill({
@@ -207,10 +207,25 @@ export class DrawColor {
         });
         if (this.mapbox) {
             return currentstyle;
-
-
         }
         else {
+            var newtext = new Text({});
+            if (labeltext) {
+                newtext = new Text({
+                    font: labeltext.font,
+                    text: `${labeltext.text}`,
+                    rotation: labeltext.rotation,
+                    fill: new Fill({ color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})` }),
+                    backgroundFill: labeltext.backgroundfill, 
+                    padding: [3, 3, 3, 3],
+                 
+                    stroke: new Stroke({
+                        color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})`, width: 2
+                    })
+
+                })
+            }
+
             this.style = new Style({
                 fill: new Fill({
                     color: `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`
@@ -219,19 +234,11 @@ export class DrawColor {
                 stroke: new Stroke({
                     color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})`
                 }),
-                text: new Text({
-                    font: labeltext.font,
-                    text: `${labeltext.text}`,
-                    rotation: labeltext.rotation,
-                    fill: new Fill({ color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})` }),
-                    stroke: new Stroke({
-                        color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})`, width: 2
-                    })
-                }
-                )
+                text: newtext
             }
             )
         }
+
         return this.style;
 
     }

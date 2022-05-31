@@ -6,14 +6,19 @@ export enum Visualisatie {
   zerodefaultB = "Vectortile (Kleurrijk tegels zichtbaar) Visualisatie",
   zerodefaultC_Bron = "Vectortile BGT Bronhouder Visualisatie",
   zerodefaultD = "Vectortile (Kleurrijk) Visualisatie",
-  tactiel = "Vectortile Tactiele Visualisatie"
+  tactiel = "Vectortile Tactiele (Braille) Visualisatie"
 }
 
 
 
 export function getJsonurl(vis: Visualisatie) {
   const mapboxachtergrondjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/achtergrondvisualisatie?f=mapbox';
+ 
   const mapboxstandaardjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/standaardvisualisatie?f=mapbox'
+  //for custom styling local styles are available:  
+  //const mapboxachtergrondjsonurl = 'styles/achtergrondvisualisatie.json';
+  //const mapboxstandaardjsonurl = 'styles/standaardvisualisatie.json'
+  
   const mapboxtactieljsonurl = 'styles/tactielevisualisatie.json'
   switch (vis) {
     case Visualisatie.achtergrond:

@@ -9,7 +9,7 @@ import { Geometry, Polygon } from "ol/geom";
 import RenderFeature from "ol/render/Feature";
 
 
-export type LabelType = { text: string; rotation: number; font: string ; backgroundfill:Fill}
+export type LabelType = { text: string; rotation: number; font: string; backgroundfill: Fill }
 export type Annotation = LabelType | false
 
 export class DrawColor {
@@ -32,8 +32,20 @@ export class DrawColor {
     private _rbgString = '';
     mapbox: boolean;
     annotation: Annotation;
-    defaulttext: string = "";
+
+    public get sampleText(): string {
+        if (this.annotation === false) {
+            return ""
+        }
+        else {
+            return this.annotation['text'];
+        }
+    }
+
+
+ 
     style: Style | undefined;
+
 
     public get rbgString() {
         return this._rbgString;
@@ -199,6 +211,7 @@ export class DrawColor {
 
 
 
+
     showfreshstyle(labeltext: Annotation, currentstyle: void | Style | Style[]) {
 
 
@@ -216,9 +229,9 @@ export class DrawColor {
                     text: `${labeltext.text}`,
                     rotation: labeltext.rotation,
                     fill: new Fill({ color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})` }),
-                    backgroundFill: labeltext.backgroundfill, 
+                    backgroundFill: labeltext.backgroundfill,
                     padding: [3, 3, 3, 3],
-                 
+
                     stroke: new Stroke({
                         color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})`, width: 2
                     })

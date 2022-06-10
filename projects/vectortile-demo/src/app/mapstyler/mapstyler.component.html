@@ -47,7 +47,7 @@
                     <input type="checkbox" [checked]="x.value.show" (change)="onCheckboxChange($event, x)">
                     {{x.key }}
                     <ng-container *ngIf="x.value.show">
-                        <div [ngStyle]="x.value.textcolorRbgString()">{{ x.value.annotation}} </div>
+                        <div [ngStyle]="x.value.textcolorRbgString()">{{ x.value.sampleText }} </div>
 
 
                         <div class="colorpick"><input [(colorPicker)]="x.value.rbgString"

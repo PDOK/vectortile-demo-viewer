@@ -1,3 +1,27 @@
+.news{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+ 
+  text-align: center;
+  left: 15vw; 
+  min-width: 25vw;
+  position: absolute;
+  color:#000;
+  background:#ffc;
+
+  min-height: var(--buttonheight, 1vh);
+  height: var(--buttonheight, 1vh);
+  font-size: var(--fontsize, 1vh);
+  font-family: var(--font-family, "Roboto");
+  width: var(--searchwidth, 20vw);
+  margin-top: 0.5vh;
+
+  z-index:  99; 
+
+}
 .head {
   position: absolute;
 

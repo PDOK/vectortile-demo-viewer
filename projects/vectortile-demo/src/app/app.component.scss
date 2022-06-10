@@ -3,8 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
- 
+  border:1px  solid;
+  box-shadow: 2px 3px 3px 3px black; 
   text-align: center;
   left: 15vw; 
   min-width: 25vw;
@@ -13,8 +13,8 @@
   background:#ffc;
 
   min-height: var(--buttonheight, 1vh);
-  height: var(--buttonheight, 1vh);
-  font-size: var(--fontsize, 1vh);
+ 
+  font-size: var(--fontsize, 1vh) ;
   font-family: var(--font-family, "Roboto");
   width: var(--searchwidth, 20vw);
   margin-top: 0.5vh;

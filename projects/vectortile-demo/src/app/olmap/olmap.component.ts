@@ -132,7 +132,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       }
     });
     this.calcMatrixAndResolutions(this.rdProjection);
-    this.resolutions = this.getResolutionsVt(11)
+   // this.resolutions = this.getResolutionsVt(11)
     this.map1 = new olMap({
       layers: [this.vectorTileLayer],
       target: 'map1',

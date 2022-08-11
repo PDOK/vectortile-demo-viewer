@@ -18,3 +18,12 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+after(() => {
+    if (Cypress.config('isInteractive')) {
+        cy.log('skipping snapshot comparison in interactive mode')
+      } else {
+        cy.task("generateReport");
+      }
+   
+  });

@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router'
 import { Feature, Map as olMap, View, } from 'ol';
-import stylefunction from 'ol-mapbox-style/dist/stylefunction'
+
+import {stylefunction} from 'ol-mapbox-style'
 import { getTopLeft, getWidth } from 'ol/extent.js';
 import MVT from 'ol/format/MVT.js';
 import { Geometry } from 'ol/geom';
@@ -20,7 +21,6 @@ import { Annotation, DrawColor, LabelType } from "../color"
 import { FeatureLike } from 'ol/Feature';
 import { DEVICE_PIXEL_RATIO } from 'ol/has';
 import { applyStyle } from 'ol-mapbox-style';
-import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
 import { ColorMap, IProperties, LegendLevel } from '../colorMap';
 import Fill from 'ol/style/Fill';
 

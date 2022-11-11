@@ -113,8 +113,8 @@ export class LocationService {
   async getLocationName(xy: Coordinate): Promise<string> {
     let params = new HttpParams().append('X', xy[0]).append('Y', xy[1]).append('rows', 1);
     var doc = await this.http.get<Locserver>(`https://geodata.nationaalgeoregister.nl/locatieserver/revgeo`, {params}).toPromise();
-    if (doc.response.docs[0].weergavenaam) {
-      return doc.response.docs[0].weergavenaam
+    if (doc!.response.docs[0].weergavenaam) {
+      return doc!.response.docs[0].weergavenaam
     }
     else {
       return "";

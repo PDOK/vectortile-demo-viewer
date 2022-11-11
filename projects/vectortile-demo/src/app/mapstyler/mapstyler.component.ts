@@ -1,5 +1,4 @@
 import { KeyValue } from '@angular/common';
-import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { Color } from 'ol/color';
 import VectorTileLayer from 'ol/layer/VectorTile';

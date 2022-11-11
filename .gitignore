@@ -31,6 +31,7 @@ chrome-profiler-events*.json
 .history/*
 
 # misc
+/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage
@@ -43,3 +44,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+cypress/downloads/*
+cypress/videos/*
+cypress-visual-report/*
+cypress-visual-screenshots/comparison/
+cypress-visual-screenshots/diff/

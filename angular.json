@@ -117,9 +117,41 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy"
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "vectortile-demo:serve",
+            "configFile": "projects/vectortile-demo/cypress.config.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "vectortile-demo:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/vectortile-demo/cypress.config.js"
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "vectortile-demo:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "vectortile-demo:serve:production"
+            }
+          }
         }
       }
     }
-  },
-  "defaultProject": "vectortile-demo"
+  }
 }

@@ -1,6 +1,7 @@
 # VectortileDemoViewer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.16.
+This [viewer](https://pdok.github.io/vectortile-demo-viewer/) is made to demonstrate the capabilities of the BGT Vectortiles to developers.
+Enjoy the [demo online](https://pdok.github.io/vectortile-demo-viewer/).
 
 ## Development server
 

@@ -41,14 +41,14 @@ function enumKeys<O extends object, K extends keyof O = keyof O>(obj: O): K[] {
 }
 
 export function getAllVisualisaties(): Visualisatie[] {
-  var array: Visualisatie[] = [];
+  let array: Visualisatie[] = [];
   for (const value of enumKeys(Visualisatie)) {
     array.push(Visualisatie[value]);
   }
   return array
 }
 
-export function getRandomEnumValue<T>(anEnum: T): T[keyof T] {
+export function getRandomEnumValue<T extends Object>(anEnum: T ): T[keyof T] {
   //save enums inside array
   const enumValues = Object.keys(anEnum) as Array<keyof T>;
 

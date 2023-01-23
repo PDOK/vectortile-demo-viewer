@@ -7,7 +7,7 @@ import { getTopLeft, getWidth } from 'ol/extent.js';
 import MVT from 'ol/format/MVT.js';
 import { Geometry } from 'ol/geom';
 import VectorTileLayer from 'ol/layer/VectorTile.js';
-import 'ol/ol.css';
+
 
 import Projection from 'ol/proj/Projection';
 import VectorTileSource from 'ol/source/VectorTile.js';
@@ -159,7 +159,7 @@ export class OlmapComponent implements OnInit, OnChanges {
             return;
           }
           that2.selectedFeatures = features as [Feature<Geometry>];
-          that2.selectedFeature = feature;
+          that2.selectedFeature = feature as Feature<Geometry>;
         });
       }
       if (event.type == 'click') {

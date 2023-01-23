@@ -41,8 +41,8 @@
               }
             ],
             "styles": [
-              "projects/vectortile-demo/src/styles.scss",
-              "node_modules/ol/ol.css"
+              "node_modules/ol/ol.css", 
+              "projects/vectortile-demo/src/styles.scss"            
             ],
             "scripts": []
           },

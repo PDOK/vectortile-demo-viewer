@@ -5,8 +5,8 @@ import Stroke from "ol/style/Stroke";
 import Style from "ol/style/Style";
 import Feature from 'ol/Feature';
 
-import { Geometry, Polygon } from "ol/geom";
-import RenderFeature from "ol/render/Feature";
+import { Geometry} from "ol/geom";
+import { RegularShape } from "ol/style";
 
 
 export type LabelType = { text: string; rotation: number; font: string; backgroundfill: Fill }
@@ -43,7 +43,7 @@ export class DrawColor {
     }
 
 
- 
+
     style: Style | undefined;
 
 
@@ -117,10 +117,10 @@ export class DrawColor {
             case 'Point':
                 {
                     //console.log("point")
-                    this.r = 0;
-                    this.g = 0;
-                    this.b = 0;
-                    this.a = 1;
+                    this.r = Math.round(Math.random() * 255);
+                    this.g = Math.round(Math.random() * 255);
+                    this.b = Math.round(Math.random() * 255);
+                    this.a = 0.7;
                     break;
 
                 }
@@ -131,7 +131,7 @@ export class DrawColor {
                     this.r = Math.round(Math.random() * 255);
                     this.g = Math.round(Math.random() * 255);
                     this.b = Math.round(Math.random() * 255);
-                    this.a = 1;
+                    this.a = 0.7;
 
                     this._rbgString = this.makerbgString();
                     break;
@@ -143,7 +143,7 @@ export class DrawColor {
                     this.r = 0;
                     this.g = 0;
                     this.b = 0;
-                    this.a = 1;
+                    this.a = 0.7;
                     break;
                 }
             default: {
@@ -151,7 +151,7 @@ export class DrawColor {
                 this.r = 0;
                 this.g = 0;
                 this.b = 0;
-                this.a = 1;
+                this.a = 0.7;
                 break;
             }
         }
@@ -215,14 +215,13 @@ export class DrawColor {
     showfreshstyle(labeltext: Annotation, currentstyle: void | Style | Style[]) {
 
 
-        var f = new Fill({
-            color: `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`
-        });
+
+
         if (this.mapbox) {
             return currentstyle;
         }
         else {
-            var newtext = new Text({});
+            let newtext = new Text({});
             if (labeltext) {
                 newtext = new Text({
                     font: labeltext.font,
@@ -247,7 +246,19 @@ export class DrawColor {
                 stroke: new Stroke({
                     color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})`
                 }),
-                text: newtext
+                text: newtext,
+                image: new RegularShape({
+                    fill: new Fill({
+                        color: `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`
+
+                    }),
+                    stroke: new Stroke({
+                        color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})`
+                    }),
+                    points: 4,
+                    radius: 10,
+                    angle: Math.PI / 4,
+                }),
             }
             )
         }

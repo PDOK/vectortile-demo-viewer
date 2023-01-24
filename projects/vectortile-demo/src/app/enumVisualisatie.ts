@@ -1,36 +1,51 @@
 export enum Visualisatie {
+ 
+  Bagstd = "BAG Visualisatie",
+  Bagblanko = "BAG (Blanco) visualisatie",
+  Bagkleurrijk = "BAG (Kleurrijk) visualisatie",
+  BagKleurrijk_tegels = "BAG (Kleurrijk tegels zichtbaar) Visualisatie",
+  BGTachtergrond = "BGT Vectortile Achtergrond Visualisatie",
+  BGTstandaard = "BGT Vectortile Standaard Visualisatie",
 
-  achtergrond = "BGT Vectortile Achtergrond Visualisatie",
-  standaard = "BGT Vectortile Standaard Visualisatie",
-  zerodefaultA = "Vectortile (Blanco) Visualisatie",
-  zerodefaultB = "Vectortile (Kleurrijk tegels zichtbaar) Visualisatie",
-  zerodefaultC_Bron = "Vectortile BGT Bronhouder Visualisatie",
-  zerodefaultD = "Vectortile (Kleurrijk) Visualisatie",
-  tactiel = "Vectortile Tactiele (Braille) Visualisatie"
+  BGTzerodefaultA_blanco = "BGT Vectortile (Blanco) Visualisatie",
+  BGTzerodefaultB_tegels = "BGT Vectortile (Kleurrijk tegels zichtbaar) Visualisatie",
+  BGTzerodefaultC_Bron = "BGT Vectortile Bronhouder Visualisatie",
+  BGTzerodefaultD_kleur = "BGT Vectortile (Kleurrijk) Visualisatie",
+  BGTtactiel = "BGT Vectortile Tactiele (Braille) Visualisatie"
 }
 
+export type StyleUrl=
+{
+  source:"bag"|"bgt"|"unknown"
+  url: string 
 
+}
 
-export function getJsonurl(vis: Visualisatie) {
-  const mapboxachtergrondjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/achtergrondvisualisatie?f=mapbox';
- 
-  const mapboxstandaardjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/standaardvisualisatie?f=mapbox'
+export function getJsonurl(vis: Visualisatie):StyleUrl {
+  const BGTmapboxachtergrondjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/achtergrondvisualisatie?f=mapbox';
+  const BGTmapboxstandaardjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/standaardvisualisatie?f=mapbox'
+  const BGTmapboxtactieljsonurl = 'styles/tactielevisualisatie.json'
+
+  const BAGmapboxbagstd = "styles/bagstd.json"
+
   //for custom styling local styles are available:  
   //const mapboxachtergrondjsonurl = 'styles/achtergrondvisualisatie.json';
   //const mapboxstandaardjsonurl = 'styles/standaardvisualisatie.json'
-  
-  const mapboxtactieljsonurl = 'styles/tactielevisualisatie.json'
-  switch (vis) {
-    case Visualisatie.achtergrond:
-      return (mapboxachtergrondjsonurl);
 
-    case Visualisatie.standaard:
-      return (mapboxstandaardjsonurl)
-    case Visualisatie.tactiel:
-      return (mapboxtactieljsonurl)
+  
+  switch (vis) {
+    case Visualisatie.BGTachtergrond:
+      return ({source: "bgt", url: BGTmapboxachtergrondjsonurl});
+
+    case Visualisatie.BGTstandaard:
+      return ({source:"bgt", url:BGTmapboxstandaardjsonurl})
+    case Visualisatie.BGTtactiel:
+      return ({source:"bgt", url:BGTmapboxtactieljsonurl})
+    case Visualisatie.Bagstd:
+      return ({source:"bag", url:BAGmapboxbagstd})
 
     default:
-      return ''
+      return ({source:"unknown", url: ""})
 
   }
 
@@ -48,7 +63,7 @@ export function getAllVisualisaties(): Visualisatie[] {
   return array
 }
 
-export function getRandomEnumValue<T extends Object>(anEnum: T ): T[keyof T] {
+export function getRandomEnumValue<T extends Object>(anEnum: T): T[keyof T] {
   //save enums inside array
   const enumValues = Object.keys(anEnum) as Array<keyof T>;
 

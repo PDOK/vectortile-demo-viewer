@@ -10,17 +10,17 @@
             <div *ngIf="isShowDetails">
                 <div *ngIf="showselectedFeature()">
                     <div>
-                        <app-objectinfo [feature]="this.selectedFeature" [resolution]="this.view.getResolution()"
-                            [styleFunction]="this.vectorTileLayer.getStyleFunction()">
+                        <app-objectinfo [feature]="this.selectedFeature" [resolution]="this.viewRD.getResolution()"
+                            [styleFunction]="this.CurrentVectorTileLayer.getStyleFunction()">
                         </app-objectinfo>
                     </div>
                 </div>
             </div>
             <div *ngIf="hasLegend()">
                 <div *ngIf="isShowLegend">
-                    <app-mapstyler [Layer]="this.vectorTileLayer"
-                    [ColorMap]= "this.colorMap" > </app-mapstyler>
-                  
+                    <app-mapstyler [Layer]="this.CurrentVectorTileLayer" 
+                    [ColorMap]="this.colorMap"> </app-mapstyler>
+
                 </div>
             </div>
 
@@ -30,19 +30,19 @@
                         <h3>Vectortile Demo Viewer</h3>
                         Deze viewer is gemaakt om BGT vectortiles te demonstreren
 
-                        
-                        <div >
+
+                        <div>
                             <button (click)="DemogotoStartLocationOnMap()" type="submit">Reset (einde demo)</button>
                         </div>
-                        <div >
+                        <div>
                             <button (click)="DemoRandomLocationToggle()" type="checkbox">{{demotextLocatie}}</button>
                         </div>
-                        <div >
+                        <div>
                             <button (click)="DemoVisualisationToggle()"
                                 type="checkbox">{{demotextVisualisatie}}</button>
                         </div>
 
-                   
+
                         <table>
                             <caption class="techcaption">Technische informatie:</caption>
                             <thead>
@@ -68,6 +68,7 @@
                             </tbody>
                         </table>
 
+             
                         <app-mapexport [map]="this.map1"></app-mapexport>
 
                     </div>

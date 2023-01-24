@@ -12,6 +12,20 @@
     "glyphs": "styles/font/{fontstack}/{range}.pbf",
     "layers": [
         {
+            "id": "verblijfsobject",
+            "type": "circle",
+            "paint": {
+                "circle-color":"#4A4848" ,
+                "circle-opacity": 0.5 
+              
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+            }, 
+                "source": "bag",
+                "source-layer": "verblijfsobject"
+            
+        },
+
+        {
             "id": "outline pand",
             "type": "line",
             "paint": {
@@ -32,6 +46,18 @@
             },
             "source": "bag",
             "source-layer": "pand"
+        }, 
+
+        {
+            "id": "outline woonplaats",
+            "type": "line",
+            "paint": {
+                "line-color":  "#626262",
+                "line-width": 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+            }, 
+                "source": "bag",
+                "source-layer": "woonplaats"
+            
         }
     ],
     "sources": {

@@ -30,7 +30,8 @@ import { Configuration }                                     from '../configurat
 })
 export class DefaultService {
 
-    protected basePath = 'https://geodata.nationaalgeoregister.nl/locatieserver/v3';
+   // protected basePath = 'https://geodata.nationaalgeoregister.nl/locatieserver/v3';
+   protected basePath = 'https://api.pdok.nl/bzk/locatieserver/search/v3_0'; 
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
     public encoder: HttpParameterCodec;

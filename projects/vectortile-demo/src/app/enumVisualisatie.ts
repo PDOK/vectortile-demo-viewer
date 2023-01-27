@@ -8,7 +8,7 @@ export enum Visualisatie {
   BGTstandaard = "BGT Vectortile Standaard Visualisatie",
 
   BGTzerodefaultA_blanco = "BGT Vectortile (Blanco) Visualisatie",
-  BGTzerodefaultB_tegels = "BGT Vectortile (Kleurrijk tegels zichtbaar) Visualisatie",
+  //BGTzerodefaultB_tegels = "BGT Vectortile (Kleurrijk tegels zichtbaar) Visualisatie",
   BGTzerodefaultC_Bron = "BGT Vectortile Bronhouder Visualisatie",
   BGTzerodefaultD_kleur = "BGT Vectortile (Kleurrijk) Visualisatie",
   BGTtactiel = "BGT Vectortile Tactiele (Braille) Visualisatie"

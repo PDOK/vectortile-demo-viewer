@@ -107,6 +107,7 @@ export class MapstylerComponent implements OnInit {
   }
 
   onColorChange(row: KeyValue<string, DrawColor>) {
+
     row.value.mapbox = false;
     this.Layer.getSource()!.refresh();
   }

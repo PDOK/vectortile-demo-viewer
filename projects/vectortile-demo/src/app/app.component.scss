@@ -1,7 +1,7 @@
 .head {
   position: absolute;
 
-  background-color: #1a1e4f;
+  background-color: var(--pdokblauw, #1a1e4f);
   height: var(--headerheight, 4em);
   display: flex;
   justify-content: left;

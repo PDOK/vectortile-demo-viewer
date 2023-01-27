@@ -4,6 +4,7 @@ import { FeatureLike } from 'ol/Feature';
 import { Geometry } from 'ol/geom';
 import { StyleFunction } from 'ol/style/Style';
 import { createResolutionConstraint } from 'ol/View';
+import { getFillColor } from '../color';
 type proprow = {
   title: string
   value: string
@@ -19,60 +20,85 @@ const DefaultColor = [0, 0, 0, 0]
 
 export class ObjectinfoComponent {
 
-  @Input() feature: FeatureLike | undefined
+  @Input() features: FeatureLike[] = []
   @Input() resolution: number | undefined
   @Input() styleFunction: any;
 
   private fillColor: number[] = DefaultColor;
- 
+
 
   constructor() { }
 
-  public getFeatureProperties(): proprow[] {
-    var proptable: proprow[] = [];
-    var prop = this.feature!.getProperties();
-    for (var val in prop) {
-      var p: proprow = { title: val, value: prop[val] };
+  public getFeatures() {
+    return this.features
+  }
+
+  public getFeatureProperties(feature: FeatureLike): proprow[] {
+    let proptable: proprow[] = [];
+    let prop = feature.getProperties();
+    for (let val in prop) {
+      let p: proprow = { title: val, value: prop[val] };
       proptable.push(p)
     }
     return proptable;
   }
 
 
-  selectedFillStyle() {
-    var color = this.getFillColor()
+  selectedFillStyle(feature: FeatureLike) {
+    var mpstyle = this.styleFunction;
+    var reso = this.resolution;
+    const st = mpstyle!(feature, reso!);
+
+    let color = getFillColor(st)
     return {
       'background-color': color
     };
   }
 
-  getFillColor() {
-    var mpstyle = this.styleFunction;
-    var reso = this.resolution;
-    const st = mpstyle!(this.feature, reso!);
-    var color: string | number[] | CanvasGradient | CanvasPattern = "";
 
-    if (st instanceof Array) {
-      const fill = st[st.length - 1].getFill();
-      color = fill.getColor() as string;
-    }
-    else {
-      var stStyle = st as any;
-      var colcolor = stStyle.fill_.color_ as string | number[] | CanvasGradient | CanvasPattern
-      color = colcolor;
-    }
 
-    if (color instanceof CanvasPattern) {
-      var canvas = true;
-      // not yet implemented boomgaard
-    }
 
-    return (color);
+
+}
+/*
+  getFillColor2(feature: FeatureLike): string {
+    let mpstyle = this.styleFunction;
+    let reso = this.resolution;
+    const st = mpstyle!(feature, reso!);
+    return (this.colorFromStyle(st, '#000000'));
   }
 
 
- 
-}
+  colorFromStyle(style: { getFill: () => any; getStroke: () => any; }, fallbackcolor: string) {
+    let color: string = '';
+    if (style.getFill()) {
+      const fill = style.getFill();
+      if (fill) {
+        color = fill.getColor();
+        return color;
+      }
+    }
+
+
+    if (style._fill)) {
+      const fill = style.getFill();
+      if (fill) {
+        color = fill.getColor();
+        return color;
+      }
+    }
+    else {
+      const stroke = style.getStroke();
+      if (stroke) {
+        color = stroke.getColor()
+        return color;
+      }
+    }
+    return fallbackcolor
+  }
+  */
+
+
 
 
 

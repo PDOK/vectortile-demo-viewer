@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Feature, Map as olMap, View } from 'ol';
 
@@ -15,7 +15,7 @@ import VectorTileSource from 'ol/source/VectorTile.js';
 import Fill from 'ol/style/Fill';
 import Style, { StyleFunction } from 'ol/style/Style';
 import TileGrid from 'ol/tilegrid/TileGrid';
-import { Annotation, DrawColor, LabelType } from "../color";
+import { Annotation, DrawColor, getFillColor, LabelType } from "../color";
 import { ColorMap, LegendLevel } from '../colorMap';
 import { getJsonurl, getRandomEnumValue, Visualisatie } from '../enumVisualisatie';
 import { LocationService, ViewLocation } from '../location.service';
@@ -25,7 +25,8 @@ import { tileurlBAG, tileurlBGT, VectorTileUrl } from './tileurl';
 @Component({
   selector: 'app-olmap',
   templateUrl: './olmap.component.html',
-  styleUrls: ['./olmap.component.scss']
+  styleUrls: ['./olmap.component.scss'], 
+  encapsulation: ViewEncapsulation.None
 })
 
 export class OlmapComponent implements OnInit, OnChanges {
@@ -72,7 +73,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     zoom: 13,
     minZoom: 13,
     enableRotation: false
-  });  
+  });
 
   map1: olMap = new olMap({
     layers: [this.vectorTileLayerRD],  //, this.vectorTileLayerRD],
@@ -82,12 +83,12 @@ export class OlmapComponent implements OnInit, OnChanges {
   resolutions: Array<number> = [];
   matrixIds: Array<string> = [];
 
-  public selectedFeature: Feature<Geometry> | undefined;
+  //public selectedFeature: Feature<Geometry> | undefined;
 
 
 
 
-  public selectedFeatures: [Feature<Geometry>] | undefined = undefined;
+  public selectedFeatures: FeatureLike[] = [];
   currentlocation: ViewLocation | undefined;
 
   isShowDetails: boolean = false;
@@ -134,18 +135,12 @@ export class OlmapComponent implements OnInit, OnChanges {
     this.map1.on(['click', 'pointermove'], function (event) {
       const e = event as any;
       const that2 = that;
+      that2.selectedFeatures = []
       if (that.detailsupdate) {
-        that.vectorTileLayerRD.getFeatures(e.pixel).then(function (features) {
-          if (!features.length) {
-            that2.selectedFeature = undefined;
-            return;
+        that.map1.forEachFeatureAtPixel(e.pixel, function (feature, layer) {
+          if (feature) {
+            that2.selectedFeatures.push(feature);
           }
-          let feature = features[0];
-          if (!feature) {
-            return;
-          }
-          that2.selectedFeatures = features as [Feature<Geometry>];
-          that2.selectedFeature = feature as Feature<Geometry>;
         });
       }
       if (event.type == 'click') {
@@ -154,11 +149,11 @@ export class OlmapComponent implements OnInit, OnChanges {
     })
 
 
-    
+
 
   }
 
- 
+
   ngOnChanges(): void {
 
     this.changeStyleJson();
@@ -237,26 +232,27 @@ export class OlmapComponent implements OnInit, OnChanges {
     return (color);
   }
 
-  private changeStyleJson() {  
+  private changeStyleJson() {
+
     this.calcMatrixAndResolutions(this.rdProjection);
-    this.map1.setView(this.viewRD);              
+    this.map1.setView(this.viewRD);
     this.titelEmit.emit(this.SelectedVisualisation);
     let vectorTileLayer = this.vectorTileLayerRD;
     let resolutions = this.resolutions;
     this.map1.setView(this.viewRD)
     vectorTileLayer.setVisible(true);
     let JsonUrl = getJsonurl(this.SelectedVisualisation)
-    let StyleJson= JsonUrl.url
-    let source =JsonUrl.source
-    if (source=="bag"){
-    this.setTileSource(this.rdProjection, this.vectorTileLayerRD, tileurlBAG, 12);
+    let StyleJson = JsonUrl.url
+    let source = JsonUrl.source
+    if (source == "bag") {
+      this.setTileSource(this.rdProjection, this.vectorTileLayerRD, tileurlBAG, 12);
     }
-    if (source=="bgt"){
-    this.setTileSource(this.rdProjection, this.vectorTileLayerRD, tileurlBGT, 12);
+    if (source == "bgt") {
+      this.setTileSource(this.rdProjection, this.vectorTileLayerRD, tileurlBGT, 12);
     }
 
-    this.colorMap.clear();
-    if (source != "unknown" ) {
+
+    if (source != "unknown") {
       fetch(StyleJson).then((response) => {
         response.json().then((glStyle) => {
 
@@ -268,8 +264,8 @@ export class OlmapComponent implements OnInit, OnChanges {
           fetch(this.getSpriteDataUrl(glStyle.sprite)).then((response2) => {
             response2.json().then((spritedata) => {
               const imageUrl = this.getSpriteImageUrl(glStyle.sprite);
-             
-              this.stfunction = stylefunction(vectorTileLayer, glStyle,source , resolutions, spritedata, imageUrl) as StyleFunction;
+
+              this.stfunction = stylefunction(vectorTileLayer, glStyle, source, resolutions, spritedata, imageUrl) as StyleFunction;
               //use applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
               vectorTileLayer.setStyle(this.doStyle.bind(this) as any);
 
@@ -314,6 +310,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       }
     }
 
+
   }
 
   private toBraile(instring: LabelType): LabelType {
@@ -335,15 +332,15 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.BGTtactiel:
       case Visualisatie.BGTstandaard:
       case Visualisatie.BGTachtergrond:
-      case Visualisatie.Bagstd:   
+      case Visualisatie.Bagstd:
         let legendTitle = this.colorMap.selector(prop)
 
         if (this.SelectedVisualisation === Visualisatie.BGTtactiel && isText) {
           isText = this.toBraile(isText);
-        }                                                                                                                                                            
+        }
 
         if (this.stfunction) {
-          let tmpstyle = this.stfunction(feature as FeatureLike, resolution);
+          let tmpstyle = this.stfunction(feature, resolution);
 
           if (this.colorMap.has(legendTitle)) {
             let exitingColor = this.colorMap.get(legendTitle);
@@ -359,22 +356,10 @@ export class OlmapComponent implements OnInit, OnChanges {
             if (this.SelectedVisualisation === Visualisatie.BGTtactiel && isText) {
               newcolor.mapbox = false;
             }
+            if (tmpstyle){
+            newcolor.rbgString = getFillColor(tmpstyle) as string
+            this.colorMap.set(legendTitle, newcolor)
 
-            if (tmpstyle) {
-              let stylearray = tmpstyle as Style[];
-              let fill = stylearray[0].getFill()
-              if (fill) {
-                let fillcolor = fill.getColor();
-                newcolor.rbgString = fillcolor as string;
-                this.colorMap.set(legendTitle, newcolor)
-                //add modified fill 
-              }
-              else {
-                // newcolor.rbgString = 'rgba(0,0,0,1)'
-                newcolor.style = stylearray[0];
-                this.colorMap.set(legendTitle, newcolor)
-                // add modified else
-              }
             }
 
             return tmpstyle;
@@ -382,8 +367,8 @@ export class OlmapComponent implements OnInit, OnChanges {
         }
         break;
 
-      case Visualisatie.BGTzerodefaultB_tegels:
-        case Visualisatie.BagKleurrijk_tegels:
+      //tempory disabled  case Visualisatie.BGTzerodefaultB_tegels:
+      case Visualisatie.BagKleurrijk_tegels:
         return (new DrawColor("default zero", feature, false, false).showfreshstyle(isText));
         break;
 
@@ -406,7 +391,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         return zcolor.showfreshstyle(isText);
         break;
 
-      case Visualisatie.Bagkleurrijk  :
+      case Visualisatie.Bagkleurrijk:
       case Visualisatie.BGTzerodefaultD_kleur:
         {
 
@@ -485,8 +470,8 @@ export class OlmapComponent implements OnInit, OnChanges {
     vectorTileLayer.set('renderMode', 'hybrid')
   }
 
-  showselectedFeature() {
-    return (this.selectedFeature !== undefined);
+  showselectedFeatures(): boolean {
+    return (this.selectedFeatures.length > 0);
   }
 
   NewColorMap() {

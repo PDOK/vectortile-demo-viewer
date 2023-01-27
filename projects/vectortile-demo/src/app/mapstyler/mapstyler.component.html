@@ -52,7 +52,8 @@
 
                         <div class="colorpick"><input [(colorPicker)]="x.value.rbgString"
                                 [style.background]="x.value.rbgString" [cpOutputFormat]="'rgba'"
-                                [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange(x)">
+                                [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange( x)"
+                                [cpSaveClickOutside]="true">
                         </div>
                     </ng-container>
                 </td>
@@ -74,7 +75,8 @@
                     <div *ngIf="x.value.show">
                         <div class="colorpick"><input [(colorPicker)]="x.value.rbgString"
                                 [style.background]="x.value.rbgString" [cpOutputFormat]="'rgba'"
-                                [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange(x)">
+                                [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange( x)"
+                                [cpSaveClickOutside]="true">>
                         </div>
                     </div>
                 </td>

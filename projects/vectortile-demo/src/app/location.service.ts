@@ -10,7 +10,7 @@ import Projection from 'ol/proj/Projection'
 import { Coordinate } from 'ol/coordinate';
 
 //const REFgeo=`https://geodata.nationaalgeoregister.nl/locatieserver/revgeo`
-const REFgeo=`https://api.pdok.nl/bzk/locatieserver/search/v3_0/reverse`
+const REFgeo=`https://api.pdok.nl/bzk/locatieserver/search/v3_1/reverse`
 
 export enum ChangeType {
   search = "search",

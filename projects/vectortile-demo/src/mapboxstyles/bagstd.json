@@ -12,53 +12,59 @@
     "glyphs": "styles/font/{fontstack}/{range}.pbf",
     "layers": [
         {
-            "id": "verblijfsobject",
-            "type": "circle",
-            "paint": {
-                "circle-color":"#4A4848" ,
-                "circle-opacity": 0.5 
-              
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
-            }, 
-                "source": "bag",
-                "source-layer": "verblijfsobject"
-            
-        },
-
-        {
-            "id": "outline pand",
-            "type": "line",
-            "paint": {
-                "line-color":  "#626262",
-                "line-width": 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-            }, 
-                "source": "bag",
-                "source-layer": "pand"
-            
-        },
-        {
-            "id": "pand",
+            "id": "fill woonplaats",
             "type": "fill",
             "paint": {
-                "fill-color": "#CCCCCC", 
-                "fill-outline-color": "#626262"
-
+                "fill-color": "#F8FAF9", 
+                "fill-opacity":"0.1" 
             },
             "source": "bag",
-            "source-layer": "pand"
-        }, 
+            "source-layer": "woonplaats"
+        },
 
         {
             "id": "outline woonplaats",
             "type": "line",
             "paint": {
-                "line-color":  "#626262",
-                "line-width": 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-            }, 
-                "source": "bag",
-                "source-layer": "woonplaats"
-            
-        }
+                "line-color": "#626262",
+                "line-width": 2
+            },
+            "source": "bag",
+            "source-layer": "woonplaats"
+        }, 
+        {
+            "id": "pand",
+            "type": "fill",
+            "paint": {
+                "fill-color": "#CCCCCC",
+                "fill-outline-color": "#626262", 
+                "fill-opacity":"0.5"
+            },
+            "source": "bag",
+            "source-layer": "pand"
+        },
+        {
+            "id": "outline pand",
+            "type": "line",
+            "paint": {
+                "line-color": "#626262",
+                "line-width": 2
+            },
+            "source": "bag",
+            "source-layer": "pand"
+        },
+
+        {
+            "id": "verblijfsobject",
+            "type": "circle",
+            "paint": {
+                "circle-color": "#4A4848",
+                "circle-opacity": 0.5
+            },
+            "source": "bag",
+            "source-layer": "verblijfsobject"
+        }    
+       
     ],
     "sources": {
         "bag": {

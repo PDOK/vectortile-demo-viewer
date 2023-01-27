@@ -1,16 +1,30 @@
 <div class="map-container" id="map1">
     <div class="toprightpanel">
         <div class="topbuttons">
-            <button class="topbutton" (click)="toggleShowDetails()" type="checkbox">Toon object (aan/uit)</button>
-            <button *ngIf="hasLegend()" class="topbutton" (click)="toggleShowLegend()" type="checkbox">Toon Legenda
-                (aan/uit)</button>
-            <button class="topbutton" (click)="toggleShowDemo()" type="checkbox">Demo Menu (aan/uit)</button>
+            <mat-slide-toggle class ="check" labelPosition="before"
+                [matTooltip]="isShowDetails ? 'Objectinformatie verbergen' : 'Objectinformatie tonen'"
+                aria-label="Toon object informatie" [checked]="isShowDetails" (click)="toggleShowDetails()">Toon
+                Objectinformatie</mat-slide-toggle>
+
+       
+                <mat-slide-toggle class ="check" labelPosition="before"
+                [matTooltip]="!hasLegend() ? 'Legenda verbergen' : 'Legenda tonen'"
+                aria-label="Toon Legenda" [checked]="!hasLegend()" (click)="toggleShowLegend()">Toon
+                Legenda</mat-slide-toggle>          
+
+
+                <mat-slide-toggle class ="check" labelPosition="before"
+                [matTooltip]="isShowDemo ? 'Demo menu verbergen' : 'Demo menu tonen'"
+                aria-label="Toon object informatie" [checked]="isShowDemo" (click)="toggleShowDemo()">Toon
+                Demo Menu</mat-slide-toggle>
+               
+
         </div>
         <div>
             <div *ngIf="isShowDetails">
-                <div *ngIf="showselectedFeature()">
+                <div *ngIf="showselectedFeatures()">
                     <div>
-                        <app-objectinfo [feature]="this.selectedFeature" [resolution]="this.viewRD.getResolution()"
+                        <app-objectinfo [features]="this.selectedFeatures" [resolution]="this.viewRD.getResolution()"
                             [styleFunction]="this.CurrentVectorTileLayer.getStyleFunction()">
                         </app-objectinfo>
                     </div>
@@ -18,8 +32,7 @@
             </div>
             <div *ngIf="hasLegend()">
                 <div *ngIf="isShowLegend">
-                    <app-mapstyler [Layer]="this.CurrentVectorTileLayer" 
-                    [ColorMap]="this.colorMap"> </app-mapstyler>
+                    <app-mapstyler [Layer]="this.CurrentVectorTileLayer" [ColorMap]="this.colorMap"> </app-mapstyler>
 
                 </div>
             </div>
@@ -32,13 +45,14 @@
 
 
                         <div>
-                            <button (click)="DemogotoStartLocationOnMap()" type="submit">Reset (einde demo)</button>
+                            <button type="button" (click)="DemogotoStartLocationOnMap()">Reset (einde demo)</button>
                         </div>
                         <div>
-                            <button (click)="DemoRandomLocationToggle()" type="checkbox">{{demotextLocatie}}</button>
+                            <button type="button" (click)="DemoRandomLocationToggle()"
+                                type="checkbox">{{demotextLocatie}}</button>
                         </div>
                         <div>
-                            <button (click)="DemoVisualisationToggle()"
+                            <button type="button" (click)="DemoVisualisationToggle()"
                                 type="checkbox">{{demotextVisualisatie}}</button>
                         </div>
 
@@ -68,7 +82,7 @@
                             </tbody>
                         </table>
 
-             
+
                         <app-mapexport [map]="this.map1"></app-mapexport>
 
                     </div>

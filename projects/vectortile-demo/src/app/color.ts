@@ -12,6 +12,37 @@ import { RegularShape } from "ol/style";
 export type LabelType = { text: string; rotation: number; font: string; backgroundfill: Fill }
 export type Annotation = LabelType | false
 
+export function getFillColor(st: void | Style | Style[]) {
+  
+    var color: string | number[] | CanvasGradient | CanvasPattern = "'#000000";
+
+    if (st instanceof Array) {
+      for (let element of st) {
+        const fill = element.getFill();
+        if (fill) {
+          if (fill.getColor()) {
+            color = fill.getColor() as string;
+          }
+        }
+        else {
+          //do nothing 
+        }
+      }
+    }
+    else {
+      let stStyle = st as any;
+      let colcolor = stStyle.fill_.color_ as string | number[] | CanvasGradient | CanvasPattern
+      color = colcolor;
+    }
+
+    if (color instanceof CanvasPattern) {
+      var canvas = true;
+      // not yet implemented boomgaard
+    }
+
+    return (color);
+  }
+
 export class DrawColor {
     isText() {
         if (this.annotation === false) {

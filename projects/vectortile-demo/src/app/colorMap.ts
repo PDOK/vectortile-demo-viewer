@@ -89,11 +89,14 @@ export class ColorMap implements IColorMap {
     }
 
     private getTitle(layername: string, props: IProperties): string {
-        var title = ""
+        let title = ""
         title = gettext(title, 'type');
         title = gettext(title, 'plus_type');
         title = gettext(title, 'functie');
         title = gettext(title, 'fysiek_voorkomen');
+
+        title = gettext(title, 'status');
+       // title = gettext(title, 'gebruiksdoel'); 
         if (title === "") {
             title = layername;
 

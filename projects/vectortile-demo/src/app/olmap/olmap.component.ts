@@ -20,7 +20,7 @@ import { ColorMap, LegendLevel } from '../colorMap';
 import { getJsonurl, getRandomEnumValue, Visualisatie } from '../enumVisualisatie';
 import { LocationService, ViewLocation } from '../location.service';
 
-import { tileurlBAG, tileurlBGT, VectorTileUrl } from './tileurl';
+import { getSpriteDataUrl, getSpriteImageUrl, tileurlBAG, tileurlBGT, VectorTileUrl } from './tileurl';
 
 @Component({
   selector: 'app-olmap',
@@ -94,16 +94,10 @@ export class OlmapComponent implements OnInit, OnChanges {
   isShowDetails: boolean = false;
   isShowLegend: boolean = false;
   isShowDemo: boolean = false;
-  isDemoLocatieRotate: boolean = false;
-  isDemoVisualisatieRotate: boolean = false;
 
-  demotextLocatieAan: string = 'Willekeurige locatie roulerend (aan)';
-  demotextLocatieUit: string = 'Willekeurige locatie roulerend (uit)';
-  demotextLocatie = this.demotextLocatieAan
 
-  demotextVisualisatieAan: string = 'Willekeurige visualisatie roulerend (aan)';
-  demotextVisualisatieUit: string = 'Willekeurige visualisatie roulerend (uit)';
-  demotextVisualisatie = this.demotextVisualisatieAan
+
+
 
   detailsupdate: boolean = true;
 
@@ -230,6 +224,13 @@ export class OlmapComponent implements OnInit, OnChanges {
     }
 
     return (color);
+
+  }
+
+  visualisationChange(data: Visualisatie){
+    this.SelectedVisualisation = data; 
+    this.changeStyleJson(); 
+       
   }
 
   private changeStyleJson() {
@@ -261,9 +262,9 @@ export class OlmapComponent implements OnInit, OnChanges {
           // applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
           //"instead of the following: 
 
-          fetch(this.getSpriteDataUrl(glStyle.sprite)).then((response2) => {
+          fetch(getSpriteDataUrl(glStyle.sprite)).then((response2) => {
             response2.json().then((spritedata) => {
-              const imageUrl = this.getSpriteImageUrl(glStyle.sprite);
+              const imageUrl = getSpriteImageUrl(glStyle.sprite);
 
               this.stfunction = stylefunction(vectorTileLayer, glStyle, source, resolutions, spritedata, imageUrl) as StyleFunction;
               //use applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
@@ -483,78 +484,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     this.vectorTileLayerRD.getSource()!.refresh();
   }
 
-  DemoRandomLocationToggle() {
-    this.isDemoLocatieRotate = !this.isDemoLocatieRotate
-    if (this.isDemoLocatieRotate) {
-      this.demotextLocatie = this.demotextLocatieUit;
-      this.gotoRandomLocation();
-    } else {
-      this.demotextLocatie = this.demotextLocatieAan;
-    }
-  }
 
-  DemogotoStartLocationOnMap() {
-    this.isShowDetails = false;
-    this.isShowLegend = false;
-    this.isShowDemo = false;
-    this.isDemoVisualisatieRotate = false;
-    this.isDemoLocatieRotate = false;
-    this.SelectedVisualisation = Visualisatie.BGTstandaard;
-    const newloc = this.locationService.initialView;
-    this.changeStyleJson();
-    this.locationService.changeView(newloc);
-  }
-
-  DemoVisualisationToggle() {
-    this.isDemoVisualisatieRotate = !this.isDemoVisualisatieRotate
-    if (this.isDemoVisualisatieRotate) {
-      this.demotextVisualisatie = this.demotextVisualisatieUit;
-      this.SelectedVisualisation = Visualisatie.BGTachtergrond;
-      this.repeating_style_function()
-    } else {
-      this.demotextVisualisatie = this.demotextVisualisatieAan;
-    }
-  }
-
-
-  gotoRandomLocation() {
-    if (this.isDemoLocatieRotate) {
-      var dx = 155000 + Math.round(Math.random() * 50000)
-      var dy = 463000 + Math.round(Math.random() * 50000)
-      const newloc = new View({
-        projection: this.locationService.rdProjection,
-        center: [dx, dy],
-        zoom: 13,
-        enableRotation: false
-
-      });
-      this.locationService.changeView(newloc);
-      setTimeout(() => { this.gotoRandomLocation() }, 8000);
-    }
-  }
-
-  repeating_style_function() {
-    if (this.isDemoVisualisatieRotate) {
-      this.SelectedVisualisation = getRandomEnumValue(Visualisatie);
-      this.changeStyleJson();
-      setTimeout(() => { this.repeating_style_function() }, Math.round(Math.random() * 4000));
-    }
-  }
-
-
-  getSpriteImageUrl(url: string) {
-    const spriteScale = window.devicePixelRatio >= 1.5 ? 0.5 : 1;
-    const sizeFactor = spriteScale == 0.5 ? '@2x' : '';
-    return (url + sizeFactor + '.png')
-
-  }
-
-  getSpriteDataUrl(url: string) {
-    const spriteScale = window.devicePixelRatio >= 1.5 ? 0.5 : 1;
-    const sizeFactor = spriteScale == 0.5 ? '@2x' : '';
-    return (url + sizeFactor + '.json')
-
-  }
 
 
 

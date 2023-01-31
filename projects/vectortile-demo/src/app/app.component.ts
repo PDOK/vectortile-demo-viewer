@@ -32,16 +32,20 @@ export class AppComponent implements OnInit {
 
   toggleShow() {
     this.isShow = !this.isShow;
+    this.visualisatie = getAllVisualisaties();
+
   }
 
   receiveTitle(data: Visualisatie){
     this.currentVis = data; 
+    
      
   }
 
   onSelect(vis: Visualisatie): void {
     this.currentVis = vis;
     this.isShow = false;
+  
   }
 
 

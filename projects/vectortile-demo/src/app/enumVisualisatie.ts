@@ -1,5 +1,5 @@
 export enum Visualisatie {
- 
+
   Bagstd = "BAG Visualisatie",
   Bagblanko = "BAG (Blanco) visualisatie",
   Bagkleurrijk = "BAG (Kleurrijk) visualisatie",
@@ -14,14 +14,14 @@ export enum Visualisatie {
   BGTtactiel = "BGT Vectortile Tactiele (Braille) Visualisatie"
 }
 
-export type StyleUrl=
-{
-  source:"bag"|"bgt"|"unknown"
-  url: string 
+export type StyleUrl =
+  {
+    source: "bag" | "bgt" | "unknown"
+    url: string
 
-}
+  }
 
-export function getJsonurl(vis: Visualisatie):StyleUrl {
+export function getJsonurl(vis: Visualisatie): StyleUrl {
   const BGTmapboxachtergrondjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/achtergrondvisualisatie?f=mapbox';
   const BGTmapboxstandaardjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/standaardvisualisatie?f=mapbox'
   const BGTmapboxtactieljsonurl = 'styles/tactielevisualisatie.json'
@@ -32,20 +32,20 @@ export function getJsonurl(vis: Visualisatie):StyleUrl {
   //const mapboxachtergrondjsonurl = 'styles/achtergrondvisualisatie.json';
   //const mapboxstandaardjsonurl = 'styles/standaardvisualisatie.json'
 
-  
+
   switch (vis) {
     case Visualisatie.BGTachtergrond:
-      return ({source: "bgt", url: BGTmapboxachtergrondjsonurl});
+      return ({ source: "bgt", url: BGTmapboxachtergrondjsonurl });
 
     case Visualisatie.BGTstandaard:
-      return ({source:"bgt", url:BGTmapboxstandaardjsonurl})
+      return ({ source: "bgt", url: BGTmapboxstandaardjsonurl })
     case Visualisatie.BGTtactiel:
-      return ({source:"bgt", url:BGTmapboxtactieljsonurl})
+      return ({ source: "bgt", url: BGTmapboxtactieljsonurl })
     case Visualisatie.Bagstd:
-      return ({source:"bag", url:BAGmapboxbagstd})
+      return ({ source: "bag", url: BAGmapboxbagstd })
 
     default:
-      return ({source:"unknown", url: ""})
+      return ({ source: "unknown", url: "" })
 
   }
 
@@ -55,11 +55,31 @@ function enumKeys<O extends object, K extends keyof O = keyof O>(obj: O): K[] {
   return Object.keys(obj).filter(k => Number.isNaN(+k)) as K[];
 }
 
+export class FeatureToggle {
+
+  public static BAGPreview = false;
+
+
+}
+
+
+
 export function getAllVisualisaties(): Visualisatie[] {
+
   let array: Visualisatie[] = [];
   for (const value of enumKeys(Visualisatie)) {
-    array.push(Visualisatie[value]);
+    if (FeatureToggle.BAGPreview) {
+      array.push(Visualisatie[value]);
+    } else {
+      if (value.includes("BGT")) {
+        array.push(Visualisatie[value]);
+
+      }
+
+    }
+
   }
+
   return array
 }
 

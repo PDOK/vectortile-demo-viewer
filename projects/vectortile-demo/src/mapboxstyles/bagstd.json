@@ -15,13 +15,12 @@
             "id": "fill woonplaats",
             "type": "fill",
             "paint": {
-                "fill-color": "#F8FAF9", 
-                "fill-opacity":"0.1" 
+                "fill-color": "#F8FAF9",
+                "fill-opacity": "0.1"
             },
             "source": "bag",
             "source-layer": "woonplaats"
         },
-
         {
             "id": "outline woonplaats",
             "type": "line",
@@ -31,14 +30,35 @@
             },
             "source": "bag",
             "source-layer": "woonplaats"
-        }, 
+        },
+        {
+            "id": "standplaats",
+            "type": "fill",
+            "paint": {
+                "fill-color": "#dca9d0",
+                "fill-outline-color": "#626262",
+                "fill-opacity": "0.5"
+            },
+            "source": "bag",
+            "source-layer": "standplaats"
+        },
+        {
+            "id": "outline standplaats",
+            "type": "line",
+            "paint": {
+                "line-color": "#00000",
+                "line-width": 0.5
+            },
+            "source": "bag",
+            "source-layer": "standplaats"
+        },
         {
             "id": "pand",
             "type": "fill",
             "paint": {
                 "fill-color": "#CCCCCC",
-                "fill-outline-color": "#626262", 
-                "fill-opacity":"0.5"
+                "fill-outline-color": "#626262",
+                "fill-opacity": "0.5"
             },
             "source": "bag",
             "source-layer": "pand"
@@ -53,18 +73,46 @@
             "source": "bag",
             "source-layer": "pand"
         },
-
         {
-            "id": "verblijfsobject",
+            "id": "ligplaats",
+            "type": "fill",
+            "paint": {
+                "fill-color": "#96D1E3",
+                "fill-outline-color": "#555555",
+                "fill-opacity": "0.35"
+            },
+            "source": "bag",
+            "source-layer": "ligplaats"
+        },
+        {
+            "id": "outline ligplaats",
+            "type": "line",
+            "paint": {
+                "line-color": "#555555",
+                "line-width": 0.5
+            },
+            "source": "bag",
+            "source-layer": "ligplaats"
+        },
+        {
+            "id": "verblijfsobject-outline",
             "type": "circle",
             "paint": {
-                "circle-color": "#4A4848",
-                "circle-opacity": 0.5
+                "circle-color": "#00000",
+                "circle-radius": 300
             },
             "source": "bag",
             "source-layer": "verblijfsobject"
-        }    
-       
+        },
+        {
+            "id": "verblijfsobject fill",
+            "type": "circle",
+            "paint": {
+                "circle-color": "#FF9900"
+            },
+            "source": "bag",
+            "source-layer": "verblijfsobject"
+        }
     ],
     "sources": {
         "bag": {

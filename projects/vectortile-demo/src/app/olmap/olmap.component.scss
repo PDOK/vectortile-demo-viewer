@@ -119,7 +119,8 @@
   flex: 1;
   min-height: var(--buttonheight, 1vh);
   height: var(--buttonheight, 1vh);
-  text-align: center;
+  width: 100%;
+  text-align: center; 
   margin-top: 0.5vh;
   margin-left: 0.5vw;
   margin-right: 0.2vw;

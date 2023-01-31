@@ -34,6 +34,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   private SelectedVisualisation: Visualisatie = Visualisatie.BGTachtergrond;
   private stfunction: StyleFunction | undefined;
   colorMap = new ColorMap(LegendLevel.d1_layer);
+  showUrl ="" 
   @Input() set visualisation(vis: Visualisatie) {
     this.SelectedVisualisation = vis;
     this.colorMap.setSelector(LegendLevel.d1_layer);
@@ -247,9 +248,11 @@ export class OlmapComponent implements OnInit, OnChanges {
     let source = JsonUrl.source
     if (source == "bag") {
       this.setTileSource(this.rdProjection, this.vectorTileLayerRD, tileurlBAG, 12);
+      this.showUrl= tileurlBAG.url; 
     }
     if (source == "bgt") {
       this.setTileSource(this.rdProjection, this.vectorTileLayerRD, tileurlBGT, 12);
+      this.showUrl= tileurlBGT.url
     }
 
 
@@ -457,9 +460,19 @@ export class OlmapComponent implements OnInit, OnChanges {
     })
   }
 
-  getVectorTileUrl(tileEndpoint: VectorTileUrl = tileurlBGT) {
+  getVectorTileUrl(tileEndpoint: VectorTileUrl ) {
     return `${tileEndpoint.url}/{z}/{x}/{y}${tileEndpoint.extension}`;
+   
   }
+
+  getShowTileUrl()
+  {
+    return (this.showUrl) 
+
+
+  }
+
+  
 
   setTileSource(projection: Projection, vectorTileLayer: VectorTileLayer, tileEndpoint: VectorTileUrl, zoom: number) {
 

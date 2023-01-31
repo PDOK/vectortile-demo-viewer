@@ -95,24 +95,29 @@
             "source-layer": "ligplaats"
         },
         {
-            "id": "verblijfsobject-outline",
+            "id": "verblijfsobject outline",
             "type": "circle",
             "paint": {
-                "circle-color": "#00000",
-                "circle-radius": 300
+                "circle-color": "#000000", 
+                "circle-radius": 10
             },
             "source": "bag",
             "source-layer": "verblijfsobject"
-        },
+        } , 
         {
             "id": "verblijfsobject fill",
             "type": "circle",
             "paint": {
-                "circle-color": "#FF9900"
+                "circle-color": "#FF9900", 
+                "circle-radius": 7
             },
             "source": "bag",
             "source-layer": "verblijfsobject"
-        }
+        } 
+        
+      
+      
+        
     ],
     "sources": {
         "bag": {

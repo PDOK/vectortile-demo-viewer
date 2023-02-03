@@ -29,10 +29,11 @@ export interface IColorMap {
 export class ColorMap implements IColorMap {
     private legendLevel: LegendLevel;
     getLegendLevel(): LegendLevel {
-        return this.legendLevel;
-    };
+        return this.legendLevel
+    }
+    
     setSelector(selector: LegendLevel): void {
-        this.legendLevel = selector;
+        this.legendLevel = selector
         this.clear();
     }
     get(title: string) {
@@ -45,7 +46,8 @@ export class ColorMap implements IColorMap {
         this.items.set(title, newcolor)
     }
     clear() {
-        this.items.clear();
+       this.items.clear()
+          
     }
     items: Map<string, DrawColor>;
     constructor(s: LegendLevel) {
@@ -89,11 +91,13 @@ export class ColorMap implements IColorMap {
     }
 
     private getTitle(layername: string, props: IProperties): string {
-        var title = ""
+        let title = ""
         title = gettext(title, 'type');
         title = gettext(title, 'plus_type');
         title = gettext(title, 'functie');
         title = gettext(title, 'fysiek_voorkomen');
+        title = gettext(title, 'status');
+    
         if (title === "") {
             title = layername;
 

@@ -12,40 +12,41 @@
   height: var(--buttonxheight, 98vh);
   top: var(--buttontop, 1vh);
   z-index: 4;
- 
+
 }
+
 .topbuttons {
   display: flex;
   min-height: var(--buttonheight, 1vh);
 }
+
 .topbutton {
   flex: 1;
   min-height: var(--buttonheight, 1vh);
-  height: var(--buttonheight, 1vh) ; 
+  height: var(--buttonheight, 1vh);
   font-size: var(--fontsize, 2.5vh);
   font-family: var(--font-family, "Roboto");
   margin-top: 0.5vh;
   margin-left: 0.5vw;
   margin-right: 0.2vw
-
 }
 
 
-  .button-area{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;  
-   align-items:center ;
+.button-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 
-     
+
 }
 
 .button-area button {
- 
+
   margin-right: 0.2vw;
   margin-top: 0.2vh;
   margin-bottom: 0.2vh;
-  
+
 }
 
 
@@ -55,28 +56,27 @@
   background-color: white;
   margin-top: 1em;
   margin-bottom: 1em;
-  margin-right:1em; 
+  margin-right: 1em;
   display: flex;
   flex-direction: column;
   font-family: var(--font-family, "Roboto");
   font-size: var(--fontsize, 2.5vh);
 
 }
+
 .demobox {
   margin: 1em;
   flex: 1;
   max-height: 70vh;
 }
 
-.demobox button{
+.demobox button {
   width: 80%;
-  margin-left:1vw; 
+  margin-left: 1vw;
   text-align: left;
   margin-right: 1vw;
   margin-top: 1vh;
   margin-bottom: 1vh
-
-
 }
 
 
@@ -85,6 +85,7 @@
   text-align: right;
   margin-right: 16vw;
 }
+
 .colorpick {
   z-index: 3;
 }
@@ -94,3 +95,48 @@
   font-weight: bold;
 }
 
+.mat-mdc-slide-toggle.mat-accent {
+  --mdc-switch-selected-focus-state-layer-color: var(--pdokblauw, #1a1e4f);
+  --mdc-switch-selected-handle-color: var(--pdokblauw, #1a1e4f);
+  --mdc-switch-selected-hover-state-layer-color: var(--pdokblauw, #1a1e4f);
+  --mdc-switch-selected-pressed-state-layer-color: var(--pdokblauw, #1a1e4f);
+  --mdc-switch-selected-focus-handle-color: var(--pdokblauw, #1a1e4f);
+  --mdc-switch-selected-hover-handle-color: var(--pdokblauw, #1a1e4f);
+  --mdc-switch-selected-pressed-handle-color: var(--pdokblauw, #1a1e4f);
+  --mdc-switch-selected-focus-track-color: var(--blue-100, #1a1e4f);
+  --mdc-switch-selected-hover-track-color: var(--blue-100, #1a1e4f);
+  --mdc-switch-selected-pressed-track-color: var(--blue-100, #1a1e4f);
+  --mdc-switch-selected-track-color: var(--blue-100, #1a1e4f);
+
+}
+
+.check {
+
+  top: var(--buttontop, 0.5vh);
+  font-family: var(--font-family, "Roboto");
+  font-size: var(--fontsize, 1vh);
+
+  flex: 1;
+  min-height: var(--buttonheight, 1vh);
+  height: var(--buttonheight, 1vh);
+  width: 100%;
+  text-align: center; 
+  margin-top: 0.5vh;
+  margin-left: 0.5vw;
+  margin-right: 0.2vw;
+  background-color: whitesmoke
+}
+
+
+
+.mdc-switch__track {
+  background-color: greenyellow
+}
+
+.mdc-form-field {
+
+  min-height: var(--buttonheight, 1vh);
+  font-family: var(--font-family, "Roboto");
+  font-size: var(--fontsize, 1vh);
+
+}

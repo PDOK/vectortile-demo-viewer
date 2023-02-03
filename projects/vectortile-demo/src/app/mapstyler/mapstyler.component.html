@@ -17,12 +17,6 @@
                             <button (click)="NewColorMap()" type="checkbox">Reset Legenda</button>
                         </div>
 
-                        <!--div class="container">
-                        <label class="switch" for="checkbox">
-                          <input type="checkbox" id="checkbox" />
-                          <div class="slider round"></div>
-                        </label>
-                      </div-->
 
                         <div class="legend-button-area-item" *ngFor="let v of detaillevel | keyvalue"
                             (click)="onSelectLevel(v.value)">
@@ -52,7 +46,8 @@
 
                         <div class="colorpick"><input [(colorPicker)]="x.value.rbgString"
                                 [style.background]="x.value.rbgString" [cpOutputFormat]="'rgba'"
-                                [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange(x)">
+                                [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange( x)"
+                                [cpSaveClickOutside]="true">
                         </div>
                     </ng-container>
                 </td>
@@ -68,13 +63,14 @@
             <tr *ngFor="let x of getItems(false)  | keyvalue: valueAscOrder">
 
                 <td>{{x.key }}</td>
-                <!--td [ngStyle]="x.value.backgroundRbgString()">hier </td-->
+                <!--this can be done here for debug:  td [ngStyle]="x.value.backgroundRbgString()">hier </td-->
                 <td> <input type="checkbox" [checked]="x.value.show" (change)="onCheckboxChange($event, x)" />
                 <td>
                     <div *ngIf="x.value.show">
                         <div class="colorpick"><input [(colorPicker)]="x.value.rbgString"
                                 [style.background]="x.value.rbgString" [cpOutputFormat]="'rgba'"
-                                [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange(x)">
+                                [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange( x)"
+                                [cpSaveClickOutside]="true">
                         </div>
                     </div>
                 </td>

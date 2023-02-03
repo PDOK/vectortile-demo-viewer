@@ -11,9 +11,9 @@
             <button class="selectbutton" (click)="toggleShow()" type="checkbox">{{currentVis}}</button>
             <div *ngIf="isShow" id="divshow">
                 <div>
-                    <div *ngFor="let v of visualisatie | keyvalue" (click)="onSelect(v.value)">
+                    <div *ngFor="let v of visualisatie " (click)="onSelect(v)">
                         <button class="selectbutton">
-                            <span>{{v.value}}</span>
+                            <span>{{v}}</span>
                         </button>
                     </div>
                 </div>

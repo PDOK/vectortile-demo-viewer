@@ -8,6 +8,10 @@ import WKT from 'ol/format/WKT';
 import { Point } from 'ol/geom';
 import Projection from 'ol/proj/Projection'
 import { Coordinate } from 'ol/coordinate';
+
+//const REFgeo=`https://geodata.nationaalgeoregister.nl/locatieserver/revgeo`
+const REFgeo=`https://api.pdok.nl/bzk/locatieserver/search/v3_1/reverse`
+
 export enum ChangeType {
   search = "search",
   move = "move"
@@ -112,7 +116,7 @@ export class LocationService {
 
   async getLocationName(xy: Coordinate): Promise<string> {
     let params = new HttpParams().append('X', xy[0]).append('Y', xy[1]).append('rows', 1);
-    var doc = await this.http.get<Locserver>(`https://geodata.nationaalgeoregister.nl/locatieserver/revgeo`, {params}).toPromise();
+    var doc = await this.http.get<Locserver>(REFgeo, {params}).toPromise();
     if (doc!.response.docs[0].weergavenaam) {
       return doc!.response.docs[0].weergavenaam
     }

@@ -25,7 +25,7 @@
                 <div *ngIf="showselectedFeatures()">
                     <div>
                         <app-objectinfo [features]="this.selectedFeatures" [resolution]="this.viewRD.getResolution()"
-                            [styleFunction]="this.CurrentVectorTileLayer.getStyleFunction()">
+                            [styleFunction]="this.CurrentVectorTileLayer.getStyleFunction()!">
                         </app-objectinfo>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                                 </tr>
                                 <tr>
                                     <td>Style api</td>
-                                    <td><app-showlink [url]=getStyleUrl()></app-showlink></td>
+                                    <td><app-showlink [url]=getShowStyleUrl()></app-showlink></td>
                             </tbody>
                         </table>
                         <app-mapexport [map]="this.map1"></app-mapexport>

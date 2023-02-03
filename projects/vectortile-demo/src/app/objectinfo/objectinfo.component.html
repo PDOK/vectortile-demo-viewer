@@ -13,7 +13,11 @@
                 </tr>
                 <tr *ngFor="let f of  getFeatureProperties(feature)">
                     <td>{{f.title }}</td>
-                    <td>{{f.value}}</td>
+                    <td *ngIf="isLink(f); else elseBlock"><app-showlink [url]="f.value"> </app-showlink></td>
+                    <ng-template #elseBlock>{{f.value}} </ng-template>
+            
+
+
                 </tr>
 
             </tbody>

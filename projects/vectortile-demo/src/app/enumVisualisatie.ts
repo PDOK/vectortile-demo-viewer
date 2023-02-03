@@ -16,12 +16,12 @@ export enum Visualisatie {
 
 export type StyleUrl =
   {
-    source: "bag" | "bgt" | "unknown"
-    url: string
+    source: "bag" | "bgt" 
+    url: string | undefined
 
   }
 
-export function getJsonurl(vis: Visualisatie): StyleUrl {
+export function getStyleUrl(vis: Visualisatie): StyleUrl {
   const BGTmapboxachtergrondjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/achtergrondvisualisatie?f=mapbox';
   const BGTmapboxstandaardjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/standaardvisualisatie?f=mapbox'
   const BGTmapboxtactieljsonurl = 'styles/tactielevisualisatie.json'
@@ -43,9 +43,18 @@ export function getJsonurl(vis: Visualisatie): StyleUrl {
       return ({ source: "bgt", url: BGTmapboxtactieljsonurl })
     case Visualisatie.Bagstd:
       return ({ source: "bag", url: BAGmapboxbagstd })
+    case Visualisatie.BGTzerodefaultA_blanco:
+    case Visualisatie.BGTzerodefaultC_Bron:
+    case Visualisatie.BGTzerodefaultD_kleur:
+      return ({ source: "bgt", url: undefined });
+    case Visualisatie.Bagblanko:
+    case Visualisatie.Bagkleurrijk:
+    case Visualisatie.BagKleurrijk_tegels:
+      return ({ source: "bag", url: undefined });
 
     default:
-      return ({ source: "unknown", url: "" })
+
+      return exhaustiveGuard(vis);
 
   }
 
@@ -53,6 +62,10 @@ export function getJsonurl(vis: Visualisatie): StyleUrl {
 
 function enumKeys<O extends object, K extends keyof O = keyof O>(obj: O): K[] {
   return Object.keys(obj).filter(k => Number.isNaN(+k)) as K[];
+}
+
+export function exhaustiveGuard(_value: never): never {
+  throw new Error(`ERROR! Reached forbidden guard function with unexpected value: ${JSON.stringify(_value)}`);
 }
 
 export class FeatureToggle {
@@ -66,7 +79,7 @@ export class FeatureToggle {
 
 export function getAllVisualisaties(): Visualisatie[] {
 
-  let array: Visualisatie[] = [];
+  const array: Visualisatie[] = [];
   for (const value of enumKeys(Visualisatie)) {
     if (FeatureToggle.BAGPreview) {
       array.push(Visualisatie[value]);
@@ -83,7 +96,7 @@ export function getAllVisualisaties(): Visualisatie[] {
   return array
 }
 
-export function getRandomEnumValue<T extends Object>(anEnum: T): T[keyof T] {
+export function getRandomEnumValue<T extends object>(anEnum: T): T[keyof T] {
   //save enums inside array
   const enumValues = Object.keys(anEnum) as Array<keyof T>;
 

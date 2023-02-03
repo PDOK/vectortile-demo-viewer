@@ -13,11 +13,11 @@ import { DEVICE_PIXEL_RATIO } from 'ol/has';
 import Projection from 'ol/proj/Projection';
 import VectorTileSource from 'ol/source/VectorTile.js';
 import Fill from 'ol/style/Fill';
-import Style, { StyleFunction } from 'ol/style/Style';
+import { StyleFunction } from 'ol/style/Style';
 import TileGrid from 'ol/tilegrid/TileGrid';
 import { Annotation, DrawColor, getFillColor, LabelType } from "../color";
 import { ColorMap, LegendLevel } from '../colorMap';
-import { getJsonurl, getRandomEnumValue, Visualisatie } from '../enumVisualisatie';
+import { Visualisatie, getStyleUrl, exhaustiveGuard } from '../enumVisualisatie';
 import { LocationService, ViewLocation } from '../location.service';
 
 import { getSpriteDataUrl, getSpriteImageUrl, tileurlBAG, tileurlBGT, VectorTileUrl } from './tileurl';
@@ -25,7 +25,7 @@ import { getSpriteDataUrl, getSpriteImageUrl, tileurlBAG, tileurlBGT, VectorTile
 @Component({
   selector: 'app-olmap',
   templateUrl: './olmap.component.html',
-  styleUrls: ['./olmap.component.scss'], 
+  styleUrls: ['./olmap.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 
@@ -34,7 +34,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   private SelectedVisualisation: Visualisatie = Visualisatie.BGTachtergrond;
   private stfunction: StyleFunction | undefined;
   colorMap = new ColorMap(LegendLevel.d1_layer);
-  showUrl ="" 
+  showUrl = ""
   @Input() set visualisation(vis: Visualisatie) {
     this.SelectedVisualisation = vis;
     this.colorMap.setSelector(LegendLevel.d1_layer);
@@ -92,15 +92,15 @@ export class OlmapComponent implements OnInit, OnChanges {
   public selectedFeatures: FeatureLike[] = [];
   currentlocation: ViewLocation | undefined;
 
-  isShowDetails: boolean = false;
-  isShowLegend: boolean = false;
-  isShowDemo: boolean = false;
+  isShowDetails = false;
+  isShowLegend = false;
+  isShowDemo = false;
 
 
 
 
 
-  detailsupdate: boolean = true;
+  detailsupdate = true;
 
   constructor(private router: Router, private locationService: LocationService) {
 
@@ -109,7 +109,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.locationService.currentLocation.subscribe(currentLocation => {
       this.currentlocation = currentLocation;
-      let cview = this.map1.getView();
+      const cview = this.map1.getView();
       if (currentLocation.view) {
         cview.setCenter(currentLocation.view.getCenter());
       }
@@ -123,7 +123,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     })
 
     const that = this;
-    this.map1.on(['moveend'], function (event) {
+    this.map1.on(['moveend'], function () {
       that.locationService.changeView(that.map1.getView());
     });
 
@@ -132,7 +132,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       const that2 = that;
       that2.selectedFeatures = []
       if (that.detailsupdate) {
-        that.map1.forEachFeatureAtPixel(e.pixel, function (feature, layer) {
+        that.map1.forEachFeatureAtPixel(e.pixel, function (feature) {
           if (feature) {
             that2.selectedFeatures.push(feature);
           }
@@ -153,7 +153,6 @@ export class OlmapComponent implements OnInit, OnChanges {
 
     this.changeStyleJson();
 
-    ;
   }
 
   toggleShowDetails() {
@@ -173,7 +172,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   getZoomLevel() {
-    let view = this.map1.getView();
+    const view = this.map1.getView();
     return (view.getZoom()?.toFixed(1));
   }
 
@@ -181,9 +180,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     return DEVICE_PIXEL_RATIO;
   }
 
-  getStyleUrl() {
-    return (getJsonurl(this.SelectedVisualisation).url)
-  }
+
 
   getResolutionsVt(z = 9) {
     return this.getMatrixIdsVt(z).map(x => 3440.64 / 2 ** (x))
@@ -204,23 +201,24 @@ export class OlmapComponent implements OnInit, OnChanges {
 
 
   getFillColor(feature: Feature<Geometry>, layer: VectorTileLayer, view: View) {
-    var mpstyle = layer.getStyleFunction();
-    var reso = view.getResolution();
+    const mpstyle = layer.getStyleFunction();
+    const reso = view.getResolution();
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const st = mpstyle!(feature, reso!);
-    var color: string | number[] | CanvasGradient | CanvasPattern = "";
+    let color: string | number[] | CanvasGradient | CanvasPattern = "";
 
     if (st instanceof Array) {
       const fill = st[st.length - 1].getFill();
       color = fill.getColor() as string;
     }
     else {
-      var stStyle = st as any;
-      var colcolor = stStyle.fill_.color_ as string | number[] | CanvasGradient | CanvasPattern
+      const stStyle = st as any;
+      const colcolor = stStyle.fill_.color_ as string | number[] | CanvasGradient | CanvasPattern
       color = colcolor;
     }
 
     if (color instanceof CanvasPattern) {
-      var canvas = true;
+      const canvas = true;
       // not yet implemented boomgaard
     }
 
@@ -228,10 +226,10 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   }
 
-  visualisationChange(data: Visualisatie){
-    this.SelectedVisualisation = data; 
-    this.changeStyleJson(); 
-       
+  visualisationChange(data: Visualisatie) {
+    this.SelectedVisualisation = data;
+    this.changeStyleJson();
+
   }
 
   private changeStyleJson() {
@@ -239,25 +237,25 @@ export class OlmapComponent implements OnInit, OnChanges {
     this.calcMatrixAndResolutions(this.rdProjection);
     this.map1.setView(this.viewRD);
     this.titelEmit.emit(this.SelectedVisualisation);
-    let vectorTileLayer = this.vectorTileLayerRD;
-    let resolutions = this.resolutions;
+    const vectorTileLayer = this.vectorTileLayerRD;
+    const resolutions = this.resolutions;
     this.map1.setView(this.viewRD)
     vectorTileLayer.setVisible(true);
-    let JsonUrl = getJsonurl(this.SelectedVisualisation)
-    let StyleJson = JsonUrl.url
-    let source = JsonUrl.source
-    if (source == "bag") {
+    const JsonUrl = getStyleUrl(this.SelectedVisualisation)
+
+
+    if (JsonUrl.source == "bag") {
       this.setTileSource(this.rdProjection, this.vectorTileLayerRD, tileurlBAG, 12);
-      this.showUrl= tileurlBAG.url; 
+      this.showUrl = tileurlBAG.url;
     }
-    if (source == "bgt") {
+    if (JsonUrl.source == "bgt") {
       this.setTileSource(this.rdProjection, this.vectorTileLayerRD, tileurlBGT, 12);
-      this.showUrl= tileurlBGT.url
+      this.showUrl = tileurlBGT.url
     }
 
 
-    if (source != "unknown") {
-      fetch(StyleJson).then((response) => {
+    if (JsonUrl.url) {
+      fetch(JsonUrl.url).then((response) => {
         response.json().then((glStyle) => {
 
           //if you just want simply apply on style use "
@@ -269,7 +267,7 @@ export class OlmapComponent implements OnInit, OnChanges {
             response2.json().then((spritedata) => {
               const imageUrl = getSpriteImageUrl(glStyle.sprite);
 
-              this.stfunction = stylefunction(vectorTileLayer, glStyle, source, resolutions, spritedata, imageUrl) as StyleFunction;
+              this.stfunction = stylefunction(vectorTileLayer, glStyle, JsonUrl.source, resolutions, spritedata, imageUrl) as StyleFunction;
               //use applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
               vectorTileLayer.setStyle(this.doStyle.bind(this) as any);
 
@@ -307,7 +305,6 @@ export class OlmapComponent implements OnInit, OnChanges {
 
 
 
-          break;
         default:
           vectorTileLayer.setStyle(this.doStyle.bind(this) as any);
           break;
@@ -336,33 +333,34 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.BGTtactiel:
       case Visualisatie.BGTstandaard:
       case Visualisatie.BGTachtergrond:
-      case Visualisatie.Bagstd:
-        let legendTitle = this.colorMap.selector(prop)
+      case Visualisatie.Bagstd: {
+        const legendTitle = this.colorMap.selector(prop)
 
         if (this.SelectedVisualisation === Visualisatie.BGTtactiel && isText) {
           isText = this.toBraile(isText);
         }
 
         if (this.stfunction) {
-          let tmpstyle = this.stfunction(feature, resolution);
+          const tmpstyle = this.stfunction(feature, resolution);
+
 
           if (this.colorMap.has(legendTitle)) {
-            let exitingColor = this.colorMap.get(legendTitle);
-            if (exitingColor!.show) {
-              return (exitingColor!.showfreshstyle(isText, tmpstyle));
+            const exitingColor = this.colorMap.get(legendTitle);
+            if (exitingColor?.show) {
+              return (exitingColor.showfreshstyle(isText, tmpstyle));
 
             }
           }
           else {
             //set style 
 
-            let newcolor = new DrawColor(legendTitle, feature, true, isText);
+            const newcolor = new DrawColor(legendTitle, feature, true, isText);
             if (this.SelectedVisualisation === Visualisatie.BGTtactiel && isText) {
               newcolor.mapbox = false;
             }
-            if (tmpstyle){
-            newcolor.rbgString = getFillColor(tmpstyle) as string
-            this.colorMap.set(legendTitle, newcolor)
+            if (tmpstyle) {
+              newcolor.rbgString = getFillColor(tmpstyle) as string
+              this.colorMap.set(legendTitle, newcolor)
 
             }
 
@@ -370,61 +368,63 @@ export class OlmapComponent implements OnInit, OnChanges {
           }
         }
         break;
+      }
 
       //tempory disabled  case Visualisatie.BGTzerodefaultB_tegels:
       case Visualisatie.BagKleurrijk_tegels:
         return (new DrawColor("default zero", feature, false, false).showfreshstyle(isText));
-        break;
+      
 
-      case Visualisatie.BGTzerodefaultC_Bron:
-        var colorprop = 'bronhouder';
-        var bronLegendTitle = this.colorMap.selectorBron(prop)
+      case Visualisatie.BGTzerodefaultC_Bron: {
+       // const colorprop = 'bronhouder';
+        const bronLegendTitle = this.colorMap.selectorBron(prop)
 
-        var zcolor: DrawColor
+        let zcolor: DrawColor
         {
           if (this.colorMap.has(bronLegendTitle)) {
             zcolor = this.colorMap.get(bronLegendTitle)!;
           }
 
           else {
-            var newbroncolor = new DrawColor(bronLegendTitle, feature, false, false);
+            const newbroncolor = new DrawColor(bronLegendTitle, feature, false, false);
             this.colorMap.set(bronLegendTitle, newbroncolor)
             zcolor = newbroncolor;
           }
         }
         return zcolor.showfreshstyle(isText);
-        break;
-
+       
+      }
       case Visualisatie.Bagkleurrijk:
       case Visualisatie.BGTzerodefaultD_kleur:
         {
 
-          var layer = prop['layer'];
-          var zerodefaultText = GetLabelAnnotation(prop, layer);
+          const layer = prop['layer'];
+          const zerodefaultText = GetLabelAnnotation(prop, layer);
           if (this.colorMap.has(layer)) {
-            return this.colorMap.get(layer)!.showfreshstyle(zerodefaultText);
+            return this.colorMap.get(layer)?.showfreshstyle(zerodefaultText);
           }
           else {
-            var newcolor = new DrawColor(layer, feature, false, zerodefaultText);
+            const newcolor = new DrawColor(layer, feature, false, zerodefaultText);
             this.colorMap.set(layer, newcolor)
             return newcolor.showfreshstyle(zerodefaultText);
           }
         }
-        break;
+    
 
       case Visualisatie.Bagblanko:
+      case Visualisatie.BGTzerodefaultA_blanco:
         return (new DrawColor("default zero", feature, false, false).showfreshstyle(isText));
-        break;
-
+       
       default: {
-        throw new Error("Visualisatie " + this.SelectedVisualisation + " not found");
+        exhaustiveGuard(this.SelectedVisualisation);
+
       }
 
     }
 
     function GetLabelAnnotation(prop: any, layer: string): Annotation {
 
-      var text = ""
+      let text = ""
       if (layer === 'pand_nummeraanduiding') {
         text = prop['tekst']
       }
@@ -432,10 +432,10 @@ export class OlmapComponent implements OnInit, OnChanges {
         text = prop['openbareruimtenaam']
       }
       if (text !== "") {
-        var deg = prop['hoek'];
-        var rot = ((360 - deg) * Math.PI) / 180.0
+        const deg = prop['hoek'];
+        const rot = ((360 - deg) * Math.PI) / 180.0
 
-        var anno: LabelType = { text, rotation: rot, font: "", backgroundfill: new Fill({ color: "white" }) };
+        const anno: LabelType = { text, rotation: rot, font: "", backgroundfill: new Fill({ color: "white" }) };
         return anno
       }
       else {
@@ -460,19 +460,28 @@ export class OlmapComponent implements OnInit, OnChanges {
     })
   }
 
-  getVectorTileUrl(tileEndpoint: VectorTileUrl ) {
+  getVectorTileUrl(tileEndpoint: VectorTileUrl) {
     return `${tileEndpoint.url}/{z}/{x}/{y}${tileEndpoint.extension}`;
-   
-  }
-
-  getShowTileUrl()
-  {
-    return (this.showUrl) 
-
 
   }
 
-  
+  getShowTileUrl() {
+    return (this.showUrl)
+  }
+
+  getShowStyleUrl() {
+    const url = getStyleUrl(this.SelectedVisualisation).url
+    if (url) {
+      return url
+    }
+    else {
+      {
+        return ""
+      }
+    }
+  }
+
+
 
   setTileSource(projection: Projection, vectorTileLayer: VectorTileLayer, tileEndpoint: VectorTileUrl, zoom: number) {
 
@@ -515,4 +524,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
 
 }
+
+
+
 

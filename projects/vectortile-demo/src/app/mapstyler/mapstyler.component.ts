@@ -1,53 +1,44 @@
 import { KeyValue } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
-import { Color } from 'ol/color';
+import { Component, Input } from '@angular/core';
+
 import VectorTileLayer from 'ol/layer/VectorTile';
 import { DrawColor } from '../color';
 import { IColorMap, LegendLevel } from '../colorMap';
-import { LocationService } from '../location.service';
+
 
 @Component({
   selector: 'app-mapstyler',
   templateUrl: './mapstyler.component.html',
   styleUrls: ['./mapstyler.component.scss']
 })
-export class MapstylerComponent implements OnInit {
+export class MapstylerComponent {
   @Input() Layer!: VectorTileLayer;
   @Input() ColorMap!: IColorMap;
   detaillevel = LegendLevel;
 
-  valueAscOrder = (a: KeyValue<string,DrawColor>, b: KeyValue<string,DrawColor>): number => {
+  valueAscOrder = (a: KeyValue<string, DrawColor>, b: KeyValue<string, DrawColor>): number => {
     return a.value.label.toLowerCase().localeCompare(b.value.label.toLowerCase());
   }
- 
+
   constructor() {
-     
+
+    //expected empty
   }
 
-  ngOnInit(): void {
-  
 
-  }
-
-  ngOnChange()
-  {
- 
-
-  }
-
-  hasTextlabels(){
+  hasTextlabels() {
     return this.ColorMap.hasText();
   }
 
   onCheckboxAllChange(event: any) {
 
     this.ColorMap.setShowAll(event.target.checked);
-    this.Layer.getSource()!.refresh();
+    this.refreshlayer();
   }
 
   onSelectLevel(lev: LegendLevel) {
     this.ColorMap.setSelector(lev);
-    this.Layer.getSource()!.refresh();
+    this.refreshlayer();
   }
 
   disEnabledLevel(level: KeyValue<string, LegendLevel>): boolean {
@@ -55,40 +46,36 @@ export class MapstylerComponent implements OnInit {
   }
 
 
-  onCheckboxLabelsChange
-    (event: any) {
+  onCheckboxLabelsChange(event: any) {
     this.ColorMap.setShowAllText(event.target.checked)
-    this.Layer.getSource()!.refresh();
+    this.refreshlayer();
   }
 
   NewColorMap() {
+
     this.clearColorMap();
-    this.Layer.getSource()!.refresh();
+
+    this.refreshlayer();
   }
 
   clearColorMap() {
     this.ColorMap.clear();
   }
 
-  getItems(isText:boolean)
-  {
+  getItems(isText: boolean) {
     return this.ColorMap.getItems(isText);
 
 
   }
 
-
-
-
-
   colorArrayChecked(isText: boolean) {
-  
-    var  array = this.ColorMap.getItems(isText);
-  
 
-    for (let a of array!.keys()) {
-      var element = array!.get(a)
-      if (element!.show) {
+    const array = this.ColorMap.getItems(isText);
+
+
+    for (const a of array.keys()) {
+      const element = array.get(a)
+      if (element?.show) {
         return true;
 
       }
@@ -97,19 +84,23 @@ export class MapstylerComponent implements OnInit {
   }
 
   onCheckboxChange(event: any, row: KeyValue<string, DrawColor>) {
-    var ui = row.value;
-    var newvalue = new DrawColor(ui.label, ui.legendfeature, ui.mapbox, ui.annotation);
+    const ui = row.value;
+    const newvalue = new DrawColor(ui.label, ui.legendfeature, ui.mapbox, ui.annotation);
     newvalue.show = event.target.checked;
     if (this.ColorMap.has(ui.label)) {
       this.ColorMap.set(ui.label, newvalue)
     }
-    this.Layer.getSource()!.refresh();
+    this.refreshlayer()
   }
 
   onColorChange(row: KeyValue<string, DrawColor>) {
 
     row.value.mapbox = false;
-    this.Layer.getSource()!.refresh();
+    this.refreshlayer();
   }
 
+
+  private refreshlayer() {
+    this.Layer.getSource()?.refresh();
+  }
 }

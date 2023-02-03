@@ -3,15 +3,23 @@
   margin-bottom: 1em;
   margin-right:1em; 
   background-color: white;
-  overflow-y: auto;
+  
+  overflow-y:scroll; 
+  max-height: 80vh;
+ 
   font-family: var(--font-family, "Roboto");
 
+
+  
+  
 }
 
 .featuretable {
+
   text-align: left;
 }
 .featuretablecaption {
+
   text-align: left;
   font-weight: bold;
 }

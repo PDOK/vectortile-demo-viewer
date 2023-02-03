@@ -14,6 +14,7 @@ import { DemoboxComponent } from './demobox/demobox.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatDividerModule} from '@angular/material/divider';
 import {  MatTooltipModule} from '@angular/material/tooltip';
 import { ShowlinkComponent } from './showlink/showlink.component';
 
@@ -39,6 +40,7 @@ import { ShowlinkComponent } from './showlink/showlink.component';
     HttpClientModule,
     BrowserAnimationsModule, 
     MatTooltipModule,
+    MatDividerModule, 
   //  MatButtonModule,
   //  MatIconModule,
     MatSlideToggleModule,

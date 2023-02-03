@@ -128,19 +128,25 @@ export class OlmapComponent implements OnInit, OnChanges {
     });
 
     this.map1.on(['click', 'pointermove'], function (event) {
+      let found =false
       const e = event as any;
       const that2 = that;
-      that2.selectedFeatures = []
+     
       if (that.detailsupdate) {
+        that2.selectedFeatures = []
         that.map1.forEachFeatureAtPixel(e.pixel, function (feature) {
           if (feature) {
+            found=true
             that2.selectedFeatures.push(feature);
           }
         });
       }
       if (event.type == 'click') {
-        that.detailsupdate = !that.detailsupdate;
+
+       that.detailsupdate = !that.detailsupdate;
       }
+
+      that.map1.getTargetElement().style.cursor = (found && that.detailsupdate ? 'pointer' : '');
     })
 
 
@@ -157,6 +163,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   toggleShowDetails() {
     this.isShowDetails = !this.isShowDetails;
+    this.detailsupdate= this.isShowDetails; 
   }
 
   toggleShowLegend() {

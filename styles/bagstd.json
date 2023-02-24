@@ -16,7 +16,7 @@
             "type": "fill",
             "paint": {
                 "fill-color": "#F8FAF9",
-                "fill-opacity": "0.1"
+                "fill-opacity": 0.1
             },
             "source": "bag",
             "source-layer": "woonplaats"
@@ -37,7 +37,7 @@
             "paint": {
                 "fill-color": "#dca9d0",
                 "fill-outline-color": "#626262",
-                "fill-opacity": "0.5"
+                "fill-opacity": 0.5
             },
             "source": "bag",
             "source-layer": "standplaats"
@@ -46,7 +46,7 @@
             "id": "outline standplaats",
             "type": "line",
             "paint": {
-                "line-color": "#00000",
+                "line-color": "#000000",
                 "line-width": 0.5
             },
             "source": "bag",
@@ -58,7 +58,7 @@
             "paint": {
                 "fill-color": "#CCCCCC",
                 "fill-outline-color": "#626262",
-                "fill-opacity": "0.5"
+                "fill-opacity": 0.5
             },
             "source": "bag",
             "source-layer": "pand"
@@ -79,7 +79,7 @@
             "paint": {
                 "fill-color": "#96D1E3",
                 "fill-outline-color": "#555555",
-                "fill-opacity": "0.35"
+                "fill-opacity": 0.35
             },
             "source": "bag",
             "source-layer": "ligplaats"

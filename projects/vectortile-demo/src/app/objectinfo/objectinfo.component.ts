@@ -1,12 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Feature } from 'ol';
+import { Component, Input } from '@angular/core';
 import { FeatureLike } from 'ol/Feature';
-import { Geometry } from 'ol/geom';
 import { StyleFunction } from 'ol/style/Style';
-import { createResolutionConstraint } from 'ol/View';
+import { getFillColor } from '../color';
+
+
+
 type proprow = {
   title: string
   value: string
+
 }
 const DefaultColor = [0, 0, 0, 0]
 
@@ -19,59 +21,55 @@ const DefaultColor = [0, 0, 0, 0]
 
 export class ObjectinfoComponent {
 
-  @Input() feature: FeatureLike | undefined
+  @Input() features: FeatureLike[] = []
   @Input() resolution: number | undefined
-  @Input() styleFunction: any;
+  @Input() styleFunction: StyleFunction = {} as StyleFunction;
 
   private fillColor: number[] = DefaultColor;
- 
 
-  constructor() { }
 
-  public getFeatureProperties(): proprow[] {
-    var proptable: proprow[] = [];
-    var prop = this.feature!.getProperties();
-    for (var val in prop) {
-      var p: proprow = { title: val, value: prop[val] };
+  constructor() { /* empty const( */ }
+
+  public getFeatures() {
+    return this.features
+  }
+
+  isLink(prop: proprow) {
+    // eslint-disable-next-line no-useless-escape
+    const regEx = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/gm;
+    return regEx.test(prop.value);
+  }
+
+
+
+  public getFeatureProperties(feature: FeatureLike): proprow[] {
+    const proptable: proprow[] = [];
+    const prop = feature.getProperties();
+    for (const val in prop) {
+
+      const p: proprow = { title: val, value: prop[val] };
       proptable.push(p)
     }
     return proptable;
   }
 
 
-  selectedFillStyle() {
-    var color = this.getFillColor()
-    return {
-      'background-color': color
-    };
-  }
-
-  getFillColor() {
-    var mpstyle = this.styleFunction;
-    var reso = this.resolution;
-    const st = mpstyle!(this.feature, reso!);
-    var color: string | number[] | CanvasGradient | CanvasPattern = "";
-
-    if (st instanceof Array) {
-      const fill = st[st.length - 1].getFill();
-      color = fill.getColor() as string;
+  selectedFillStyle(feature: FeatureLike) {
+    const mpstyle = this.styleFunction;
+    const reso = this.resolution;
+    if (reso) {
+      const color = getFillColor(mpstyle(feature, reso))
+      return {
+        'background-color': color
+      };
     }
-    else {
-      var stStyle = st as any;
-      var colcolor = stStyle.fill_.color_ as string | number[] | CanvasGradient | CanvasPattern
-      color = colcolor;
-    }
-
-    if (color instanceof CanvasPattern) {
-      var canvas = true;
-      // not yet implemented boomgaard
-    }
-
-    return (color);
+    else
+      return {
+        'background-color': 'white'
+      };
   }
 
 
- 
 }
 
 

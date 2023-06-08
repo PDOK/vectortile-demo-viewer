@@ -1,0 +1,31 @@
+
+        <h3>Vectortile Demo Viewer</h3>
+        Deze viewer is gemaakt om BGT vectortiles te demonstreren
+
+
+        <div>
+            <button type="button" (click)="DemogotoStartLocationOnMap()">Reset (einde demo)</button>
+        </div>
+        <div>
+               <mat-slide-toggle class="check" labelPosition="before"
+                [matTooltip]="demotextLocatie"
+                aria-label="{{demotextLocatie}}" [checked]="isDemoLocatieRotate" (click)="DemoRandomLocationToggle()">{{demotextLocatie}}
+            </mat-slide-toggle>
+            
+
+                <mat-slide-toggle class="check" labelPosition="before"
+                [matTooltip]="demotextVisualisatie"
+                aria-label="{{demotextVisualisatie}}" [checked]="isDemoVisualisatieRotate" (click)="DemoVisualisationToggle()">{{demotextVisualisatie}}
+            </mat-slide-toggle>
+
+
+            <mat-slide-toggle class="check" labelPosition="before"
+            [matTooltip]="'preview features'"
+            aria-label="preview features" [checked]="isPreviewFeature" (click)="DemoPreviewFeaturesToggle()">Toon preview features
+        </mat-slide-toggle>
+
+
+        </div>
+
+
+       

@@ -1,9 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription, Observable, timer } from 'rxjs';
-import { Visualisatie, getJsonurl } from './enumVisualisatie';
-import { enumFromValue } from './enumFromValue';
+import { Visualisatie, getAllVisualisaties } from './enumVisualisatie';
 
 @Component({
   selector: 'app-root',
@@ -21,8 +19,8 @@ export class AppComponent implements OnInit {
     return _enum[enumName];
   };
 
-  visualisatie = Visualisatie;
-  currentVis = Visualisatie.achtergrond
+  visualisatie = getAllVisualisaties();
+  currentVis = Visualisatie.BGTachtergrond
   isShow: boolean = false;
 
   constructor(private router: Router) {
@@ -34,16 +32,20 @@ export class AppComponent implements OnInit {
 
   toggleShow() {
     this.isShow = !this.isShow;
+    this.visualisatie = getAllVisualisaties();
+
   }
 
   receiveTitle(data: Visualisatie){
     this.currentVis = data; 
+    
      
   }
 
   onSelect(vis: Visualisatie): void {
     this.currentVis = vis;
     this.isShow = false;
+  
   }
 
 

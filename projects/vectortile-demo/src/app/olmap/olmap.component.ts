@@ -1,67 +1,40 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import {Router} from '@angular/router'
-import { Feature, Map as olMap, View, } from 'ol';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { Feature, Map as olMap, View } from 'ol';
 
-import {stylefunction} from 'ol-mapbox-style'
+import { stylefunction } from 'ol-mapbox-style';
 import { getTopLeft, getWidth } from 'ol/extent.js';
 import MVT from 'ol/format/MVT.js';
 import { Geometry } from 'ol/geom';
 import VectorTileLayer from 'ol/layer/VectorTile.js';
 
-
-import Projection from 'ol/proj/Projection';
-import VectorTileSource from 'ol/source/VectorTile.js';
-import Style, { StyleFunction } from 'ol/style/Style';
-import TileGrid from 'ol/tilegrid/TileGrid';
-import { LocationService, ViewLocation } from '../location.service';
-import { VectorTileUrl, tileurl } from './tileurl';
-import { KeyValue } from '@angular/common';
-import { getJsonurl, Visualisatie, getRandomEnumValue } from '../enumVisualisatie';
-import { Annotation, DrawColor, LabelType } from "../color"
 import { FeatureLike } from 'ol/Feature';
 import { DEVICE_PIXEL_RATIO } from 'ol/has';
-import { applyStyle } from 'ol-mapbox-style';
-import { ColorMap, IProperties, LegendLevel } from '../colorMap';
+import Projection from 'ol/proj/Projection';
+import VectorTileSource from 'ol/source/VectorTile.js';
 import Fill from 'ol/style/Fill';
+import { StyleFunction } from 'ol/style/Style';
+import TileGrid from 'ol/tilegrid/TileGrid';
+import { Annotation, DrawColor, getFillColor, LabelType } from "../color";
+import { ColorMap, LegendLevel } from '../colorMap';
+import { Visualisatie, getStyleUrl, exhaustiveGuard } from '../enumVisualisatie';
+import { LocationService, ViewLocation } from '../location.service';
 
-interface MapboxStyle {
-  version: number;
-  name: string;
-  id: string;
-  zoom: number;
-  pitch: number;
-  center: number[];
-  sprite: string;
-  glyphs: string;
-
-}
-
-type proprow = {
-  title: string
-  value: string
-}
-
-type styleRow = {
-  title: string
-  style: Style
-};
-
-
-
-
+import { getSpriteDataUrl, getSpriteImageUrl, tileurlBAG, tileurlBGT, VectorTileUrl } from './tileurl';
 
 @Component({
   selector: 'app-olmap',
   templateUrl: './olmap.component.html',
-  styleUrls: ['./olmap.component.scss']
+  styleUrls: ['./olmap.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class OlmapComponent implements OnInit, OnChanges {
   @Output() titelEmit: EventEmitter<Visualisatie> = new EventEmitter();
-  color = 'geen'
-  private SelectedVisualisation: Visualisatie = Visualisatie.achtergrond;
-  stfunction: StyleFunction | undefined;
+  private SelectedVisualisation: Visualisatie = Visualisatie.BGTachtergrond;
+  private stfunction: StyleFunction | undefined;
   colorMap = new ColorMap(LegendLevel.d1_layer);
+  showUrl = ""
   @Input() set visualisation(vis: Visualisatie) {
     this.SelectedVisualisation = vis;
     this.colorMap.setSelector(LegendLevel.d1_layer);
@@ -69,18 +42,33 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
 
-  vectorTileLayer = new VectorTileLayer(
+
+
+  private vectorTileLayerRD = new VectorTileLayer(
     {
       renderMode: 'hybrid',
       declutter: true,
       useInterimTilesOnError: false
     })
+
+  CurrentVectorTileLayer: VectorTileLayer = this.vectorTileLayerRD;
+
   readonly rdProjection: Projection = new Projection({
     code: 'EPSG:28992',
     extent: [-285401.92, 22598.08, 595401.92, 903401.92]
   });
 
-  view: View = new View({
+  /*
+  readonly WGS84Projection: Projection = new Projection({
+    code: 'EPSG:3857',
+    extent: [3.2, 50.75, 7.22, 53.7]
+  });
+  */
+
+
+
+
+  viewRD: View = new View({
     projection: this.rdProjection,
     center: [155000, 463000],
     zoom: 13,
@@ -89,35 +77,30 @@ export class OlmapComponent implements OnInit, OnChanges {
   });
 
   map1: olMap = new olMap({
-    layers: [this.vectorTileLayer],
+    layers: [this.vectorTileLayerRD],  //, this.vectorTileLayerRD],
     target: 'map1',
-    view: this.view
+    view: this.viewRD
   });
   resolutions: Array<number> = [];
   matrixIds: Array<string> = [];
 
-  public selectedFeature: Feature<Geometry> | undefined;
+  //public selectedFeature: Feature<Geometry> | undefined;
 
 
 
-  public selectedFeatures: [Feature<Geometry>] | undefined = undefined;
+
+  public selectedFeatures: FeatureLike[] = [];
   currentlocation: ViewLocation | undefined;
-  stylerows: Array<styleRow> | undefined;
-  isShowDetails: boolean = false;
-  isShowLegend: boolean = false;
-  isShowDemo: boolean = false;
-  isDemoLocatieRotate: boolean = false;
-  isDemoVisualisatieRotate: boolean = false;
 
-  demotextLocatieAan: string = 'Willekeurige locatie roulerend (aan)';
-  demotextLocatieUit: string = 'Willekeurige locatie roulerend (uit)';
-  demotextLocatie = this.demotextLocatieAan
+  isShowDetails = false;
+  isShowLegend = false;
+  isShowDemo = false;
 
-  demotextVisualisatieAan: string = 'Willekeurige visualisatie roulerend (aan)';
-  demotextVisualisatieUit: string = 'Willekeurige visualisatie roulerend (uit)';
-  demotextVisualisatie = this.demotextVisualisatieAan
 
-  detailsupdate: boolean = true;
+
+
+
+  detailsupdate = true;
 
   constructor(private router: Router, private locationService: LocationService) {
 
@@ -126,57 +109,61 @@ export class OlmapComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.locationService.currentLocation.subscribe(currentLocation => {
       this.currentlocation = currentLocation;
-      let cview = this.map1.getView();
+      const cview = this.map1.getView();
       if (currentLocation.view) {
         cview.setCenter(currentLocation.view.getCenter());
       }
     });
     this.calcMatrixAndResolutions(this.rdProjection);
-   // this.resolutions = this.getResolutionsVt(11)
     this.map1 = new olMap({
-      layers: [this.vectorTileLayer],
+      layers: [this.vectorTileLayerRD],
       target: 'map1',
-      view: this.view
+      view: this.viewRD
 
     })
 
     const that = this;
-    this.map1.on(['moveend'], function (event) {
+    this.map1.on(['moveend'], function () {
       that.locationService.changeView(that.map1.getView());
     });
 
     this.map1.on(['click', 'pointermove'], function (event) {
+      let found =false
       const e = event as any;
       const that2 = that;
+     
       if (that.detailsupdate) {
-        that.vectorTileLayer.getFeatures(e.pixel).then(function (features) {
-          if (!features.length) {
-            that2.selectedFeature = undefined;
-            return;
+        that2.selectedFeatures = []
+        that.map1.forEachFeatureAtPixel(e.pixel, function (feature) {
+          if (feature) {
+            found=true
+            that2.selectedFeatures.push(feature);
           }
-          let feature = features[0];
-          if (!feature) {
-            return;
-          }
-          that2.selectedFeatures = features as [Feature<Geometry>];
-          that2.selectedFeature = feature as Feature<Geometry>;
         });
       }
       if (event.type == 'click') {
-        that.detailsupdate = !that.detailsupdate;
+
+       that.detailsupdate = !that.detailsupdate;
       }
+
+      that.map1.getTargetElement().style.cursor = (found && that.detailsupdate ? 'pointer' : '');
     })
 
-    this.setTileSource(this.rdProjection, this.vectorTileLayer);
+
+
 
   }
 
+
   ngOnChanges(): void {
-    this.changeStyleJson(this.vectorTileLayer, this.resolutions);
+
+    this.changeStyleJson();
+
   }
 
   toggleShowDetails() {
     this.isShowDetails = !this.isShowDetails;
+    this.detailsupdate= this.isShowDetails; 
   }
 
   toggleShowLegend() {
@@ -192,7 +179,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   getZoomLevel() {
-    let view = this.map1.getView();
+    const view = this.map1.getView();
     return (view.getZoom()?.toFixed(1));
   }
 
@@ -200,9 +187,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     return DEVICE_PIXEL_RATIO;
   }
 
-  getStyleUrl() {
-    return (window.location.href + getJsonurl(this.SelectedVisualisation))
-  }
+
 
   getResolutionsVt(z = 9) {
     return this.getMatrixIdsVt(z).map(x => 3440.64 / 2 ** (x))
@@ -222,37 +207,62 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
 
-
-  getFillColor(feature: Feature<Geometry>) {
-    var mpstyle = this.vectorTileLayer.getStyleFunction();
-    var reso = this.view.getResolution();
+  getFillColor(feature: Feature<Geometry>, layer: VectorTileLayer, view: View) {
+    const mpstyle = layer.getStyleFunction();
+    const reso = view.getResolution();
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const st = mpstyle!(feature, reso!);
-    var color: string | number[] | CanvasGradient | CanvasPattern = "";
+    let color: string | number[] | CanvasGradient | CanvasPattern = "";
 
     if (st instanceof Array) {
       const fill = st[st.length - 1].getFill();
       color = fill.getColor() as string;
     }
     else {
-      var stStyle = st as any;
-      var colcolor = stStyle.fill_.color_ as string | number[] | CanvasGradient | CanvasPattern
+      const stStyle = st as any;
+      const colcolor = stStyle.fill_.color_ as string | number[] | CanvasGradient | CanvasPattern
       color = colcolor;
     }
 
     if (color instanceof CanvasPattern) {
-      var canvas = true;
+      const canvas = true;
       // not yet implemented boomgaard
     }
 
     return (color);
+
   }
 
-  private changeStyleJson(vectorTileLayer: VectorTileLayer, resolutions: number[]) {
+  visualisationChange(data: Visualisatie) {
+    this.SelectedVisualisation = data;
+    this.changeStyleJson();
+
+  }
+
+  private changeStyleJson() {
+
+    this.calcMatrixAndResolutions(this.rdProjection);
+    this.map1.setView(this.viewRD);
     this.titelEmit.emit(this.SelectedVisualisation);
-    var StyleJson = getJsonurl(this.SelectedVisualisation)
-    this.colorMap.clear();
-    if (StyleJson !== '') {
-      fetch(StyleJson).then((response) => {
+    const vectorTileLayer = this.vectorTileLayerRD;
+    const resolutions = this.resolutions;
+    this.map1.setView(this.viewRD)
+    vectorTileLayer.setVisible(true);
+    const JsonUrl = getStyleUrl(this.SelectedVisualisation)
+
+
+    if (JsonUrl.source == "bag") {
+      this.setTileSource(this.rdProjection, this.vectorTileLayerRD, tileurlBAG, 12);
+      this.showUrl = tileurlBAG.url;
+    }
+    if (JsonUrl.source == "bgt") {
+      this.setTileSource(this.rdProjection, this.vectorTileLayerRD, tileurlBGT, 12);
+      this.showUrl = tileurlBGT.url
+    }
+
+
+    if (JsonUrl.url) {
+      fetch(JsonUrl.url).then((response) => {
         response.json().then((glStyle) => {
 
           //if you just want simply apply on style use "
@@ -260,12 +270,13 @@ export class OlmapComponent implements OnInit, OnChanges {
           // applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
           //"instead of the following: 
 
-          fetch(this.getSpriteDataUrl(glStyle.sprite)).then((response2) => {
+          fetch(getSpriteDataUrl(glStyle.sprite)).then((response2) => {
             response2.json().then((spritedata) => {
-              const imageUrl = this.getSpriteImageUrl(glStyle.sprite);
-              this.stfunction = stylefunction(vectorTileLayer, glStyle, "bgt", resolutions, spritedata, imageUrl) as StyleFunction;
-              //applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
-              vectorTileLayer.setStyle(this.bgtstyle.bind(this) as any);
+              const imageUrl = getSpriteImageUrl(glStyle.sprite);
+
+              this.stfunction = stylefunction(vectorTileLayer, glStyle, JsonUrl.source, resolutions, spritedata, imageUrl) as StyleFunction;
+              //use applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
+              vectorTileLayer.setStyle(this.doStyle.bind(this) as any);
 
             })
           });
@@ -276,16 +287,39 @@ export class OlmapComponent implements OnInit, OnChanges {
 
     }
     else {
-      if (this.SelectedVisualisation === Visualisatie.zerodefaultA) {
-        vectorTileLayer.setStyle();
-      }
-      else {
-        vectorTileLayer.setStyle(this.bgtstyle.bind(this) as any);
+      switch (this.SelectedVisualisation) {
+        case Visualisatie.Bagblanko:
+        case Visualisatie.BGTzerodefaultA_blanco:
+          vectorTileLayer.setStyle();
+          break;
+
+          /*
+           case Visualisatie.Bagstd:
+   
+             if (vectorTileLayer.getSource()) {
+               this.map1.setView(this.viewRD)
+               vectorTileLayer.setStyle();
+               vectorTileLayer.setVisible(true);
+               vectorTileLayer.getSource()!.changed();
+   
+   
+             }
+             else {
+               throw new Error("currentlayer not found");
+             }
+   
+             */
+
+
+
+        default:
+          vectorTileLayer.setStyle(this.doStyle.bind(this) as any);
+          break;
       }
     }
+
+
   }
-
-
 
   private toBraile(instring: LabelType): LabelType {
 
@@ -293,117 +327,111 @@ export class OlmapComponent implements OnInit, OnChanges {
       {
         text: instring.text.toUpperCase().split("").map(c => "⠀⠁⠂⠃⠄⠅⠆⠇⠈⠉⠊⠋⠌⠍⠎⠏⠐⠑⠒⠓⠔⠕⠖⠗⠘⠙⠚⠛⠜⠝⠞⠟⠠⠡⠢⠣⠤⠥⠦⠧⠨⠩⠪⠫⠬⠭⠮⠯⠰⠱⠲⠳⠴⠵⠶⠷⠸⠹⠺⠻⠼⠽⠾⠿"[" A1B'K2L@CIF/MSP\"E3H9O6R^DJG>NTQ,*5<-U8V.%[$+X!&;:4\\0Z7(_?W]#Y)=".indexOf(c)]).join(""),
         font: "bold 40px Courier New",
-        rotation: instring.rotation, 
-        backgroundfill : new Fill({color :"white"})
+        rotation: instring.rotation,
+        backgroundfill: new Fill({ color: "white" })
 
       })
   }
 
-
-  bgtstyle(feature: Feature<Geometry>, resolution: number) {
-   // const geometry = feature.getGeometry();
+  doStyle(feature: Feature<Geometry>, resolution: number) {
     const prop = feature.getProperties();
-    // var color: DrawColor | undefined = undefined;
-
-    var isText = GetLabelAnnotation(prop, prop['layer']);
+    let isText = GetLabelAnnotation(prop, prop['layer']);
     switch (this.SelectedVisualisation) {
-      case Visualisatie.tactiel:
-      case Visualisatie.standaard:
-      case Visualisatie.achtergrond:
-        var legendTitle = this.colorMap.selector(prop)
+      case Visualisatie.BGTtactiel:
+      case Visualisatie.BGTstandaard:
+      case Visualisatie.BGTachtergrond:
+      case Visualisatie.Bagstd: {
+        const legendTitle = this.colorMap.selector(prop)
 
-        if (this.SelectedVisualisation === Visualisatie.tactiel && isText) {
+        if (this.SelectedVisualisation === Visualisatie.BGTtactiel && isText) {
           isText = this.toBraile(isText);
         }
 
         if (this.stfunction) {
-          var tmpstyle = this.stfunction(feature as FeatureLike, resolution);
+          const tmpstyle = this.stfunction(feature, resolution);
+
 
           if (this.colorMap.has(legendTitle)) {
-            var exitingColor = this.colorMap.get(legendTitle);
-            if (exitingColor!.show) {
-              return (exitingColor!.showfreshstyle(isText, tmpstyle));
+            const exitingColor = this.colorMap.get(legendTitle);
+            if (exitingColor?.show) {
+              return (exitingColor.showfreshstyle(isText, tmpstyle));
 
             }
           }
           else {
             //set style 
 
-            var newcolor = new DrawColor(legendTitle, feature, true, isText);
-            if (this.SelectedVisualisation === Visualisatie.tactiel && isText) {
+            const newcolor = new DrawColor(legendTitle, feature, true, isText);
+            if (this.SelectedVisualisation === Visualisatie.BGTtactiel && isText) {
               newcolor.mapbox = false;
             }
-
             if (tmpstyle) {
-              var stylearray = tmpstyle as Style[];
-              var fill = stylearray[0].getFill()
-              if (fill) {
-                var fillcolor = fill.getColor();
-                newcolor.rbgString = fillcolor as string;
-                this.colorMap.set(legendTitle, newcolor)
-                //add modified fill 
-              }
-              else {
-                // newcolor.rbgString = 'rgba(0,0,0,1)'
-                newcolor.style = stylearray[0];
-                this.colorMap.set(legendTitle, newcolor)
-                // add modified else
-              }
+              newcolor.rbgString = getFillColor(tmpstyle) as string
+              this.colorMap.set(legendTitle, newcolor)
+
             }
 
             return tmpstyle;
           }
         }
         break;
+      }
 
-      case Visualisatie.zerodefaultB:
+      //tempory disabled  case Visualisatie.BGTzerodefaultB_tegels:
+      case Visualisatie.BagKleurrijk_tegels:
         return (new DrawColor("default zero", feature, false, false).showfreshstyle(isText));
+      
 
-        break;
+      case Visualisatie.BGTzerodefaultC_Bron: {
+       // const colorprop = 'bronhouder';
+        const bronLegendTitle = this.colorMap.selectorBron(prop)
 
-      case Visualisatie.zerodefaultC_Bron:
-        var colorprop = 'bronhouder';
-        var bronLegendTitle = this.colorMap.selectorBron(prop)
-
-        var zcolor: DrawColor
+        let zcolor: DrawColor
         {
           if (this.colorMap.has(bronLegendTitle)) {
             zcolor = this.colorMap.get(bronLegendTitle)!;
           }
 
           else {
-            var newbroncolor = new DrawColor(bronLegendTitle, feature, false, false);
+            const newbroncolor = new DrawColor(bronLegendTitle, feature, false, false);
             this.colorMap.set(bronLegendTitle, newbroncolor)
             zcolor = newbroncolor;
           }
         }
         return zcolor.showfreshstyle(isText);
-        break;
-
-      case Visualisatie.zerodefaultD:
+       
+      }
+      case Visualisatie.Bagkleurrijk:
+      case Visualisatie.BGTzerodefaultD_kleur:
         {
 
-          var layer = prop['layer'];
-          var zerodefaultText = GetLabelAnnotation(prop, layer);
+          const layer = prop['layer'];
+          const zerodefaultText = GetLabelAnnotation(prop, layer);
           if (this.colorMap.has(layer)) {
-            return this.colorMap.get(layer)!.showfreshstyle(zerodefaultText);
+            return this.colorMap.get(layer)?.showfreshstyle(zerodefaultText);
           }
           else {
-            var newcolor = new DrawColor(layer, feature, false, zerodefaultText);
+            const newcolor = new DrawColor(layer, feature, false, zerodefaultText);
             this.colorMap.set(layer, newcolor)
             return newcolor.showfreshstyle(zerodefaultText);
           }
         }
-        break;
+    
+
+      case Visualisatie.Bagblanko:
+      case Visualisatie.BGTzerodefaultA_blanco:
+        return (new DrawColor("default zero", feature, false, false).showfreshstyle(isText));
+       
       default: {
-        throw new Error("Visualisatie not found");
+        exhaustiveGuard(this.SelectedVisualisation);
+
       }
 
     }
 
     function GetLabelAnnotation(prop: any, layer: string): Annotation {
 
-      var text = ""
+      let text = ""
       if (layer === 'pand_nummeraanduiding') {
         text = prop['tekst']
       }
@@ -411,10 +439,10 @@ export class OlmapComponent implements OnInit, OnChanges {
         text = prop['openbareruimtenaam']
       }
       if (text !== "") {
-        var deg = prop['hoek'];
-        var rot = ((360 - deg) * Math.PI) / 180.0
+        const deg = prop['hoek'];
+        const rot = ((360 - deg) * Math.PI) / 180.0
 
-        var anno: LabelType = { text, rotation: rot, font: "", backgroundfill : new Fill({color :"white"})} ;
+        const anno: LabelType = { text, rotation: rot, font: "", backgroundfill: new Fill({ color: "white" }) };
         return anno
       }
       else {
@@ -423,8 +451,8 @@ export class OlmapComponent implements OnInit, OnChanges {
     }
   }
 
-  getVectorTileSource(projection: Projection) {
-    this.resolutions = this.getResolutionsVt(12)
+  getVectorTileSource(projection: Projection, tileEndpoint: VectorTileUrl, zoom: number) {
+    this.resolutions = this.getResolutionsVt(zoom)
     return new VectorTileSource({
       format: new MVT(),
       projection: projection,
@@ -434,19 +462,37 @@ export class OlmapComponent implements OnInit, OnChanges {
         tileSize: [256, 256],
         origin: getTopLeft(projection.getExtent())
       }),
-      url: this.getVectorTileUrl(),
+      url: this.getVectorTileUrl(tileEndpoint),
       cacheSize: 0
     })
   }
 
-  getVectorTileUrl() {
+ getVectorTileUrl() {
     let tileEndpoint: VectorTileUrl = tileurl;
     return `${tileEndpoint.url}/{z}/{y}/{x}${tileEndpoint.extension}`;
   }
 
-  setTileSource(projection: Projection, vectorTileLayer: VectorTileLayer) {
+  getShowTileUrl() {
+    return (this.showUrl)
+  }
 
-    let vtSource = this.getVectorTileSource(projection)
+  getShowStyleUrl() {
+    const url = getStyleUrl(this.SelectedVisualisation).url
+    if (url) {
+      return url
+    }
+    else {
+      {
+        return ""
+      }
+    }
+  }
+
+
+
+  setTileSource(projection: Projection, vectorTileLayer: VectorTileLayer, tileEndpoint: VectorTileUrl, zoom: number) {
+
+    let vtSource = this.getVectorTileSource(projection, tileEndpoint, zoom)
     // set invisible to prevent unstyled flashing of vectorTileLayer
     vectorTileLayer.setVisible(false)
     vectorTileLayer.setSource(vtSource)
@@ -454,91 +500,20 @@ export class OlmapComponent implements OnInit, OnChanges {
     vectorTileLayer.set('renderMode', 'hybrid')
   }
 
-  showselectedFeature() {
-    return (this.selectedFeature !== undefined);
+  showselectedFeatures(): boolean {
+    return (this.selectedFeatures.length > 0);
   }
 
   NewColorMap() {
     this.colorMap.clear();
-    this.vectorTileLayer.getSource()!.refresh();
+    this.vectorTileLayerRD.getSource()!.refresh();
   }
 
-  ApplyColorMap() {
-    this.vectorTileLayer.getSource()!.refresh();
-  }
-
-  DemoRandomLocationToggle() {
-    this.isDemoLocatieRotate = !this.isDemoLocatieRotate
-    if (this.isDemoLocatieRotate) {
-      this.demotextLocatie = this.demotextLocatieUit;
-      this.gotoRandomLocation();
-    } else {
-      this.demotextLocatie = this.demotextLocatieAan;
-    }
-  }
-
-  DemogotoStartLocationOnMap() {
-    this.isShowDetails = false;
-    this.isShowLegend = false;
-    this.isShowDemo = false;
-    this.isDemoVisualisatieRotate = false;
-    this.isDemoLocatieRotate = false;
-    this.SelectedVisualisation = Visualisatie.standaard;
-    const newloc = this.locationService.initialView;
-    this.changeStyleJson(this.vectorTileLayer, this.resolutions);
-    this.locationService.changeView(newloc);
-  }
-
-  DemoVisualisationToggle() {
-    this.isDemoVisualisatieRotate = !this.isDemoVisualisatieRotate
-    if (this.isDemoVisualisatieRotate) {
-      this.demotextVisualisatie = this.demotextVisualisatieUit;
-      this.SelectedVisualisation = Visualisatie.achtergrond;
-      this.repeating_style_function()
-    } else {
-      this.demotextVisualisatie = this.demotextVisualisatieAan;
-    }
+  private ApplyColorMap() {
+    this.vectorTileLayerRD.getSource()!.refresh();
   }
 
 
-  gotoRandomLocation() {
-    if (this.isDemoLocatieRotate) {
-      var dx = 155000 + Math.round(Math.random() * 50000)
-      var dy = 463000 + Math.round(Math.random() * 50000)
-      const newloc = new View({
-        projection: this.locationService.rdProjection,
-        center: [dx, dy],
-        zoom: 13,
-        enableRotation: false
-
-      });
-      this.locationService.changeView(newloc);
-      setTimeout(() => { this.gotoRandomLocation() }, 8000);
-    }
-  }
-
-  repeating_style_function() {
-    if (this.isDemoVisualisatieRotate) {
-      this.SelectedVisualisation = getRandomEnumValue(Visualisatie);
-      this.changeStyleJson(this.vectorTileLayer, this.resolutions);
-      setTimeout(() => { this.repeating_style_function() }, Math.round(Math.random() * 4000));
-    }
-  }
-
-
-  getSpriteImageUrl(url: string) {
-    const spriteScale = window.devicePixelRatio >= 1.5 ? 0.5 : 1;
-    const sizeFactor = spriteScale == 0.5 ? '@2x' : '';
-    return (url + sizeFactor + '.png')
-
-  }
-
-  getSpriteDataUrl(url: string) {
-    const spriteScale = window.devicePixelRatio >= 1.5 ? 0.5 : 1;
-    const sizeFactor = spriteScale == 0.5 ? '@2x' : '';
-    return (url + sizeFactor + '.json')
-
-  }
 
 
 
@@ -556,4 +531,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
 
 }
+
+
+
 

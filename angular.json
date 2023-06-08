@@ -41,8 +41,8 @@
               }
             ],
             "styles": [
-              "node_modules/ol/ol.css", 
-              "projects/vectortile-demo/src/styles.scss"            
+              "node_modules/ol/ol.css",
+              "projects/vectortile-demo/src/styles.scss"
             ],
             "scripts": []
           },
@@ -110,6 +110,7 @@
               "projects/vectortile-demo/src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/vectortile-demo/src/styles.scss"
             ],
             "scripts": []
@@ -150,8 +151,22 @@
               "devServerTarget": "vectortile-demo:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/vectortile-demo/**/*.ts",
+              "projects/vectortile-demo/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

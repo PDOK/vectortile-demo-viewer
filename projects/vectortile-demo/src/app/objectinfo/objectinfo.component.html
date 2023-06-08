@@ -1,20 +1,27 @@
-<div class ="objectinfo">
-<table class="featuretable">
-    <caption class="featuretablecaption">Object Informatie:</caption>
-    <thead>
-        <th id="Veld">Veld</th>
-        <th id="Waarde">Waarde</th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Kleur</td>
-            <td [ngStyle]="selectedFillStyle()"></td>
-        </tr>
-        <tr *ngFor="let f of  getFeatureProperties()">
-            <td>{{f.title }}</td>
-            <td>{{f.value}}</td>
-        </tr>
+<div class="objectinfo">
+    <div *ngFor="let feature of  getFeatures()">
+        <table class="featuretable">
+            <caption class="featuretablecaption">Object Informatie:</caption>
+            <thead>
+                <th id="Veld">Veld</th>
+                <th id="Waarde">Waarde</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Kleur</td>
+                    <td [ngStyle]="selectedFillStyle(feature)"></td>
+                </tr>
+                <tr *ngFor="let f of  getFeatureProperties(feature)">
+                    <td>{{f.title }}</td>
+                    <td *ngIf="isLink(f); else elseBlock"><app-showlink [url]="f.value"> </app-showlink></td>
+                    <ng-template #elseBlock>{{f.value}} </ng-template>
+            
 
-    </tbody>
-</table>
+
+                </tr>
+
+            </tbody>
+        </table>
+        <mat-divider></mat-divider>
+    </div>
 </div>

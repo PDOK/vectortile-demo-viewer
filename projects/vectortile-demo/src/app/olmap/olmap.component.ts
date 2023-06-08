@@ -467,9 +467,9 @@ export class OlmapComponent implements OnInit, OnChanges {
     })
   }
 
- getVectorTileUrl() {
-    let tileEndpoint: VectorTileUrl = tileurl;
-    return `${tileEndpoint.url}/{z}/{y}/{x}${tileEndpoint.extension}`;
+ getVectorTileUrl(tileurl:VectorTileUrl) {
+
+    return `${tileurl.url}/{z}/{y}/{x}${tileurl.extension}`;
   }
 
   getShowTileUrl() {

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Feature, Map as olMap, View } from 'ol';
+import Link from 'ol/interaction/Link.js';
 
 import { stylefunction } from 'ol-mapbox-style';
 import { getTopLeft, getWidth } from 'ol/extent.js';
@@ -81,6 +82,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     target: 'map1',
     view: this.viewRD
   });
+
   resolutions: Array<number> = [];
   matrixIds: Array<string> = [];
 
@@ -121,6 +123,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       view: this.viewRD
 
     })
+    this.map1.addInteraction(new Link());
 
     const that = this;
     this.map1.on(['moveend'], function () {

@@ -15,8 +15,8 @@
             "id": "fill woonplaats",
             "type": "fill",
             "paint": {
-                "fill-color": "#F8FAF9",
-                "fill-opacity": 0.1
+                "fill-color": "rgb(255, 255, 255)",
+                "fill-opacity": 0.0
             },
             "source": "bag",
             "source-layer": "woonplaats"
@@ -25,7 +25,7 @@
             "id": "outline woonplaats",
             "type": "line",
             "paint": {
-                "line-color": "#626262",
+                "line-color": "rgb(170, 170, 170)",
                 "line-width": 2
             },
             "source": "bag",
@@ -35,9 +35,9 @@
             "id": "standplaats",
             "type": "fill",
             "paint": {
-                "fill-color": "#dca9d0",
-                "fill-outline-color": "#626262",
-                "fill-opacity": 0.5
+                "fill-color": "rgb(220 169 208)",
+                "fill-outline-color": "rgb(85,85, 85)",
+                "fill-opacity": 1
             },
             "source": "bag",
             "source-layer": "standplaats"
@@ -46,40 +46,19 @@
             "id": "outline standplaats",
             "type": "line",
             "paint": {
-                "line-color": "#000000",
-                "line-width": 0.5
+                "line-color": "rgb(85,85,85)",
+                "line-width": 1
             },
             "source": "bag",
             "source-layer": "standplaats"
         },
         {
-            "id": "pand",
-            "type": "fill",
-            "paint": {
-                "fill-color": "#CCCCCC",
-                "fill-outline-color": "#626262",
-                "fill-opacity": 0.5
-            },
-            "source": "bag",
-            "source-layer": "pand"
-        },
-        {
-            "id": "outline pand",
-            "type": "line",
-            "paint": {
-                "line-color": "#626262",
-                "line-width": 2
-            },
-            "source": "bag",
-            "source-layer": "pand"
-        },
-        {
             "id": "ligplaats",
             "type": "fill",
             "paint": {
-                "fill-color": "#96D1E3",
-                "fill-outline-color": "#555555",
-                "fill-opacity": 0.35
+                "fill-color": "rgb(247, 163, 52)",
+                "fill-outline-color": "rgb(85,85, 85)",
+                "fill-opacity": 1
             },
             "source": "bag",
             "source-layer": "ligplaats"
@@ -88,36 +67,130 @@
             "id": "outline ligplaats",
             "type": "line",
             "paint": {
-                "line-color": "#555555",
+                "line-color": "rgb(85,85, 85)",
                 "line-width": 0.5
             },
             "source": "bag",
             "source-layer": "ligplaats"
         },
         {
+            "id": "pand",
+            "type": "fill",
+            "paint": {
+                "fill-opacity": 0.6,
+                "fill-color": {
+                    "property": "status",
+                    "type": "categorical",
+                    "stops": [
+                        [
+                            "Bouwvergunning verleend",
+                            "rgb(224,224,224)"
+                        ],
+                        [
+                            "Bouw gestart",
+                            "rgb(192,192,192)"
+                        ],
+                        [
+                            "Pand in gebruik (niet ingemeten)",
+                            "rgb(169,169,169)"
+                        ],
+                        [
+                            "Pand in gebruik",
+                            "rgb(146,146,146)"
+                        ],
+                        [
+                            "Verbouwing pand",
+                            "rgb(81,156,156)"
+                        ],
+                        [
+                            "Sloopvergunning verleend",
+                            "rgb(255,204,204)"
+                        ],
+                        [
+                            "Pand buiten gebruik",
+                            "rgb(160,229,229)"
+                        ],
+                        [
+                            "Pand ten onrechte opgevoerd",
+                            "rgb(197,226,229)"
+                        ],
+                        [
+                            "Pand gesloopt",
+                            "rgb(255,9,21)"
+                        ],
+                        [
+                            "Pand geselecteerd",
+                            "rgb(195, 195, 205)"
+                        ]
+                    ]
+                }
+            },
+            "source": "bag",
+            "source-layer": "pand"
+        },
+        {
+            "id": "outline pand",
+            "type": "line",
+            "paint": {
+                "line-color": "rgb(0,0,0)",
+                "line-width": 0.5
+            },
+            "source": "bag",
+            "source-layer": "pand"
+        },
+        {
             "id": "verblijfsobject outline",
             "type": "circle",
             "paint": {
-                "circle-color": "#000000", 
-                "circle-radius": 10
+                "circle-radius": 5,
+                "circle-color": "rgb(0,0,0)"
             },
             "source": "bag",
             "source-layer": "verblijfsobject"
-        } , 
+        },
         {
             "id": "verblijfsobject fill",
             "type": "circle",
             "paint": {
-                "circle-color": "#FF9900", 
-                "circle-radius": 7
+                "circle-radius": 4,
+                "circle-color": {
+                    "property": "status",
+                    "type": "categorical",
+                    "stops": [
+                        [
+                            "Verblijfsobject gevormd",
+                            "rgb(153,204,255)"
+                        ],
+                        [
+                            "Verblijfsobject in gebruik (niet ingemeten)",
+                            "rgb( 51,153,255)"
+                        ],
+                        [
+                            "Verblijfsobject in gebruik",
+                            "rgb(0,126,169)"
+                        ],
+                        [
+                            "Verbouwing verblijfsobject",
+                            "rgb(81,156,156)"
+                        ],
+                        [
+                            "Verblijfsobject ingetrokken",
+                            "rgb(255,255,255)"
+                        ],
+                        [
+                            "Verblijfsobject buiten gebruik",
+                            "rgb( 160,229,229)"
+                        ],
+                        [
+                            "Verblijfsobject ten onrechte opgevoerd",
+                            "rgb( 197,226,229)"
+                        ]
+                    ]
+                }
             },
             "source": "bag",
             "source-layer": "verblijfsobject"
-        } 
-        
-      
-      
-        
+        }
     ],
     "sources": {
         "bag": {

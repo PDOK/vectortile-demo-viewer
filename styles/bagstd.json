@@ -8,7 +8,7 @@
         0,
         0
     ],
-    "sprite": "styles/standaardsprites/sprites",
+    "sprite": "styles/bagstdsprites/sprites",
     "glyphs": "styles/font/{fontstack}/{range}.pbf",
     "layers": [
         {
@@ -116,7 +116,7 @@
                         ],
                         [
                             "Pand gesloopt",
-                            "rgb(255,9,21)"
+                            "rgb(0,0,0)"
                         ],
                         [
                             "Pand geselecteerd",
@@ -128,6 +128,26 @@
             "source": "bag",
             "source-layer": "pand"
         },
+        {
+            "id": "pattern pand",
+            "type": "fill",
+            "paint": {
+               
+                "fill-pattern": {
+                    "property": "status",
+                    "type": "categorical",
+                    "stops": [[
+                      
+                            "Pand gesloopt",
+                            "gesloopt"
+                        ]
+                    ]
+                }
+            },
+            "source": "bag",
+            "source-layer": "pand"
+        },
+
         {
             "id": "outline pand",
             "type": "line",

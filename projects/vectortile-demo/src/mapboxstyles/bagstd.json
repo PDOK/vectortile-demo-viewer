@@ -35,7 +35,7 @@
             "id": "standplaats",
             "type": "fill",
             "paint": {
-                "fill-color": "rgb(220 169 208)",
+                "fill-color": "rgb(220,169,208)",
                 "fill-outline-color": "rgb(85,85, 85)",
                 "fill-opacity": 1
             },

@@ -22,8 +22,9 @@ export type StyleUrl =
   }
 
 export function getStyleUrl(vis: Visualisatie): StyleUrl {
-  const BGTmapboxachtergrondjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/achtergrondvisualisatie?f=mapbox';
-  const BGTmapboxstandaardjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v0_1/styles/standaardvisualisatie?f=mapbox'
+  const BGTmapboxachtergrondjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v1_0/styles/bgt_achtergrondvisualisatie?f=mapbox';
+
+  const BGTmapboxstandaardjsonurl = 'https://api.pdok.nl/lv/bgt/ogc/v1_0/styles/bgt_standaardvisualisatie?f=mapbox'
   const BGTmapboxtactieljsonurl = 'styles/tactielevisualisatie.json'
 
   const BAGmapboxbagstd = "styles/bagstd.json"

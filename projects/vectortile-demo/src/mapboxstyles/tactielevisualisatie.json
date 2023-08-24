@@ -609,7 +609,7 @@
         "bgt": {
             "type": "vector",
             "tiles": [
-                "https://api.pdok.nl/lv/bgt/oat/v1_0-preprod/tiles/EPSG:28992/{z}/{y}/{x}"
+                "https://api.pdok.nl/lv/bgt/ogc/v1_0/tiles/EPSG:28992/{z}/{y}/{x}"
             ]
         }
     }

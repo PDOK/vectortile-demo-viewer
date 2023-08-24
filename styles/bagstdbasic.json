@@ -123,7 +123,7 @@
         "bag": {
             "type": "vector",
             "tiles": [
-                "https://api.pdok.nl/lv/bag/ogc/v0_1/tiles/NetherlandsRDNewQuad/{z}/{x}/{y}"
+                "https://api.pdok.nl/lv/bag/ogc/v1_0/tiles/NetherlandsRDNewQuad/{z}/{x}/{y}"
             ]
         }
     }

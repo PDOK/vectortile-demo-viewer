@@ -4,7 +4,7 @@ export const tileurlBGT : VectorTileUrl = {
     extension: '.pbf'
 };
 export const tileurlBAG : VectorTileUrl = {
-    url: 'https://api.pdok.nl/lv/bag/ogc/v0_1/tiles/NetherlandsRDNewQuad',
+    url: 'https://api.pdok.nl/lv/bag/ogc/v1_0/tiles/NetherlandsRDNewQuad',
     extension: '.pbf'
 };
 

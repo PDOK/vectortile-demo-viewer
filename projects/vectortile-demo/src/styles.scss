@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
+@include mat.core();
 
 
 /* You can add global styles to this file, and also import other style files */
@@ -161,8 +162,6 @@
     height: 100%;
   }
 
-  @import '@angular/material/theming';
-  @include mat-core();
 
 
 

@@ -50,3 +50,4 @@ cypress-visual-report/*
 cypress-visual-screenshots/comparison/
 cypress-visual-screenshots/diff/
 qgis
+.nx/

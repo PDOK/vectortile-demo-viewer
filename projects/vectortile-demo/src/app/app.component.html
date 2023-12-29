@@ -7,14 +7,14 @@
       <app-search></app-search>
     </div>
     <div class="vispanel">
-      <button class="selectbutton" (click)="toggleShow()" type="checkbox">
+      <button mat-button class="visbutton" (click)="toggleShow()">
         {{ currentVis }}
       </button>
 
       <div *ngIf="isShow" id="divshow">
         <div>
           <div *ngFor="let v of visualisatie" (click)="onSelect(v)">
-            <button class="selectbuttonlist">
+            <button mat-button class="lbutton">
               <span>{{ v }}</span>
             </button>
           </div>

@@ -25,6 +25,7 @@
             "main": "projects/vectortile-demo/src/main.ts",
             "polyfills": "projects/vectortile-demo/src/polyfills.ts",
             "tsConfig": "projects/vectortile-demo/tsconfig.app.json",
+
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/vectortile-demo/src/favicon.ico",
@@ -42,8 +43,9 @@
             ],
             "styles": [
               "node_modules/ol/ol.css",
+              "projects/vectortile-demo/src/assets/view-component/styles.css",
               "projects/vectortile-demo/src/styles.scss",
-              "projects/vectortile-demo/src/assets/view-component/styles.css"
+              "projects/vectortile-demo/src/theme.scss"
             ],
             "scripts": [
               "projects/vectortile-demo/src/assets/view-component/main.js",
@@ -88,10 +90,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "vectortile-demo:build:production"
+              "buildTarget": "vectortile-demo:build:production"
             },
             "development": {
-              "browserTarget": "vectortile-demo:build:development"
+              "buildTarget": "vectortile-demo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -99,7 +101,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "vectortile-demo:build"
+            "buildTarget": "vectortile-demo:build"
           }
         },
         "test": {

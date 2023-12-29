@@ -95,12 +95,14 @@
   font-weight: bold;
 }
 
+
+
 .check {
 
-  top: var(--buttontop, 0.5vh);
-  font-family: var(--font-family, "Roboto");
-  font-size: var(--fontsize, 1vh);
 
+  top: var(--buttontop, 0.5vh);
+  font-size: var(--fontsize, 1vh);
+  font-family: var(--font-family, "Roboto");
   flex: 1;
   min-height: var(--buttonheight, 1vh);
   height: var(--buttonheight, 1vh);

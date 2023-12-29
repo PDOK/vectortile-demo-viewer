@@ -1,3 +1,12 @@
 export const environment = {
-  production: true
+  production: true,
+  BGTmapboxachtergrondjsonurl:
+    'https://api.pdok.nl/lv/bgt/ogc/v1_0/styles/bgt_achtergrondvisualisatie?f=mapbox',
+  BGTmapboxstandaardjsonurl:
+    'https://api.pdok.nl/lv/bgt/ogc/v1_0/styles/bgt_standaardvisualisatie?f=mapbox',
+  BAGmapboxbagstd:
+    'https://api.pdok.nl/lv/bag/ogc/v1_0/styles/bag_standaardvisualisatie?f=json',
+  BAGmapboxbagCompleet:
+    'https://api.pdok.nl/lv/bag/ogc/v1_0/styles/bag_standaardvisualisatie_compleet?f=json',
+  BGTmapboxtactieljsonurl: 'styles/tactielevisualisatie.json',
 };

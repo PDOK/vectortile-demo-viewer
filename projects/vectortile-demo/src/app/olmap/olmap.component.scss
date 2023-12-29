@@ -95,21 +95,6 @@
   font-weight: bold;
 }
 
-.mat-mdc-slide-toggle.mat-accent {
-  --mdc-switch-selected-focus-state-layer-color: var(--pdokblauw, #1a1e4f);
-  --mdc-switch-selected-handle-color: var(--pdokblauw, #1a1e4f);
-  --mdc-switch-selected-hover-state-layer-color: var(--pdokblauw, #1a1e4f);
-  --mdc-switch-selected-pressed-state-layer-color: var(--pdokblauw, #1a1e4f);
-  --mdc-switch-selected-focus-handle-color: var(--pdokblauw, #1a1e4f);
-  --mdc-switch-selected-hover-handle-color: var(--pdokblauw, #1a1e4f);
-  --mdc-switch-selected-pressed-handle-color: var(--pdokblauw, #1a1e4f);
-  --mdc-switch-selected-focus-track-color: var(--blue-100, #1a1e4f);
-  --mdc-switch-selected-hover-track-color: var(--blue-100, #1a1e4f);
-  --mdc-switch-selected-pressed-track-color: var(--blue-100, #1a1e4f);
-  --mdc-switch-selected-track-color: var(--blue-100, #1a1e4f);
-
-}
-
 .check {
 
   top: var(--buttontop, 0.5vh);
@@ -120,17 +105,31 @@
   min-height: var(--buttonheight, 1vh);
   height: var(--buttonheight, 1vh);
   width: 100%;
-  text-align: center; 
+  text-align: center;
   margin-top: 0.5vh;
   margin-left: 0.5vw;
   margin-right: 0.2vw;
   background-color: whitesmoke
 }
 
-
+.legend-view {
+  background-color: whitesmoke;
+}
 
 .mdc-switch__track {
-  background-color: greenyellow
+  background-color: rgb(146, 191, 213);
+}
+
+.cdk-overlay-container {
+
+  text-shadow: (-13px 3px 50px #fff540);
+
+}
+
+.tooltip-class:after {}
+
+.mdc-switch {
+  max-width: 3em;
 }
 
 .mdc-form-field {

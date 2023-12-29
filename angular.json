@@ -42,9 +42,14 @@
             ],
             "styles": [
               "node_modules/ol/ol.css",
-              "projects/vectortile-demo/src/styles.scss"
+              "projects/vectortile-demo/src/styles.scss",
+              "projects/vectortile-demo/src/assets/view-component/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "projects/vectortile-demo/src/assets/view-component/main.js",
+              "projects/vectortile-demo/src/assets/view-component/runtime.js",
+              "projects/vectortile-demo/src/assets/view-component/polyfills.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -110,8 +115,8 @@
               "projects/vectortile-demo/src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
-              "projects/vectortile-demo/src/styles.scss"
+              "projects/vectortile-demo/src/styles.scss",
+              "projects/vectortile-demo/src/theme.scss"
             ],
             "scripts": []
           }
@@ -165,8 +170,6 @@
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }

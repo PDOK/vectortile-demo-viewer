@@ -14,8 +14,8 @@
     "lint": "ng lint",
     "val": "npm run valbag && npm run valachter && npm run valstandaard",
     "valbag": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bagstd.json",
-    "valachter": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/achtergrondvisualisatie.json",
-    "valstandaard": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/standaardvisualisatie.json"
+    "valachter": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bgt_achtergrondvisualisatie.json",
+    "valstandaard": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bgt_standaardvisualisatie.json"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +24,7 @@
     "@angular/common": "^16.2.2",
     "@angular/compiler": "^16.2.2",
     "@angular/core": "^16.2.2",
+    "@angular/elements": "^16.2.2",
     "@angular/forms": "^16.2.2",
     "@angular/material": "^16.2.1",
     "@angular/platform-browser": "^16.2.2",
@@ -31,7 +32,7 @@
     "@angular/router": "^16.2.2",
     "@mapbox/mapbox-gl-style-spec": "^13.28.0",
     "ngx-color-picker": "^14.0.0",
-    "ol": "^7.5.1",
+    "ol": "8.2.0",
     "ol-mapbox-style": "^11.0.1",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.2",

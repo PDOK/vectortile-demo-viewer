@@ -1,80 +1,133 @@
 <div class="scroll">
-    <table >
-        <caption class="legend-table-caption">Legenda</caption>
-        <thead>
-            <th id="Veld">Waarde</th>
-            <th id="Veld">Tonen</th>
-            <th id="Waarde">Visualisatie</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td>alle waarden</td>
-                <td> <input type="checkbox" checked (change)="onCheckboxAllChange($event)" />
-                </td>
-                <td>
-                    <div class="legend-button-area">
-                        <div class="legend-button-area-item">
-                            <button (click)="NewColorMap()" type="checkbox">Reset Legenda</button>
-                        </div>
+  <mat-slide-toggle
+    class="check"
+    labelPosition="before"
+    [matTooltip]="
+      !isShowStyler
+        ? 'Select om zelf de visualisatie aan te passen'
+        : 'Selecxt om Standaard visualisatie tonen'
+    "
+    [matTooltipPosition]="'left'"
+    aria-label="Toon object informatie"
+    [checked]="isShowStyler"
+    (click)="toggleShowStdLegend()"
+    >Visualisatie aanpassen</mat-slide-toggle
+  >
 
+  <div class="legend-view">
+    <app-legend-view
+      #lview
+      style-url=""
+      [hidden]="isShowStyler"
+      title-items="type,plus_type,functie,fysiek_voorkomen"
+    >
+    </app-legend-view>
+  </div>
 
-                        <div class="legend-button-area-item" *ngFor="let v of detaillevel | keyvalue"
-                            (click)="onSelectLevel(v.value)">
-                            <button [disabled]=disEnabledLevel(v)>
-                                <span>{{v.value}}</span>
-                            </button>
-                        </div>
+  <table *ngIf="isShowStyler">
+    <caption class="legend-table-caption">
+      Legenda Aanpassen
+    </caption>
+    <thead>
+      <th id="Veld">Waarde</th>
+      <th id="Veld">Tonen</th>
+      <th id="Waarde">Visualisatie</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>alle waarden</td>
+        <td>
+          <input
+            type="checkbox"
+            checked
+            (change)="onCheckboxAllChange($event)"
+          />
+        </td>
+        <td>
+          <div class="legend-button-area">
+            <div class="legend-button-area-item">
+              <button (click)="NewColorMap()" type="checkbox">
+                Reset Legenda
+              </button>
+            </div>
 
-                    </div>
-                </td>
-            </tr>
-            <tr *ngIf="hasTextlabels()" >
+            <div
+              class="legend-button-area-item"
+              *ngFor="let v of detaillevel | keyvalue"
+              (click)="onSelectLevel(v.value)"
+            >
+              <button [disabled]="disEnabledLevel(v)">
+                <span>{{ v.value }}</span>
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr *ngIf="hasTextlabels()">
+        <td>labels</td>
+        <td>
+          <input
+            type="checkbox"
+            [checked]="colorArrayChecked(true)"
+            (change)="onCheckboxLabelsChange($event)"
+          />
+        </td>
 
-                
-                    <td>labels</td>
-                    <td> <input type="checkbox" [checked]="colorArrayChecked(true)"
-                            (change)="onCheckboxLabelsChange($event)" />
-                    <td>
-            <tr *ngFor="let x of getItems(true) | keyvalue">
+        <td>
+          <tr *ngFor="let x of getItems(true) | keyvalue">
+            <td>
+              <input
+                type="checkbox"
+                [checked]="x.value.show"
+                (change)="onCheckboxChange($event, x)"
+              />
+              {{ x.key }}
+              <ng-container *ngIf="x.value.show">
+                <div [ngStyle]="x.value.textcolorRbgString()">
+                  {{ x.value.sampleText }}
+                </div>
 
-                <td>
-                    <input type="checkbox" [checked]="x.value.show" (change)="onCheckboxChange($event, x)">
-                    {{x.key }}
-                    <ng-container *ngIf="x.value.show">
-                        <div [ngStyle]="x.value.textcolorRbgString()">{{ x.value.sampleText }} </div>
-
-
-                        <div class="colorpick"><input [(colorPicker)]="x.value.rbgString"
-                                [style.background]="x.value.rbgString" [cpOutputFormat]="'rgba'"
-                                [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange( x)"
-                                [cpSaveClickOutside]="true">
-                        </div>
-                    </ng-container>
-                </td>
-            </tr>
-
+                <div class="colorpick">
+                  <input
+                    [(colorPicker)]="x.value.rbgString"
+                    [style.background]="x.value.rbgString"
+                    [cpOutputFormat]="'rgba'"
+                    [cpAlphaChannel]="'enabled'"
+                    (colorPickerChange)="onColorChange(x)"
+                    [cpSaveClickOutside]="true"
+                  />
+                </div>
+              </ng-container>
             </td>
+          </tr>
+        </td>
+      </tr>
 
+      <tr *ngFor="let x of getItems(false) | keyvalue : valueAscOrder">
+        <td>{{ x.key }}</td>
 
-          
-
-
-
-            <tr *ngFor="let x of getItems(false)  | keyvalue: valueAscOrder">
-
-                <td>{{x.key }}</td>
-                <!--this can be done here for debug:  td [ngStyle]="x.value.backgroundRbgString()">hier </td-->
-                <td> <input type="checkbox" [checked]="x.value.show" (change)="onCheckboxChange($event, x)" />
-                <td>
-                    <div *ngIf="x.value.show">
-                        <div class="colorpick"><input [(colorPicker)]="x.value.rbgString"
-                                [style.background]="x.value.rbgString" [cpOutputFormat]="'rgba'"
-                                [cpAlphaChannel]="'enabled'" (colorPickerChange)="onColorChange( x)"
-                                [cpSaveClickOutside]="true">
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <td>
+          <input
+            type="checkbox"
+            [checked]="x.value.show"
+            (change)="onCheckboxChange($event, x)"
+          />
+        </td>
+        <td>
+          <div *ngIf="x.value.show">
+            <div class="colorpick">
+              <input
+                [(colorPicker)]="x.value.rbgString"
+                [style.background]="x.value.rbgString"
+                [cpOutputFormat]="'rgba'"
+                [cpAlphaChannel]="'enabled'"
+                (colorPickerChange)="onColorChange(x)"
+                [cpSaveClickOutside]="true"
+              />
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

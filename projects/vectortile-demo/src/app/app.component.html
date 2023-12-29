@@ -1,35 +1,46 @@
 <div>
-    <div class=app-container>
-        <div class="head">
-            <img class="logo" alt="PDOK" src="assets/images/logo-pdok.svg">
-        </div>
-        <div>
-            <app-search></app-search>
-        </div>
-        <div class="vispanel">
-
-            <button class="selectbutton" (click)="toggleShow()" type="checkbox">{{currentVis}}</button>
-            <div *ngIf="isShow" id="divshow">
-                <div>
-                    <div *ngFor="let v of visualisatie " (click)="onSelect(v)">
-                        <button class="selectbutton">
-                            <span>{{v}}</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <app-olmap class="maparea" [visualisation]=currentVis (titelEmit)="receiveTitle($event)">
-        </app-olmap>
-        <div class="foot">
-            <app-location></app-location>
-            <div class="gitlink">
-                <a href='https://github.com/PDOK/vectortile-demo-viewer' target='_blank'>Code on Github</a>
-            </div>
-         
-        </div>
+  <div class="app-container">
+    <div class="head">
+      <img class="logo" alt="PDOK" src="assets/images/logo-pdok.svg" />
     </div>
+    <div>
+      <app-search></app-search>
+    </div>
+    <div class="vispanel">
+      <button class="selectbutton" (click)="toggleShow()" type="checkbox">
+        {{ currentVis }}
+      </button>
+
+      <div *ngIf="isShow" id="divshow">
+        <div>
+          <div *ngFor="let v of visualisatie" (click)="onSelect(v)">
+            <button class="selectbuttonlist">
+              <span>{{ v }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-olmap
+      class="maparea"
+      [visualisation]="currentVis"
+      (titelEmit)="receiveTitle($event)"
+    >
+    </app-olmap>
+    <div class="foot">
+      <app-location></app-location>
+      <div class="stylelink">
+        <app-showlink [url]="styleurl"></app-showlink>
+      </div>
+
+      <div class="gitlink">
+        <a href="https://github.com/PDOK/vectortile-demo-viewer" target="_blank"
+          >Code on Github</a
+        >
+      </div>
+    </div>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

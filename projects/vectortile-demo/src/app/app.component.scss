@@ -50,9 +50,24 @@
 
 }
 
+.selectbuttonlist {
+
+
+  min-height: calc(var(--buttonheight, 1vh) *0.5);
+  height: calc(var(--buttonheight, 1vh) *0.5);
+  font-size: var(--fontsize, 1vh);
+  font-family: var(--font-family, "Roboto");
+  width: var(--searchwidth, 20vw);
+  margin-top: 0.5vh;
+  flex: 1;
+  text-align: left;
+
+
+}
+
 
 .foot {
-  
+
   position: absolute;
 
   background-color: #dedfe7;
@@ -72,5 +87,9 @@
 .gitlink {
   position: absolute;
   right: var(--headerright, 0.5vh);
-  z-index:8;
-  }
+  z-index: 8;
+}
+
+.stylelink {
+  margin-left: 4vw;
+}

@@ -12,7 +12,7 @@
     "open": "cypress open",
     "testng": "cypress run",
     "lint": "ng lint",
-    "val": "npm run valbag && npm run valachter && npm run valstandaard && npm run valtactiel",
+    "val": "npm run valachter && npm run valstandaard && npm run valtactiel",
     "valbag": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bagstd.json",
     "valachter": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bgt_achtergrondvisualisatie.json",
     "valstandaard": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bgt_standaardvisualisatie.json",

@@ -227,7 +227,7 @@
       "id": "Single symbol waterdeel fill 1",
       "type": "fill",
       "paint": {
-        "fill-outline-color": "#FFFFFFF",
+        "fill-outline-color": "#ffffff",
         "fill-pattern": "diagonaal"
       },
       "source": "bgt",
@@ -239,7 +239,7 @@
       ]
     },
     {
-      "id": "Single symbol waterdeel outline h0 ",
+      "id": "Single symbol waterdeel outline h1 ",
       "type": "line",
       "paint": {
         "line-color": "#000000",
@@ -310,7 +310,7 @@
       "id": "Single symbol waterdeel fill2",
       "type": "fill",
       "paint": {
-        "fill-outline-color": "#FFFFFFF",
+        "fill-outline-color": "#ffffff",
         "fill-pattern": "diagonaal"
       },
       "source": "bgt",
@@ -322,7 +322,7 @@
       ]
     },
     {
-      "id": "Single symbol waterdeel outline h0 ",
+      "id": "Single symbol waterdeel outline h2 ",
       "type": "line",
       "paint": {
         "line-color": "#000000",

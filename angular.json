@@ -20,6 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": ["color-name", "pbf", "rbush"],
             "outputPath": "dist/vectortile-demo",
             "index": "projects/vectortile-demo/src/index.html",
             "main": "projects/vectortile-demo/src/main.ts",

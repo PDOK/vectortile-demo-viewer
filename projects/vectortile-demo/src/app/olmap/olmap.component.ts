@@ -41,6 +41,7 @@ import {
   getSpriteDataUrl,
   getSpriteImageUrl,
   tileurlBAG,
+  tileurlBestuur,
   tileurlBGT,
   VectorTileUrl,
 } from './tileurl';
@@ -58,6 +59,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   private stfunction: StyleFunction | undefined;
   colorMap = new ColorMap(LegendLevel.d1_layer);
   showUrl = '';
+  zoom: number = 13;
 
   @Input() set visualisation(vis: Visualisatie) {
     this.SelectedVisualisation = vis;
@@ -84,18 +86,10 @@ export class OlmapComponent implements OnInit, OnChanges {
   });
   */
 
-  viewRD: View = new View({
-    projection: this.rdProjection,
-    center: [155000, 463000],
-    zoom: 13,
-    minZoom: 13,
-    enableRotation: false,
-  });
-
   map1: olMap = new olMap({
     layers: [this.vectorTileLayerRD], //, this.vectorTileLayerRD],
     target: 'map1',
-    view: this.viewRD,
+    view: this.viewRD(this.zoom),
   });
 
   resolutions: Array<number> = [];
@@ -111,6 +105,16 @@ export class OlmapComponent implements OnInit, OnChanges {
   isShowDemo = false;
 
   detailsupdate = true;
+
+  viewRD(minZoom: number): View {
+    return new View({
+      projection: this.rdProjection,
+      center: [155000, 463000],
+      zoom: minZoom,
+      minZoom: minZoom,
+      enableRotation: false,
+    });
+  }
 
   constructor(
     private router: Router,
@@ -129,7 +133,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     this.map1 = new olMap({
       layers: [this.vectorTileLayerRD],
       target: 'map1',
-      view: this.viewRD,
+      view: this.viewRD(this.zoom),
     });
     this.map1.addInteraction(new Link());
 
@@ -245,12 +249,25 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   private changeStyleJson() {
+    let minzoom = 13;
+
+    switch (this.SelectedVisualisation) {
+      case Visualisatie.BESTUURBlanko:
+      case Visualisatie.BESTUURWithLabels:
+      case Visualisatie.BESTUURstd:
+        minzoom = 3;
+        break;
+
+      default:
+        break;
+    }
+
     this.calcMatrixAndResolutions(this.rdProjection);
-    this.map1.setView(this.viewRD);
+    this.map1.setView(this.viewRD(minzoom));
     this.titelEmit.emit(this.SelectedVisualisation);
     const vectorTileLayer = this.vectorTileLayerRD;
     const resolutions = this.resolutions;
-    this.map1.setView(this.viewRD);
+    this.map1.setView(this.viewRD(minzoom));
     vectorTileLayer.setVisible(true);
     const JsonUrl = getStyleUrl(this.SelectedVisualisation);
 
@@ -272,6 +289,15 @@ export class OlmapComponent implements OnInit, OnChanges {
       );
       this.showUrl = tileurlBGT.url;
     }
+    if (JsonUrl.source == 'bestuurlijkegebieden') {
+      this.setTileSource(
+        this.rdProjection,
+        this.vectorTileLayerRD,
+        tileurlBestuur,
+        2
+      );
+      this.showUrl = tileurlBGT.url;
+    }
 
     if (JsonUrl.url) {
       fetch(JsonUrl.url).then((response) => {
@@ -280,28 +306,39 @@ export class OlmapComponent implements OnInit, OnChanges {
           //import { applyStyle } from 'ol-mapbox-style';
           // applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
           //"instead of the following:
+          if (glStyle.sprite) {
+            fetch(getSpriteDataUrl(glStyle.sprite)).then((response2) => {
+              response2.json().then((spritedata) => {
+                const imageUrl = getSpriteImageUrl(glStyle.sprite);
 
-          fetch(getSpriteDataUrl(glStyle.sprite)).then((response2) => {
-            response2.json().then((spritedata) => {
-              const imageUrl = getSpriteImageUrl(glStyle.sprite);
-
-              this.stfunction = stylefunction(
-                vectorTileLayer,
-                glStyle,
-                JsonUrl.source,
-                resolutions,
-                spritedata,
-                imageUrl
-              ) as StyleFunction;
-              //use applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
-              vectorTileLayer.setStyle(this.doStyle.bind(this) as any);
+                this.stfunction = stylefunction(
+                  vectorTileLayer,
+                  glStyle,
+                  JsonUrl.source,
+                  resolutions,
+                  spritedata,
+                  imageUrl
+                ) as StyleFunction;
+                //use applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
+                vectorTileLayer.setStyle(this.doStyle.bind(this) as any);
+              });
             });
-          });
+          } else {
+            this.stfunction = stylefunction(
+              vectorTileLayer,
+              glStyle,
+              JsonUrl.source,
+              resolutions
+            ) as StyleFunction;
+            //use applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
+            vectorTileLayer.setStyle(this.doStyle.bind(this) as any);
+          }
           // end of apply
         });
       });
     } else {
       switch (this.SelectedVisualisation) {
+        case Visualisatie.BESTUURBlanko:
         case Visualisatie.Bagblanko:
         case Visualisatie.BGTzerodefaultA_blanco:
           vectorTileLayer.setStyle();
@@ -359,7 +396,9 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.BGTstandaard:
       case Visualisatie.BGTachtergrond:
       case Visualisatie.Bagstd:
-      case Visualisatie.BagCompleet: {
+      case Visualisatie.BagCompleet:
+      case Visualisatie.BESTUURWithLabels:
+      case Visualisatie.BESTUURstd: {
         const legendTitle = this.colorMap.selector(prop);
 
         if (this.SelectedVisualisation === Visualisatie.BGTtactiel && isText) {
@@ -446,6 +485,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
       case Visualisatie.Bagblanko:
       case Visualisatie.BGTzerodefaultA_blanco:
+      case Visualisatie.BESTUURBlanko:
         return new DrawColor(
           'default zero',
           feature,

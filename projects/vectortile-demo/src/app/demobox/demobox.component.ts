@@ -1,11 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { View } from 'ol';
 import { demoSettings } from '../app.component';
-import {
-  FeatureToggle,
-  Visualisatie,
-  getRandomEnumValue,
-} from '../enumVisualisatie';
+import { Visualisatie, getRandomEnumValue } from '../enumVisualisatie';
 import { LocationService } from '../location.service';
 
 @Component({
@@ -54,7 +50,6 @@ export class DemoboxComponent {
 
   DemoPreviewFeaturesToggle() {
     this.isPreviewFeature = !this.isPreviewFeature;
-    FeatureToggle.BestuurPreview = this.isPreviewFeature;
   }
 
   DemoRandomLocationToggle() {

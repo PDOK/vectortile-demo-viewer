@@ -8,6 +8,11 @@ export const tileurlBAG: VectorTileUrl = {
   extension: '.pbf',
 };
 
+export const tileurlBestuur: VectorTileUrl = {
+  url: 'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0-preprod/tiles/NetherlandsRDNewQuad',
+  extension: '.pbf',
+};
+
 export function getSpriteImageUrl(url: string) {
   const spriteScale = window.devicePixelRatio >= 1.5 ? 0.5 : 1;
   const sizeFactor = spriteScale == 0.5 ? '@2x' : '';

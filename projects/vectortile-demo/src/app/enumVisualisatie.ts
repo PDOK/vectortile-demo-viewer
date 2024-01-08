@@ -1,4 +1,5 @@
 import { environment } from '../environments/environment';
+import { demoSettings } from './app.component';
 
 export enum Visualisatie {
   BGTachtergrond = 'BGT Achtergrond',
@@ -14,10 +15,13 @@ export enum Visualisatie {
   BGTzerodefaultC_Bron = 'BGT Bronhouder',
   BGTzerodefaultD_kleur = 'BGT (Kleurrijk)',
   BGTtactiel = 'BGT Tactiele demo (Braille)',
+  BESTUURstd = 'Bestuurlijke gebieden',
+  BESTUURWithLabels = 'Bestuurlijke gebieden met annotatie',
+  BESTUURBlanko = 'Bestuurlijke gebieden (Blanco)',
 }
 
 export type StyleUrl = {
-  source: 'bag' | 'bgt';
+  source: 'bag' | 'bgt' | 'bestuurlijkegebieden';
   url: string | undefined;
 };
 
@@ -34,6 +38,13 @@ export function getStyleUrl(vis: Visualisatie): StyleUrl {
       return { source: 'bag', url: environment.BAGmapboxbagstd };
     case Visualisatie.BagCompleet:
       return { source: 'bag', url: environment.BAGmapboxbagCompleet };
+    case Visualisatie.BESTUURstd:
+      return { source: 'bestuurlijkegebieden', url: environment.BESTUURstd };
+    case Visualisatie.BESTUURWithLabels:
+      return {
+        source: 'bestuurlijkegebieden',
+        url: environment.BESTUURWithLabels,
+      };
     case Visualisatie.BGTzerodefaultA_blanco:
     case Visualisatie.BGTzerodefaultC_Bron:
     case Visualisatie.BGTzerodefaultD_kleur:
@@ -43,6 +54,8 @@ export function getStyleUrl(vis: Visualisatie): StyleUrl {
     case Visualisatie.Bagkleurrijk:
     case Visualisatie.BagKleurrijk_tegels:
       return { source: 'bag', url: undefined };
+    case Visualisatie.BESTUURBlanko:
+      return { source: 'bestuurlijkegebieden', url: undefined };
 
     default:
       return exhaustiveGuard(vis);
@@ -61,15 +74,22 @@ export function exhaustiveGuard(_value: never): never {
   );
 }
 
-export class FeatureToggle {
-  public static BestuurPreview = true;
-}
-
 export function getAllVisualisaties(): Visualisatie[] {
   const array: Visualisatie[] = [];
-  for (const value of enumKeys(Visualisatie)) {
-    array.push(Visualisatie[value]);
-  }
+  if (demoSettings.previewFeature)
+    for (const value of enumKeys(Visualisatie)) {
+      array.push(Visualisatie[value]);
+    }
+  else
+    for (const value of enumKeys(Visualisatie)) {
+      if (
+        ['BESTUURstd', 'BESTUURWithLabels', 'BESTUURBlanko'].includes(value)
+      ) {
+        //skip
+      } else {
+        array.push(Visualisatie[value]);
+      }
+    }
   return array;
 }
 

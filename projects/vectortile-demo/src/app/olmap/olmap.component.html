@@ -41,7 +41,7 @@
           <div>
             <app-objectinfo
               [features]="this.selectedFeatures"
-              [resolution]="this.viewRD.getResolution()"
+              [resolution]="this.viewRD(zoom).getResolution()"
               [styleFunction]="this.CurrentVectorTileLayer.getStyleFunction()!"
             >
             </app-objectinfo>

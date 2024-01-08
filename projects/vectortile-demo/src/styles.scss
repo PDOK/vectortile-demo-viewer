@@ -1,3 +1,8 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@include mat.core();
+
+
 /* You can add global styles to this file, and also import other style files */
 /* roboto-300 - latin-ext_greek_greek-ext_cyrillic_cyrillic-ext_vietnamese_latin */
 @font-face {
@@ -156,6 +161,7 @@
   body {
     height: 100%;
   }
+
 
 
 

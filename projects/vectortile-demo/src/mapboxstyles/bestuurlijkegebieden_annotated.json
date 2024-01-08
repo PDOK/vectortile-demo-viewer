@@ -1,0 +1,87 @@
+{
+  "version": 8,
+  "name": "Bestuurlijke Gebieden PDOK Visualisatie",
+  "id": "bestuurlijkegebieden_pdokvisualisatie",
+  "zoom": 12,
+  "pitch": 50,
+  "center": [
+    0,
+    0
+  ],
+  "layers": [
+    {
+      "id": "gemeentegebied",
+      "type": "fill",
+      "paint": {
+        "fill-color": "rgb(245, 245, 245)" , 
+        "fill-opacity":0.1   
+
+      },
+      "source": "bestuurlijkegebieden",
+      "source-layer": "gemeentegebied"
+    },
+    {
+      "id": "gemeente label",
+      "type": "symbol",
+      "paint": {
+        "text-opacity": 1,
+        "text-halo-width": 2,
+        "text-color": "rgb(0,0,0)"
+     
+      },
+      "layout": {
+        "symbol-placement": "point",     
+      
+        "text-field": "{naam}",
+        "text-font": [
+          "sans-serif"
+        ],
+        "text-size": 12 
+      
+       
+      },
+      "source": "bestuurlijkegebieden",
+      "source-layer": "gemeentegebied"
+    }, 
+    {
+      "id": "gemeentegebied",
+      "type": "line",
+      "paint": {
+        "line-color": "rgb(0, 0, 0)",
+        "line-width": 1
+      },
+      "source": "bestuurlijkegebieden",
+      "source-layer": "gemeentegebied"
+    },
+    {
+      "id": "provinciegebied",
+      "type": "line",
+      "paint": {
+        "line-color": "rgb(255, 0, 0)",
+        "line-width": 2
+      },
+      "source": "bestuurlijkegebieden",
+      "source-layer": "provinciegebied"
+    },
+    {
+      "id": "landgebied",
+      "type": "line",
+      "paint": {
+        "line-color": "rgb(0, 0, 255)",
+        "line-width": 2
+      },
+      "source": "bestuurlijkegebieden",
+      "source-layer": "landgebied"
+    }
+  ], 
+  
+  "sources": {
+    "bestuurlijkegebieden": {
+      "type": "vector",
+      "tiles": [
+        "https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0-preprod/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+      ]
+    }
+    
+  }
+}

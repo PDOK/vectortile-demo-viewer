@@ -1,79 +1,105 @@
 <div class="map-container" id="map1">
-    <div class="toprightpanel">
-        <div class="topbuttons">
-            <mat-slide-toggle class="check" labelPosition="before"
-                [matTooltip]="isShowDetails ? 'Objectinformatie verbergen' : 'Objectinformatie tonen'"
-                aria-label="Toon object informatie" [checked]="isShowDetails" (click)="toggleShowDetails()">Toon
-                Objectinformatie</mat-slide-toggle>
+  <div class="toprightpanel">
+    <div class="topbuttons">
+      <mat-slide-toggle
+        class="check"
+        labelPosition="before"
+        [matTooltip]="
+          isShowDetails
+            ? 'Objectinformatie verbergen'
+            : 'Objectinformatie tonen'
+        "
+        aria-label="Toon object informatie"
+        [checked]="isShowDetails"
+        (click)="toggleShowDetails()"
+        >Objectinformatie</mat-slide-toggle
+      >
 
+      <mat-slide-toggle
+        class="check"
+        labelPosition="before"
+        [matTooltip]="!hasLegend() ? 'Legenda verbergen' : 'Legenda tonen'"
+        aria-label="Toon Legenda"
+        [checked]="isShowLegend"
+        (click)="toggleShowLegend()"
+        >Legenda</mat-slide-toggle
+      >
 
-            <mat-slide-toggle class="check" labelPosition="before"
-                [matTooltip]="!hasLegend() ? 'Legenda verbergen' : 'Legenda tonen'" aria-label="Toon Legenda"
-                [checked]="isShowLegend" (click)="toggleShowLegend()">Toon
-                Legenda</mat-slide-toggle>
-
-
-            <mat-slide-toggle class="check" labelPosition="before"
-                [matTooltip]="isShowDemo ? 'Demo menu verbergen' : 'Demo menu tonen'"
-                aria-label="Toon object informatie" [checked]="isShowDemo" (click)="toggleShowDemo()">Toon
-                Demo Menu</mat-slide-toggle>
-
-
-        </div>
-        <div>
-            <div *ngIf="isShowDetails">
-                <div *ngIf="showselectedFeatures()">
-                    <div>
-                        <app-objectinfo [features]="this.selectedFeatures" [resolution]="this.viewRD.getResolution()"
-                            [styleFunction]="this.CurrentVectorTileLayer.getStyleFunction()!">
-                        </app-objectinfo>
-                    </div>
-                </div>
-            </div>
-            <div *ngIf="hasLegend()">
-                <div *ngIf="isShowLegend">
-                    <app-mapstyler [Layer]="this.CurrentVectorTileLayer" [ColorMap]="this.colorMap"> </app-mapstyler>
-
-                </div>
-            </div>
-
-            <div *ngIf="isShowDemo" class="row container-fluid">
-                <div class="infotextbox">
-                    <div class='demobox'>
-                        <app-demobox (visEmit)="visualisationChange($event)"> </app-demobox>
-
-                        <table>
-                            <caption class="techcaption">Technische informatie:</caption>
-                            <thead>
-                                <th id="Veld">Veld</th>
-                                <th id="Waarde">Waarde</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Huidige Zoomlevel</td>
-                                    <td>{{getZoomLevel()}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Pixel Ratio scherm</td>
-                                    <td>{{getDevicePixelRatio()}}</td>
-                                </tr>
-                               
-                                <tr>
-                                    <td>Vectortile api</td>
-                                    <td><app-showlink [url]=getShowTileUrl()></app-showlink></td>
-
-                                    
-                                </tr>
-                                <tr>
-                                    <td>Style api</td>
-                                    <td><app-showlink [url]=getShowStyleUrl()></app-showlink></td>
-                            </tbody>
-                        </table>
-                        <app-mapexport [map]="this.map1"></app-mapexport>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
+      <mat-slide-toggle
+        class="check"
+        labelPosition="before"
+        [matTooltip]="isShowDemo ? 'Demo menu verbergen' : 'Demo menu tonen'"
+        aria-label="Toon object informatie"
+        [checked]="isShowDemo"
+        (click)="toggleShowDemo()"
+        >Demo Menu</mat-slide-toggle
+      >
     </div>
+    <div>
+      <div *ngIf="isShowDetails">
+        <div *ngIf="showselectedFeatures()">
+          <div>
+            <app-objectinfo
+              [features]="this.selectedFeatures"
+              [resolution]="this.viewRD(zoom).getResolution()"
+              [styleFunction]="this.CurrentVectorTileLayer.getStyleFunction()!"
+            >
+            </app-objectinfo>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="hasLegend()">
+        <div *ngIf="isShowLegend">
+          <app-mapstyler
+            [Layer]="this.CurrentVectorTileLayer"
+            [ColorMap]="this.colorMap"
+            [StyleUrl]="getShowStyleUrl()"
+          >
+          </app-mapstyler>
+        </div>
+      </div>
+
+      <div *ngIf="isShowDemo" class="row container-fluid">
+        <div class="infotextbox">
+          <div class="demobox">
+            <app-demobox (visEmit)="visualisationChange($event)"> </app-demobox>
+
+            <table>
+              <caption class="techcaption">
+                Technische informatie:
+              </caption>
+              <thead>
+                <th id="Veld">Veld</th>
+                <th id="Waarde">Waarde</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Huidige Zoomlevel</td>
+                  <td>{{ getZoomLevel() }}</td>
+                </tr>
+                <tr>
+                  <td>Pixel Ratio scherm</td>
+                  <td>{{ getDevicePixelRatio() }}</td>
+                </tr>
+
+                <tr>
+                  <td>Vectortile api</td>
+                  <td>
+                    <app-showlink [url]="getShowTileUrl()"></app-showlink>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Style api</td>
+                  <td>
+                    <app-showlink [url]="getShowStyleUrl()"></app-showlink>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <app-mapexport [map]="this.map1"></app-mapexport>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

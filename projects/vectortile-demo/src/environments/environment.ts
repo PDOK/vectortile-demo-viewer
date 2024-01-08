@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  BGTmapboxachtergrondjsonurl: 'styles/bgt_achtergrondvisualisatie.json',
+  BGTmapboxstandaardjsonurl: 'styles/bgt_standaardvisualisatie.json',
+  BAGmapboxbagstd:
+    'https://api.pdok.nl/lv/bag/ogc/v1_0/styles/bag_standaardvisualisatie?f=json',
+  BAGmapboxbagCompleet:
+    'https://api.pdok.nl/lv/bag/ogc/v1_0/styles/bag_standaardvisualisatie_compleet?f=json',
+
+  BGTmapboxtactieljsonurl: 'styles/tactielevisualisatie.json',
+
+  BESTUURWithLabels: 'styles/bestuurlijkegebieden_annotated.json',
+  BESTUURstd:
+    'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0-preprod/styles/bestuurlijkegebieden_standaardvisualisatie?f=json',
 };
 
 /*
@@ -13,4 +26,4 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+import 'zone.js/plugins/zone-error'; // Included with Angular CLI.

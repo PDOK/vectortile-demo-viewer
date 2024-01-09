@@ -32,10 +32,7 @@
       "layout": {
         "symbol-placement": "point",     
       
-        "text-field": "{naam}",
-        "text-font": [
-          "sans-serif"
-        ],
+        "text-field": "{naam}",        
         "text-size": 12 
       
        

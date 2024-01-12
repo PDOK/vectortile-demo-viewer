@@ -296,7 +296,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         tileurlBestuur,
         2
       );
-      this.showUrl = tileurlBGT.url;
+      this.showUrl = tileurlBestuur.url;
     }
 
     if (JsonUrl.url) {
@@ -423,6 +423,7 @@ export class OlmapComponent implements OnInit, OnChanges {
             ) {
               newcolor.mapbox = false;
             }
+            console.log(tmpstyle);
             if (tmpstyle) {
               newcolor.rbgString = getFillColor(tmpstyle) as string;
               this.colorMap.set(legendTitle, newcolor);

@@ -1,7 +1,7 @@
 {
   "version": 8,
-  "name": "Bestuurlijke Gebieden PDOK Visualisatie",
-  "id": "bestuurlijkegebieden_pdokvisualisatie",
+  "name": "Bestuurlijke Gebieden met gemeente labels",
+  "id": "bestuurlijkegebieden_annotated",
   "zoom": 12,
   "pitch": 50,
   "center": [

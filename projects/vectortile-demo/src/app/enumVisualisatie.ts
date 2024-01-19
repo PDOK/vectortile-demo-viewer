@@ -17,6 +17,7 @@ export enum Visualisatie {
   BGTtactiel = 'BGT Tactiele demo (Braille)',
   BESTUURstd = 'Bestuurlijke gebieden',
   BESTUURWithLabels = 'Bestuurlijke gebieden met annotatie',
+  BESTUURLabelOnly = 'Bestuurlijke gebieden alleen labels',
   BESTUURBlanko = 'Bestuurlijke gebieden (Blanco)',
 }
 
@@ -44,6 +45,11 @@ export function getStyleUrl(vis: Visualisatie): StyleUrl {
       return {
         source: 'bestuurlijkegebieden',
         url: environment.BESTUURWithLabels,
+      };
+    case Visualisatie.BESTUURLabelOnly:
+      return {
+        source: 'bestuurlijkegebieden',
+        url: environment.BESTUURLabelsOnly,
       };
     case Visualisatie.BGTzerodefaultA_blanco:
     case Visualisatie.BGTzerodefaultC_Bron:
@@ -83,7 +89,12 @@ export function getAllVisualisaties(): Visualisatie[] {
   else
     for (const value of enumKeys(Visualisatie)) {
       if (
-        ['BESTUURstd', 'BESTUURWithLabels', 'BESTUURBlanko'].includes(value)
+        [
+          'BESTUURstd',
+          'BESTUURWithLabels',
+          'BESTUURLabelsOnly',
+          'BESTUURBlanko',
+        ].includes(value)
       ) {
         //skip
       } else {

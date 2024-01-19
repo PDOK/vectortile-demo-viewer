@@ -5,7 +5,7 @@
   "zoom": 12,
   "pitch": 50,
   "center": [0, 0],
-  "glyphs": "https://api.pdok.nl/lv/bgt/ogc/v1_0/resources/fonts/{fontstack}/{range}.pbf",
+
   "layers": [
     {
       "id": "gemeente label",
@@ -17,12 +17,6 @@
       },
       "layout": {
         "symbol-placement": "point",
-        "text-font": [
-          "RijksoverheidSansTextTT-Regular",
-          "Noto Sans Italic",
-          "Roboto Black",
-          "Arial Unicode MS Bold"
-        ],
 
         "text-field": "{naam}",
         "text-size": 12

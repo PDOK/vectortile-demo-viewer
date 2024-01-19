@@ -22,7 +22,11 @@
           "RijksoverheidSansTextTT-Regular",
           "Roboto Black",
           "Arial Unicode MS Bold",
-          "Noto Sans Italic"
+          "Noto Sans Italic", 
+          "Arial", 
+          "Open Sans", 
+          "Noto Sans"
+          
         ],
 
         "text-field": "{naam}",

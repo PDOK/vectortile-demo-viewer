@@ -10,7 +10,7 @@ export const environment = {
     'https://api.pdok.nl/lv/bag/ogc/v1_0/styles/bag_standaardvisualisatie_compleet?f=json',
   BGTmapboxtactieljsonurl: 'styles/tactielevisualisatie.json',
   BESTUURWithLabels: 'styles/bestuurlijkegebieden_annotated.json',
-  BESTUURLabelsOnly: 'styles/bs_test.json',
+  //BESTUURLabelsOnly: 'styles/bs_test.json',
   BESTUURstd:
-    'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0-preprod/styles/bestuurlijkegebieden_standaardvisualisatie?f=json',
+    'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0/styles/bestuurlijkegebieden_standaardvisualisatie?f=json',
 };

@@ -9,7 +9,7 @@ export const tileurlBAG: VectorTileUrl = {
 };
 
 export const tileurlBestuur: VectorTileUrl = {
-  url: 'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0-preprod/tiles/NetherlandsRDNewQuad',
+  url: 'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0/tiles/NetherlandsRDNewQuad',
   extension: '.pbf',
 };
 

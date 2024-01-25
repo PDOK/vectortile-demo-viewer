@@ -17,7 +17,7 @@ export enum Visualisatie {
   BGTtactiel = 'BGT Tactiele demo (Braille)',
   BESTUURstd = 'Bestuurlijke gebieden',
   BESTUURWithLabels = 'Bestuurlijke gebieden met annotatie',
-  BESTUURLabelOnly = 'Bestuurlijke gebieden alleen labels',
+  //BESTUURLabelOnly = 'Bestuurlijke gebieden alleen labels',
   BESTUURBlanko = 'Bestuurlijke gebieden (Blanco)',
 }
 
@@ -46,11 +46,11 @@ export function getStyleUrl(vis: Visualisatie): StyleUrl {
         source: 'bestuurlijkegebieden',
         url: environment.BESTUURWithLabels,
       };
-    case Visualisatie.BESTUURLabelOnly:
-      return {
-        source: 'bestuurlijkegebieden',
-        url: environment.BESTUURLabelsOnly,
-      };
+    //case Visualisatie.BESTUURLabelOnly:
+    //  return {
+    //    source: 'bestuurlijkegebieden',
+    //   url: environment.BESTUURLabelsOnly,
+    //  };
     case Visualisatie.BGTzerodefaultA_blanco:
     case Visualisatie.BGTzerodefaultC_Bron:
     case Visualisatie.BGTzerodefaultD_kleur:

@@ -254,7 +254,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     switch (this.SelectedVisualisation) {
       case Visualisatie.BESTUURBlanko:
       case Visualisatie.BESTUURWithLabels:
-      case Visualisatie.BESTUURLabelOnly:
+      //  case Visualisatie.BESTUURLabelOnly:
       case Visualisatie.BESTUURstd:
         minzoom = 3;
         break;
@@ -399,7 +399,6 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.Bagstd:
       case Visualisatie.BagCompleet:
       case Visualisatie.BESTUURWithLabels:
-      case Visualisatie.BESTUURLabelOnly:
       case Visualisatie.BESTUURstd: {
         const legendTitle = this.colorMap.selector(prop);
 

@@ -76,7 +76,7 @@
     "bestuurlijkegebieden": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0-preprod/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+        "https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
       ]
     }
     

@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
 import {
   Visualisatie,
   getAllVisualisaties,
   getStyleUrl,
-} from './enumVisualisatie';
+} from './enumVisualisatie'
 export const demoSettings = {
   demoVisualisatieRotate: false,
   demoLocatieRotate: false,
   previewFeature: false,
-};
+}
 
 @Component({
   selector: 'app-root',
@@ -24,35 +24,35 @@ export class AppComponent implements OnInit {
   ) => {
     const enumName = (Object.keys(_enum) as Array<keyof T>).find(
       (k) => _enum[k] === val
-    );
-    if (!enumName) throw new Error(errormessage);
-    return _enum[enumName];
+    )
+    if (!enumName) throw new Error(errormessage)
+    return _enum[enumName]
   };
 
   visualisatie = getAllVisualisaties();
   currentVis = Visualisatie.BGTachtergrond;
   isShow: boolean = false;
-  styleurl!: string;
+  styleurl!: string
 
   constructor(private router: Router) {
     /* do nothing*/
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   toggleShow() {
-    this.isShow = !this.isShow;
-    this.visualisatie = getAllVisualisaties();
+    this.isShow = !this.isShow
+    this.visualisatie = getAllVisualisaties()
   }
 
   receiveTitle(data: Visualisatie) {
-    this.currentVis = data;
+    this.currentVis = data
 
-    this.styleurl = getStyleUrl(this.currentVis).url!;
+    this.styleurl = getStyleUrl(this.currentVis).url!
   }
 
   onSelect(vis: Visualisatie): void {
-    this.currentVis = vis;
-    this.isShow = false;
+    this.currentVis = vis
+    this.isShow = false
   }
 }

@@ -118,6 +118,7 @@ function getCollection(layer: string): string {
   layer = layer.replace("deel", "delen")
   layer = layer.replace("label", "labels")
   layer = layer.replace("aanduiding", "aanduidingen")
+  layer = layer.replace("begroeid", "begroeide")
 
   switch (layer) {
     case "pand": {
@@ -132,6 +133,7 @@ function getCollection(layer: string): string {
       return " Openbareruimtes"
       break
     }
+
 
 
 

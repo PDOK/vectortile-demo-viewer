@@ -1,27 +1,28 @@
 <div class="objectinfo">
-    <div *ngFor="let feature of  getFeatures()">
-        <table class="featuretable">
-            <caption class="featuretablecaption">Object Informatie:</caption>
-            <thead>
-                <th id="Veld">Veld</th>
-                <th id="Waarde">Waarde</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Kleur</td>
-                    <td [ngStyle]="selectedFillStyle(feature)"></td>
-                </tr>
-                <tr *ngFor="let f of  getFeatureProperties(feature)">
-                    <td>{{f.title }}</td>
-                    <td *ngIf="isLink(f); else elseBlock"><app-showlink [url]="f.value"> </app-showlink></td>
-                    <ng-template #elseBlock>{{f.value}} </ng-template>
-            
-
-
-                </tr>
-
-            </tbody>
-        </table>
-        <mat-divider></mat-divider>
-    </div>
+  <div *ngFor="let feature of getFeatures()">
+    <table class="featuretable">
+      <caption class="featuretablecaption">
+        Object Informatie:
+      </caption>
+      <thead>
+        <th id="Veld">Veld</th>
+        <th id="Waarde">Waarde</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Kleur</td>
+          <td [ngStyle]="selectedFillStyle(feature)"></td>
+        </tr>
+        <tr *ngFor="let f of getFeatureProperties(feature).rows">
+          <td>{{ f.title }}</td>
+          <td *ngIf="isLink(f); else elseBlock">
+            <app-showlink [url]="f.value"> </app-showlink>
+          </td>
+          <ng-template #elseBlock>{{ f.value }} </ng-template>
+        </tr>
+      </tbody>
+    </table>
+    <app-ogcmap [ogcApiUrl]="getFeatureProperties(feature).ogcurl"></app-ogcmap>
+    <mat-divider></mat-divider>
+  </div>
 </div>

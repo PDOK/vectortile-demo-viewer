@@ -1,18 +1,15 @@
 import {
-  AfterViewInit,
   Component,
-  ElementRef,
   EventEmitter,
   Input,
   OnChanges,
   OnInit,
   Output,
-  ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { Feature, MapBrowserEvent, Map as olMap, View } from 'ol';
+import { Feature, Map as olMap, View } from 'ol';
 import Link from 'ol/interaction/Link.js';
 
 import { stylefunction } from 'ol-mapbox-style';
@@ -45,7 +42,6 @@ import {
   tileurlBGT,
   VectorTileUrl,
 } from './tileurl';
-import { NgElement, WithProperties } from '@angular/elements';
 
 @Component({
   selector: 'app-olmap',

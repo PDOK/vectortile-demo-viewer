@@ -1,0 +1,11 @@
+<div *ngIf="ogcApiUrl">
+  <div class="featureMapCaption">OGC API Feature:</div>
+  <app-feature-view
+    #mview
+    projection="http://www.opengis.net/def/crs/EPSG/0/28992"
+    background-map="BRT"
+    show-bounding-box-button="false"
+  >
+  </app-feature-view>
+  <app-showlink [url]="ogcApiUrl"> </app-showlink>
+</div>

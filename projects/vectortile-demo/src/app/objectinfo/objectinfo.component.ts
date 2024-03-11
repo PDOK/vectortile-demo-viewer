@@ -119,10 +119,20 @@ function getCollection(layer: string): string {
   layer = layer.replace("label", "labels")
   layer = layer.replace("aanduiding", "aanduidingen")
   layer = layer.replace("begroeid", "begroeide")
+  layer = layer.replace("ondersteunend", "ondersteunende")
+  layer = layer.replace("lijn", "lijnen")
 
   switch (layer) {
     case "pand": {
       return "pand"
+      break
+    }
+    case "spoor": {
+      return "sporen"
+      break
+    }
+    case "scheiding": {
+      return "scheidingen"
       break
     }
     case "overigbouwwerk": {

@@ -14,7 +14,7 @@
             "id": "OngeclassificeerdVlak ongeclassificeerd fill0",
             "type": "fill",
             "paint": {
-                "fill-color": "#00",
+                "fill-color": "00FFFFFF",
                 "fill-outline-color": "#535353"
             },
             "source": "bgt",
@@ -34,7 +34,7 @@
             ]
         },
         {
-            "id": "Ongeclassificeerd Lijn ongeclassificeerd line0",
+            "id": "Ongeclassificeerd ongeclassificeerd line0",
             "type": "line",
             "paint": {
                 "line-dasharray": [
@@ -3739,7 +3739,7 @@
             "id": "OngeclassificeerdVlak ongeclassificeerd fill1",
             "type": "fill",
             "paint": {
-                "fill-color": "#00",
+                "fill-color": "00FFFFFF",
                 "fill-outline-color": "#535353"
             },
             "source": "bgt",
@@ -3759,7 +3759,7 @@
             ]
         },
         {
-            "id": "Ongeclassificeerd Lijn ongeclassificeerd line1",
+            "id": "Ongeclassificeerd ongeclassificeerd line1",
             "type": "line",
             "paint": {
                 "line-dasharray": [
@@ -7464,7 +7464,7 @@
             "id": "OngeclassificeerdVlak ongeclassificeerd fill2",
             "type": "fill",
             "paint": {
-                "fill-color": "#00",
+                "fill-color": "00FFFFFF",
                 "fill-outline-color": "#535353"
             },
             "source": "bgt",
@@ -7484,7 +7484,7 @@
             ]
         },
         {
-            "id": "Ongeclassificeerd Lijn ongeclassificeerd line2",
+            "id": "Ongeclassificeerd ongeclassificeerd line2",
             "type": "line",
             "paint": {
                 "line-dasharray": [
@@ -11616,7 +11616,7 @@
             "id": "Kering functioneelgebied fill1000",
             "type": "fill",
             "paint": {
-                "fill-color": "#00",
+                "fill-color": "00FFFFFF",
                 "fill-outline-color": "#002750"
             },
             "source": "bgt",

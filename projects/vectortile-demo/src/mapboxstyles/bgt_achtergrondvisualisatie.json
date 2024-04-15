@@ -36,12 +36,6 @@
                 "fill-outline-color": "#9BCBE9"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatiewater",
-                "id": "water",
-                "sourcelayer": "ondersteunendwaterdeel",
-                "sld": "sld\\achtergrondvisualisatie\\2_achtergrond_ondersteunendwaterdeel_polygon.sld"
-            },
             "source-layer": "ondersteunendwaterdeel"
         },
         {
@@ -70,12 +64,6 @@
                 "fill-outline-color": "#e1eddb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatiewater",
-                "id": "Water_edge",
-                "sourcelayer": "ondersteunendwaterdeel",
-                "sld": "sld\\achtergrondvisualisatie\\2_achtergrond_ondersteunendwaterdeel_polygon.sld"
-            },
             "source-layer": "ondersteunendwaterdeel"
         },
         {
@@ -104,12 +92,6 @@
                 "fill-outline-color": "#9BCBE9"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatiewater",
-                "id": "water",
-                "sourcelayer": "waterdeel",
-                "sld": "sld\\achtergrondvisualisatie\\3_achtergrond_waterdeel_polygon.sld"
-            },
             "source-layer": "waterdeel"
         },
         {
@@ -138,12 +120,6 @@
                 "fill-outline-color": "#e1eddb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatiewater",
-                "id": "Water_edge",
-                "sourcelayer": "waterdeel",
-                "sld": "sld\\achtergrondvisualisatie\\3_achtergrond_waterdeel_polygon.sld"
-            },
             "source-layer": "waterdeel"
         },
         {
@@ -210,12 +186,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-human-made",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -262,12 +232,6 @@
                 "fill-outline-color": "#e1eddb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-low-vegetation",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -319,12 +283,6 @@
                 "fill-outline-color": "#c3dbb6"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-high-vegetation",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -381,12 +339,6 @@
                 "fill-outline-color": "#fdf6bb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "landuse-natural-sand",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -415,12 +367,6 @@
                 "fill-outline-color": "#e3dce7"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-heather",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -449,12 +395,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-man-made-private-z23",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -483,12 +423,6 @@
                 "fill-outline-color": "#F9F9E7"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-man-made-private-z1",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -555,12 +489,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-human-made",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -607,12 +535,6 @@
                 "fill-outline-color": "#e1eddb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-low-vegetation",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -664,12 +586,6 @@
                 "fill-outline-color": "#c3dbb6"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-high-vegetation",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -726,12 +642,6 @@
                 "fill-outline-color": "#fdf6bb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "landuse-natural-sand",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -760,12 +670,6 @@
                 "fill-outline-color": "#e3dce7"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-heather",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -794,12 +698,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-man-made-private-z23",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -828,12 +726,6 @@
                 "fill-outline-color": "#F9F9E7"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-man-made-private-z1",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -844,12 +736,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieinfra_misc",
-                "id": "Tunnels en Overbrugging",
-                "sourcelayer": "tunneldeel",
-                "sld": "sld\\achtergrondvisualisatie\\6_achtergrond_tunneldeel_infra1_extra_polygon.sld"
-            },
             "source-layer": "tunneldeel",
             "filter": [
                 "all",
@@ -873,12 +759,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieinfra_misc",
-                "id": "Tunnels en Overbrugging",
-                "sourcelayer": "overbruggingsdeel",
-                "sld": "sld\\achtergrondvisualisatie\\7_achtergrond_overbruggingsdeel_infra2_extra_polygon.sld"
-            },
             "source-layer": "overbruggingsdeel",
             "filter": [
                 "all",
@@ -925,12 +805,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieverkeerseiland",
-                "id": "Verkeerseiland",
-                "sourcelayer": "ondersteunendwegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\8_achtergrond_ondersteunendwegdeel_infra_side.sld"
-            },
             "source-layer": "ondersteunendwegdeel"
         },
         {
@@ -959,12 +833,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieverkeerseiland",
-                "id": "Groenvoorziening",
-                "sourcelayer": "ondersteunendwegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\8_achtergrond_ondersteunendwegdeel_infra_side.sld"
-            },
             "source-layer": "ondersteunendwegdeel"
         },
         {
@@ -998,12 +866,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieverkeerseiland",
-                "id": "Overig wit",
-                "sourcelayer": "ondersteunendwegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\8_achtergrond_ondersteunendwegdeel_infra_side.sld"
-            },
             "source-layer": "ondersteunendwegdeel"
         },
         {
@@ -1085,12 +947,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic casing",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1132,12 +988,6 @@
                 "fill-outline-color": "#fdf6bb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic Yellow fill",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1204,12 +1054,6 @@
                 "fill-outline-color": "#ffffff"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic White fill",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1238,12 +1082,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Parking casing",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1272,12 +1110,6 @@
                 "fill-outline-color": "#ffffff"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Parking fill",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1329,12 +1161,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Un-motorized Traffic casing",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1379,19 +1205,13 @@
                     "bestaand"
                 ]
             ],
-            "id": "Un-motorized Traffic fill  wegdeel fill0",
+            "id": "Un-motorized Traffic fill wegdeel fill0",
             "type": "fill",
             "paint": {
                 "fill-color": "#fdeff8",
                 "fill-outline-color": "#fdeff8"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Un-motorized Traffic fill ",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1424,12 +1244,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Tram z12",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1451,7 +1265,7 @@
                     "bestaand"
                 ]
             ],
-            "id": "Tram_z1  wegdeel line0",
+            "id": "Tram_z1 wegdeel line0",
             "type": "line",
             "paint": {
                 "line-color": "#999999",
@@ -1462,12 +1276,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Tram_z1 ",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1500,12 +1308,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram casing_z23",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1542,12 +1344,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram fill_z23",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1580,12 +1376,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram casing_z1",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1622,12 +1412,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram fill_z1",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1668,12 +1452,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein Casing_z23",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1718,12 +1496,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein fill_z23",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1764,12 +1536,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein Casing_z1",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1814,12 +1580,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein fill_z1",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -1901,12 +1661,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic casing",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -1948,12 +1702,6 @@
                 "fill-outline-color": "#fdf6bb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic Yellow fill",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2020,12 +1768,6 @@
                 "fill-outline-color": "#ffffff"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic White fill",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2054,12 +1796,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Parking casing",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2088,12 +1824,6 @@
                 "fill-outline-color": "#ffffff"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Parking fill",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2145,12 +1875,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Un-motorized Traffic casing",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2195,19 +1919,13 @@
                     "bestaand"
                 ]
             ],
-            "id": "Un-motorized Traffic fill  spoor fill0",
+            "id": "Un-motorized Traffic fill spoor fill0",
             "type": "fill",
             "paint": {
                 "fill-color": "#fdeff8",
                 "fill-outline-color": "#fdeff8"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Un-motorized Traffic fill ",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2240,12 +1958,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Tram z12",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2267,7 +1979,7 @@
                     "bestaand"
                 ]
             ],
-            "id": "Tram_z1  spoor line0",
+            "id": "Tram_z1 spoor line0",
             "type": "line",
             "paint": {
                 "line-color": "#999999",
@@ -2278,12 +1990,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Tram_z1 ",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2316,12 +2022,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram casing_z23",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2358,12 +2058,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram fill_z23",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2396,12 +2090,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram casing_z1",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2438,12 +2126,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram fill_z1",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2484,12 +2166,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein Casing_z23",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2534,12 +2210,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein fill_z23",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2580,12 +2250,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein Casing_z1",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -2630,28 +2294,15 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein fill_z1",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
             "id": "urban_casing_z1 pand fill0",
             "type": "fill",
             "paint": {
-                "fill-opacity": 0,
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_casing_z1",
-                "sourcelayer": "pand",
-                "sld": "sld\\achtergrondvisualisatie\\11_achtergrond_pand_urban_polygon.sld"
-            },
             "source-layer": "pand",
             "filter": [
                 "all",
@@ -2675,12 +2326,6 @@
                 "fill-outline-color": "#cccccc"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_fill_z1",
-                "sourcelayer": "pand",
-                "sld": "sld\\achtergrondvisualisatie\\11_achtergrond_pand_urban_polygon.sld"
-            },
             "source-layer": "pand",
             "filter": [
                 "all",
@@ -2704,12 +2349,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_z23",
-                "sourcelayer": "pand",
-                "sld": "sld\\achtergrondvisualisatie\\11_achtergrond_pand_urban_polygon.sld"
-            },
             "source-layer": "pand",
             "filter": [
                 "all",
@@ -2751,12 +2390,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z23",
-                "sourcelayer": "gebouwinstallatie",
-                "sld": "sld\\achtergrondvisualisatie\\12_achtergrond_gebouwinstallatie_urban_extra_polygon.sld"
-            },
             "source-layer": "gebouwinstallatie"
         },
         {
@@ -2785,12 +2418,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z1",
-                "sourcelayer": "gebouwinstallatie",
-                "sld": "sld\\achtergrondvisualisatie\\12_achtergrond_gebouwinstallatie_urban_extra_polygon.sld"
-            },
             "source-layer": "gebouwinstallatie"
         },
         {
@@ -2819,12 +2446,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "overkapping",
-                "sourcelayer": "gebouwinstallatie",
-                "sld": "sld\\achtergrondvisualisatie\\12_achtergrond_gebouwinstallatie_urban_extra_polygon.sld"
-            },
             "source-layer": "gebouwinstallatie"
         },
         {
@@ -2853,12 +2474,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z23",
-                "sourcelayer": "overigbouwwerk",
-                "sld": "sld\\achtergrondvisualisatie\\13_achtergrond_overigbouwwerk_urban_extra_polygon_kopie.sld"
-            },
             "source-layer": "overigbouwwerk"
         },
         {
@@ -2887,12 +2502,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z1",
-                "sourcelayer": "overigbouwwerk",
-                "sld": "sld\\achtergrondvisualisatie\\13_achtergrond_overigbouwwerk_urban_extra_polygon_kopie.sld"
-            },
             "source-layer": "overigbouwwerk"
         },
         {
@@ -2921,12 +2530,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "overkapping",
-                "sourcelayer": "overigbouwwerk",
-                "sld": "sld\\achtergrondvisualisatie\\13_achtergrond_overigbouwwerk_urban_extra_polygon_kopie.sld"
-            },
             "source-layer": "overigbouwwerk"
         },
         {
@@ -2955,12 +2558,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z23",
-                "sourcelayer": "kunstwerkdeel",
-                "sld": "sld\\achtergrondvisualisatie\\14_achtergrond_kunstwerkdeel_urban_extra_polygon_ kopie.sld"
-            },
             "source-layer": "kunstwerkdeel"
         },
         {
@@ -2989,12 +2586,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z1",
-                "sourcelayer": "kunstwerkdeel",
-                "sld": "sld\\achtergrondvisualisatie\\14_achtergrond_kunstwerkdeel_urban_extra_polygon_ kopie.sld"
-            },
             "source-layer": "kunstwerkdeel"
         },
         {
@@ -3023,12 +2614,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "overkapping",
-                "sourcelayer": "kunstwerkdeel",
-                "sld": "sld\\achtergrondvisualisatie\\14_achtergrond_kunstwerkdeel_urban_extra_polygon_ kopie.sld"
-            },
             "source-layer": "kunstwerkdeel"
         },
         {
@@ -3057,12 +2642,6 @@
                 "fill-outline-color": "#9BCBE9"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatiewater",
-                "id": "water",
-                "sourcelayer": "ondersteunendwaterdeel",
-                "sld": "sld\\achtergrondvisualisatie\\2_achtergrond_ondersteunendwaterdeel_polygon.sld"
-            },
             "source-layer": "ondersteunendwaterdeel"
         },
         {
@@ -3091,12 +2670,6 @@
                 "fill-outline-color": "#e1eddb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatiewater",
-                "id": "Water_edge",
-                "sourcelayer": "ondersteunendwaterdeel",
-                "sld": "sld\\achtergrondvisualisatie\\2_achtergrond_ondersteunendwaterdeel_polygon.sld"
-            },
             "source-layer": "ondersteunendwaterdeel"
         },
         {
@@ -3125,12 +2698,6 @@
                 "fill-outline-color": "#9BCBE9"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatiewater",
-                "id": "water",
-                "sourcelayer": "waterdeel",
-                "sld": "sld\\achtergrondvisualisatie\\3_achtergrond_waterdeel_polygon.sld"
-            },
             "source-layer": "waterdeel"
         },
         {
@@ -3159,12 +2726,6 @@
                 "fill-outline-color": "#e1eddb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatiewater",
-                "id": "Water_edge",
-                "sourcelayer": "waterdeel",
-                "sld": "sld\\achtergrondvisualisatie\\3_achtergrond_waterdeel_polygon.sld"
-            },
             "source-layer": "waterdeel"
         },
         {
@@ -3231,12 +2792,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-human-made",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -3283,12 +2838,6 @@
                 "fill-outline-color": "#e1eddb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-low-vegetation",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -3340,12 +2889,6 @@
                 "fill-outline-color": "#c3dbb6"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-high-vegetation",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -3402,12 +2945,6 @@
                 "fill-outline-color": "#fdf6bb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "landuse-natural-sand",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -3436,12 +2973,6 @@
                 "fill-outline-color": "#e3dce7"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-heather",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -3470,12 +3001,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-man-made-private-z23",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -3504,12 +3029,6 @@
                 "fill-outline-color": "#F9F9E7"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-man-made-private-z1",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -3576,12 +3095,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-human-made",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -3628,12 +3141,6 @@
                 "fill-outline-color": "#e1eddb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-low-vegetation",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -3685,12 +3192,6 @@
                 "fill-outline-color": "#c3dbb6"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-high-vegetation",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -3747,12 +3248,6 @@
                 "fill-outline-color": "#fdf6bb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "landuse-natural-sand",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -3781,12 +3276,6 @@
                 "fill-outline-color": "#e3dce7"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-heather",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -3815,12 +3304,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-man-made-private-z23",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -3849,12 +3332,6 @@
                 "fill-outline-color": "#F9F9E7"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-man-made-private-z1",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -3865,12 +3342,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieinfra_misc",
-                "id": "Tunnels en Overbrugging",
-                "sourcelayer": "tunneldeel",
-                "sld": "sld\\achtergrondvisualisatie\\6_achtergrond_tunneldeel_infra1_extra_polygon.sld"
-            },
             "source-layer": "tunneldeel",
             "filter": [
                 "all",
@@ -3894,12 +3365,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieinfra_misc",
-                "id": "Tunnels en Overbrugging",
-                "sourcelayer": "overbruggingsdeel",
-                "sld": "sld\\achtergrondvisualisatie\\7_achtergrond_overbruggingsdeel_infra2_extra_polygon.sld"
-            },
             "source-layer": "overbruggingsdeel",
             "filter": [
                 "all",
@@ -3946,12 +3411,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieverkeerseiland",
-                "id": "Verkeerseiland",
-                "sourcelayer": "ondersteunendwegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\8_achtergrond_ondersteunendwegdeel_infra_side.sld"
-            },
             "source-layer": "ondersteunendwegdeel"
         },
         {
@@ -3980,12 +3439,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieverkeerseiland",
-                "id": "Groenvoorziening",
-                "sourcelayer": "ondersteunendwegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\8_achtergrond_ondersteunendwegdeel_infra_side.sld"
-            },
             "source-layer": "ondersteunendwegdeel"
         },
         {
@@ -4019,12 +3472,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieverkeerseiland",
-                "id": "Overig wit",
-                "sourcelayer": "ondersteunendwegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\8_achtergrond_ondersteunendwegdeel_infra_side.sld"
-            },
             "source-layer": "ondersteunendwegdeel"
         },
         {
@@ -4106,12 +3553,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic casing",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4153,12 +3594,6 @@
                 "fill-outline-color": "#fdf6bb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic Yellow fill",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4225,12 +3660,6 @@
                 "fill-outline-color": "#ffffff"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic White fill",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4259,12 +3688,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Parking casing",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4293,12 +3716,6 @@
                 "fill-outline-color": "#ffffff"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Parking fill",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4350,12 +3767,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Un-motorized Traffic casing",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4400,19 +3811,13 @@
                     "bestaand"
                 ]
             ],
-            "id": "Un-motorized Traffic fill  wegdeel fill1",
+            "id": "Un-motorized Traffic fill wegdeel fill1",
             "type": "fill",
             "paint": {
                 "fill-color": "#fdeff8",
                 "fill-outline-color": "#fdeff8"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Un-motorized Traffic fill ",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4445,12 +3850,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Tram z12",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4472,7 +3871,7 @@
                     "bestaand"
                 ]
             ],
-            "id": "Tram_z1  wegdeel line1",
+            "id": "Tram_z1 wegdeel line1",
             "type": "line",
             "paint": {
                 "line-color": "#999999",
@@ -4483,12 +3882,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Tram_z1 ",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4521,12 +3914,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram casing_z23",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4563,12 +3950,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram fill_z23",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4601,12 +3982,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram casing_z1",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4643,12 +4018,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram fill_z1",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4689,12 +4058,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein Casing_z23",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4739,12 +4102,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein fill_z23",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4785,12 +4142,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein Casing_z1",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4835,12 +4186,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein fill_z1",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -4922,12 +4267,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic casing",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -4969,12 +4308,6 @@
                 "fill-outline-color": "#fdf6bb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic Yellow fill",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5041,12 +4374,6 @@
                 "fill-outline-color": "#ffffff"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic White fill",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5075,12 +4402,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Parking casing",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5109,12 +4430,6 @@
                 "fill-outline-color": "#ffffff"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Parking fill",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5166,12 +4481,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Un-motorized Traffic casing",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5216,19 +4525,13 @@
                     "bestaand"
                 ]
             ],
-            "id": "Un-motorized Traffic fill  spoor fill1",
+            "id": "Un-motorized Traffic fill spoor fill1",
             "type": "fill",
             "paint": {
                 "fill-color": "#fdeff8",
                 "fill-outline-color": "#fdeff8"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Un-motorized Traffic fill ",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5261,12 +4564,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Tram z12",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5288,7 +4585,7 @@
                     "bestaand"
                 ]
             ],
-            "id": "Tram_z1  spoor line1",
+            "id": "Tram_z1 spoor line1",
             "type": "line",
             "paint": {
                 "line-color": "#999999",
@@ -5299,12 +4596,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Tram_z1 ",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5337,12 +4628,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram casing_z23",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5379,12 +4664,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram fill_z23",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5417,12 +4696,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram casing_z1",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5459,12 +4732,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram fill_z1",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5505,12 +4772,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein Casing_z23",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5555,12 +4816,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein fill_z23",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5601,12 +4856,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein Casing_z1",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -5651,28 +4900,15 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein fill_z1",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
             "id": "urban_casing_z1 pand fill1",
             "type": "fill",
             "paint": {
-                "fill-opacity": 0,
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_casing_z1",
-                "sourcelayer": "pand",
-                "sld": "sld\\achtergrondvisualisatie\\11_achtergrond_pand_urban_polygon.sld"
-            },
             "source-layer": "pand",
             "filter": [
                 "all",
@@ -5696,12 +4932,6 @@
                 "fill-outline-color": "#cccccc"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_fill_z1",
-                "sourcelayer": "pand",
-                "sld": "sld\\achtergrondvisualisatie\\11_achtergrond_pand_urban_polygon.sld"
-            },
             "source-layer": "pand",
             "filter": [
                 "all",
@@ -5725,12 +4955,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_z23",
-                "sourcelayer": "pand",
-                "sld": "sld\\achtergrondvisualisatie\\11_achtergrond_pand_urban_polygon.sld"
-            },
             "source-layer": "pand",
             "filter": [
                 "all",
@@ -5772,12 +4996,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z23",
-                "sourcelayer": "gebouwinstallatie",
-                "sld": "sld\\achtergrondvisualisatie\\12_achtergrond_gebouwinstallatie_urban_extra_polygon.sld"
-            },
             "source-layer": "gebouwinstallatie"
         },
         {
@@ -5806,12 +5024,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z1",
-                "sourcelayer": "gebouwinstallatie",
-                "sld": "sld\\achtergrondvisualisatie\\12_achtergrond_gebouwinstallatie_urban_extra_polygon.sld"
-            },
             "source-layer": "gebouwinstallatie"
         },
         {
@@ -5840,12 +5052,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "overkapping",
-                "sourcelayer": "gebouwinstallatie",
-                "sld": "sld\\achtergrondvisualisatie\\12_achtergrond_gebouwinstallatie_urban_extra_polygon.sld"
-            },
             "source-layer": "gebouwinstallatie"
         },
         {
@@ -5874,12 +5080,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z23",
-                "sourcelayer": "overigbouwwerk",
-                "sld": "sld\\achtergrondvisualisatie\\13_achtergrond_overigbouwwerk_urban_extra_polygon_kopie.sld"
-            },
             "source-layer": "overigbouwwerk"
         },
         {
@@ -5908,12 +5108,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z1",
-                "sourcelayer": "overigbouwwerk",
-                "sld": "sld\\achtergrondvisualisatie\\13_achtergrond_overigbouwwerk_urban_extra_polygon_kopie.sld"
-            },
             "source-layer": "overigbouwwerk"
         },
         {
@@ -5942,12 +5136,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "overkapping",
-                "sourcelayer": "overigbouwwerk",
-                "sld": "sld\\achtergrondvisualisatie\\13_achtergrond_overigbouwwerk_urban_extra_polygon_kopie.sld"
-            },
             "source-layer": "overigbouwwerk"
         },
         {
@@ -5976,12 +5164,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z23",
-                "sourcelayer": "kunstwerkdeel",
-                "sld": "sld\\achtergrondvisualisatie\\14_achtergrond_kunstwerkdeel_urban_extra_polygon_ kopie.sld"
-            },
             "source-layer": "kunstwerkdeel"
         },
         {
@@ -6010,12 +5192,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z1",
-                "sourcelayer": "kunstwerkdeel",
-                "sld": "sld\\achtergrondvisualisatie\\14_achtergrond_kunstwerkdeel_urban_extra_polygon_ kopie.sld"
-            },
             "source-layer": "kunstwerkdeel"
         },
         {
@@ -6044,12 +5220,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "overkapping",
-                "sourcelayer": "kunstwerkdeel",
-                "sld": "sld\\achtergrondvisualisatie\\14_achtergrond_kunstwerkdeel_urban_extra_polygon_ kopie.sld"
-            },
             "source-layer": "kunstwerkdeel"
         },
         {
@@ -6078,12 +5248,6 @@
                 "fill-outline-color": "#9BCBE9"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatiewater",
-                "id": "water",
-                "sourcelayer": "ondersteunendwaterdeel",
-                "sld": "sld\\achtergrondvisualisatie\\2_achtergrond_ondersteunendwaterdeel_polygon.sld"
-            },
             "source-layer": "ondersteunendwaterdeel"
         },
         {
@@ -6112,12 +5276,6 @@
                 "fill-outline-color": "#e1eddb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatiewater",
-                "id": "Water_edge",
-                "sourcelayer": "ondersteunendwaterdeel",
-                "sld": "sld\\achtergrondvisualisatie\\2_achtergrond_ondersteunendwaterdeel_polygon.sld"
-            },
             "source-layer": "ondersteunendwaterdeel"
         },
         {
@@ -6146,12 +5304,6 @@
                 "fill-outline-color": "#9BCBE9"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatiewater",
-                "id": "water",
-                "sourcelayer": "waterdeel",
-                "sld": "sld\\achtergrondvisualisatie\\3_achtergrond_waterdeel_polygon.sld"
-            },
             "source-layer": "waterdeel"
         },
         {
@@ -6180,12 +5332,6 @@
                 "fill-outline-color": "#e1eddb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatiewater",
-                "id": "Water_edge",
-                "sourcelayer": "waterdeel",
-                "sld": "sld\\achtergrondvisualisatie\\3_achtergrond_waterdeel_polygon.sld"
-            },
             "source-layer": "waterdeel"
         },
         {
@@ -6252,12 +5398,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-human-made",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -6304,12 +5444,6 @@
                 "fill-outline-color": "#e1eddb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-low-vegetation",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -6361,12 +5495,6 @@
                 "fill-outline-color": "#c3dbb6"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-high-vegetation",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -6423,12 +5551,6 @@
                 "fill-outline-color": "#fdf6bb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "landuse-natural-sand",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -6457,12 +5579,6 @@
                 "fill-outline-color": "#e3dce7"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-heather",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -6491,12 +5607,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-man-made-private-z23",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -6525,12 +5635,6 @@
                 "fill-outline-color": "#F9F9E7"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-man-made-private-z1",
-                "sourcelayer": "onbegroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\4_achtergrond_onbegroeidterreindeel_landuse_polygon.sld"
-            },
             "source-layer": "onbegroeidterreindeel"
         },
         {
@@ -6597,12 +5701,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-human-made",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -6649,12 +5747,6 @@
                 "fill-outline-color": "#e1eddb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-low-vegetation",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -6706,12 +5798,6 @@
                 "fill-outline-color": "#c3dbb6"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-high-vegetation",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -6768,12 +5854,6 @@
                 "fill-outline-color": "#fdf6bb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "landuse-natural-sand",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -6802,12 +5882,6 @@
                 "fill-outline-color": "#e3dce7"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-natural-heather",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -6836,12 +5910,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-man-made-private-z23",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -6870,12 +5938,6 @@
                 "fill-outline-color": "#F9F9E7"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieLanduse",
-                "id": "Landuse-man-made-private-z1",
-                "sourcelayer": "begroeidterreindeel",
-                "sld": "sld\\achtergrondvisualisatie\\5_achtergrond_begroeidterreindeel_landuse2_polygon.sld"
-            },
             "source-layer": "begroeidterreindeel"
         },
         {
@@ -6886,12 +5948,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieinfra_misc",
-                "id": "Tunnels en Overbrugging",
-                "sourcelayer": "tunneldeel",
-                "sld": "sld\\achtergrondvisualisatie\\6_achtergrond_tunneldeel_infra1_extra_polygon.sld"
-            },
             "source-layer": "tunneldeel",
             "filter": [
                 "all",
@@ -6915,12 +5971,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieinfra_misc",
-                "id": "Tunnels en Overbrugging",
-                "sourcelayer": "overbruggingsdeel",
-                "sld": "sld\\achtergrondvisualisatie\\7_achtergrond_overbruggingsdeel_infra2_extra_polygon.sld"
-            },
             "source-layer": "overbruggingsdeel",
             "filter": [
                 "all",
@@ -6967,12 +6017,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieverkeerseiland",
-                "id": "Verkeerseiland",
-                "sourcelayer": "ondersteunendwegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\8_achtergrond_ondersteunendwegdeel_infra_side.sld"
-            },
             "source-layer": "ondersteunendwegdeel"
         },
         {
@@ -7001,12 +6045,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieverkeerseiland",
-                "id": "Groenvoorziening",
-                "sourcelayer": "ondersteunendwegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\8_achtergrond_ondersteunendwegdeel_infra_side.sld"
-            },
             "source-layer": "ondersteunendwegdeel"
         },
         {
@@ -7040,12 +6078,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieverkeerseiland",
-                "id": "Overig wit",
-                "sourcelayer": "ondersteunendwegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\8_achtergrond_ondersteunendwegdeel_infra_side.sld"
-            },
             "source-layer": "ondersteunendwegdeel"
         },
         {
@@ -7127,12 +6159,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic casing",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7174,12 +6200,6 @@
                 "fill-outline-color": "#fdf6bb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic Yellow fill",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7246,12 +6266,6 @@
                 "fill-outline-color": "#ffffff"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic White fill",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7280,12 +6294,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Parking casing",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7314,12 +6322,6 @@
                 "fill-outline-color": "#ffffff"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Parking fill",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7371,12 +6373,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Un-motorized Traffic casing",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7421,19 +6417,13 @@
                     "bestaand"
                 ]
             ],
-            "id": "Un-motorized Traffic fill  wegdeel fill2",
+            "id": "Un-motorized Traffic fill wegdeel fill2",
             "type": "fill",
             "paint": {
                 "fill-color": "#fdeff8",
                 "fill-outline-color": "#fdeff8"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Un-motorized Traffic fill ",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7466,12 +6456,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Tram z12",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7493,7 +6477,7 @@
                     "bestaand"
                 ]
             ],
-            "id": "Tram_z1  wegdeel line2",
+            "id": "Tram_z1 wegdeel line2",
             "type": "line",
             "paint": {
                 "line-color": "#999999",
@@ -7504,12 +6488,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Tram_z1 ",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7542,12 +6520,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram casing_z23",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7584,12 +6556,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram fill_z23",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7622,12 +6588,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram casing_z1",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7664,12 +6624,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram fill_z1",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7710,12 +6664,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein Casing_z23",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7760,12 +6708,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein fill_z23",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7806,12 +6748,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein Casing_z1",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7856,12 +6792,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein fill_z1",
-                "sourcelayer": "wegdeel",
-                "sld": "sld\\achtergrondvisualisatie\\9_achtergrond_wegdeel_infra.sld"
-            },
             "source-layer": "wegdeel"
         },
         {
@@ -7943,12 +6873,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic casing",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -7990,12 +6914,6 @@
                 "fill-outline-color": "#fdf6bb"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic Yellow fill",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8062,12 +6980,6 @@
                 "fill-outline-color": "#ffffff"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Motorized Traffic White fill",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8096,12 +7008,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Parking casing",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8130,12 +7036,6 @@
                 "fill-outline-color": "#ffffff"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Parking fill",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8187,12 +7087,6 @@
                 "fill-outline-color": "#d1c1be"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Un-motorized Traffic casing",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8237,19 +7131,13 @@
                     "bestaand"
                 ]
             ],
-            "id": "Un-motorized Traffic fill  spoor fill2",
+            "id": "Un-motorized Traffic fill spoor fill2",
             "type": "fill",
             "paint": {
                 "fill-color": "#fdeff8",
                 "fill-outline-color": "#fdeff8"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Un-motorized Traffic fill ",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8282,12 +7170,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Tram z12",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8309,7 +7191,7 @@
                     "bestaand"
                 ]
             ],
-            "id": "Tram_z1  spoor line2",
+            "id": "Tram_z1 spoor line2",
             "type": "line",
             "paint": {
                 "line-color": "#999999",
@@ -8320,12 +7202,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Tram_z1 ",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8358,12 +7234,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram casing_z23",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8400,12 +7270,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram fill_z23",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8438,12 +7302,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram casing_z1",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8480,12 +7338,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Sneltram fill_z1",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8526,12 +7378,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein Casing_z23",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8576,12 +7422,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein fill_z23",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8622,12 +7462,6 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein Casing_z1",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
@@ -8672,28 +7506,15 @@
                 "line-join": "miter"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieTraffic",
-                "id": "Trein fill_z1",
-                "sourcelayer": "spoor",
-                "sld": "sld\\achtergrondvisualisatie\\10_achtergrond_spoor_infra.sld"
-            },
             "source-layer": "spoor"
         },
         {
             "id": "urban_casing_z1 pand fill2",
             "type": "fill",
             "paint": {
-                "fill-opacity": 0,
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_casing_z1",
-                "sourcelayer": "pand",
-                "sld": "sld\\achtergrondvisualisatie\\11_achtergrond_pand_urban_polygon.sld"
-            },
             "source-layer": "pand",
             "filter": [
                 "all",
@@ -8717,12 +7538,6 @@
                 "fill-outline-color": "#cccccc"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_fill_z1",
-                "sourcelayer": "pand",
-                "sld": "sld\\achtergrondvisualisatie\\11_achtergrond_pand_urban_polygon.sld"
-            },
             "source-layer": "pand",
             "filter": [
                 "all",
@@ -8746,12 +7561,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_z23",
-                "sourcelayer": "pand",
-                "sld": "sld\\achtergrondvisualisatie\\11_achtergrond_pand_urban_polygon.sld"
-            },
             "source-layer": "pand",
             "filter": [
                 "all",
@@ -8793,12 +7602,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z23",
-                "sourcelayer": "gebouwinstallatie",
-                "sld": "sld\\achtergrondvisualisatie\\12_achtergrond_gebouwinstallatie_urban_extra_polygon.sld"
-            },
             "source-layer": "gebouwinstallatie"
         },
         {
@@ -8827,12 +7630,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z1",
-                "sourcelayer": "gebouwinstallatie",
-                "sld": "sld\\achtergrondvisualisatie\\12_achtergrond_gebouwinstallatie_urban_extra_polygon.sld"
-            },
             "source-layer": "gebouwinstallatie"
         },
         {
@@ -8861,12 +7658,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "overkapping",
-                "sourcelayer": "gebouwinstallatie",
-                "sld": "sld\\achtergrondvisualisatie\\12_achtergrond_gebouwinstallatie_urban_extra_polygon.sld"
-            },
             "source-layer": "gebouwinstallatie"
         },
         {
@@ -8895,12 +7686,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z23",
-                "sourcelayer": "overigbouwwerk",
-                "sld": "sld\\achtergrondvisualisatie\\13_achtergrond_overigbouwwerk_urban_extra_polygon_kopie.sld"
-            },
             "source-layer": "overigbouwwerk"
         },
         {
@@ -8929,12 +7714,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z1",
-                "sourcelayer": "overigbouwwerk",
-                "sld": "sld\\achtergrondvisualisatie\\13_achtergrond_overigbouwwerk_urban_extra_polygon_kopie.sld"
-            },
             "source-layer": "overigbouwwerk"
         },
         {
@@ -8963,12 +7742,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "overkapping",
-                "sourcelayer": "overigbouwwerk",
-                "sld": "sld\\achtergrondvisualisatie\\13_achtergrond_overigbouwwerk_urban_extra_polygon_kopie.sld"
-            },
             "source-layer": "overigbouwwerk"
         },
         {
@@ -8997,12 +7770,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z23",
-                "sourcelayer": "kunstwerkdeel",
-                "sld": "sld\\achtergrondvisualisatie\\14_achtergrond_kunstwerkdeel_urban_extra_polygon_ kopie.sld"
-            },
             "source-layer": "kunstwerkdeel"
         },
         {
@@ -9031,12 +7798,6 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "urban_extra_z1",
-                "sourcelayer": "kunstwerkdeel",
-                "sld": "sld\\achtergrondvisualisatie\\14_achtergrond_kunstwerkdeel_urban_extra_polygon_ kopie.sld"
-            },
             "source-layer": "kunstwerkdeel"
         },
         {
@@ -9065,97 +7826,31 @@
                 "fill-outline-color": "#b4b4b4"
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatieurban",
-                "id": "overkapping",
-                "sourcelayer": "kunstwerkdeel",
-                "sld": "sld\\achtergrondvisualisatie\\14_achtergrond_kunstwerkdeel_urban_extra_polygon_ kopie.sld"
-            },
             "source-layer": "kunstwerkdeel"
-        },
-        {
-            "id": "labels_z1 pand_nummeraanduiding symbol1000",
-            "type": "symbol",
-            "paint": {
-                "text-opacity": 1,
-                "text-color": "#000000"
-            },
-            "layout": {
-                "text-field": "{tekst}",
-                "text-font": [
-                    "RijksoverheidSansTextTT-Regular"
-                ],
-                "text-size": 14,
-                "text-rotate": [
-                    "-",
-                    360,
-                    [
-                        "get",
-                        "hoek"
-                    ]
-                ]
-            },
-            "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatielabels",
-                "id": "labels_z1",
-                "sourcelayer": "pand_nummeraanduiding",
-                "sld": "sld\\achtergrondvisualisatie\\21_achtergrond_nummeraanduidingreeks_labels_numbers.sld"
-            },
-            "source-layer": "pand_nummeraanduiding",
-            "filter": [
-                "==",
-                "status",
-                "bestaand"
-            ]
-        },
-        {
-            "id": "labels_z2 pand_nummeraanduiding symbol1000",
-            "type": "symbol",
-            "paint": {
-                "text-opacity": 1,
-                "text-color": "#000000"
-            },
-            "layout": {
-                "text-field": "{tekst}",
-                "text-font": [
-                    "RijksoverheidSansTextTT-Regular"
-                ],
-                "text-size": 14,
-                "text-rotate": [
-                    "-",
-                    360,
-                    [
-                        "get",
-                        "hoek"
-                    ]
-                ]
-            },
-            "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatielabels",
-                "id": "labels_z2",
-                "sourcelayer": "pand_nummeraanduiding",
-                "sld": "sld\\achtergrondvisualisatie\\21_achtergrond_nummeraanduidingreeks_labels_numbers.sld"
-            },
-            "source-layer": "pand_nummeraanduiding",
-            "filter": [
-                "==",
-                "status",
-                "bestaand"
-            ]
         },
         {
             "id": "labels_z3 pand_nummeraanduiding symbol1000",
             "type": "symbol",
             "paint": {
                 "text-opacity": 1,
-                "text-color": "#000000"
+                "text-color": "#696969"
             },
             "layout": {
                 "text-field": "{tekst}",
                 "text-font": [
-                    "RijksoverheidSansTextTT-Regular"
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
                 "text-size": 17,
                 "text-rotate": [
@@ -9168,132 +7863,12 @@
                 ]
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond Visualisatielabels",
-                "id": "labels_z3",
-                "sourcelayer": "pand_nummeraanduiding",
-                "sld": "sld\\achtergrondvisualisatie\\21_achtergrond_nummeraanduidingreeks_labels_numbers.sld"
-            },
             "source-layer": "pand_nummeraanduiding",
             "filter": [
                 "==",
                 "status",
                 "bestaand"
             ]
-        },
-        {
-            "filter": [
-                "all",
-                [
-                    "any",
-                    [
-                        "==",
-                        "openbareruimtetype",
-                        "Kunstwerk"
-                    ],
-                    [
-                        "==",
-                        "openbareruimtetype",
-                        "Spoorbaan"
-                    ],
-                    [
-                        "==",
-                        "openbareruimtetype",
-                        "Weg"
-                    ]
-                ],
-                [
-                    "==",
-                    "status",
-                    "bestaand"
-                ]
-            ],
-            "id": "label_infrastructure_z3 openbareruimtelabel symbol1000",
-            "type": "symbol",
-            "paint": {
-                "text-opacity": 1,
-                "text-color": "#000000"
-            },
-            "layout": {
-                "text-field": "{openbareruimtenaam}",
-                "text-font": [
-                    "RijksoverheidSansTextTT-Regular"
-                ],
-                "text-size": 19,
-                "text-rotate": [
-                    "-",
-                    360,
-                    [
-                        "get",
-                        "hoek"
-                    ]
-                ]
-            },
-            "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieVisualisatie van de namen in de openbare ruimte",
-                "id": "label_infrastructure_z3",
-                "sourcelayer": "openbareruimtelabel",
-                "sld": "sld\\achtergrondvisualisatie\\20_achtergrond_openbareruimtelabel_label_names.sld"
-            },
-            "source-layer": "openbareruimtelabel"
-        },
-        {
-            "filter": [
-                "all",
-                [
-                    "any",
-                    [
-                        "==",
-                        "openbareruimtetype",
-                        "Kunstwerk"
-                    ],
-                    [
-                        "==",
-                        "openbareruimtetype",
-                        "Spoorbaan"
-                    ],
-                    [
-                        "==",
-                        "openbareruimtetype",
-                        "Weg"
-                    ]
-                ],
-                [
-                    "==",
-                    "status",
-                    "bestaand"
-                ]
-            ],
-            "id": "infrastructure_z2 openbareruimtelabel symbol1000",
-            "type": "symbol",
-            "paint": {
-                "text-opacity": 1,
-                "text-color": "#000000"
-            },
-            "layout": {
-                "text-field": "{openbareruimtenaam}",
-                "text-font": [
-                    "RijksoverheidSansTextTT-Regular"
-                ],
-                "text-size": 17,
-                "text-rotate": [
-                    "-",
-                    360,
-                    [
-                        "get",
-                        "hoek"
-                    ]
-                ]
-            },
-            "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieVisualisatie van de namen in de openbare ruimte",
-                "id": "infrastructure_z2",
-                "sourcelayer": "openbareruimtelabel",
-                "sld": "sld\\achtergrondvisualisatie\\20_achtergrond_openbareruimtelabel_label_names.sld"
-            },
-            "source-layer": "openbareruimtelabel"
         },
         {
             "filter": [
@@ -9326,12 +7901,24 @@
             "type": "symbol",
             "paint": {
                 "text-opacity": 1,
-                "text-color": "#000000"
+                "text-color": "#535353"
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
                 "text-font": [
-                    "RijksoverheidSansTextTT-Regular"
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
                 "text-size": 15,
                 "text-rotate": [
@@ -9344,12 +7931,6 @@
                 ]
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieVisualisatie van de namen in de openbare ruimte",
-                "id": "infrastructure_z1",
-                "sourcelayer": "openbareruimtelabel",
-                "sld": "sld\\achtergrondvisualisatie\\20_achtergrond_openbareruimtelabel_label_names.sld"
-            },
             "source-layer": "openbareruimtelabel"
         },
         {
@@ -9370,12 +7951,24 @@
             "type": "symbol",
             "paint": {
                 "text-opacity": 1,
-                "text-color": "#000000"
+                "text-color": "#574945"
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
                 "text-font": [
-                    "RijksoverheidSansTextTT-Regular"
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
                 "text-size": 17,
                 "text-rotate": [
@@ -9388,12 +7981,6 @@
                 ]
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieVisualisatie van de namen in de openbare ruimte",
-                "id": "manmade_terrain_z123",
-                "sourcelayer": "openbareruimtelabel",
-                "sld": "sld\\achtergrondvisualisatie\\20_achtergrond_openbareruimtelabel_label_names.sld"
-            },
             "source-layer": "openbareruimtelabel"
         },
         {
@@ -9414,12 +8001,24 @@
             "type": "symbol",
             "paint": {
                 "text-opacity": 1,
-                "text-color": "#000000"
+                "text-color": "#275937"
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
                 "text-font": [
-                    "RijksoverheidSansTextTT-Regular"
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
                 "text-size": 17,
                 "text-rotate": [
@@ -9432,12 +8031,6 @@
                 ]
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieVisualisatie van de namen in de openbare ruimte",
-                "id": "natural_terrain_z123",
-                "sourcelayer": "openbareruimtelabel",
-                "sld": "sld\\achtergrondvisualisatie\\20_achtergrond_openbareruimtelabel_label_names.sld"
-            },
             "source-layer": "openbareruimtelabel"
         },
         {
@@ -9458,12 +8051,24 @@
             "type": "symbol",
             "paint": {
                 "text-opacity": 1,
-                "text-color": "#000000"
+                "text-color": "#eef7fb"
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
                 "text-font": [
-                    "RijksoverheidSansTextTT-Regular"
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
                 "text-size": 20,
                 "text-rotate": [
@@ -9476,12 +8081,6 @@
                 ]
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieVisualisatie van de namen in de openbare ruimte",
-                "id": "Water_z23",
-                "sourcelayer": "openbareruimtelabel",
-                "sld": "sld\\achtergrondvisualisatie\\20_achtergrond_openbareruimtelabel_label_names.sld"
-            },
             "source-layer": "openbareruimtelabel"
         },
         {
@@ -9502,12 +8101,24 @@
             "type": "symbol",
             "paint": {
                 "text-opacity": 1,
-                "text-color": "#000000"
+                "text-color": "#eef7fb"
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
                 "text-font": [
-                    "RijksoverheidSansTextTT-Regular"
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
                 "text-size": 18,
                 "text-rotate": [
@@ -9520,12 +8131,6 @@
                 ]
             },
             "source": "bgt",
-            "metadata": {
-                "name": "Achtergrond VisualisatieVisualisatie van de namen in de openbare ruimte",
-                "id": "Water_z1",
-                "sourcelayer": "openbareruimtelabel",
-                "sld": "sld\\achtergrondvisualisatie\\20_achtergrond_openbareruimtelabel_label_names.sld"
-            },
             "source-layer": "openbareruimtelabel"
         }
     ],

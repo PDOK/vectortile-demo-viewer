@@ -14,7 +14,8 @@
             "id": "OngeclassificeerdVlak ongeclassificeerd fill0",
             "type": "fill",
             "paint": {
-                "fill-color": "00FFFFFF",
+                "fill-color": "#ffffff",
+                "fill-opacity": 0,
                 "fill-outline-color": "#535353"
             },
             "source": "bgt",
@@ -3739,7 +3740,8 @@
             "id": "OngeclassificeerdVlak ongeclassificeerd fill1",
             "type": "fill",
             "paint": {
-                "fill-color": "00FFFFFF",
+                "fill-color": "#ffffff",
+                "fill-opacity": 0,
                 "fill-outline-color": "#535353"
             },
             "source": "bgt",
@@ -7464,7 +7466,8 @@
             "id": "OngeclassificeerdVlak ongeclassificeerd fill2",
             "type": "fill",
             "paint": {
-                "fill-color": "00FFFFFF",
+                "fill-color": "#ffffff",
+                "fill-opacity": 0,
                 "fill-outline-color": "#535353"
             },
             "source": "bgt",
@@ -11616,8 +11619,9 @@
             "id": "Kering functioneelgebied fill1000",
             "type": "fill",
             "paint": {
-                "fill-color": "00FFFFFF",
-                "fill-outline-color": "#002750"
+                "fill-color": "#ffffff",
+                "fill-opacity": 0,
+                "fill-outline-color": "#535353"
             },
             "source": "bgt",
             "source-layer": "functioneelgebied"

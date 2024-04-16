@@ -11214,7 +11214,20 @@
             "layout": {
                 "text-field": "{tekst}",
             "text-font": [
-                    "Arial"
+                    "rijksoverheid_sans_text_tt_regular",
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
 
                 "text-size": 13,
@@ -11260,7 +11273,20 @@
             "layout": {
                 "text-field": "{openbareruimtenaam}",
             "text-font": [
-                    "Arial"
+                    "rijksoverheid_sans_text_tt_regular",
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
 
                 "text-size": 15,
@@ -11301,7 +11327,20 @@
             "layout": {
                 "text-field": "{openbareruimtenaam}",
             "text-font": [
-                    "Arial"
+                    "rijksoverheid_sans_text_tt_regular",
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
 
                 "text-size": 15,
@@ -11340,7 +11379,20 @@
             "layout": {
                 "text-field": "{openbareruimtenaam}",
             "text-font": [
-                    "Arial"
+                    "rijksoverheid_sans_text_tt_regular",
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
 
                 "text-size": 23,
@@ -11379,7 +11431,20 @@
             "layout": {
                 "text-field": "{openbareruimtenaam}",
             "text-font": [
-                    "Arial"
+                    "rijksoverheid_sans_text_tt_regular",
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
 
                 "text-size": 15,
@@ -11420,7 +11485,20 @@
             "layout": {
                 "text-field": "{openbareruimtenaam}",
             "text-font": [
-                    "Arial"
+                    "rijksoverheid_sans_text_tt_regular",
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
 
                 "text-size": 15,
@@ -11459,7 +11537,20 @@
             "layout": {
                 "text-field": "{openbareruimtenaam}",
             "text-font": [
-                    "Arial"
+                    "rijksoverheid_sans_text_tt_regular",
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
 
                 "text-size": 27,
@@ -11498,7 +11589,20 @@
             "layout": {
                 "text-field": "{openbareruimtenaam}",
             "text-font": [
-                    "Arial"
+                    "rijksoverheid_sans_text_tt_regular",
+                    "system-ui",
+                    "-apple-system",
+                    "Segoe UI",
+                    "Roboto",
+                    "Helvetica Neue",
+                    "Arial",
+                    "Noto Sans",
+                    "Liberation Sans",
+                    "sans-serif",
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji"
                 ],
 
                 "text-size": 23,

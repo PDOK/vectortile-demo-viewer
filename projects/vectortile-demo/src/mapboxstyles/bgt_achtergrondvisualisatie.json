@@ -7838,7 +7838,7 @@
             "layout": {
                 "text-field": "{tekst}",
                 "text-font": [
-                    "Arial",
+                    "Arial"
                 ],
                 "text-size": 17,
                 "text-rotate": [
@@ -7893,10 +7893,9 @@
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
-              "text-font": [
+                "text-font": [
                     "Arial"
                 ],
-
                 "text-size": 15,
                 "text-rotate": [
                     "-",
@@ -7932,10 +7931,9 @@
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
-              "text-font": [
+                "text-font": [
                     "Arial"
                 ],
-
                 "text-size": 17,
                 "text-rotate": [
                     "-",
@@ -7971,10 +7969,9 @@
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
-              "text-font": [
+                "text-font": [
                     "Arial"
                 ],
-
                 "text-size": 17,
                 "text-rotate": [
                     "-",
@@ -8010,10 +8007,9 @@
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
-              "text-font": [
+                "text-font": [
                     "Arial"
                 ],
-
                 "text-size": 20,
                 "text-rotate": [
                     "-",
@@ -8049,10 +8045,9 @@
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
-              "text-font": [
+                "text-font": [
                     "Arial"
                 ],
-
                 "text-size": 18,
                 "text-rotate": [
                     "-",

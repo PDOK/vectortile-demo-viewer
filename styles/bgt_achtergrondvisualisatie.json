@@ -7838,19 +7838,7 @@
             "layout": {
                 "text-field": "{tekst}",
                 "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+                    "Arial"
                 ],
                 "text-size": 17,
                 "text-rotate": [
@@ -7906,19 +7894,7 @@
             "layout": {
                 "text-field": "{openbareruimtenaam}",
                 "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+                    "Arial"
                 ],
                 "text-size": 15,
                 "text-rotate": [
@@ -7956,19 +7932,7 @@
             "layout": {
                 "text-field": "{openbareruimtenaam}",
                 "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+                    "Arial"
                 ],
                 "text-size": 17,
                 "text-rotate": [
@@ -8006,19 +7970,7 @@
             "layout": {
                 "text-field": "{openbareruimtenaam}",
                 "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+                    "Arial"
                 ],
                 "text-size": 17,
                 "text-rotate": [
@@ -8056,19 +8008,7 @@
             "layout": {
                 "text-field": "{openbareruimtenaam}",
                 "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+                    "Arial"
                 ],
                 "text-size": 20,
                 "text-rotate": [
@@ -8106,19 +8046,7 @@
             "layout": {
                 "text-field": "{openbareruimtenaam}",
                 "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+                    "Arial"
                 ],
                 "text-size": 18,
                 "text-rotate": [

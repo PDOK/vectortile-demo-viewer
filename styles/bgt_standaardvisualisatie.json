@@ -11213,21 +11213,10 @@
             },
             "layout": {
                 "text-field": "{tekst}",
-                "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+            "text-font": [
+                    "Arial"
                 ],
+
                 "text-size": 13,
                 "text-rotate": [
                     "-",
@@ -11270,21 +11259,10 @@
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
-                "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+            "text-font": [
+                    "Arial"
                 ],
+
                 "text-size": 15,
                 "text-rotate": [
                     "-",
@@ -11322,21 +11300,10 @@
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
-                "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+            "text-font": [
+                    "Arial"
                 ],
+
                 "text-size": 15,
                 "text-rotate": [
                     "-",
@@ -11372,21 +11339,10 @@
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
-                "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+            "text-font": [
+                    "Arial"
                 ],
+
                 "text-size": 23,
                 "text-rotate": [
                     "-",
@@ -11422,21 +11378,10 @@
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
-                "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+            "text-font": [
+                    "Arial"
                 ],
+
                 "text-size": 15,
                 "text-rotate": [
                     "-",
@@ -11474,21 +11419,10 @@
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
-                "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+            "text-font": [
+                    "Arial"
                 ],
+
                 "text-size": 15,
                 "text-rotate": [
                     "-",
@@ -11524,21 +11458,10 @@
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
-                "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+            "text-font": [
+                    "Arial"
                 ],
+
                 "text-size": 27,
                 "text-rotate": [
                     "-",
@@ -11574,21 +11497,10 @@
             },
             "layout": {
                 "text-field": "{openbareruimtenaam}",
-                "text-font": [
-                    "system-ui",
-                    "-apple-system",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "Liberation Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji"
+            "text-font": [
+                    "Arial"
                 ],
+
                 "text-size": 23,
                 "text-rotate": [
                     "-",

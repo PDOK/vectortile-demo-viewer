@@ -302,7 +302,8 @@ export class DrawColor {
 
                         const image = element.getImage() as CircleStyle
                         if (image) {
-                            const imagefill = image.getFill()
+
+                            const imagefill = image.getFill()!
 
                             if (imagefill) {
                                 if (imagefill.getColor()) {

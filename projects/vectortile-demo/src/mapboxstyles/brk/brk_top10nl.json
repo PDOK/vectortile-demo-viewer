@@ -390,27 +390,6 @@
       "paint": {"fill-color": "#FFFFFF", "fill-outline-color": "#343434"}
     },
     {
-      "id": "Tunnel (wegdeel vlak)",
-      "type": "fill",
-      "source": "top10nl",
-      "source-layer": "wegdeel_vlak",
-      "filter": [
-        "in",
-        "visualisatiecode",
-        -10763,
-        -10753,
-        -10743,
-        -10733,
-        -10723,
-        -10713,
-        -10403,
-        -10313,
-        -10303,
-        -10203
-      ],
-      "paint": {"line-dasharray": [2, 2], "fill-outline-color": "#828282"}
-    },
-    {
       "id": "autosnelweg (wegdeel vlak)",
       "type": "fill",
       "source": "top10nl",
@@ -864,7 +843,7 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "paint": {"fill-pattern": "gemaal"}
+      "layout": {"icon-image": "gemaal", "icon-size": 1}
     },
     {
       "id": "kapel (gebouw punt)",
@@ -906,28 +885,28 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "paint": {"fill-pattern": "windmolen"}
+      "layout": {"icon-image": "windmolen", "icon-size": 1}
     },
     {
       "id": "windmolen: korenmolen (gebouw punt)",
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "paint": {"fill-pattern": "windmolen"}
+      "layout": {"icon-image": "windmolen", "icon-size": 1}
     },
     {
       "id": "windmolen: watermolen (gebouw punt)",
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "paint": {"fill-pattern": "windmolen"}
+      "layout": {"icon-image": "windmolen", "icon-size": 1}
     },
     {
       "id": "windturbine (gebouw punt)",
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "paint": {"fill-pattern": "windmolen"}
+      "layout": {"icon-image": "windmolen", "icon-size": 1}
     },
     {
       "id": "dieptelijn (hoogte lijn)",
@@ -959,8 +938,7 @@
       "source": "top10nl",
       "source-layer": "hoogte_punt",
       "filter": ["==", "visualisatiecode", 16100],
-      "layout": {"text-field": "{hoogte}", "text-size": 10.4},
-      "paint": {"text-opacity": 1, "text-color": "#0000FF"}
+      "layout": {"text-field": "{hoogte}", "text-size": 10.4}
     },
     {
       "id": "hoogtepunt (hoogte punt)",
@@ -968,8 +946,7 @@
       "source": "top10nl",
       "source-layer": "hoogte_punt",
       "filter": ["==", "visualisatiecode", 16300],
-      "layout": {"text-field": "{hoogte}", "text-size": 10.4},
-      "paint": {"text-opacity": 1, "text-color": "#A83800"}
+      "layout": {"text-field": "{hoogte}", "text-size": 10.4}
     },
     {
       "id": "peil (hoogte punt)",
@@ -977,7 +954,7 @@
       "source": "top10nl",
       "source-layer": "hoogte_punt",
       "filter": ["==", "visualisatiecode", 16600],
-      "paint": {"fill-pattern": "plus_Pompadour"}
+      "layout": {"icon-image": "plus", "icon-size": 1}
     },
     {
       "id": "peil: winterpeil (hoogte punt)",
@@ -985,7 +962,7 @@
       "source": "top10nl",
       "source-layer": "hoogte_punt",
       "filter": ["==", "visualisatiecode", 16610],
-      "paint": {"fill-pattern": "plus_Pompadour"}
+      "layout": {"icon-image": "plus", "icon-size": 1}
     },
     {
       "id": "peil: zomerpeil (hoogte punt)",
@@ -993,7 +970,7 @@
       "source": "top10nl",
       "source-layer": "hoogte_punt",
       "filter": ["==", "visualisatiecode", 16620],
-      "paint": {"fill-pattern": "plus_Pompadour"}
+      "layout": {"icon-image": "plus", "icon-size": 1}
     },
     {
       "id": "wal (relief lijn)",
@@ -1009,8 +986,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam",
       "filter": ["==", "visualisatiecode", 18400],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 24},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 24}
     },
     {
       "id": "industriekern (plaats vlak label naam)",
@@ -1018,8 +994,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam",
       "filter": ["==", "visualisatiecode", 18410],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 23},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 23}
     },
     {
       "id": "recreatiekern (plaats vlak label naam)",
@@ -1027,8 +1002,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam",
       "filter": ["==", "visualisatiecode", 18420],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 22},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 22}
     },
     {
       "id": "deelkern (plaats vlak label naam)",
@@ -1036,8 +1010,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam",
       "filter": ["==", "visualisatiecode", 18430],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 23.6},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 23.6}
     },
     {
       "id": "buurtschap (plaats vlak label naam)",
@@ -1045,8 +1018,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam",
       "filter": ["==", "visualisatiecode", 18450],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 10},
-      "paint": {"text-opacity": 1, "text-color": "#686868"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 10}
     },
     {
       "id": "gehucht (plaats vlak label naam)",
@@ -1054,8 +1026,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam",
       "filter": ["==", "visualisatiecode", 18440],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 14},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 14}
     },
     {
       "id": "stadsdeel (plaats vlak label naam)",
@@ -1063,8 +1034,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam",
       "filter": ["==", "visualisatiecode", 18500],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 17},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 17}
     },
     {
       "id": "wijk (plaats vlak label naam)",
@@ -1072,8 +1042,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam",
       "filter": ["==", "visualisatiecode", 18510],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 17},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 17}
     },
     {
       "id": "woonkern (plaats punt label)",
@@ -1081,8 +1050,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label",
       "filter": ["==", "visualisatiecode", 18400],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 34.4},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 34.4}
     },
     {
       "id": "industriekern (plaats punt label)",
@@ -1090,8 +1058,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label",
       "filter": ["==", "visualisatiecode", 18410],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 34.4},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 34.4}
     },
     {
       "id": "recreatiekern (plaats punt label)",
@@ -1099,8 +1066,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label",
       "filter": ["==", "visualisatiecode", 18420],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 34.4},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 34.4}
     },
     {
       "id": "deelkern (plaats punt label)",
@@ -1108,8 +1074,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label",
       "filter": ["==", "visualisatiecode", 18430],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 34.4},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 34.4}
     },
     {
       "id": "buurtschap (plaats punt label)",
@@ -1117,8 +1082,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label",
       "filter": ["==", "visualisatiecode", 18450],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 16.8},
-      "paint": {"text-opacity": 1, "text-color": "#686868"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 16.8}
     },
     {
       "id": "gehucht (plaats punt label)",
@@ -1126,8 +1090,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label",
       "filter": ["==", "visualisatiecode", 18440],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 21.6},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 21.6}
     },
     {
       "id": "stadsdeel (plaats punt label)",
@@ -1135,8 +1098,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label",
       "filter": ["==", "visualisatiecode", 18500],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 21.6},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 21.6}
     },
     {
       "id": "wijk (plaats punt label)",
@@ -1144,8 +1106,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label",
       "filter": ["==", "visualisatiecode", 18510],
-      "layout": {"text-field": "{naamofficieel}", "text-size": 16},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamofficieel}", "text-size": 16}
     },
     {
       "id": "baak (inrichtingselement punt)",
@@ -1177,7 +1138,7 @@
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
       "filter": ["==", "visualisatiecode", 15120],
-      "paint": {"fill-pattern": "gedenkteken"}
+      "layout": {"icon-image": "gedenkteken", "icon-size": 1}
     },
     {
       "id": "GPS kernnetpunt (inrichtingselement punt)",
@@ -1185,7 +1146,7 @@
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
       "filter": ["==", "visualisatiecode", 15160],
-      "paint": {"fill-pattern": "triangle_circle"}
+      "layout": {"icon-image": "triangle_circle", "icon-size": 1}
     },
     {
       "id": "grenspunt (inrichtingselement punt)",
@@ -1209,7 +1170,7 @@
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
       "filter": ["==", "visualisatiecode", 15280],
-      "paint": {"fill-pattern": "kilometerpaal_Red"}
+      "layout": {"icon-image": "kilometerpaal", "icon-size": 1}
     },
     {
       "id": "kilometerpaal spoorweg (inrichtingselement punt)",
@@ -1225,7 +1186,7 @@
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
       "filter": ["==", "visualisatiecode", 15300],
-      "paint": {"fill-pattern": "kilometerpaal_water"}
+      "layout": {"icon-image": "kilometerpaal_water", "icon-size": 1}
     },
     {
       "id": "kilometerraaibord (inrichtingselement punt)",
@@ -1305,7 +1266,7 @@
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
       "filter": ["==", "visualisatiecode", 15560],
-      "paint": {"fill-pattern": "triangle_circle"}
+      "layout": {"icon-image": "triangle_circle", "icon-size": 1}
     },
     {
       "id": "scheepvaartlicht (inrichtingselement punt)",
@@ -1313,7 +1274,7 @@
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
       "filter": ["==", "visualisatiecode", 15920],
-      "paint": {"fill-pattern": "scheepvaartlicht"}
+      "layout": {"icon-image": "scheepvaartlicht", "icon-size": 1}
     },
     {
       "id": "seinmast (inrichtingselement punt)",
@@ -1361,7 +1322,7 @@
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
       "filter": ["==", "visualisatiecode", 15770],
-      "paint": {"fill-pattern": "wegwijzer"}
+      "layout": {"icon-image": "wegwijzer", "icon-size": 1}
     },
     {
       "id": "windmolentje (inrichtingselement punt)",
@@ -1377,7 +1338,7 @@
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
       "filter": ["==", "visualisatiecode", 15840],
-      "paint": {"fill-pattern": "zendmast"}
+      "layout": {"icon-image": "zendmast", "icon-size": 1}
     },
     {
       "id": "zichtbaar wrak (inrichtingselement punt)",
@@ -1393,8 +1354,7 @@
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak_naam_nl",
       "filter": ["==", "visualisatiecode", 18000],
-      "layout": {"text-field": "{naamnl}", "text-size": 12.1},
-      "paint": {"text-opacity": 1, "text-color": "#0070FF"}
+      "layout": {"text-field": "{naamnl}", "text-size": 12.1}
     },
     {
       "id": " (functioneel gebied vlak label)",
@@ -1402,7 +1362,7 @@
       "source": "top10nl",
       "source-layer": "functioneel_gebied_vlak_label",
       "filter": ["==", "visualisatiecode", 19450],
-      "paint": {"fill-pattern": "Sport_Blue_Ribbon"}
+      "layout": {"icon-image": "Sport", "icon-size": 1}
     },
     {
       "id": " (functioneel gebied multivlak label)",
@@ -1410,7 +1370,7 @@
       "source": "top10nl",
       "source-layer": "functioneel_gebied_multivlak_label",
       "filter": ["==", "visualisatiecode", 19450],
-      "paint": {"fill-pattern": "Sport_Blue_Ribbon"}
+      "layout": {"icon-image": "Sport", "icon-size": 1}
     },
     {
       "id": " (geografisch gebied vlak naam_fr)",
@@ -1418,8 +1378,7 @@
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak_naam_fr",
       "filter": ["==", "visualisatiecode", 18010],
-      "layout": {"text-field": "{naamfries}", "text-size": 10},
-      "paint": {"text-opacity": 1, "text-color": "#267300"}
+      "layout": {"text-field": "{naamfries}", "text-size": 10}
     },
     {
       "id": " (plaats punt)",
@@ -1434,8 +1393,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_fr",
       "filter": ["==", "visualisatiecode", 18400],
-      "layout": {"text-field": "{naamfries}", "text-size": 34.4},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 34.4}
     },
     {
       "id": "industriekern (plaats punt label fr)",
@@ -1443,8 +1401,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_fr",
       "filter": ["==", "visualisatiecode", 18410],
-      "layout": {"text-field": "{naamfries}", "text-size": 34.4},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 34.4}
     },
     {
       "id": "recreatiekern (plaats punt label fr)",
@@ -1452,8 +1409,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_fr",
       "filter": ["==", "visualisatiecode", 18420],
-      "layout": {"text-field": "{naamfries}", "text-size": 34.4},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 34.4}
     },
     {
       "id": "deelkern (plaats punt label fr)",
@@ -1461,8 +1417,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_fr",
       "filter": ["==", "visualisatiecode", 18430],
-      "layout": {"text-field": "{naamfries}", "text-size": 34.4},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 34.4}
     },
     {
       "id": "buurtschap (plaats punt label fr)",
@@ -1470,8 +1425,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_fr",
       "filter": ["==", "visualisatiecode", 18450],
-      "layout": {"text-field": "{naamfries}", "text-size": 16.8},
-      "paint": {"text-opacity": 1, "text-color": "#686868"}
+      "layout": {"text-field": "{naamfries}", "text-size": 16.8}
     },
     {
       "id": "gehucht (plaats punt label fr)",
@@ -1479,8 +1433,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_fr",
       "filter": ["==", "visualisatiecode", 18440],
-      "layout": {"text-field": "{naamfries}", "text-size": 21.6},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 21.6}
     },
     {
       "id": "stadsdeel (plaats punt label fr)",
@@ -1488,8 +1441,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_fr",
       "filter": ["==", "visualisatiecode", 18500],
-      "layout": {"text-field": "{naamfries}", "text-size": 21.6},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 21.6}
     },
     {
       "id": "wijk (plaats punt label fr)",
@@ -1497,8 +1449,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_fr",
       "filter": ["==", "visualisatiecode", 18510],
-      "layout": {"text-field": "{naamfries}", "text-size": 16},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 16}
     },
     {
       "id": "woonkern (plaats vlak label naam_fr)",
@@ -1506,8 +1457,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_fr",
       "filter": ["==", "visualisatiecode", 18400],
-      "layout": {"text-field": "{naamfries}", "text-size": 24},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 24}
     },
     {
       "id": "industriekern (plaats vlak label naam_fr)",
@@ -1515,8 +1465,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_fr",
       "filter": ["==", "visualisatiecode", 18410],
-      "layout": {"text-field": "{naamfries}", "text-size": 23},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 23}
     },
     {
       "id": "recreatiekern (plaats vlak label naam_fr)",
@@ -1524,8 +1473,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_fr",
       "filter": ["==", "visualisatiecode", 18420],
-      "layout": {"text-field": "{naamfries}", "text-size": 22},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 22}
     },
     {
       "id": "deelkern (plaats vlak label naam_fr)",
@@ -1533,8 +1481,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_fr",
       "filter": ["==", "visualisatiecode", 18430],
-      "layout": {"text-field": "{naamfries}", "text-size": 23.6},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 23.6}
     },
     {
       "id": "buurtschap (plaats vlak label naam_fr)",
@@ -1542,8 +1489,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_fr",
       "filter": ["==", "visualisatiecode", 18450],
-      "layout": {"text-field": "{naamfries}", "text-size": 10},
-      "paint": {"text-opacity": 1, "text-color": "#686868"}
+      "layout": {"text-field": "{naamfries}", "text-size": 10}
     },
     {
       "id": "gehucht (plaats vlak label naam_fr)",
@@ -1551,8 +1497,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_fr",
       "filter": ["==", "visualisatiecode", 18440],
-      "layout": {"text-field": "{naamfries}", "text-size": 14},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 14}
     },
     {
       "id": "stadsdeel (plaats vlak label naam_fr)",
@@ -1560,8 +1505,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_fr",
       "filter": ["==", "visualisatiecode", 18500],
-      "layout": {"text-field": "{naamfries}", "text-size": 17},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 17}
     },
     {
       "id": "wijk (plaats vlak label naam_fr)",
@@ -1569,8 +1513,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_fr",
       "filter": ["==", "visualisatiecode", 18510],
-      "layout": {"text-field": "{naamfries}", "text-size": 17},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamfries}", "text-size": 17}
     },
     {
       "id": "woonkern (plaats punt label nl)",
@@ -1578,8 +1521,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_nl",
       "filter": ["==", "visualisatiecode", 18400],
-      "layout": {"text-field": "{naamnl}", "text-size": 34.4},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 34.4}
     },
     {
       "id": "industriekern (plaats punt label nl)",
@@ -1587,8 +1529,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_nl",
       "filter": ["==", "visualisatiecode", 18410],
-      "layout": {"text-field": "{naamnl}", "text-size": 34.4},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 34.4}
     },
     {
       "id": "recreatiekern (plaats punt label nl)",
@@ -1596,8 +1537,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_nl",
       "filter": ["==", "visualisatiecode", 18420],
-      "layout": {"text-field": "{naamnl}", "text-size": 34.4},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 34.4}
     },
     {
       "id": "deelkern (plaats punt label nl)",
@@ -1605,8 +1545,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_nl",
       "filter": ["==", "visualisatiecode", 18430],
-      "layout": {"text-field": "{naamnl}", "text-size": 34.4},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 34.4}
     },
     {
       "id": "buurtschap (plaats punt label nl)",
@@ -1614,8 +1553,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_nl",
       "filter": ["==", "visualisatiecode", 18450],
-      "layout": {"text-field": "{naamnl}", "text-size": 16.8},
-      "paint": {"text-opacity": 1, "text-color": "#686868"}
+      "layout": {"text-field": "{naamnl}", "text-size": 16.8}
     },
     {
       "id": "gehucht (plaats punt label nl)",
@@ -1623,8 +1561,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_nl",
       "filter": ["==", "visualisatiecode", 18440],
-      "layout": {"text-field": "{naamnl}", "text-size": 21.6},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 21.6}
     },
     {
       "id": "stadsdeel (plaats punt label nl)",
@@ -1632,8 +1569,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_nl",
       "filter": ["==", "visualisatiecode", 18500],
-      "layout": {"text-field": "{naamnl}", "text-size": 21.6},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 21.6}
     },
     {
       "id": "wijk (plaats punt label nl)",
@@ -1641,8 +1577,7 @@
       "source": "top10nl",
       "source-layer": "plaats_punt_label_nl",
       "filter": ["==", "visualisatiecode", 18510],
-      "layout": {"text-field": "{naamnl}", "text-size": 16},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 16}
     },
     {
       "id": "woonkern (plaats vlak label naam_nl)",
@@ -1650,8 +1585,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_nl",
       "filter": ["==", "visualisatiecode", 18400],
-      "layout": {"text-field": "{naamnl}", "text-size": 24},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 24}
     },
     {
       "id": "industriekern (plaats vlak label naam_nl)",
@@ -1659,8 +1593,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_nl",
       "filter": ["==", "visualisatiecode", 18410],
-      "layout": {"text-field": "{naamnl}", "text-size": 23},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 23}
     },
     {
       "id": "recreatiekern (plaats vlak label naam_nl)",
@@ -1668,8 +1601,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_nl",
       "filter": ["==", "visualisatiecode", 18420],
-      "layout": {"text-field": "{naamnl}", "text-size": 22},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 22}
     },
     {
       "id": "deelkern (plaats vlak label naam_nl)",
@@ -1677,8 +1609,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_nl",
       "filter": ["==", "visualisatiecode", 18430],
-      "layout": {"text-field": "{naamnl}", "text-size": 23.6},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 23.6}
     },
     {
       "id": "buurtschap (plaats vlak label naam_nl)",
@@ -1686,8 +1617,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_nl",
       "filter": ["==", "visualisatiecode", 18450],
-      "layout": {"text-field": "{naamnl}", "text-size": 10},
-      "paint": {"text-opacity": 1, "text-color": "#686868"}
+      "layout": {"text-field": "{naamnl}", "text-size": 10}
     },
     {
       "id": "gehucht (plaats vlak label naam_nl)",
@@ -1695,8 +1625,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_nl",
       "filter": ["==", "visualisatiecode", 18440],
-      "layout": {"text-field": "{naamnl}", "text-size": 14},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 14}
     },
     {
       "id": "stadsdeel (plaats vlak label naam_nl)",
@@ -1704,8 +1633,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_nl",
       "filter": ["==", "visualisatiecode", 18500],
-      "layout": {"text-field": "{naamnl}", "text-size": 17},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 17}
     },
     {
       "id": "wijk (plaats vlak label naam_nl)",
@@ -1713,8 +1641,7 @@
       "source": "top10nl",
       "source-layer": "plaats_vlak_label_naam_nl",
       "filter": ["==", "visualisatiecode", 18510],
-      "layout": {"text-field": "{naamnl}", "text-size": 17},
-      "paint": {"text-opacity": 1, "text-color": "#000000"}
+      "layout": {"text-field": "{naamnl}", "text-size": 17}
     }
   ],
   "id": ""

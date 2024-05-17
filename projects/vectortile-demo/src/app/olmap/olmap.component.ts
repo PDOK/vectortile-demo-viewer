@@ -23,23 +23,25 @@ import { DEVICE_PIXEL_RATIO } from 'ol/has'
 import Projection from 'ol/proj/Projection'
 import VectorTileSource from 'ol/source/VectorTile.js'
 import Fill from 'ol/style/Fill'
-import { StyleFunction } from 'ol/style/Style'
+import Style, { StyleFunction } from 'ol/style/Style'
 import TileGrid from 'ol/tilegrid/TileGrid'
 import { Annotation, DrawColor, getFillColor, LabelType } from '../color'
 import { ColorMap, LegendLevel } from '../colorMap'
 import {
-  Visualisatie,
-  getStyleUrl,
   exhaustiveGuard,
+  getStyleUrl,
+  Visualisatie,
 } from '../enumVisualisatie'
 import { LocationService, ViewLocation } from '../location.service'
 
+import { Circle, Stroke } from 'ol/style'
 import {
   getSpriteDataUrl,
   getSpriteImageUrl,
   tileurlBAG,
   tileurlBestuur,
   tileurlBGT,
+  tileurlTop10,
   VectorTileUrl,
 } from './tileurl'
 
@@ -255,6 +257,13 @@ export class OlmapComponent implements OnInit, OnChanges {
         minzoom = 3
         break
 
+      case Visualisatie.BRKTop10nlBlanco:
+      case Visualisatie.BRKTop10nlKleurrijk:
+      case Visualisatie.BRKTop10nlStandaard:
+      case Visualisatie.BRKTop10nlTegels:
+        minzoom = 10
+        break
+
       default:
         break
     }
@@ -294,6 +303,16 @@ export class OlmapComponent implements OnInit, OnChanges {
         2
       )
       this.showUrl = tileurlBestuur.url
+    }
+
+    if (JsonUrl.source == 'top10nl') {
+      this.setTileSource(
+        this.rdProjection,
+        this.vectorTileLayerRD,
+        tileurlTop10,
+        11
+      )
+      this.showUrl = tileurlTop10.url
     }
 
     if (JsonUrl.url) {
@@ -338,7 +357,9 @@ export class OlmapComponent implements OnInit, OnChanges {
         case Visualisatie.BESTUURBlanko:
         case Visualisatie.Bagblanko:
         case Visualisatie.BGTzerodefaultA_blanco:
-          vectorTileLayer.setStyle()
+        case Visualisatie.BRKTop10nlBlanco:
+
+          vectorTileLayer.setStyle(this.GetBlancoDefaultStyle())
           break
 
         /*
@@ -387,9 +408,10 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   doStyle(feature: Feature<Geometry>, resolution: number) {
     const prop = feature.getProperties()
-    let isText = GetLabelAnnotation(prop, prop['layer'])
+    const isText = GetLabelAnnotation(prop, prop['layer'])
     switch (this.SelectedVisualisation) {
       // case Visualisatie.BGTtactiel:
+      case Visualisatie.BRKTop10nlStandaard:
       case Visualisatie.BGTstandaard:
       case Visualisatie.BGTachtergrond:
       case Visualisatie.Bagstd:
@@ -420,7 +442,7 @@ export class OlmapComponent implements OnInit, OnChanges {
             //  ) {
             //   newcolor.mapbox = false
             //}
-            console.log(tmpstyle)
+            // console.log(tmpstyle)
             if (tmpstyle) {
               newcolor.rbgString = getFillColor(tmpstyle) as string
               this.colorMap.set(legendTitle, newcolor)
@@ -434,6 +456,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
       //tempory disabled  case Visualisatie.BGTzerodefaultB_tegels:
       case Visualisatie.BagKleurrijk_tegels:
+      case Visualisatie.BRKTop10nlTegels:
       case Visualisatie.BGTzerodefaultB_tegels:
         return new DrawColor(
           'default zero',
@@ -464,6 +487,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         return zcolor.showfreshstyle(isText)
       }
       case Visualisatie.Bagkleurrijk:
+      case Visualisatie.BRKTop10nlKleurrijk:
       case Visualisatie.BGTzerodefaultD_kleur: {
         const layer = prop['layer']
         const zerodefaultText = GetLabelAnnotation(prop, layer)
@@ -483,6 +507,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
       case Visualisatie.Bagblanko:
       case Visualisatie.BGTzerodefaultA_blanco:
+      case Visualisatie.BRKTop10nlBlanco:
       case Visualisatie.BESTUURBlanko:
         return new DrawColor(
           'default zero',
@@ -566,7 +591,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     tileEndpoint: VectorTileUrl,
     zoom: number
   ) {
-    let vtSource = this.getVectorTileSource(projection, tileEndpoint, zoom)
+    const vtSource = this.getVectorTileSource(projection, tileEndpoint, zoom)
     // set invisible to prevent unstyled flashing of vectorTileLayer
     vectorTileLayer.setVisible(false)
     vectorTileLayer.setSource(vtSource)
@@ -585,5 +610,30 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   private ApplyColorMap() {
     this.vectorTileLayerRD.getSource()!.refresh()
+  }
+
+  GetBlancoDefaultStyle() {
+    const fill = new Fill({
+      color: 'rgba(255,255,255,0.05)',
+    })
+    const stroke = new Stroke({
+      color: 'rgb(51, 153, 204, 0.8)',
+      width: 1.25,
+    })
+    const newCircle = new Circle({
+
+      stroke: stroke,
+      radius: 5,
+    })
+
+    const styles = [
+      new Style({
+        image: newCircle,
+        fill: fill,
+        stroke: stroke,
+      }),
+    ]
+    return styles
+
   }
 }

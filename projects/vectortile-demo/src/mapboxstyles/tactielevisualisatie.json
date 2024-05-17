@@ -412,7 +412,22 @@
       },
       "layout": {
         "text-field": "{openbareruimtenaam}",
-        "text-font": ["Arial"],
+        "text-font": [
+          "RijksoverheidSansTextTT-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ],
         "text-size": 15
       },
       "source": "bgt",

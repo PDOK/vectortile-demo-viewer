@@ -9,7 +9,10 @@ export enum Visualisatie {
   Bagblanko = 'BAG (Blanco)',
   Bagkleurrijk = 'BAG (Kleurrijk)',
   BagKleurrijk_tegels = 'BAG (Kleurrijk tegels zichtbaar)',
-
+  BRKTop10nlStandaard = 'TOP10NL',
+  BRKTop10nlBlanco = 'TOP10NL Blanco',
+  BRKTop10nlTegels = 'TOP10NL (tegels zichtbaar)',
+  BRKTop10nlKleurrijk = 'TOP10NL Kleurrijk',
   BGTzerodefaultA_blanco = 'BGT (Blanco)',
   BGTzerodefaultB_tegels = 'BGT (Kleurrijk tegels zichtbaar)',
   BGTzerodefaultC_Bron = 'BGT Bronhouder',
@@ -22,7 +25,7 @@ export enum Visualisatie {
 }
 
 export type StyleUrl = {
-  source: 'bag' | 'bgt' | 'bestuurlijkegebieden'
+  source: 'bag' | 'bgt' | 'bestuurlijkegebieden' | 'top10nl'
   url: string | undefined
 }
 
@@ -30,7 +33,8 @@ export function getStyleUrl(vis: Visualisatie): StyleUrl {
   switch (vis) {
     case Visualisatie.BGTachtergrond:
       return { source: 'bgt', url: environment.BGTmapboxachtergrondjsonurl }
-
+    case Visualisatie.BRKTop10nlStandaard:
+      return { source: 'top10nl', url: environment.BRKTop10Standaardjsonurl }
     case Visualisatie.BGTstandaard:
       return { source: 'bgt', url: environment.BGTmapboxstandaardjsonurl }
     //case Visualisatie.BGTtactiel:
@@ -51,6 +55,10 @@ export function getStyleUrl(vis: Visualisatie): StyleUrl {
     //    source: 'bestuurlijkegebieden',
     //   url: environment.BESTUURLabelsOnly,
     //  };
+    case Visualisatie.BRKTop10nlKleurrijk:
+    case Visualisatie.BRKTop10nlBlanco:
+    case Visualisatie.BRKTop10nlTegels:
+      return { source: 'top10nl', url: undefined }
     case Visualisatie.BGTzerodefaultA_blanco:
     case Visualisatie.BGTzerodefaultC_Bron:
     case Visualisatie.BGTzerodefaultD_kleur:

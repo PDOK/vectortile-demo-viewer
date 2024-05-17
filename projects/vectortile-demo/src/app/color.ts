@@ -1,14 +1,14 @@
 
-import Fill from "ol/style/Fill";
-import Text from "ol/style/Text";
-import Stroke from "ol/style/Stroke";
-import Style from "ol/style/Style";
-import Feature from 'ol/Feature';
+import Fill from "ol/style/Fill"
+import Text from "ol/style/Text"
+import Stroke from "ol/style/Stroke"
+import Style from "ol/style/Style"
+import Feature from 'ol/Feature'
 
-import { Geometry } from "ol/geom";
-import { RegularShape } from "ol/style";
+import { Geometry } from "ol/geom"
+import { RegularShape } from "ol/style"
 
-import CircleStyle from "ol/style/Circle";
+import CircleStyle from "ol/style/Circle"
 
 
 export type LabelType = { text: string; rotation: number; font: string; backgroundfill: Fill }
@@ -16,14 +16,14 @@ export type Annotation = LabelType | false
 
 export function getFillColor(st: void | Style | Style[]) {
 
-    let color: string | number[] | CanvasGradient | CanvasPattern = "'#000000";
+    let color: string | number[] | CanvasGradient | CanvasPattern = "'#000000"
 
     if (st instanceof Array) {
         for (const element of st) {
-            const fill = element.getFill();
+            const fill = element.getFill()
             if (fill) {
                 if (fill.getColor()) {
-                    color = fill.getColor() as string;
+                    color = fill.getColor() as string
                 }
             }
             else {
@@ -31,11 +31,11 @@ export function getFillColor(st: void | Style | Style[]) {
 
                 const image = element.getImage() as CircleStyle
                 if (image) {
-                    const imagefill = image.getFill();
+                    const imagefill = image.getFill()
 
                     if (imagefill) {
                         if (imagefill.getColor()) {
-                            color = imagefill.getColor() as string;
+                            color = imagefill.getColor() as string
                         }
 
                     }
@@ -44,17 +44,17 @@ export function getFillColor(st: void | Style | Style[]) {
         }
     }
     else {
-        const stStyle = st as any;
+        const stStyle = st as any
         const colcolor = stStyle.fill_.color_ as string | number[] | CanvasGradient | CanvasPattern
-        color = colcolor;
+        color = colcolor
     }
 
     if (color instanceof CanvasPattern) {
-       // not yet  const canvas = true;
+        // not yet  const canvas = true;
         // not yet implemented boomgaard
     }
 
-    return (color);
+    return (color)
 }
 
 export class DrawColor {
@@ -67,69 +67,69 @@ export class DrawColor {
         }
     }
 
-    label: string;
+    label: string
 
-    r: number;
-    b: number;
-    g: number;
-    a: number;
+    r: number
+    b: number
+    g: number
+    a: number
     type = '';
     private _rbgString = '';
-    mapbox: boolean;
-    annotation: Annotation;
+    mapbox: boolean
+    annotation: Annotation
 
     public get sampleText(): string {
         if (this.annotation === false) {
             return ""
         }
         else {
-            return this.annotation['text'];
+            return this.annotation['text']
         }
     }
 
 
 
-    style: Style | undefined;
+    style: Style | undefined
 
 
     public get rbgString() {
-        return this._rbgString;
+        return this._rbgString
     }
     public set rbgString(value) {
-        const rgba = this.parse_rgb_string(value);
+        const rgba = this.parse_rgb_string(value)
 
-        this.r = rgba[0];
-        this.g = rgba[1];
-        this.b = rgba[2];
+        this.r = rgba[0]
+        this.g = rgba[1]
+        this.b = rgba[2]
         if (rgba.length === 4) {
             this.a = rgba[3]
         }
         else { this.a = 1 }
 
-        this._rbgString = this.makerbgString();
+        this._rbgString = this.makerbgString()
 
 
 
     }
     private _show = true;
-    readonly legendfeature: Feature<Geometry> | any;
+    readonly legendfeature: Feature<Geometry> | any
     setRbg(r: number, b: number, g: number) {
-        this.r = r;
-        this.b = b;
-        this.g = g;
+        this.r = r
+        this.b = b
+        this.g = g
     }
 
     public get show(): boolean {
-        return this._show;
+        return this._show
     }
     public set show(value: boolean) {
-        this._show = value;
+        this._show = value
         if (!this._show) {
-            this.a = 0;
+            this.a = 0
 
         }
         else {
-            this.a = 1;
+            this.a = 1
 
         }
 
@@ -138,61 +138,62 @@ export class DrawColor {
 
 
 
-    
+
 
     constructor(label: string, alegendfeature: Feature<Geometry>, mapbox: boolean, anno: Annotation) {
 
 
-        this.mapbox = mapbox;
-        this.legendfeature = alegendfeature;
-        this.type = this.legendfeature.type_;
+        this.mapbox = mapbox
+        this.legendfeature = alegendfeature
+        this.type = this.legendfeature.type_
+        const a = 0.7
         switch (this.type) {
             case 'Point':
                 {
-                   
-                    this.r = Math.round(Math.random() * 255);
-                    this.g = Math.round(Math.random() * 255);
-                    this.b = Math.round(Math.random() * 255);
-                    this.a = 0.7;
-                    break;
+
+                    this.r = Math.round(Math.random() * 255)
+                    this.g = Math.round(Math.random() * 255)
+                    this.b = Math.round(Math.random() * 255)
+                    this.a = a
+                    break
 
                 }
             case 'Polygon':
                 {
-                 
 
-                    this.r = Math.round(Math.random() * 255);
-                    this.g = Math.round(Math.random() * 255);
-                    this.b = Math.round(Math.random() * 255);
-                    this.a = 0.7;
 
-                    this._rbgString = this.makerbgString();
-                    break;
+                    this.r = Math.round(Math.random() * 255)
+                    this.g = Math.round(Math.random() * 255)
+                    this.b = Math.round(Math.random() * 255)
+                    this.a = a
+
+                    this._rbgString = this.makerbgString()
+                    break
                 }
 
             case 'LineString':
                 {
-                   
-                    this.r = 0;
-                    this.g = 0;
-                    this.b = 0;
-                    this.a = 0.7;
-                    break;
+
+                    this.r = 0
+                    this.g = 0
+                    this.b = 0
+                    this.a = a
+                    break
                 }
             default: {
 
 
                 console.log(this.type + " not supported")
-                this.r = 0;
-                this.g = 0;
-                this.b = 0;
-                this.a = 0.7;
-                break;
+                this.r = 0
+                this.g = 0
+                this.b = 0
+                this.a = a
+                break
             }
         }
 
-        this.label = label;
-        this.annotation = anno;
+        this.label = label
+        this.annotation = anno
 
 
 
@@ -200,43 +201,43 @@ export class DrawColor {
 
 
     decimalHashString(hashstring: string) {
-        let sum = 0;
+        let sum = 0
         for (let i = 0; i < hashstring.length; i++) {
-            const j = hashstring.codePointAt(i);
+            const j = hashstring.codePointAt(i)
             if (j) {
-                sum += (i + 1) * j / (1 << 8);
+                sum += (i + 1) * j / (1 << 8)
             }
             else {
-                sum += (i + 1) * 100 / (1 << 8);
+                sum += (i + 1) * 100 / (1 << 8)
             }
 
         }
-        return sum % 1;
+        return sum % 1
     }
 
     parse_rgb_string(rgb: string): number[] {
         if (typeof rgb.replace === 'function') {
-            const rgbout = (rgb.replace(/[^\d,]/g, '').split(',')) as unknown as number[];
-            return rgbout;
+            const rgbout = (rgb.replace(/[^\d,]/g, '').split(',')) as unknown as number[]
+            return rgbout
         }
         else {
-            return [0, 0, 0, 0];
+            return [0, 0, 0, 0]
         }
 
 
     }
 
     backgroundRbgString() {
-        return { 'background-color': `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})` };
+        return { 'background-color': `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})` }
     }
 
     textcolorRbgString() {
-        return { 'color': `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})` };
+        return { 'color': `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})` }
     }
 
 
     private makerbgString() {
-        return `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`;
+        return `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`
     }
 
 
@@ -253,12 +254,12 @@ export class DrawColor {
 
 
         if (this.mapbox) {
-            return currentstyle;
+            return currentstyle
         }
 
         else {
-            const newFill = new Fill({ color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})` });
-            let newText = new Text({});
+            const newFill = new Fill({ color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})` })
+            let newText = new Text({})
             const newImage = new RegularShape({
                 fill: new Fill({
                     color: `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`
@@ -269,7 +270,7 @@ export class DrawColor {
                 }),
                 points: 4,
                 radius: 10
-               // angle: Math.PI / 4,
+                // angle: Math.PI / 4,
             })
 
             if (labeltext) {
@@ -290,7 +291,7 @@ export class DrawColor {
 
             if (currentstyle instanceof Array) {
                 for (const element of currentstyle) {
-                    const fill = element.getFill();
+                    const fill = element.getFill()
                     if (fill) {
                         if (fill.getColor()) {
                             //element.setFill(newFill)
@@ -301,11 +302,11 @@ export class DrawColor {
 
                         const image = element.getImage() as CircleStyle
                         if (image) {
-                            const imagefill = image.getFill();
+                            const imagefill = image.getFill()
 
                             if (imagefill) {
                                 if (imagefill.getColor()) {
-                                   newImage.setFill(newFill)
+                                    newImage.setFill(newFill)
                                 }
 
                             }
@@ -315,7 +316,7 @@ export class DrawColor {
             }
 
 
-            const aimage= new RegularShape({
+            const aimage = new RegularShape({
                 fill: new Fill({
                     color: `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`
 
@@ -348,7 +349,7 @@ export class DrawColor {
             )
 
 
-            return this.style;
+            return this.style
         }
 
     }

@@ -1,4 +1,4 @@
-import { KeyValue } from '@angular/common';
+import { KeyValue } from '@angular/common'
 import {
   AfterContentInit,
   AfterViewInit,
@@ -6,16 +6,16 @@ import {
   ElementRef,
   Input,
   ViewChild,
-} from '@angular/core';
+} from '@angular/core'
 
-import { NgElement, WithProperties } from '@angular/elements';
-import VectorTileLayer from 'ol/layer/VectorTile';
-import { DrawColor } from '../color';
-import { IColorMap, LegendLevel } from '../colorMap';
+import { NgElement, WithProperties } from '@angular/elements'
+import VectorTileLayer from 'ol/layer/VectorTile'
+import { DrawColor } from '../color'
+import { IColorMap, LegendLevel } from '../colorMap'
 
 declare global {
   interface HTMLElementTagNameMap {
-    'app-legend-view': NgElement & WithProperties<{ styleUrl: string }>;
+    'app-legend-view': NgElement & WithProperties<{ styleUrl: string }>
   }
 }
 
@@ -25,11 +25,12 @@ declare global {
   styleUrls: ['./mapstyler.component.scss'],
 })
 export class MapstylerComponent implements AfterViewInit {
-  @Input() Layer!: VectorTileLayer;
-  @Input() ColorMap!: IColorMap;
+
+  @Input() Layer!: VectorTileLayer
+  @Input() ColorMap!: IColorMap
   @Input() StyleUrl: string = '';
   @ViewChild('lview')
-  customLegendElement: ElementRef | undefined;
+  customLegendElement: ElementRef | undefined
   detaillevel = LegendLevel;
 
   valueAscOrder = (
@@ -38,16 +39,16 @@ export class MapstylerComponent implements AfterViewInit {
   ): number => {
     return a.value.label
       .toLowerCase()
-      .localeCompare(b.value.label.toLowerCase());
+      .localeCompare(b.value.label.toLowerCase())
   };
   private _isShowStyler: boolean = false;
   public get isShowStyler(): boolean {
-    return this._isShowStyler;
+    return this._isShowStyler
   }
   public set isShowStyler(value: boolean) {
-    this._isShowStyler = value;
+    this._isShowStyler = value
     if (!this._isShowStyler) {
-      this.changeUrl();
+      this.changeUrl()
     }
   }
 
@@ -57,13 +58,13 @@ export class MapstylerComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.isShowStyler = false;
+    this.isShowStyler = false
   }
 
   toggleShowStdLegend() {
-    this.isShowStyler = !this.isShowStyler;
+    this.isShowStyler = !this.isShowStyler
     if (!this.isShowStyler) {
-      this.NewColorMap();
+      this.NewColorMap()
     }
   }
 
@@ -72,81 +73,91 @@ export class MapstylerComponent implements AfterViewInit {
       this.customLegendElement.nativeElement.setAttribute(
         'style-url',
         this.StyleUrl
-      );
+      )
     } else {
-      console.log('to urly ');
+      console.log('to urly ')
     }
   }
 
   hasTextlabels() {
-    return this.ColorMap.hasText();
+    return this.ColorMap.hasText()
   }
 
   onCheckboxAllChange(event: any) {
-    this.ColorMap.setShowAll(event.target.checked);
-    this.refreshlayer();
+    this.ColorMap.setShowAll(event.target.checked)
+    this.refreshlayer()
   }
 
   onSelectLevel(lev: LegendLevel) {
-    this.ColorMap.setSelector(lev);
-    this.refreshlayer();
+    this.ColorMap.setSelector(lev)
+    this.refreshlayer()
   }
 
   disEnabledLevel(level: KeyValue<string, LegendLevel>): boolean {
-    return level.value === this.ColorMap.getLegendLevel();
+    return level.value === this.ColorMap.getLegendLevel()
   }
 
   onCheckboxLabelsChange(event: any) {
-    this.ColorMap.setShowAllText(event.target.checked);
-    this.refreshlayer();
+    this.ColorMap.setShowAllText(event.target.checked)
+    this.refreshlayer()
   }
 
   NewColorMap() {
-    this.clearColorMap();
-    this.refreshlayer();
+    this.clearColorMap()
+    this.refreshlayer()
   }
 
   clearColorMap() {
-    this.ColorMap.clear();
+    this.ColorMap.clear()
   }
 
   getItems(isText: boolean) {
-    return this.ColorMap.getItems(isText);
+    return this.ColorMap.getItems(isText)
   }
 
   colorArrayChecked(isText: boolean) {
-    const array = this.ColorMap.getItems(isText);
+    const array = this.ColorMap.getItems(isText)
 
     for (const a of array.keys()) {
-      const element = array.get(a);
+      const element = array.get(a)
       if (element?.show) {
-        return true;
+        return true
       }
     }
-    return false;
+    return false
   }
 
   onCheckboxChange(event: any, row: KeyValue<string, DrawColor>) {
-    const ui = row.value;
+    const ui = row.value
     const newvalue = new DrawColor(
       ui.label,
       ui.legendfeature,
       ui.mapbox,
       ui.annotation
-    );
-    newvalue.show = event.target.checked;
+    )
+    newvalue.show = event.target.checked
     if (this.ColorMap.has(ui.label)) {
-      this.ColorMap.set(ui.label, newvalue);
+      this.ColorMap.set(ui.label, newvalue)
     }
-    this.refreshlayer();
+    this.refreshlayer()
   }
 
   onColorChange(row: KeyValue<string, DrawColor>) {
-    row.value.mapbox = false;
-    this.refreshlayer();
+    row.value.mapbox = false
+    this.refreshlayer()
   }
 
   private refreshlayer() {
-    this.Layer.getSource()?.refresh();
+    this.Layer.getSource()?.refresh()
+  }
+
+  getTitelItems() {
+    if (this.StyleUrl.toLowerCase().includes('top10nl')) {
+      return "id"
+    }
+    else {
+      return ("type,plus_type,functie,fysiek_voorkomen,openbareruimtetype")
+    }
+
   }
 }

@@ -1,9 +1,9 @@
 
+import Feature from 'ol/Feature'
 import Fill from "ol/style/Fill"
-import Text from "ol/style/Text"
 import Stroke from "ol/style/Stroke"
 import Style from "ol/style/Style"
-import Feature from 'ol/Feature'
+import Text from "ol/style/Text"
 
 import { Geometry } from "ol/geom"
 import { RegularShape } from "ol/style"
@@ -28,16 +28,18 @@ export function getFillColor(st: void | Style | Style[]) {
             }
             else {
                 //do nothing 
+                if (typeof element.getImage() === 'function') {
+                    const image = element.getImage() as CircleStyle
 
-                const image = element.getImage() as CircleStyle
-                if (image) {
-                    const imagefill = image.getFill()
+                    if (typeof image.getFill() === 'function') {
+                        const imagefill = image.getFill()
 
-                    if (imagefill) {
-                        if (imagefill.getColor()) {
-                            color = imagefill.getColor() as string
+                        if (imagefill) {
+                            if (imagefill.getColor()) {
+                                color = imagefill.getColor() as string
+                            }
+
                         }
-
                     }
                 }
             }
@@ -303,9 +305,10 @@ export class DrawColor {
                         const image = element.getImage() as CircleStyle
                         if (image) {
 
-                            const imagefill = image.getFill()!
 
-                            if (imagefill) {
+
+                            if (image.getFill()!) {
+                                const imagefill = image.getFill()!
                                 if (imagefill.getColor()) {
                                     newImage.setFill(newFill)
                                 }

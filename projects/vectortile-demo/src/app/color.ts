@@ -47,8 +47,10 @@ export function getFillColor(st: void | Style | Style[]) {
     }
     else {
         const stStyle = st as any
-        const colcolor = stStyle.fill_.color_ as string | number[] | CanvasGradient | CanvasPattern
-        color = colcolor
+        if (stStyle) {
+            const colcolor = stStyle.fill_.color_ as string | number[] | CanvasGradient | CanvasPattern
+            color = colcolor
+        }
     }
 
     if (color instanceof CanvasPattern) {

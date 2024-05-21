@@ -17,17 +17,45 @@
   "glyphs": "http://127.0.0.1:4200/styles/brk/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
-      "id": "functioneel_gebied_vlak",
+      "id": "functioneel_gebied_vlak 0",
       "type": "fill",
       "source": "top10nl",
       "source-layer": "functioneel_gebied_vlak",
       "paint": {"fill-outline-color": "#38A800"}
     },
     {
-      "id": "geografisch_gebied_vlak",
+      "id": "functioneel_gebied_vlak 1",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "functioneel_gebied_vlak",
+      "paint": {"fill-color": "#ffffff"}
+    },
+    {
+      "id": "functioneel_gebied_multivlak.style",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "functioneel_gebied_multivlak",
+      "paint": {"fill-outline-color": "#38A800"}
+    },
+    {
+      "id": "geografisch_gebied_vlak 0",
       "type": "fill",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
+      "paint": {"fill-outline-color": "#0041a5"}
+    },
+    {
+      "id": "geografisch_gebied_vlak 1",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "paint": {"fill-color": "#FFFFFF"}
+    },
+    {
+      "id": "geografisch_gebied_multivlak.style",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_multivlak",
       "paint": {"fill-outline-color": "#0041a5"}
     },
     {
@@ -55,7 +83,7 @@
       "paint": {"fill-color": "#FFFFFF"}
     },
     {
-      "id": "functioneel_gebied_punt",
+      "id": "functioneel_gebied_punt 0",
       "type": "circle",
       "source": "top10nl",
       "source-layer": "functioneel_gebied_punt",
@@ -230,6 +258,13 @@
       "paint": {"fill-color": "#FFFF73"}
     },
     {
+      "id": "waterdeel_vlak_contour.style",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_vlak",
+      "paint": {"fill-outline-color": "#73B2FF"}
+    },
+    {
       "id": "droogvallend",
       "type": "fill",
       "source": "top10nl",
@@ -309,6 +344,13 @@
       "source-layer": "waterdeel_vlak",
       "filter": ["==", "visualisatiecode", 12700],
       "paint": {"fill-color": "#A0DCFF"}
+    },
+    {
+      "id": "wegdeel_vlak_contour.style",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "paint": {"fill-outline-color": "#343434"}
     },
     {
       "id": "autosnelweg",
@@ -1702,6 +1744,22 @@
       "source-layer": "inrichtingselement_punt",
       "filter": ["==", "visualisatiecode", 15850],
       "paint": {"circle-color": "#FCC6B8", "circle-radius": 4}
+    },
+    {
+      "id": "functioneel_gebied_vlak_label.style",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "functioneel_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 19050],
+      "layout": {"icon-image": "camping", "icon-size": 1}
+    },
+    {
+      "id": "functioneel_gebied_multivlak_label.style",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "functioneel_gebied_multivlak",
+      "filter": ["==", "visualisatiecode", 19050],
+      "layout": {"icon-image": "camping", "icon-size": 1}
     }
   ],
   "id": ""

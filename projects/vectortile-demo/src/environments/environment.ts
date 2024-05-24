@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BRKTop10Standaardjsonurl: 'styles/brk/brk_top10nl.json',
+  BRKTop10Standaardjsonurl: 'styles/brt/brt_top10nl.json',
 
 
   BGTmapboxachtergrondjsonurl: 'styles/bgt_achtergrondvisualisatie.json',

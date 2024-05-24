@@ -36,6 +36,7 @@ export class ObjectinfoComponent {
   @Input() features: FeatureLike[] = []
   @Input() resolution: number | undefined
   @Input() styleFunction: StyleFunction = {} as StyleFunction
+  @Input() ogcurl: string | undefined
 
 
   private fillColor: number[] = DefaultColor
@@ -72,12 +73,12 @@ export class ObjectinfoComponent {
     for (const val in prop) {
 
       const p: proprow = { title: val, value: prop[val] }
-      if (val === "lokaal_id") {
+      if (val === "lokaal_id" || val === "lokaalid") {
+        if (this.ogcurl) {
+          ogcApiUrl = getOgcApiImtemUrl(this.ogcurl, prop["layer"], val, prop[val])
+        }
 
-
-        ogcApiUrl = getOgcApiImtemUrl(prop["layer"], prop[val])
       }
-
 
       proptable.push(p)
     }
@@ -158,11 +159,11 @@ function getCollection(layer: string): string {
   }
 }
 
-function getOgcApiImtemUrl(layer: string, lokaal_id: string): string {
+function getOgcApiImtemUrl(OGCurl: string, layer: string, field: string, lokaal_id: string): string {
 
 
 
-  return environment.OGCApi + "/collections/" + getCollection(layer) + "/items?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F28992&lokaal_id=" + lokaal_id
+  return OGCurl + "/collections/" + getCollection(layer) + "/items?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F28992&" + field + "=" + lokaal_id
 }
 
 

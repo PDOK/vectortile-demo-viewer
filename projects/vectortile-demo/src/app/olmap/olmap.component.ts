@@ -44,6 +44,7 @@ import {
   tileurlTop10,
   VectorTileUrl,
 } from './tileurl'
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-olmap',
@@ -52,12 +53,14 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class OlmapComponent implements OnInit, OnChanges {
+
   @Output() titelEmit: EventEmitter<Visualisatie> = new EventEmitter();
   private SelectedVisualisation: Visualisatie = Visualisatie.BGTachtergrond;
   private stfunction: StyleFunction | undefined
   colorMap = new ColorMap(LegendLevel.d1_layer);
   showUrl = '';
   zoom: number = 13;
+  ogcUrl: string | undefined
 
   @Input() set visualisation(vis: Visualisatie) {
     this.SelectedVisualisation = vis
@@ -257,10 +260,10 @@ export class OlmapComponent implements OnInit, OnChanges {
         minzoom = 3
         break
 
-      case Visualisatie.BRKTop10nlBlanco:
-      case Visualisatie.BRKTop10nlKleurrijk:
-      case Visualisatie.BRKTop10nlStandaard:
-      case Visualisatie.BRKTop10nlTegels:
+      case Visualisatie.Top10nlBlanco:
+      case Visualisatie.Top10nlKleurrijk:
+      case Visualisatie.Top10nlStandaard:
+      case Visualisatie.Top10nlTegels:
         minzoom = 10
         break
 
@@ -357,7 +360,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         case Visualisatie.BESTUURBlanko:
         case Visualisatie.Bagblanko:
         case Visualisatie.BGTzerodefaultA_blanco:
-        case Visualisatie.BRKTop10nlBlanco:
+        case Visualisatie.Top10nlBlanco:
 
           vectorTileLayer.setStyle(this.GetBlancoDefaultStyle())
           break
@@ -411,7 +414,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     const isText = GetLabelAnnotation(prop, prop['layer'])
     switch (this.SelectedVisualisation) {
       // case Visualisatie.BGTtactiel:
-      case Visualisatie.BRKTop10nlStandaard:
+      case Visualisatie.Top10nlStandaard:
       case Visualisatie.BGTstandaard:
       case Visualisatie.BGTachtergrond:
       case Visualisatie.Bagstd:
@@ -456,7 +459,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
       //tempory disabled  case Visualisatie.BGTzerodefaultB_tegels:
       case Visualisatie.BagKleurrijk_tegels:
-      case Visualisatie.BRKTop10nlTegels:
+      case Visualisatie.Top10nlTegels:
       case Visualisatie.BGTzerodefaultB_tegels:
         return new DrawColor(
           'default zero',
@@ -487,7 +490,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         return zcolor.showfreshstyle(isText)
       }
       case Visualisatie.Bagkleurrijk:
-      case Visualisatie.BRKTop10nlKleurrijk:
+      case Visualisatie.Top10nlKleurrijk:
       case Visualisatie.BGTzerodefaultD_kleur: {
         const layer = prop['layer']
         const zerodefaultText = GetLabelAnnotation(prop, layer)
@@ -507,7 +510,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
       case Visualisatie.Bagblanko:
       case Visualisatie.BGTzerodefaultA_blanco:
-      case Visualisatie.BRKTop10nlBlanco:
+      case Visualisatie.Top10nlBlanco:
       case Visualisatie.BESTUURBlanko:
         return new DrawColor(
           'default zero',
@@ -592,6 +595,8 @@ export class OlmapComponent implements OnInit, OnChanges {
     zoom: number
   ) {
     const vtSource = this.getVectorTileSource(projection, tileEndpoint, zoom)
+    this.ogcUrl = tileEndpoint.OGCApi
+
     // set invisible to prevent unstyled flashing of vectorTileLayer
     vectorTileLayer.setVisible(false)
     vectorTileLayer.setSource(vtSource)
@@ -634,6 +639,10 @@ export class OlmapComponent implements OnInit, OnChanges {
       }),
     ]
     return styles
+
+  }
+  getOgcUrl(): string | undefined {
+    return this.ogcUrl
 
   }
 }

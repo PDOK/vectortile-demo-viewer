@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BRKTop10Standaardjsonurl: 'styles/brt/brt_top10nl.json',
+  BRTTop10Standaardjsonurl: 'styles/brt/brt_top10nl.json',
 
 
   BGTmapboxachtergrondjsonurl: 'styles/bgt_achtergrondvisualisatie.json',
@@ -21,7 +21,6 @@ export const environment = {
   BESTUURstd:
     'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0/styles/bestuurlijkegebieden_standaardvisualisatie?f=json',
 
-  OGCApi: "https://api.pdok.nl/lv/bgt/ogc/v1_0-demo"
 }
 
 /*

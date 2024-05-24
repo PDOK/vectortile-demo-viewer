@@ -13,5 +13,7 @@ export const environment = {
   //BESTUURLabelsOnly: 'styles/bs_test.json',
   BESTUURstd:
     'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0/styles/bestuurlijkegebieden_standaardvisualisatie?f=json',
-  OGCApi: "https://api.pdok.nl/lv/bgt/ogc/v1_0-demo"
+  BGTOGCApi: "https://api.pdok.nl/lv/bgt/ogc/v1_0-demo",
+  BRTTop10Standaardjsonurl: 'styles/brt/brt_top10nl.json',
+  BRTOGCApi: "https://api.pdok.nl/brt/top10nl/ogc/v1-preprod"
 }

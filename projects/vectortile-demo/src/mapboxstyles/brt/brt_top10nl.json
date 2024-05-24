@@ -1,0 +1,2159 @@
+{
+  "version": 8,
+  "name": "",
+  "center": [],
+  "pitch": 0,
+  "sources": {
+    "top10nl": {
+      "type": "vector",
+      "tiles": [
+        "https://api.pdok.nl/brt/top10nl/ogc/v1-preprod/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+      ],
+      "minzoom": 9,
+      "maxzoom": 11
+    }
+  },
+  "sprite": "http://127.0.0.1:4200/styles/brt/sprite@1",
+  "glyphs": "http://127.0.0.1:4200/styles/brt/fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "functioneel_gebied_vlak 0",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "functioneel_gebied_vlak",
+      "paint": {"fill-outline-color": "#38A800"}
+    },
+    {
+      "id": "functioneel_gebied_vlak 1",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "functioneel_gebied_vlak",
+      "paint": {"fill-color": "#ffffff"}
+    },
+    {
+      "id": "functioneel gebied multivlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "functioneel_gebied_multivlak",
+      "paint": {"fill-outline-color": "#38A800"}
+    },
+    {
+      "id": "geografisch_gebied_vlak 0",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "paint": {"fill-outline-color": "#0041a5"}
+    },
+    {
+      "id": "geografisch_gebied_vlak 1",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "paint": {"fill-color": "#FFFFFF"}
+    },
+    {
+      "id": "geografisch gebied multivlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_multivlak",
+      "paint": {"fill-outline-color": "#0041a5"}
+    },
+    {
+      "id": "plaats vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "plaats_vlak",
+      "paint": {"fill-color": "#FFFFFF", "fill-outline-color": "#800080"}
+    },
+    {
+      "id": "provincie",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "registratief_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 17010],
+      "paint": {"fill-color": "#FFFFFF", "fill-outline-color": "#A80000"}
+    },
+    {
+      "id": "gemeente",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "registratief_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 17020],
+      "paint": {"fill-color": "#FFFFFF", "fill-outline-color": "#D99800"}
+    },
+    {
+      "id": "land",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "registratief_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 17000],
+      "paint": {"fill-color": "#FFFFFF", "fill-outline-color": "#FFFF00"}
+    },
+    {
+      "id": "functioneel_gebied_punt 0",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "functioneel_gebied_punt",
+      "paint": {"circle-radius": 3.3, "circle-stroke-color": "#38A800"}
+    },
+    {
+      "id": "Aanlegsteiger",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14000, 14002, 14003],
+      "paint": {"fill-color": "#686868"}
+    },
+    {
+      "id": "akkerland",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14010, 14012, 14013],
+      "paint": {"fill-color": "#FFFFDE"}
+    },
+    {
+      "id": "Basaltblokken, steenglooiing",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14020, 14022, 14023],
+      "paint": {"fill-pattern": "basalt"}
+    },
+    {
+      "id": "Bebouwd gebied",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14030, 14032, 14033],
+      "paint": {"fill-color": "#9C9C9C"}
+    },
+    {
+      "id": "Boomgaard",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14040, 14042, 14043],
+      "paint": {"fill-pattern": "kilometerpaal"}
+    },
+    {
+      "id": "Boomkwekerij",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14050, 14052, 14053],
+      "paint": {"fill-pattern": "boomkwekerij_Camarone"}
+    },
+    {
+      "id": "Braakliggend",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14200, 14202, 14203],
+      "paint": {"fill-color": "#FFFFFF"}
+    },
+    {
+      "id": "Dodenakker",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14100, 14102, 14103],
+      "paint": {"fill-color": "#CCCCCC"}
+    },
+    {
+      "id": "Dodenakker met bos",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14110, 14112, 14113],
+      "paint": {"fill-color": "#CCCCCC"}
+    },
+    {
+      "id": "Duin",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14210, 14212, 14213],
+      "paint": {"fill-color": "#FFFF73"}
+    },
+    {
+      "id": "Fruitkwekerij",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14120, 14122, 14123],
+      "paint": {"fill-pattern": "fruitkwekerij"}
+    },
+    {
+      "id": "Gemengd bos",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14062, 14063, 14060],
+      "paint": {"fill-pattern": "loofbos_Deep_Cerulean"}
+    },
+    {
+      "id": "Grasland",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14130, 14132, 14133],
+      "paint": {"fill-color": "#C9EB70"}
+    },
+    {
+      "id": "Griend",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14070, 14072, 14073],
+      "paint": {"fill-pattern": "Griend_Limeade"}
+    },
+    {
+      "id": "Heide",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14140, 14142, 14143],
+      "paint": {"fill-color": "#FCB3FB"}
+    },
+    {
+      "id": "Loofbos",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14080, 14082, 14083],
+      "paint": {"fill-pattern": "loofbos_Deep_Cerulean"}
+    },
+    {
+      "id": "Naaldbos",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14090, 14092, 14093],
+      "paint": {"fill-pattern": "naaldbos_Deep_Cerulean"}
+    },
+    {
+      "id": "Overig",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14160, 14162, 14163],
+      "paint": {"fill-color": "#FFFFFF"}
+    },
+    {
+      "id": "Populieren",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14170, 14172, 14173],
+      "paint": {"fill-pattern": "populier"}
+    },
+    {
+      "id": "Spoorbaanlichaam",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14180, 14182, 14183],
+      "paint": {"fill-color": "#FFFFFF"}
+    },
+    {
+      "id": "Zand",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14190, 14192, 14193],
+      "paint": {"fill-color": "#FFFF73"}
+    },
+    {
+      "id": "waterdeel vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_vlak",
+      "paint": {"fill-outline-color": "#73B2FF"}
+    },
+    {
+      "id": "droogvallend",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_vlak",
+      "filter": ["==", "visualisatiecode", 12600],
+      "paint": {"fill-pattern": "quadrat_Pirate_Gold"}
+    },
+    {
+      "id": "droogvallend  (LAT )",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_vlak",
+      "filter": ["==", "visualisatiecode", 12610],
+      "paint": {"fill-color": "#A0DCFF"}
+    },
+    {
+      "id": "meer, plas",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_vlak",
+      "filter": ["==", "visualisatiecode", 12500],
+      "paint": {"fill-color": "#BEE8FF"}
+    },
+    {
+      "id": "waterdeel in sluis",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_vlak",
+      "filter": ["==", "visualisatiecode", 12800],
+      "paint": {"fill-color": "#BEE8FF"}
+    },
+    {
+      "id": "waterdeel in sluis en op brug",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_vlak",
+      "filter": ["==", "visualisatiecode", 12820],
+      "paint": {"fill-color": "#BEE8FF"}
+    },
+    {
+      "id": "waterdeel met riet",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_vlak",
+      "filter": [
+        "in",
+        "visualisatiecode",
+        12405,
+        12415,
+        12425,
+        12435,
+        12505,
+        12605
+      ],
+      "paint": {"fill-pattern": "riet_Cerulean"}
+    },
+    {
+      "id": "waterdeel op brug  (aquaduct )",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_vlak",
+      "filter": ["==", "visualisatiecode", 12810],
+      "paint": {"fill-color": "#BEE8FF", "fill-outline-color": "#828282"}
+    },
+    {
+      "id": "waterloop",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_vlak",
+      "filter": ["in", "visualisatiecode", 12400, 12410, 12420, 12430],
+      "paint": {"fill-color": "#BEE8FF"}
+    },
+    {
+      "id": "zee",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_vlak",
+      "filter": ["==", "visualisatiecode", 12700],
+      "paint": {"fill-color": "#A0DCFF"}
+    },
+    {
+      "id": "wegdeel vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "paint": {"fill-outline-color": "#343434"}
+    },
+    {
+      "id": "autosnelweg",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": ["in", "visualisatiecode", 10202, 10200, 10201],
+      "paint": {"fill-color": "#996089"}
+    },
+    {
+      "id": "fietspad",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": ["in", "visualisatiecode", 10742, 10740, 10741],
+      "paint": {"fill-color": "#FFD37F"}
+    },
+    {
+      "id": "half verharde weg",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": ["in", "visualisatiecode", 10721, 10720],
+      "paint": {"fill-color": "#B3B300"}
+    },
+    {
+      "id": "hoofdweg",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10302,
+        10300,
+        10301,
+        10310,
+        10311,
+        10312
+      ],
+      "paint": {"fill-color": "#E60000"}
+    },
+    {
+      "id": "lokale weg",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10502,
+        10500,
+        10501,
+        10510,
+        10511,
+        10512
+      ],
+      "paint": {"fill-color": "#FFFF00"}
+    },
+    {
+      "id": "onverharde weg",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": ["in", "visualisatiecode", 10732, 10730, 10731],
+      "paint": {"fill-color": "#9C9C9C"}
+    },
+    {
+      "id": "overige weg",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10790,
+        10700,
+        10701,
+        10702,
+        10710,
+        10711,
+        10712,
+        10791,
+        10792
+      ],
+      "paint": {"fill-color": "#FFFFFF"}
+    },
+    {
+      "id": "parkeerplaats",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": ["in", "visualisatiecode", 10781, 10780],
+      "paint": {"fill-color": "#FFFFFF"}
+    },
+    {
+      "id": "regionale weg",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10400,
+        10402,
+        10401,
+        10410,
+        10411,
+        10412
+      ],
+      "paint": {"fill-color": "#FFAA00"}
+    },
+    {
+      "id": "rolbaan, platform",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": ["in", "visualisatiecode", 10102, 10100, 10101],
+      "paint": {"fill-color": "#CCCCCC"}
+    },
+    {
+      "id": "startbaan, landingsbaan",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": ["in", "visualisatiecode", 10002, 10000],
+      "paint": {"fill-color": "#CCCCCC"}
+    },
+    {
+      "id": "straat",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": ["in", "visualisatiecode", 10602, 10601, 10600],
+      "paint": {"fill-color": "#FFFFFF"}
+    },
+    {
+      "id": "voetgangersgebied",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10760,
+        10750,
+        10751,
+        10752,
+        10761,
+        10762
+      ],
+      "paint": {"fill-color": "#FFA77F"}
+    },
+    {
+      "id": "pont / veer",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "wegdeel_lijn",
+      "filter": ["in", "visualisatiecode", 10800, 10820, 10830],
+      "layout": {"line-join": "miter"},
+      "paint": {"line-dasharray": [3, 4], "line-color": "#000000"}
+    },
+    {
+      "id": "ruiterpad",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "wegdeel_lijn",
+      "filter": ["==", "visualisatiecode", 10770],
+      "layout": {"line-join": "miter"},
+      "paint": {"line-dasharray": [3, 7], "line-color": "#732600"}
+    },
+    {
+      "id": "voetpad",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "wegdeel_lijn",
+      "filter": ["in", "visualisatiecode", 10750, 10751],
+      "layout": {"line-join": "miter"},
+      "paint": {"line-dasharray": [3, 6], "line-color": "#000000"}
+    },
+    {
+      "id": "greppel",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "waterdeel_lijn",
+      "filter": ["==", "visualisatiecode", 12100],
+      "paint": {"line-dasharray": [1, 2], "line-color": "#73DFFF"}
+    },
+    {
+      "id": "waterdeel in duiker",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "waterdeel_lijn",
+      "filter": [
+        "in",
+        "visualisatiecode",
+        -12103,
+        -12104,
+        -12202,
+        -12103,
+        -12201,
+        -12102,
+        -12101,
+        -12204
+      ],
+      "layout": {"line-join": "miter"},
+      "paint": {
+        "line-dasharray": [0, 1],
+        "line-color": "#000000",
+        "line-width": 10,
+        "line-pattern": "left-arrow"
+      }
+    },
+    {
+      "id": "waterloop 0,5 - 3 m",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "waterdeel_lijn",
+      "filter": ["==", "visualisatiecode", 12200],
+      "paint": {"line-color": "#73DFFF"}
+    },
+    {
+      "id": "waterloop 3 - 6 m",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "waterdeel_lijn",
+      "filter": ["==", "visualisatiecode", 12300],
+      "paint": {"line-color": "#00C5FF", "line-width": 1.5}
+    },
+    {
+      "id": "waterloop op brug",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "waterdeel_lijn",
+      "filter": ["==", "visualisatiecode", 12810],
+      "paint": {"line-color": "#73DFFF", "line-width": 2}
+    },
+    {
+      "id": "metrospoor 0",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "spoorbaandeel_lijn",
+      "filter": ["in", "visualisatiecode", 11000, 11001, 11002],
+      "layout": {"line-join": "miter"},
+      "paint": {"line-color": "#B2B2B2", "line-width": 3.4}
+    },
+    {
+      "id": "metrospoor 1",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "spoorbaandeel_lijn",
+      "filter": ["in", "visualisatiecode", 11000, 11001, 11002],
+      "layout": {"line-join": "round"},
+      "paint": {"line-color": "#E69800", "line-width": 2}
+    },
+    {
+      "id": "metrospoor 2",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "spoorbaandeel_lijn",
+      "filter": ["in", "visualisatiecode", 11000, 11001, 11002],
+      "layout": {"line-join": "round"},
+      "paint": {
+        "line-dasharray": [20, 18],
+        "line-color": "#FFFFFF",
+        "line-width": 2.6
+      }
+    },
+    {
+      "id": "sneltramspoor 0",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "spoorbaandeel_lijn",
+      "filter": ["in", "visualisatiecode", 11300, 11301, 11302],
+      "layout": {"line-join": "miter"},
+      "paint": {"line-color": "#B2B2B2", "line-width": 3.4}
+    },
+    {
+      "id": "sneltramspoor 1",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "spoorbaandeel_lijn",
+      "filter": ["in", "visualisatiecode", 11300, 11301, 11302],
+      "layout": {"line-join": "round"},
+      "paint": {"line-color": "#E69800", "line-width": 2}
+    },
+    {
+      "id": "sneltramspoor 2",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "spoorbaandeel_lijn",
+      "filter": ["in", "visualisatiecode", 11300, 11301, 11302],
+      "layout": {"line-join": "round"},
+      "paint": {
+        "line-dasharray": [20, 18],
+        "line-color": "#FFFFFF",
+        "line-width": 2.6
+      }
+    },
+    {
+      "id": "tramspoor 0",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "spoorbaandeel_lijn",
+      "filter": ["in", "visualisatiecode", 11200, 11201, 11202],
+      "layout": {"line-join": "miter"},
+      "paint": {"line-color": "#B2B2B2", "line-width": 3.4}
+    },
+    {
+      "id": "tramspoor 1",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "spoorbaandeel_lijn",
+      "filter": ["in", "visualisatiecode", 11200, 11201, 11202],
+      "layout": {"line-join": "round"},
+      "paint": {"line-color": "#FFD37F", "line-width": 2}
+    },
+    {
+      "id": "tramspoor 2",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "spoorbaandeel_lijn",
+      "filter": ["in", "visualisatiecode", 11200, 11201, 11202],
+      "layout": {"line-join": "round"},
+      "paint": {
+        "line-dasharray": [20, 18],
+        "line-color": "#FFFFFF",
+        "line-width": 2.6
+      }
+    },
+    {
+      "id": "treinspoor 0",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "spoorbaandeel_lijn",
+      "filter": [
+        "in",
+        "visualisatiecode",
+        11100,
+        11101,
+        11102,
+        11110,
+        11111,
+        11112,
+        11120,
+        11121,
+        11122
+      ],
+      "layout": {"line-join": "miter"},
+      "paint": {"line-color": "#B2B2B2", "line-width": 3.4}
+    },
+    {
+      "id": "treinspoor 1",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "spoorbaandeel_lijn",
+      "filter": [
+        "in",
+        "visualisatiecode",
+        11100,
+        11101,
+        11102,
+        11110,
+        11111,
+        11112,
+        11120,
+        11121,
+        11122
+      ],
+      "layout": {"line-join": "round"},
+      "paint": {"line-color": "#000000", "line-width": 2}
+    },
+    {
+      "id": "treinspoor 2",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "spoorbaandeel_lijn",
+      "filter": [
+        "in",
+        "visualisatiecode",
+        11100,
+        11101,
+        11102,
+        11110,
+        11111,
+        11112,
+        11120,
+        11121,
+        11122
+      ],
+      "layout": {"line-join": "round"},
+      "paint": {
+        "line-dasharray": [18, 20],
+        "line-color": "#FFFFFF",
+        "line-width": 2.6
+      }
+    },
+    {
+      "id": "plantopografie_vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "plantopografie_vlak",
+      "paint": {"fill-pattern": "hatch_Dove_Gray"}
+    },
+    {
+      "id": "aanlegsteiger",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15000],
+      "paint": {"line-color": "#000000", "line-width": 1.5}
+    },
+    {
+      "id": "bomenrij",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15020],
+      "paint": {"line-dasharray": [1, 20], "line-color": "#000000"}
+    },
+    {
+      "id": "geluidswering",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15130],
+      "paint": {"line-color": "#B5B3B3"}
+    },
+    {
+      "id": "heg, haag",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15180],
+      "paint": {"line-dasharray": [1, 26], "line-color": "#808080"}
+    },
+    {
+      "id": "hekwerk",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15190],
+      "paint": {
+        "line-dasharray": [1, 11],
+        "line-color": "#000000",
+        "line-width": 2
+      }
+    },
+    {
+      "id": "hoogspanningsleiding",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15210],
+      "paint": {"line-color": "#000000"}
+    },
+    {
+      "id": "koedam",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15090],
+      "layout": {"line-join": "miter"},
+      "paint": {
+        "line-dasharray": [0, 1],
+        "line-color": "#000000",
+        "line-width": 6,
+        "line-pattern": "koedam"
+      }
+    },
+    {
+      "id": "muur",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15460],
+      "paint": {"line-color": "#FF0000"}
+    },
+    {
+      "id": "paalwerk",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15490],
+      "paint": {"line-color": "#008096"}
+    },
+    {
+      "id": "schietbaan",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15570],
+      "paint": {
+        "line-dasharray": [3, 129],
+        "line-color": "#0F7C81",
+        "line-width": 7
+      }
+    },
+    {
+      "id": "sluisdeur",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15610],
+      "layout": {"line-join": "round"},
+      "paint": {"line-color": "#000000", "line-width": 0.864}
+    },
+    {
+      "id": "stuw",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15670],
+      "paint": {"line-color": "#A8A7A7"}
+    },
+    {
+      "id": "verkeersgeleider",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15720],
+      "paint": {"line-color": "#BCB8FC"}
+    },
+    {
+      "id": "wegafsluiting",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_lijn",
+      "filter": ["==", "visualisatiecode", 15760],
+      "paint": {"line-color": "#000000"}
+    },
+    {
+      "id": "dok",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "gebouw_vlak",
+      "filter": ["==", "visualisatiecode", 13200],
+      "paint": {"fill-color": "#FFFFFF", "fill-outline-color": "#FF0000"}
+    },
+    {
+      "id": "hoogbouw",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "gebouw_vlak",
+      "filter": ["==", "visualisatiecode", 13100],
+      "paint": {"fill-color": "#A80000"}
+    },
+    {
+      "id": "huizenblok",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "gebouw_vlak",
+      "filter": ["==", "visualisatiecode", 13300],
+      "paint": {"fill-color": "#B2B2B2", "fill-outline-color": "#4E4E4E"}
+    },
+    {
+      "id": "kas, warenhuis",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "gebouw_vlak",
+      "filter": ["==", "visualisatiecode", 13400],
+      "paint": {"fill-color": "#CCB366", "fill-outline-color": "#FF0000"}
+    },
+    {
+      "id": "overige bebouwing",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "gebouw_vlak",
+      "filter": ["==", "visualisatiecode", 13000],
+      "paint": {"fill-color": "#4E4E4E"}
+    },
+    {
+      "id": "brandtoren",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "gebouw_punt",
+      "filter": ["==", "typegebouw", "brandtoren"],
+      "paint": {"circle-color": "#000000", "circle-radius": 0.7}
+    },
+    {
+      "id": "gemaal",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "gebouw_punt",
+      "layout": {"icon-image": "gemaal"}
+    },
+    {
+      "id": "kapel",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "gebouw_punt",
+      "paint": {
+        "circle-color": "#FCC5CA",
+        "circle-radius": 1.3,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "radarpost",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "gebouw_punt",
+      "paint": {
+        "circle-color": "#FCD3CC",
+        "circle-radius": 1.3,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "schoorsteen",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "gebouw_punt",
+      "paint": {
+        "circle-color": "#A80000",
+        "circle-radius": 1.3,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "toren",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "gebouw_punt",
+      "paint": {
+        "circle-color": "#FFFFFF",
+        "circle-radius": 4,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "uitzichttoren",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "gebouw_punt",
+      "paint": {"circle-color": "#000000", "circle-radius": 0.7}
+    },
+    {
+      "id": "windmolen",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "gebouw_punt",
+      "layout": {"icon-image": "windmolen"}
+    },
+    {
+      "id": "windmolen: korenmolen",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "gebouw_punt",
+      "layout": {"icon-image": "windmolen"}
+    },
+    {
+      "id": "windmolen: watermolen",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "gebouw_punt",
+      "layout": {"icon-image": "windmolen"}
+    },
+    {
+      "id": "windturbine",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "gebouw_punt",
+      "layout": {"icon-image": "windmolen"}
+    },
+    {
+      "id": "wal",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "relief_lijn",
+      "filter": ["==", "visualisatiecode", 16400],
+      "layout": {"line-join": "miter"},
+      "paint": {
+        "line-dasharray": [0, 1, 1],
+        "line-color": "#000000",
+        "line-width": 3,
+        "line-pattern": "streep"
+      }
+    },
+    {
+      "id": "functioneel gebied vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "functioneel_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 19050],
+      "paint": {"fill-pattern": "camping_White"}
+    },
+    {
+      "id": "dieptelijn",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "hoogte_lijn",
+      "filter": ["==", "visualisatiecode", 16000],
+      "layout": {"line-join": "miter"},
+      "paint": {
+        "line-dasharray": [3, 5],
+        "line-color": "#004DA8",
+        "line-width": 0.5
+      }
+    },
+    {
+      "id": "hoogtelijn",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "hoogte_lijn",
+      "filter": ["==", "visualisatiecode", 16200],
+      "layout": {"line-join": "miter"},
+      "paint": {
+        "line-dasharray": [3, 5],
+        "line-color": "#A83800",
+        "line-width": 0.5
+      }
+    },
+    {
+      "id": "laagwaterlijn",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "hoogte_lijn",
+      "filter": ["==", "visualisatiecode", 16500],
+      "paint": {"line-color": "#004DA8"}
+    },
+    {
+      "id": "baak",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15010],
+      "paint": {"circle-color": "#000000", "circle-radius": 0.7}
+    },
+    {
+      "id": "boom",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15030],
+      "paint": {"circle-color": "#000000", "circle-radius": 1}
+    },
+    {
+      "id": "dukdalf",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15100],
+      "paint": {"circle-color": "#000000", "circle-radius": 0.7}
+    },
+    {
+      "id": "gedenkteken, monument",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15120],
+      "layout": {"icon-image": "gedenkteken"}
+    },
+    {
+      "id": "GPS kernnetpunt",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15160],
+      "layout": {"icon-image": "triangle_circle"}
+    },
+    {
+      "id": "grenspunt",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15170],
+      "paint": {
+        "circle-color": "#FF0000",
+        "circle-radius": 1.3,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "hoogspanningsmast",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15220],
+      "paint": {"circle-color": "#000000", "circle-radius": 2.7}
+    },
+    {
+      "id": "kilometerpaal",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15280],
+      "layout": {"icon-image": "kilometerpaal_Red"}
+    },
+    {
+      "id": "kilometerpaal spoorweg",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15290],
+      "paint": {"circle-color": "#FF0000", "circle-radius": 1.7}
+    },
+    {
+      "id": "kilometerpaal water",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15300],
+      "layout": {"icon-image": "kilometerpaal_water"}
+    },
+    {
+      "id": "kilometerraaibord",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15310],
+      "paint": {"circle-color": "#004DA8", "circle-radius": 1.7}
+    },
+    {
+      "id": "kilometerraaipaal",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15320],
+      "paint": {"circle-color": "#000000", "circle-radius": 1.7}
+    },
+    {
+      "id": "kogelvanger schietbaan",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15350],
+      "paint": {
+        "circle-color": "#FCC0E4",
+        "circle-radius": 1.3,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "kruis",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15380],
+      "paint": {
+        "circle-color": "#FAFCC7",
+        "circle-radius": 1.3,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "markant object",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15450],
+      "paint": {
+        "circle-color": "#FF0000",
+        "circle-radius": 1.7,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "metrostation",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15900],
+      "paint": {
+        "circle-color": "#FCCCF9",
+        "circle-radius": 1.3,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "paal",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15480],
+      "paint": {"circle-color": "#000000", "circle-radius": 1.7}
+    },
+    {
+      "id": "peilschaal",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15510],
+      "paint": {
+        "circle-color": "#C7B6FC",
+        "circle-radius": 0.2,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "peiler",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15520],
+      "paint": {
+        "circle-color": "#FFFFFF",
+        "circle-radius": 0.3,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "RD punt",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15560],
+      "layout": {"icon-image": "triangle_circle"}
+    },
+    {
+      "id": "scheepvaartlicht",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15920],
+      "layout": {"icon-image": "scheepvaartlicht"}
+    },
+    {
+      "id": "seinmast",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15590],
+      "paint": {
+        "circle-color": "#FCE4CF",
+        "circle-radius": 1.3,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "sneltramhalte",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15930],
+      "paint": {
+        "circle-color": "#FCCCF9",
+        "circle-radius": 1.3,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "treinstation",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15940],
+      "paint": {
+        "circle-color": "#FCCCF9",
+        "circle-radius": 1.3,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "wegwijzer",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15770],
+      "layout": {"icon-image": "wegwijzer"}
+    },
+    {
+      "id": "windmolentje",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15810],
+      "paint": {
+        "circle-color": "#FCB8B6",
+        "circle-radius": 1.3,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "zendmast",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15840],
+      "layout": {"icon-image": "zendmast"}
+    },
+    {
+      "id": "zichtbaar wrak",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "inrichtingselement_punt",
+      "filter": ["==", "visualisatiecode", 15850],
+      "paint": {
+        "circle-color": "#FCC6B8",
+        "circle-radius": 1.3,
+        "circle-stroke-color": "#000000"
+      }
+    },
+    {
+      "id": "dieptepunt (hoogte punt)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "hoogte_punt",
+      "filter": ["==", "visualisatiecode", 16100],
+      "layout": {
+        "text-field": "{hoogte}",
+        "text-size": 10.4,
+        "text-font": [
+          "LiberationSans-BoldItalic",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#0000FF"}
+    },
+    {
+      "id": "hoogtepunt (hoogte punt)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "hoogte_punt",
+      "filter": ["==", "visualisatiecode", 16300],
+      "layout": {
+        "text-field": "{hoogte}",
+        "text-size": 10.4,
+        "text-font": [
+          "LiberationSans-Italic",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#A83800"}
+    },
+    {
+      "id": "peil",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "hoogte_punt",
+      "filter": ["==", "visualisatiecode", 16600],
+      "layout": {"icon-image": "plus_Pompadour"}
+    },
+    {
+      "id": "peil: winterpeil",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "hoogte_punt",
+      "filter": ["==", "visualisatiecode", 16610],
+      "layout": {"icon-image": "plus_Pompadour"}
+    },
+    {
+      "id": "peil: zomerpeil",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "hoogte_punt",
+      "filter": ["==", "visualisatiecode", 16620],
+      "layout": {"icon-image": "plus_Pompadour"}
+    },
+    {
+      "id": "plaats punt",
+      "type": "circle",
+      "source": "top10nl",
+      "source-layer": "plaats_punt",
+      "paint": {
+        "circle-color": "#000000",
+        "circle-radius": 4,
+        "circle-stroke-color": "#800080"
+      }
+    },
+    {
+      "id": "brugnaam (wegdeel hartlijn)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "wegdeel_hartlijn",
+      "layout": {
+        "text-field": "{brugnaam}",
+        "text-size": 18,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ],
+        "symbol-placement": "line-center"
+      },
+      "paint": {"text-color": "#000000"}
+    },
+    {
+      "id": "hoofdwegen (wegdeel hartlijn)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "wegdeel_hartlijn",
+      "filter": ["in", "typeweg", "hoofdweg"],
+      "layout": {
+        "text-field": "{naam}",
+        "text-size": 9,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ],
+        "symbol-placement": "line-center"
+      },
+      "paint": {"text-color": "#000000"}
+    },
+    {
+      "id": "regionale wegen (wegdeel hartlijn)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "wegdeel_hartlijn",
+      "filter": ["in", "typeweg", "regionale", "weg"],
+      "layout": {
+        "text-field": "{naam}",
+        "text-size": 9,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ],
+        "symbol-placement": "line-center"
+      },
+      "paint": {"text-color": "#000000"}
+    },
+    {
+      "id": "lokale wegen (wegdeel hartlijn)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "wegdeel_hartlijn",
+      "filter": ["in", "typeweg", "lokale", "weg"],
+      "layout": {
+        "text-field": "{naam}",
+        "text-size": 9,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ],
+        "symbol-placement": "line-center"
+      },
+      "paint": {"text-color": "#000000"}
+    },
+    {
+      "id": "straten (wegdeel hartlijn)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "wegdeel_hartlijn",
+      "filter": ["in", "typeweg", "straat"],
+      "layout": {
+        "text-field": "{naam}",
+        "text-size": 11.2,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ],
+        "symbol-placement": "line-center"
+      },
+      "paint": {"text-color": "#000000"}
+    },
+    {
+      "id": "overige_wegen (wegdeel hartlijn)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "wegdeel_hartlijn",
+      "filter": ["in", "typeweg", "overig"],
+      "layout": {
+        "text-field": "{naam}",
+        "text-size": 9,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ],
+        "symbol-placement": "line-center"
+      },
+      "paint": {"text-color": "#000000"}
+    },
+    {
+      "id": "wegdeel hartpunt",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "wegdeel_hartpunt",
+      "layout": {
+        "text-field": "{nwegnummer}",
+        "text-size": 12,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#000000"}
+    },
+    {
+      "id": "woonkern (plaats punt)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_punt",
+      "filter": ["==", "visualisatiecode", 18400],
+      "layout": {
+        "text-field": "{naamofficieel}",
+        "text-size": 34.4,
+        "text-font": [
+          "LiberationSans-Bold",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "industriekern (plaats punt)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_punt",
+      "filter": ["==", "visualisatiecode", 18410],
+      "layout": {
+        "text-field": "{naamofficieel}",
+        "text-size": 34.4,
+        "text-font": [
+          "LiberationSans-Bold",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "recreatiekern (plaats punt)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_punt",
+      "filter": ["==", "visualisatiecode", 18420],
+      "layout": {
+        "text-field": "{naamofficieel}",
+        "text-size": 34.4,
+        "text-font": [
+          "LiberationSans-Bold",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "deelkern (plaats punt)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_punt",
+      "filter": ["==", "visualisatiecode", 18430],
+      "layout": {
+        "text-field": "{naamofficieel}",
+        "text-size": 34.4,
+        "text-font": [
+          "LiberationSans-Bold",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "buurtschap (plaats punt)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_punt",
+      "filter": ["==", "visualisatiecode", 18450],
+      "layout": {
+        "text-field": "{naamofficieel}",
+        "text-size": 16.8,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#686868",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "gehucht (plaats punt)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_punt",
+      "filter": ["==", "visualisatiecode", 18440],
+      "layout": {
+        "text-field": "{naamofficieel}",
+        "text-size": 21.6,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "stadsdeel (plaats punt)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_punt",
+      "filter": ["==", "visualisatiecode", 18500],
+      "layout": {
+        "text-field": "{naamofficieel}",
+        "text-size": 21.6,
+        "text-font": [
+          "LiberationSans-Italic",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "wijk (plaats punt)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_punt",
+      "filter": ["==", "visualisatiecode", 18510],
+      "layout": {
+        "text-field": "{naamofficieel}",
+        "text-size": 16,
+        "text-font": [
+          "LiberationSans-Italic",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "woonkern (plaats vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_vlak",
+      "filter": ["==", "visualisatiecode", 18400],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 24,
+        "text-font": [
+          "LiberationSans-Bold",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "industriekern (plaats vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_vlak",
+      "filter": ["==", "visualisatiecode", 18410],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 23,
+        "text-font": [
+          "LiberationSans-Bold",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "recreatiekern (plaats vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_vlak",
+      "filter": ["==", "visualisatiecode", 18420],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 22,
+        "text-font": [
+          "LiberationSans-Bold",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "deelkern (plaats vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_vlak",
+      "filter": ["==", "visualisatiecode", 18430],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 23.6,
+        "text-font": [
+          "LiberationSans-Bold",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "buurtschap (plaats vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_vlak",
+      "filter": ["==", "visualisatiecode", 18450],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 10,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#686868",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "gehucht (plaats vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_vlak",
+      "filter": ["==", "visualisatiecode", 18440],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 14,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "stadsdeel (plaats vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_vlak",
+      "filter": ["==", "visualisatiecode", 18500],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 17,
+        "text-font": [
+          "LiberationSans-Italic",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "wijk (plaats vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "plaats_vlak",
+      "filter": ["==", "visualisatiecode", 18510],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 17,
+        "text-font": [
+          "LiberationSans-Italic",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 2
+      }
+    }
+  ],
+  "id": ""
+}

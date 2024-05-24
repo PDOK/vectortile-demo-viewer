@@ -9,7 +9,10 @@ export enum Visualisatie {
   Bagblanko = 'BAG (Blanco)',
   Bagkleurrijk = 'BAG (Kleurrijk)',
   BagKleurrijk_tegels = 'BAG (Kleurrijk tegels zichtbaar)',
-
+  Top10nlStandaard = 'TOP10NL',
+  Top10nlBlanco = 'TOP10NL Blanco',
+  Top10nlTegels = 'TOP10NL (tegels zichtbaar)',
+  Top10nlKleurrijk = 'TOP10NL Kleurrijk',
   BGTzerodefaultA_blanco = 'BGT (Blanco)',
   BGTzerodefaultB_tegels = 'BGT (Kleurrijk tegels zichtbaar)',
   BGTzerodefaultC_Bron = 'BGT Bronhouder',
@@ -22,7 +25,7 @@ export enum Visualisatie {
 }
 
 export type StyleUrl = {
-  source: 'bag' | 'bgt' | 'bestuurlijkegebieden'
+  source: 'bag' | 'bgt' | 'bestuurlijkegebieden' | 'top10nl'
   url: string | undefined
 }
 
@@ -30,7 +33,8 @@ export function getStyleUrl(vis: Visualisatie): StyleUrl {
   switch (vis) {
     case Visualisatie.BGTachtergrond:
       return { source: 'bgt', url: environment.BGTmapboxachtergrondjsonurl }
-
+    case Visualisatie.Top10nlStandaard:
+      return { source: 'top10nl', url: environment.BRTTop10Standaardjsonurl }
     case Visualisatie.BGTstandaard:
       return { source: 'bgt', url: environment.BGTmapboxstandaardjsonurl }
     //case Visualisatie.BGTtactiel:
@@ -51,6 +55,10 @@ export function getStyleUrl(vis: Visualisatie): StyleUrl {
     //    source: 'bestuurlijkegebieden',
     //   url: environment.BESTUURLabelsOnly,
     //  };
+    case Visualisatie.Top10nlKleurrijk:
+    case Visualisatie.Top10nlBlanco:
+    case Visualisatie.Top10nlTegels:
+      return { source: 'top10nl', url: undefined }
     case Visualisatie.BGTzerodefaultA_blanco:
     case Visualisatie.BGTzerodefaultC_Bron:
     case Visualisatie.BGTzerodefaultD_kleur:
@@ -82,25 +90,25 @@ export function exhaustiveGuard(_value: never): never {
 
 export function getAllVisualisaties(): Visualisatie[] {
   const array: Visualisatie[] = []
-  // if (demoSettings.previewFeature)
-  for (const value of enumKeys(Visualisatie)) {
-    array.push(Visualisatie[value])
-  }
-  /*   else
+  if (demoSettings.previewFeature)
+    for (const value of enumKeys(Visualisatie)) {
+      array.push(Visualisatie[value])
+    }
+  else
     for (const value of enumKeys(Visualisatie)) {
       if (
         [
-          'BESTUURstd',
-          'BESTUURWithLabels',
-          'BESTUURLabelsOnly',
-          'BESTUURBlanko',
+          'Top10nlBlanco',
+          'Top10nlKleurrijk',
+          'Top10nlStandaard',
+          'Top10nlTegels'
         ].includes(value)
       ) {
         //skip
       } else {
         array.push(Visualisatie[value])
-      } */
-  //}
+      }
+    }
   return array
 }
 

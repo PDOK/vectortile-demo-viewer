@@ -31,7 +31,7 @@
     "@angular/platform-browser": "^17.0.8",
     "@angular/platform-browser-dynamic": "^17.0.8",
     "@angular/router": "^17.0.8",
-    "@mapbox/mapbox-gl-style-spec": "^14.0.0",
+    "@mapbox/mapbox-gl-style-spec": "^14.3.0",
     "ngx-color-picker": "^16.0.0",
     "ol": "8.2.0",
     "ol-mapbox-style": "^12.1.1",

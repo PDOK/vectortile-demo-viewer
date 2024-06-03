@@ -16,7 +16,8 @@
     "valbag": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bagstd.json",
     "valachter": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bgt_achtergrondvisualisatie.json",
     "valstandaard": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bgt_standaardvisualisatie.json",
-    "valtactiel": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/tactielevisualisatie.json"
+    "valtactiel": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/tactielevisualisatie.json",
+    "runupdate": "ng update @angular/core@18 @angular/cli@18"
   },
   "private": true,
   "dependencies": {
@@ -48,14 +49,11 @@
     "@angular-eslint/template-parser": "17.1.1",
     "@angular/cli": "^17.0.8",
     "@angular/compiler-cli": "^17.0.8",
-    "@cypress/schematic": "^2.5.1",
     "@types/jasmine": "~4.3.5",
     "@types/node": "^20.10.5",
     "@typescript-eslint/eslint-plugin": "^6.16.0",
     "@typescript-eslint/parser": "^6.16.0",
     "angular-cli-ghpages": "^1.0.7",
-    "cypress": "^13.6.2",
-    "cypress-image-diff-js": "^1.28.0",
     "eslint": "^8.56.0",
     "jasmine-core": "~5.1.1",
     "karma": "~6.4.2",

@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { HttpClientModule } from '@angular/common/http'
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { ColorPickerModule } from 'ngx-color-picker'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
@@ -21,34 +21,26 @@ import { MatTooltipModule } from '@angular/material/tooltip'
 import { ShowlinkComponent } from './showlink/showlink.component'
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    OlmapComponent,
-    SearchComponent,
-    ObjectinfoComponent,
-    MapexportComponent,
-    MapstylerComponent,
-    LocationComponent,
-    DemoboxComponent,
-    ShowlinkComponent,
-    OgcmapComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ColorPickerModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatTooltipModule,
-    MatDividerModule,
-    //  MatButtonModule,
-    //  MatIconModule,
-    MatSlideToggleModule,
-    //  MatCardModule,
-    //  MatBottomSheetModule,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        OlmapComponent,
+        SearchComponent,
+        ObjectinfoComponent,
+        MapexportComponent,
+        MapstylerComponent,
+        LocationComponent,
+        DemoboxComponent,
+        ShowlinkComponent,
+        OgcmapComponent,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        ColorPickerModule,
+        BrowserAnimationsModule,
+        MatTooltipModule,
+        MatDividerModule,
+        //  MatButtonModule,
+        //  MatIconModule,
+        MatSlideToggleModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

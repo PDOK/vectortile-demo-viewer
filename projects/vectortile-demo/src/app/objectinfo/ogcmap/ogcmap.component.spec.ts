@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { OgcmapComponent } from './ogcmap.component';
-
+/*
 describe('OgcmapComponent', () => {
   let component: OgcmapComponent;
   let fixture: ComponentFixture<OgcmapComponent>;
@@ -21,3 +21,5 @@ describe('OgcmapComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+*/

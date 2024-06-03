@@ -1,16 +1,16 @@
 
 import { View } from 'ol'
-import { Injectable } from '@angular/core';
-import { HttpParams } from "@angular/common/http";
-import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject } from 'rxjs';
-import WKT from 'ol/format/WKT';
-import { Point } from 'ol/geom';
+import { Injectable } from '@angular/core'
+import { HttpParams } from "@angular/common/http"
+import { HttpClient } from "@angular/common/http"
+import { BehaviorSubject } from 'rxjs'
+import WKT from 'ol/format/WKT'
+import { Point } from 'ol/geom'
 import Projection from 'ol/proj/Projection'
-import { Coordinate } from 'ol/coordinate';
+import { Coordinate } from 'ol/coordinate'
 
 //const REFgeo=`https://geodata.nationaalgeoregister.nl/locatieserver/revgeo`
-const REFgeo=`https://api.pdok.nl/bzk/locatieserver/search/v3_1/reverse`
+const REFgeo = `https://api.pdok.nl/bzk/locatieserver/search/v3_1/reverse`
 
 export enum ChangeType {
   search = "search",
@@ -19,31 +19,31 @@ export enum ChangeType {
 }
 
 export interface Locserver {
-  response: Response;
+  response: Response
 }
 
 export interface Response {
-  numFound: number;
-  start: number;
-  maxScore: number;
-  docs: Doc[];
+  numFound: number
+  start: number
+  maxScore: number
+  docs: Doc[]
 }
 
 export interface Doc {
-  type: string;
-  weergavenaam: string;
-  id: string;
-  score: number;
-  afstand: number;
+  type: string
+  weergavenaam: string
+  id: string
+  score: number
+  afstand: number
 }
 
 
 
 export type ViewLocation = {
-  change: ChangeType;
-  view: View | undefined;
-  name: string;
-};
+  change: ChangeType
+  view: View | undefined
+  name: string
+}
 
 
 @Injectable({
@@ -76,7 +76,7 @@ export class LocationService {
   public currentLocation = this.messageSource.asObservable();
 
   constructor(private http: HttpClient) {
-    this.changeLocation(this.initialViewLocation);
+    this.changeLocation(this.initialViewLocation)
   }
 
   changeLocation(location: ViewLocation) {
@@ -85,43 +85,43 @@ export class LocationService {
 
 
   async changeView(view: View) {
-    const location = this.initialViewLocation;
-    location.view = view;
-    location.change = ChangeType.move;
-    location.name= await this.getLocationName(view.getCenter()!)
+    const location = this.initialViewLocation
+    location.view = view
+    location.change = ChangeType.move
+    location.name = await this.getLocationName(view.getCenter()!)
     this.messageSource.next((location))
   }
 
   zoomto(wkt: string, name: string) {
-    var point = this.wktToCoordinates(wkt)
+    const point = this.wktToCoordinates(wkt)
 
-    const location = this.initialViewLocation;
+    const location = this.initialViewLocation
     location.view!.setCenter(point)
-    location.name = name;
-    location.change = ChangeType.search;
+    location.name = name
+    location.change = ChangeType.search
     this.messageSource.next((location))
 
   }
 
 
   wktToCoordinates(wkt: string): any {
-    const format = new WKT();
+    const format = new WKT()
     const feature = format.readFeature(wkt, {
       dataProjection: 'EPSG:28992',
       featureProjection: 'EPSG:28992',
-    });
-    const point = feature.getGeometry() as Point;
-    return (point!.getCoordinates());
+    })
+    const point = feature.getGeometry() as Point
+    return (point!.getCoordinates())
   }
 
   async getLocationName(xy: Coordinate): Promise<string> {
-    let params = new HttpParams().append('X', xy[0]).append('Y', xy[1]).append('rows', 1);
-    var doc = await this.http.get<Locserver>(REFgeo, {params}).toPromise();
+    const params = new HttpParams().append('X', xy[0]).append('Y', xy[1]).append('rows', 1)
+    const doc = await this.http.get<Locserver>(REFgeo, { params }).toPromise()
     if (doc!.response.docs[0].weergavenaam) {
       return doc!.response.docs[0].weergavenaam
     }
     else {
-      return "";
+      return ""
     }
   }
 }

@@ -17,7 +17,7 @@
     "valachter": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bgt_achtergrondvisualisatie.json",
     "valstandaard": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bgt_standaardvisualisatie.json",
     "valtactiel": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/tactielevisualisatie.json",
-    "runupdate": "ng update @angular/core@18 @angular/cli@18"
+    "runupdate": "ng update --force @angular/core@18 @angular/cli@18"
   },
   "private": true,
   "dependencies": {

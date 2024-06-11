@@ -1,10 +1,37 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable, map } from 'rxjs'
+
 export interface CollectionResponse {
   links: OGCApiLink[]
   collections: Collection[]
 }
+
+export interface FeatureCollectionResponse {
+  type: string
+  timeStamp: Date
+  coordRefSys: string
+  links: OGCApiLink[]
+  conformsTo: string[]
+  features: unknown[]
+  numberReturned: number
+}
+
+
+export interface FeatureResponse {
+  type: string
+  geometry: Geometry
+  properties: unknown
+  links: OGCApiLink[]
+  id: number
+}
+
+export interface Geometry {
+  type: string
+  coordinates: number[]
+}
+
+
 
 export interface Collection {
   id: string
@@ -14,7 +41,7 @@ export interface Collection {
   crs: string[]
   storageCrs: string
   links: OGCApiLink[]
-  content: any[]
+  content: unknown[]
 }
 
 export interface Extent {
@@ -65,14 +92,26 @@ export class IdlookupService {
   }
 
 
-  getCollections(url: string): Observable<OGCApiLink[]> {
+  getCollections(url: string): Observable<Collection[]> {
+    return this.http.get(`${url}/collections`).pipe(
+      map((data: unknown) => {
+        const r = data as CollectionResponse
+        return r.collections
+      })
+    )
+  }
+
+
+
+
+  getItemLinks(url: string): Observable<OGCApiLink[]> {
     let ret: OGCApiLink[] = []
 
     return this.http.get(`${url}/collections`).pipe(
       map((data: unknown) => {
         const r = data as CollectionResponse
         r.collections.forEach((c: Collection) => {
-          const l = c.links.filter((l: OGCApiLink) => l.rel === 'items')
+          const l = c.links.filter((l: OGCApiLink) => l.rel === 'items' && l.type === FormatType.ApplicationGeoJSON)
           ret = [...ret, ...l]
         })
         return ret
@@ -80,14 +119,28 @@ export class IdlookupService {
     )
   }
 
-  /* GetId(ogcapi: string, arg0: string): Observable<OGCApiLink> {
-  
-     const col = this.getCollections(ogcapi)
-     return {} as : Link
-  
-  
-  
-   }
-     */
+  existsIdForFeature(href: string, lokaal_id: string): Observable<false | FeatureCollectionResponse> {
+    return this.http.get(href + '&lokaal_id=' + lokaal_id).pipe(map((data: unknown) => {
+      const r = data as FeatureCollectionResponse
+      if (r.numberReturned > 0) {
+        return r
+      }
+      else return false
+    })
+    )
+  }
 
+
+  existsId(href: string, lokaal_id: string) {
+    const links = this.getItemLinks(href)
+    return links.subscribe((x) => {
+      x.forEach((link) => {
+        const match = this.existsIdForFeature(link.href, lokaal_id)
+        match.subscribe((x => {
+          return x
+        }))
+      })
+    })
+  }
 }
+

@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing'
 
-import { CollectionResponse, IdlookupService, OGCApiLink, Rel, FormatType } from './idlookup.service'
-import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing'
 import { provideHttpClient } from '@angular/common/http'
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing'
+import { Collection, CollectionResponse, FeatureCollectionResponse, IdlookupService, OGCApiLink } from './idlookup.service'
 
 
 describe('IdlookupService', () => {
@@ -46,7 +46,7 @@ describe('IdlookupService', () => {
   it('should return 0 collections on empty', () => {
     // Mock the HTTP request and response
     const mockResponse: CollectionResponse = { links: [], collections: [] } // Define the expected response
-    service.getCollections("https://api.example.com").subscribe((response: OGCApiLink[]) => {
+    service.getItemLinks("https://api.example.com").subscribe((response: OGCApiLink[]) => {
       expect(response.length).toEqual(0)
     })
 
@@ -55,11 +55,27 @@ describe('IdlookupService', () => {
     req.flush(mockResponse) // Simulate a response from the server
   })
 
+  it('should getCollections return Collection[] on testBGT', () => {
+    // Mock the HTTP request and response
+    const mockResponse = aTestResponse// Define the expected response
+    service.getCollections("https://api.example.com").subscribe((response: Collection[]) => {
+      expect(response.length).toEqual(49)
+      expect(response[0].id).toEqual('bak')
+      expect(response[0].title).toEqual('Bak (BAK)')
+    })
+
+    const req = httpMock.expectOne(`https://api.example.com/collections`)
+    expect(req.request.method).toBe('GET')
+    req.flush(mockResponse) // Simulate a response from the server
+  })
+
+
+
   it('should return OGCApiLink[] on testBGT', () => {
     // Mock the HTTP request and response
     const mockResponse = aTestResponse// Define the expected response
-    service.getCollections("https://api.example.com").subscribe((response: OGCApiLink[]) => {
-      expect(response.length).toEqual(147)
+    service.getItemLinks("https://api.example.com").subscribe((response: OGCApiLink[]) => {
+      expect(response.length).toEqual(49)
       expect(response[0].href).toEqual('https://api.pdok.nl/lv/bgt/ogc/v1/collections/bak/items?f=json')
       expect(response[0].title).toEqual('The JSON representation of the bak features served from this endpoint')
       expect(response[0].type).toEqual("application/geo+json")
@@ -72,9 +88,68 @@ describe('IdlookupService', () => {
     req.flush(mockResponse) // Simulate a response from the server
   })
 
+  it('should return false if lokaalid does not exits', () => {
+    const mockResponse: FeatureCollectionResponse = {
+      numberReturned: 0,
+      type: '',
+      timeStamp: new Date("2024-06-11T14:15:30Z"),
+      coordRefSys: '',
+      links: [],
+      conformsTo: [],
+      features: []
+    }
 
+    service.existsIdForFeature("https://demo/collections/xxx/items?f=a", '1').subscribe((response) => {
+      expect(response).toEqual(false)
+    })
+    const req = httpMock.expectOne(`https://demo/collections/xxx/items?f=a&lokaal_id=1`)
+
+    expect(req.request.method).toBe('GET')
+    req.flush(mockResponse)
+  })
+
+  it('should return  if lokaalid exits', () => {
+    const mockResponse: FeatureCollectionResponse = {
+      numberReturned: 1,
+      type: '',
+      timeStamp: new Date("2024-06-11T14:15:30Z"),
+      coordRefSys: '',
+      links: [],
+      conformsTo: [],
+      features: []
+    }
+
+    service.existsIdForFeature("https://demo/collections/xxx/items?f=a", '1').subscribe((response) => {
+      expect(response).toEqual(mockResponse)
+    })
+    const req = httpMock.expectOne(`https://demo/collections/xxx/items?f=a&lokaal_id=1`)
+
+    expect(req.request.method).toBe('GET')
+    req.flush(mockResponse)
+  })
+
+  /* it('should return  if lokaalid from all endpoints exits', () => {
+     const mockResponse = aTestResponse
+     const mockResponse2: FeatureCollectionResponse = {
+       numberReturned: 1,
+       type: '',
+       timeStamp: new Date("2024-06-11T14:15:30Z"),
+       coordRefSys: '',
+       links: [],
+       conformsTo: [],
+       features: []
+     }
+     service.existsIdForFeature("https://demo", '1').subscribe((response) => {
+       expect(response).toEqual(false)
+     })
+     const req = httpMock.expectOne("https://demo&lokaal_id=1")
+     expect(req.request.method).toBe('GET')
+     req.flush(mockResponse2)
+     req.flush(mockResponse)
+  
+   })
+     */
 })
-
 
 const aTestResponse = {
   "links": [

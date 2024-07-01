@@ -13,8 +13,8 @@
       "maxzoom": 11
     }
   },
-  "sprite": "http://127.0.0.1:4200/styles/brt/sprite@1",
-  "glyphs": "http://127.0.0.1:4200/styles/brt/fonts/{fontstack}/{range}.pbf",
+  "sprite": "styles/brt/sprite@1",
+  "glyphs": "styles/brt/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "functioneel_gebied_vlak 0",

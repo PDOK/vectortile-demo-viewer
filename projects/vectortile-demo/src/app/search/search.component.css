@@ -1,26 +1,28 @@
-.searchPanel{
+.searchPanel {
   position: absolute;
   left: var(--searchleft, 5vw);
-  width: var(--searchwidth,  20vw);
-  top: var(--searchtop, 14vh) ; 
-  z-index: 4; 
+  width: var(--searchwidth, 30vw);
+  top: var(--searchtop, 14vh);
+  z-index: 4;
 
 }
-.searchBox{
-  height:calc( var(--buttonheight, 1vh) *0.5); 
-  font-size: var(--fontsize, 1vh); 
+
+.searchBox {
+  height: calc(var(--buttonheight, 1vh) *0.5);
+  font-size: var(--fontsize, 1vh);
   font-family: var(--fontfamily, "Roboto");
-  background-color: whitesmoke; 
-  width: var(--searchwidth,  20vw);
- 
+  background-color: whitesmoke;
+  width: var(--searchwidth, 20vw);
+
 }
+
 .selectbutton {
-  min-height: var(--buttonheight, 1vh) ; 
+  min-height: var(--buttonheight, 1vh);
   font-size: var(--fontsize, 1vh);
   font-family: var(--font-family, "Roboto");
-  width: var(--searchwidth,  20vw);
+  width: var(--searchwidth, 20vw);
   margin-top: 0.5vh;
- 
- 
- 
+
+
+
 }

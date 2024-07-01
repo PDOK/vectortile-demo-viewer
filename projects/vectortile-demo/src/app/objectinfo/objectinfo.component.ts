@@ -114,56 +114,13 @@ export class ObjectinfoComponent {
 
 
 
-function getCollection(layer: string): string {
 
-  layer = layer.replace("deel", "delen")
-  layer = layer.replace("label", "labels")
-  layer = layer.replace("aanduiding", "aanduidingen")
-  layer = layer.replace("begroeid", "begroeide")
-  layer = layer.replace("ondersteunend", "ondersteunende")
-  layer = layer.replace("lijn", "lijnen")
-
-  switch (layer) {
-    case "pand": {
-      return "pand"
-      break
-    }
-    case "spoor": {
-      return "sporen"
-      break
-    }
-    case "scheiding": {
-      return "scheidingen"
-      break
-    }
-    case "overigbouwwerk": {
-      return "overigebouwwerken"
-      break
-    }
-    case "openbareruimte": {
-      return " Openbareruimtes"
-      break
-    }
-
-
-
-
-
-    default: {
-      return layer
-
-    }
-
-
-
-  }
-}
 
 function getOgcApiImtemUrl(OGCurl: string, layer: string, field: string, lokaal_id: string): string {
 
 
 
-  return OGCurl + "/collections/" + getCollection(layer) + "/items?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F28992&" + field + "=" + lokaal_id
+  return OGCurl + "/collections/" + layer + "/items?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F28992&" + field + "=" + lokaal_id
 }
 
 

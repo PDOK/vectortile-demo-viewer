@@ -8,14 +8,16 @@ import WKT from 'ol/format/WKT'
 import { Point } from 'ol/geom'
 import Projection from 'ol/proj/Projection'
 import { Coordinate } from 'ol/coordinate'
-
+import Vector from 'ol/source/Vector'
+import GeoJSON from 'ol/format/GeoJSON'
+import { IdlookupService, OGCApiLink } from './idlookup.service'
 //const REFgeo=`https://geodata.nationaalgeoregister.nl/locatieserver/revgeo`
 const REFgeo = `https://api.pdok.nl/bzk/locatieserver/search/v3_1/reverse`
+
 
 export enum ChangeType {
   search = "search",
   move = "move"
-
 }
 
 export interface Locserver {
@@ -37,20 +39,16 @@ export interface Doc {
   afstand: number
 }
 
-
-
 export type ViewLocation = {
   change: ChangeType
   view: View | undefined
   name: string
 }
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class LocationService {
-
   public rdProjection = new Projection({
     code: 'EPSG:28992',
     extent: [-285401.92, 22598.08, 595401.92, 903401.92]
@@ -69,13 +67,11 @@ export class LocationService {
     name: ""
   };
 
-
   private messageSource = new BehaviorSubject(this.initialViewLocation);
-  //private init: ViewLocation = { view: this.initialView, event: this.initialEvent };
 
   public currentLocation = this.messageSource.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private idlookupService: IdlookupService) {
     this.changeLocation(this.initialViewLocation)
   }
 
@@ -94,13 +90,31 @@ export class LocationService {
 
   zoomto(wkt: string, name: string) {
     const point = this.wktToCoordinates(wkt)
-
     const location = this.initialViewLocation
     location.view!.setCenter(point)
     location.name = name
     location.change = ChangeType.search
     this.messageSource.next((location))
+  }
 
+  zoomToFeatures(url: OGCApiLink, name: string) {
+    const params = new HttpParams().set('crs', 'http://www.opengis.net/def/crs/EPSG/0/28992')
+    this.idlookupService.getFeatures({ displayName: name, link: url }, params).subscribe((data) => {
+      const vectorsource = new Vector({
+        features: new GeoJSON().readFeatures(data, {
+          featureProjection: this.rdProjection
+        }),
+
+        attributions: name
+      })
+
+      const location = this.initialViewLocation
+      location.view!.fit(vectorsource.getExtent())
+      location.name = name
+      location.change = ChangeType.search
+      this.messageSource.next((location))
+    }
+    )
   }
 
 
@@ -113,6 +127,9 @@ export class LocationService {
     const point = feature.getGeometry() as Point
     return (point!.getCoordinates())
   }
+
+
+
 
   async getLocationName(xy: Coordinate): Promise<string> {
     const params = new HttpParams().append('X', xy[0]).append('Y', xy[1]).append('rows', 1)

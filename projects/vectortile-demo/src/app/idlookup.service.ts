@@ -1,11 +1,13 @@
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { Observable, map } from 'rxjs'
+import { Observable, map, mergeAll, switchMap, toArray } from 'rxjs'
 
 export interface CollectionResponse {
   links: OGCApiLink[]
   collections: Collection[]
 }
+
+
 
 export interface FeatureCollectionResponse {
   type: string
@@ -13,8 +15,17 @@ export interface FeatureCollectionResponse {
   coordRefSys: string
   links: OGCApiLink[]
   conformsTo: string[]
-  features: unknown[]
+  features: JSONFeature[]
   numberReturned: number
+}
+
+
+
+export interface JSONFeature {
+  type: string
+  geometry: Geometry
+  properties: unknown
+  id: string
 }
 
 
@@ -64,6 +75,12 @@ export interface OGCApiLink {
   type: FormatType
   title: string
   href: string
+
+}
+
+export interface DisplayItem {
+  displayName: string
+  link: OGCApiLink
 }
 
 export enum Rel {
@@ -80,7 +97,6 @@ export enum FormatType {
   TextHTML = "text/html",
 }
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -88,7 +104,6 @@ export class IdlookupService {
   private ogcApiUrl: URL | undefined = undefined
 
   constructor(private http: HttpClient) {
-
   }
 
 
@@ -104,43 +119,66 @@ export class IdlookupService {
 
 
 
-  getItemLinks(url: string): Observable<OGCApiLink[]> {
-    let ret: OGCApiLink[] = []
+  getItemLinks(url: string): Observable<DisplayItem[]> {
+    const ret: DisplayItem[] = []
 
     return this.http.get(`${url}/collections`).pipe(
       map((data: unknown) => {
         const r = data as CollectionResponse
         r.collections.forEach((c: Collection) => {
           const l = c.links.filter((l: OGCApiLink) => l.rel === 'items' && l.type === FormatType.ApplicationGeoJSON)
-          ret = [...ret, ...l]
+          l.forEach((x) => {
+            const d: DisplayItem = {
+              displayName: c.title,
+              link: x
+            }
+            ret.push(d)
+          })
         })
         return ret
       })
     )
   }
 
-  existsIdForFeature(href: string, lokaal_id: string): Observable<false | FeatureCollectionResponse> {
-    return this.http.get(href + '&lokaal_id=' + lokaal_id).pipe(map((data: unknown) => {
+  getFeaturesById(item: DisplayItem, lokaal_id: string): Observable<false | DisplayItem> {
+    const params = new HttpParams().set('lokaal_id', lokaal_id)
+    return this.checkFeatures(item, params)
+  }
+
+  existsId(href: string, lokaal_id: string) {
+    return this.getItemLinks(href).pipe(
+      switchMap(links => links.map(link => this.getFeaturesById(link, lokaal_id))),
+      mergeAll(),
+      toArray()
+    )
+  }
+
+  checkFeatures(displayitem: DisplayItem, params: HttpParams): Observable<false | DisplayItem> {
+    return this.http.get(displayitem.link.href, { params }).pipe(map((data) => {
+      const r = data as FeatureCollectionResponse
+      if (r.numberReturned > 0) {
+
+        const flink = r.links.filter((l: OGCApiLink) => l.rel === 'self' && l.type === FormatType.ApplicationGeoJSON)[0]
+        const foundlink: DisplayItem = {
+          "link": flink,
+          "displayName": displayitem.displayName + ' ' + params.toString().replace("=", ': ')
+        }
+        return foundlink
+      }
+      else return false
+    }))
+  }
+
+  getFeatures(displayitem: DisplayItem, params: HttpParams): Observable<false | FeatureCollectionResponse> {
+    return this.http.get(displayitem.link.href, { params }).pipe(map((data) => {
       const r = data as FeatureCollectionResponse
       if (r.numberReturned > 0) {
         return r
       }
       else return false
-    })
-    )
-  }
-
-
-  existsId(href: string, lokaal_id: string) {
-    const links = this.getItemLinks(href)
-    return links.subscribe((x) => {
-      x.forEach((link) => {
-        const match = this.existsIdForFeature(link.href, lokaal_id)
-        match.subscribe((x => {
-          return x
-        }))
-      })
-    })
+    }))
   }
 }
+
+
 

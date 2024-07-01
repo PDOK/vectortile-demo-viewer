@@ -2,12 +2,33 @@ import { TestBed } from '@angular/core/testing'
 
 import { provideHttpClient } from '@angular/common/http'
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing'
-import { Collection, CollectionResponse, FeatureCollectionResponse, IdlookupService, OGCApiLink } from './idlookup.service'
+import { Collection, CollectionResponse, DisplayItem, FeatureCollectionResponse, FormatType, IdlookupService, OGCApiLink, Rel } from './idlookup.service'
+
 
 
 describe('IdlookupService', () => {
   let service: IdlookupService
   let httpMock: HttpTestingController
+  const testlink: OGCApiLink = {
+    rel: Rel.Items,
+    type: FormatType.ApplicationGeoJSON,
+    title: '',
+    href: "https://demo/collections/xxx/items?f=a",
+
+  }
+
+  const testlink2: OGCApiLink = {
+    rel: Rel.Self,
+    type: FormatType.ApplicationGeoJSON,
+    title: '',
+    href: "https://demo/collections/xxx/items?f=a&lokaalid=x",
+
+  }
+
+
+
+
+
 
 
   beforeEach(() => {
@@ -46,7 +67,7 @@ describe('IdlookupService', () => {
   it('should return 0 collections on empty', () => {
     // Mock the HTTP request and response
     const mockResponse: CollectionResponse = { links: [], collections: [] } // Define the expected response
-    service.getItemLinks("https://api.example.com").subscribe((response: OGCApiLink[]) => {
+    service.getItemLinks("https://api.example.com").subscribe((response: DisplayItem[]) => {
       expect(response.length).toEqual(0)
     })
 
@@ -74,12 +95,13 @@ describe('IdlookupService', () => {
   it('should return OGCApiLink[] on testBGT', () => {
     // Mock the HTTP request and response
     const mockResponse = aTestResponse// Define the expected response
-    service.getItemLinks("https://api.example.com").subscribe((response: OGCApiLink[]) => {
+    service.getItemLinks("https://api.example.com").subscribe((response: DisplayItem[]) => {
       expect(response.length).toEqual(49)
-      expect(response[0].href).toEqual('https://api.pdok.nl/lv/bgt/ogc/v1/collections/bak/items?f=json')
-      expect(response[0].title).toEqual('The JSON representation of the bak features served from this endpoint')
-      expect(response[0].type).toEqual("application/geo+json")
-      expect(response[0].rel).toEqual("items")
+      const l = response[0].link
+      expect(l.href).toEqual('https://api.pdok.nl/lv/bgt/ogc/v1/collections/bak/items?f=json')
+      expect(l.title).toEqual('The JSON representation of the bak features served from this endpoint')
+      expect(l.type).toEqual("application/geo+json")
+      expect(l.rel).toEqual("items")
 
     })
 
@@ -98,8 +120,13 @@ describe('IdlookupService', () => {
       conformsTo: [],
       features: []
     }
+    const d: DisplayItem = {
+      displayName: "",
+      link: testlink
+    }
 
-    service.existsIdForFeature("https://demo/collections/xxx/items?f=a", '1').subscribe((response) => {
+
+    service.getFeaturesById(d, '1').subscribe((response) => {
       expect(response).toEqual(false)
     })
     const req = httpMock.expectOne(`https://demo/collections/xxx/items?f=a&lokaal_id=1`)
@@ -109,23 +136,41 @@ describe('IdlookupService', () => {
   })
 
   it('should return  if lokaalid exits', () => {
+    const links: OGCApiLink[] = []
+    links.push(testlink2)
     const mockResponse: FeatureCollectionResponse = {
       numberReturned: 1,
       type: '',
       timeStamp: new Date("2024-06-11T14:15:30Z"),
       coordRefSys: '',
-      links: [],
+      links: links,
       conformsTo: [],
       features: []
     }
 
-    service.existsIdForFeature("https://demo/collections/xxx/items?f=a", '1').subscribe((response) => {
-      expect(response).toEqual(mockResponse)
+
+
+
+    const d: DisplayItem = {
+      displayName: "collectionx",
+      link: testlink
+    }
+
+    const r: DisplayItem = {
+      displayName: "collectionx lokaal_id: 1",
+      link: testlink2
+    }
+
+
+
+    service.getFeaturesById(d, '1').subscribe((response) => {
+      expect(response).toEqual(r)
     })
     const req = httpMock.expectOne(`https://demo/collections/xxx/items?f=a&lokaal_id=1`)
 
     expect(req.request.method).toBe('GET')
     req.flush(mockResponse)
+
   })
 
   /* it('should return  if lokaalid from all endpoints exits', () => {

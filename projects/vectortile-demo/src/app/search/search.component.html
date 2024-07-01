@@ -1,15 +1,31 @@
 <div class="searchPanel">
-    <div>
-        <input class="searchBox" autoComplete="off" [value]="searchLocation" #searchbox
-            (keyup)="onSearchKey(searchbox.value)" type="text" placeholder="Voer Locatie in" title="Voer Locatie in"
-            list="locatie-auto-complete">
+  <div>
+    <input
+      class="searchBox"
+      autoComplete="off"
+      [value]="searchLocation"
+      #searchbox
+      (keyup)="onSearchKey(searchbox.value)"
+      type="text"
+      placeholder="Voer Locatie in"
+      title="Voer Locatie in"
+      list="locatie-auto-complete"
+    />
 
-        <div *ngIf="searchListVisible">
-            <div *ngFor="let r of getNames($suggest | async) " (click)="onSelectSearch(r)">
-                <button class="selectbutton">
-                    <span>{{r.weergavenaam}}</span>
-                </button>
-            </div>
-        </div>
+    <div *ngIf="searchListVisible">
+      <div
+        *ngFor="let r of getNames($suggest | async)"
+        (click)="onSelectSearch(r)"
+      >
+        <button class="selectbutton">
+          <span>{{ r.weergavenaam }}</span>
+        </button>
+      </div>
+      <div *ngFor="let i of getids($ids | async)" (click)="onSelectSearchID(i)">
+        <button class="selectbutton">
+          <span>{{ i.displayName }}</span>
+        </button>
+      </div>
     </div>
+  </div>
 </div>

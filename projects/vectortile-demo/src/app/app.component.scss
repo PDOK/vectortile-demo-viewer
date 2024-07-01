@@ -40,7 +40,7 @@
 
   min-height: var(--buttonheight, 1vh);
   height: var(--buttonheight, 1vh);
-  width: var(--searchwidth, 20vw);
+  width: var(--buttonwidth, 20vw);
   margin-top: 0.5vh;
   flex: 1;
 
@@ -50,7 +50,7 @@
 .lbutton {
   min-height: calc(var(--buttonheight, 1vh) *0.5);
   height: calc(var(--buttonheight, 1vh) *0.5);
-  width: var(--searchwidth, 20vw);
+  width: var(--buttonwidth, 20vw);
   margin-top: 0.5vh;
   flex: 1;
   text-align: left;

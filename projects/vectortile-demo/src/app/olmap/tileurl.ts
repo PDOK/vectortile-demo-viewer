@@ -1,25 +1,37 @@
-export type VectorTileUrl = { url: string; extension: string, OGCApi: string | undefined }
+export type OGCApiRootUrl = {
+  url: string, lokaalIdRegex: RegExp
+} | undefined
+export type VectorTileUrl = {
+  vectorTileUrl: string; extension: string, ogcApiRootUrl: OGCApiRootUrl
+
+}
 export const tileurlBGT: VectorTileUrl = {
-  url: 'https://api.pdok.nl/lv/bgt/ogc/v1_0/tiles/NetherlandsRDNewQuad',
+  vectorTileUrl: 'https://api.pdok.nl/lv/bgt/ogc/v1_0/tiles/NetherlandsRDNewQuad',
   extension: '.pbf',
-  OGCApi: "https://api.pdok.nl/lv/bgt/ogc/v1",
+  ogcApiRootUrl: {
+    url: "https://api.pdok.nl/lv/bgt/ogc/v1",
+    lokaalIdRegex: /[GPWL]{1}\d{4}\.[a-f0-9]{32}/g
+  }
 }
 export const tileurlBAG: VectorTileUrl = {
-  url: 'https://api.pdok.nl/lv/bag/ogc/v1_0/tiles/NetherlandsRDNewQuad',
+  vectorTileUrl: 'https://api.pdok.nl/lv/bag/ogc/v1_0/tiles/NetherlandsRDNewQuad',
   extension: '.pbf',
-  OGCApi: undefined
+  ogcApiRootUrl: undefined
 }
 
 export const tileurlBestuur: VectorTileUrl = {
-  url: 'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0/tiles/NetherlandsRDNewQuad',
+  vectorTileUrl: 'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0/tiles/NetherlandsRDNewQuad',
   extension: '.pbf',
-  OGCApi: undefined
+  ogcApiRootUrl: undefined
 }
 
 export const tileurlTop10: VectorTileUrl = {
-  url: 'https://api.pdok.nl/brt/top10nl/ogc/v1-preprod/tiles/NetherlandsRDNewQuad',
+  vectorTileUrl: 'https://api.pdok.nl/brt/top10nl/ogc/v1-preprod/tiles/NetherlandsRDNewQuad',
   extension: '.pbf',
-  OGCApi: "https://api.pdok.nl/brt/top10nl/ogc/v1-preprod"
+  ogcApiRootUrl: {
+    url: "https://api.pdok.nl/brt/top10nl/ogc/v1-preprod",
+    lokaalIdRegex: /^\d{1,16}$/
+  }
 }
 
 

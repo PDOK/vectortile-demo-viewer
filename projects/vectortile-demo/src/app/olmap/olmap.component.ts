@@ -38,13 +38,13 @@ import { Circle, Stroke } from 'ol/style'
 import {
   getSpriteDataUrl,
   getSpriteImageUrl,
+  OGCApiRootUrl,
   tileurlBAG,
   tileurlBestuur,
   tileurlBGT,
   tileurlTop10,
   VectorTileUrl,
 } from './tileurl'
-import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-olmap',
@@ -60,7 +60,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   colorMap = new ColorMap(LegendLevel.d1_layer);
   showUrl = '';
   zoom: number = 13;
-  ogcUrl: string | undefined
+  private ogcUrl: OGCApiRootUrl
 
   @Input() set visualisation(vis: Visualisatie) {
     this.SelectedVisualisation = vis
@@ -287,7 +287,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         tileurlBAG,
         12
       )
-      this.showUrl = tileurlBAG.url
+      this.showUrl = tileurlBAG.vectorTileUrl
     }
     if (JsonUrl.source == 'bgt') {
       this.setTileSource(
@@ -296,7 +296,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         tileurlBGT,
         12
       )
-      this.showUrl = tileurlBGT.url
+      this.showUrl = tileurlBGT.vectorTileUrl
     }
     if (JsonUrl.source == 'bestuurlijkegebieden') {
       this.setTileSource(
@@ -305,7 +305,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         tileurlBestuur,
         2
       )
-      this.showUrl = tileurlBestuur.url
+      this.showUrl = tileurlBestuur.vectorTileUrl
     }
 
     if (JsonUrl.source == 'top10nl') {
@@ -315,7 +315,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         tileurlTop10,
         11
       )
-      this.showUrl = tileurlTop10.url
+      this.showUrl = tileurlTop10.vectorTileUrl
     }
 
     if (JsonUrl.url) {
@@ -570,7 +570,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   getVectorTileUrl(tileurl: VectorTileUrl) {
-    return `${tileurl.url}/{z}/{y}/{x}${tileurl.extension}`
+    return `${tileurl.vectorTileUrl}/{z}/{y}/{x}${tileurl.extension}`
   }
 
   getShowTileUrl() {
@@ -595,7 +595,10 @@ export class OlmapComponent implements OnInit, OnChanges {
     zoom: number
   ) {
     const vtSource = this.getVectorTileSource(projection, tileEndpoint, zoom)
-    this.ogcUrl = tileEndpoint.OGCApi
+    this.ogcUrl = tileEndpoint.ogcApiRootUrl
+    if (this.ogcUrl) {
+      this.locationService.OgcAPI = this.ogcUrl
+    }
 
     // set invisible to prevent unstyled flashing of vectorTileLayer
     vectorTileLayer.setVisible(false)
@@ -642,7 +645,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   }
   getOgcUrl(): string | undefined {
-    return this.ogcUrl
+    return this.ogcUrl?.url
 
   }
 }

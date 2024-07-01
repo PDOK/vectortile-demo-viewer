@@ -38,9 +38,6 @@ export interface Spellcheck {
 })
 export class SearchComponent implements OnInit {
 
-
-
-
   $suggest!: Observable<Suggest>
   searchListVisible: boolean = false;
   searchLocation: string = ""
@@ -53,23 +50,24 @@ export class SearchComponent implements OnInit {
     // nothing 
   }
 
-
-
-
   onSearchKey(search: string) {
-    if (this.findTokens(search).length === 0) {
-      this.$suggest = this.pdokLocationService.suggestGet(search, 'weergavenaam centroide_rd', undefined, undefined, undefined, 7)
-      this.searchListVisible = true
-
-    } else {
-      const lokaalid = this.findTokens(search)[0]
-      this.$ids = this.idlookupService.existsId("https://api.pdok.nl/lv/bgt/ogc/v1", lokaalid)
-      this.searchListVisible = true
+    const ogc = this.locationService.OgcAPI
+    if (ogc) {
+      const t = this.findTokens(search, ogc.regex)
+      if (t.length > 0) {
+        const lokaalid = t[0]
+        this.$ids = this.idlookupService.existsId(ogc.url, lokaalid)
+      }
     }
+    if (search.length > 2) {
+      this.$suggest = this.pdokLocationService.suggestGet(search, 'weergavenaam centroide_rd', undefined, undefined, undefined, 7)
+    }
+    this.searchListVisible = true
   }
 
-  findTokens(input: string): string[] {
-    const regex = /[GPWL]{1}\d{4}\.[a-f0-9]{32}/g
+
+  findTokens(input: string, regex: RegExp): string[] {
+
     const matches = input.match(regex)
     return matches || []
   }

@@ -36,6 +36,7 @@ import { LocationService, ViewLocation } from '../location.service'
 
 import { Circle, Stroke } from 'ol/style'
 import {
+  FeatureUrl,
   getSpriteDataUrl,
   getSpriteImageUrl,
   tileurlBAG,
@@ -60,7 +61,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   colorMap = new ColorMap(LegendLevel.d1_layer);
   showUrl = '';
   zoom: number = 13;
-  ogcUrl: string | undefined
+  private ogcUrl: FeatureUrl
 
   @Input() set visualisation(vis: Visualisatie) {
     this.SelectedVisualisation = vis
@@ -596,6 +597,9 @@ export class OlmapComponent implements OnInit, OnChanges {
   ) {
     const vtSource = this.getVectorTileSource(projection, tileEndpoint, zoom)
     this.ogcUrl = tileEndpoint.OGCApi
+    if (this.ogcUrl) {
+      this.locationService.OgcAPI = this.ogcUrl
+    }
 
     // set invisible to prevent unstyled flashing of vectorTileLayer
     vectorTileLayer.setVisible(false)
@@ -642,7 +646,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   }
   getOgcUrl(): string | undefined {
-    return this.ogcUrl
+    return this.ogcUrl?.url
 
   }
 }

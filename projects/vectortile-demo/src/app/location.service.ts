@@ -1,16 +1,17 @@
 
-import { View } from 'ol'
-import { Injectable } from '@angular/core'
-import { HttpParams } from "@angular/common/http"
-import { HttpClient } from "@angular/common/http"
-import { BehaviorSubject } from 'rxjs'
+import { HttpClient, HttpParams } from "@angular/common/http"
+import { Component, Injectable, Input, OnInit } from '@angular/core'
+import { Feature, View } from 'ol'
+import { Coordinate } from 'ol/coordinate'
+import GeoJSON from 'ol/format/GeoJSON'
 import WKT from 'ol/format/WKT'
 import { Point } from 'ol/geom'
 import Projection from 'ol/proj/Projection'
-import { Coordinate } from 'ol/coordinate'
 import Vector from 'ol/source/Vector'
-import GeoJSON from 'ol/format/GeoJSON'
-import { IdlookupService, OGCApiLink } from './idlookup.service'
+import { BehaviorSubject, Observable } from 'rxjs'
+import { DisplayItem, IdlookupService, OGCApiLink } from './idlookup.service'
+import { DocsEntity, Suggest } from './search/search.component'
+import { FeatureUrl } from "./olmap/tileurl"
 //const REFgeo=`https://geodata.nationaalgeoregister.nl/locatieserver/revgeo`
 const REFgeo = `https://api.pdok.nl/bzk/locatieserver/search/v3_1/reverse`
 
@@ -70,6 +71,13 @@ export class LocationService {
   private messageSource = new BehaviorSubject(this.initialViewLocation);
 
   public currentLocation = this.messageSource.asObservable();
+  private _OgcAPI: FeatureUrl = undefined
+  public get OgcAPI(): FeatureUrl {
+    return this._OgcAPI
+  }
+  public set OgcAPI(value: FeatureUrl) {
+    this._OgcAPI = value
+  }
 
   constructor(private http: HttpClient, private idlookupService: IdlookupService) {
     this.changeLocation(this.initialViewLocation)
@@ -142,7 +150,4 @@ export class LocationService {
     }
   }
 }
-
-
-
 

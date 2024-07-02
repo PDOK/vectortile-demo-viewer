@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "ngtest": "ng test",
     "ngtestci": "ng test  --browsers=ChromeHeadless --watch=false",
-    "deploy": "ng deploy --base-href=https: //pdok.github.io/vectortile-demo-viewer/ --repo=https://github.com/pdok/vectortile-demo-viewer.git --name=JLSchaap --email=John.Schaap@Kadaster.nl",
+    "deploy": "ng deploy --base-href=https://pdok.github.io/vectortile-demo-viewer/ --repo=https://github.com/pdok/vectortile-demo-viewer.git --name=JLSchaap --email=John.Schaap@Kadaster.nl",
     "e2e": "ng e2e",
     "open": "cypress open",
     "testng": "cypress run",

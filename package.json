@@ -1,6 +1,7 @@
 {
   "name": "vectortile-demo-viewer",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host=127.0.0.1",

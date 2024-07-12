@@ -18,15 +18,21 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "allowedCommonJsDependencies": ["color-name", "pbf", "rbush"],
-            "outputPath": "dist/vectortile-demo",
+            "allowedCommonJsDependencies": [
+              "color-name",
+              "pbf",
+              "rbush"
+            ],
+            "outputPath": {
+              "base": "dist/vectortile-demo"
+            },
             "index": "projects/vectortile-demo/src/index.html",
-            "main": "projects/vectortile-demo/src/main.ts",
-            "polyfills": "projects/vectortile-demo/src/polyfills.ts",
+            "polyfills": [
+              "projects/vectortile-demo/src/polyfills.ts"
+            ],
             "tsConfig": "projects/vectortile-demo/tsconfig.app.json",
-
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/vectortile-demo/src/favicon.ico",
@@ -50,9 +56,9 @@
             ],
             "scripts": [
               "projects/vectortile-demo/src/assets/view-component/main.js",
-              "projects/vectortile-demo/src/assets/view-component/runtime.js",
-              "projects/vectortile-demo/src/assets/view-component/polyfills.js"
-            ]
+              "projects/vectortile-demo/src/assets/view-component/runtime.js"
+            ],
+            "browser": "projects/vectortile-demo/src/main.ts"
           },
           "configurations": {
             "production": {
@@ -77,9 +83,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
@@ -111,7 +115,7 @@
             "main": "projects/vectortile-demo/src/test.ts",
             "polyfills": "projects/vectortile-demo/src/polyfills.ts",
             "tsConfig": "projects/vectortile-demo/tsconfig.spec.json",
-            "karmaConfig": "projects/vectortile-demo/karma.conf.js",
+            "karmaConfig": "projects/vectortile-demo/karma.conf.cjs",
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/vectortile-demo/src/favicon.ico",
@@ -173,6 +177,8 @@
     }
   },
   "cli": {
-    "schematicCollections": ["@angular-eslint/schematics"]
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

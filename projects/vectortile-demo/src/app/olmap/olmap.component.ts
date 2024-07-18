@@ -16,7 +16,7 @@ import { stylefunction } from 'ol-mapbox-style'
 import { getTopLeft, getWidth } from 'ol/extent.js'
 import MVT from 'ol/format/MVT.js'
 import { Geometry } from 'ol/geom'
-import VectorTileLayer from 'ol/layer/VectorTile.js'
+import VectorTileLayer from 'ol/layer/VectorTile'
 
 import { FeatureLike } from 'ol/Feature'
 import { DEVICE_PIXEL_RATIO } from 'ol/has'
@@ -73,7 +73,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     useInterimTilesOnError: false,
   });
 
-  CurrentVectorTileLayer: VectorTileLayer = this.vectorTileLayerRD;
+  CurrentVectorTileLayer: VectorTileLayer<FeatureLike> = this.vectorTileLayerRD;
 
   readonly rdProjection: Projection = new Projection({
     code: 'EPSG:28992',
@@ -214,7 +214,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     }
   }
 
-  getFillColor(feature: Feature<Geometry>, layer: VectorTileLayer, view: View) {
+  getFillColor(feature: Feature<Geometry>, layer: VectorTileLayer<FeatureLike>, view: View) {
     const mpstyle = layer.getStyleFunction()
     const reso = view.getResolution()
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -590,7 +590,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   setTileSource(
     projection: Projection,
-    vectorTileLayer: VectorTileLayer,
+    vectorTileLayer: VectorTileLayer<FeatureLike>,
     tileEndpoint: VectorTileUrl,
     zoom: number
   ) {

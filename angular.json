@@ -5,14 +5,7 @@
   "projects": {
     "vectortile-demo": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
+      "schematics": {},
       "root": "projects/vectortile-demo",
       "sourceRoot": "projects/vectortile-demo/src",
       "prefix": "app",
@@ -26,11 +19,11 @@
               "rbush"
             ],
             "outputPath": {
-              "base": "dist/vectortile-demo"
+              "base": "dist/vectortile-demo/"
             },
             "index": "projects/vectortile-demo/src/index.html",
             "polyfills": [
-              "projects/vectortile-demo/src/polyfills.ts"
+              "zone.js"
             ],
             "tsConfig": "projects/vectortile-demo/tsconfig.app.json",
             "inlineStyleLanguage": "scss",

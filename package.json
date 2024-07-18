@@ -37,7 +37,7 @@
     "@mapbox/mapbox-gl-style-spec": "^14.5.1",
     "@types/geojson": "^7946.0.14",
     "ngx-color-picker": "^16.0.0",
-    "ol": "8.2.0",
+    "ol": "9.2.4",
     "ol-mapbox-style": "^12.3.4",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.3"

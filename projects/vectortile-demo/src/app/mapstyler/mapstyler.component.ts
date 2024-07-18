@@ -10,6 +10,7 @@ import {
 
 import { NgElement, WithProperties } from '@angular/elements'
 import VectorTileLayer from 'ol/layer/VectorTile'
+import { FeatureLike } from 'ol/Feature'
 import { DrawColor } from '../color'
 import { IColorMap, LegendLevel } from '../colorMap'
 
@@ -26,7 +27,7 @@ declare global {
 })
 export class MapstylerComponent implements AfterViewInit {
 
-  @Input() Layer!: VectorTileLayer
+  @Input() Layer!: VectorTileLayer<FeatureLike>
   @Input() ColorMap!: IColorMap
   @Input() StyleUrl: string = '';
   @ViewChild('lview')

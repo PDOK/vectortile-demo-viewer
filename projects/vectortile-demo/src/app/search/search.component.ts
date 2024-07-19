@@ -54,7 +54,7 @@ export class SearchComponent implements OnInit {
     const ogc = this.locationService.OgcAPI
     if (ogc) {
       const t = this.findTokens(search, ogc.lokaalIdRegex)
-      if (t.length > 0) {
+      if (t.length > 6) {
         const lokaalid = t[0]
         this.$ids = this.idlookupService.existsId(ogc.url, lokaalid)
       }

@@ -426,7 +426,7 @@
       "paint": {"fill-color": "#E60000"}
     },
     {
-      "id": "lokale weg wegdeel_vlak",
+      "id": "lokaleweg wegdeel_vlak",
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
@@ -479,7 +479,7 @@
       "paint": {"fill-color": "#FFFFFF"}
     },
     {
-      "id": "regionale weg wegdeel_vlak",
+      "id": "regionaleweg wegdeel_vlak",
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
@@ -1546,7 +1546,7 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "wegdeel_hartlijn",
-      "filter": ["in", "typeweg", "overig"],
+      "filter": ["==", "typeweg", "overig"],
       "layout": {
         "text-field": "{naam}",
         "text-size": 9,
@@ -1575,7 +1575,7 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "wegdeel_hartlijn",
-      "filter": ["in", "typeweg", "straat"],
+      "filter": ["==", "typeweg", "straat"],
       "layout": {
         "text-field": "{naam}",
         "text-size": 11.2,
@@ -1600,11 +1600,11 @@
       "paint": {"text-color": "#000000"}
     },
     {
-      "id": "lokale wegen (wegdeel hartlijn)",
+      "id": "lokalewegen (wegdeel hartlijn)",
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "wegdeel_hartlijn",
-      "filter": ["in", "typeweg", "lokale", "weg"],
+      "filter": ["==", "typeweg", "lokale weg"],
       "layout": {
         "text-field": "{naam}",
         "text-size": 9,
@@ -1629,11 +1629,11 @@
       "paint": {"text-color": "#000000"}
     },
     {
-      "id": "regionale wegen (wegdeel hartlijn)",
+      "id": "regionalewegen (wegdeel hartlijn)",
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "wegdeel_hartlijn",
-      "filter": ["in", "typeweg", "regionale", "weg"],
+      "filter": ["==", "typeweg", "regionale weg"],
       "layout": {
         "text-field": "{naam}",
         "text-size": 9,

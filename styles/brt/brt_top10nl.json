@@ -1715,7 +1715,343 @@
       "paint": {"text-color": "#000000"}
     },
     {
-      "id": "naamnl (geografisch gebied vlak)",
+      "id": "bank, ondiepte, plaat (geografisch gebied vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 18000],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 12.1,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#0070FF"}
+    },
+    {
+      "id": "bosgebied (geografisch gebied vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 18010],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 12,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#267300"}
+    },
+    {
+      "id": "duingebied (geografisch gebied vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 18030],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 12,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#A8A800"}
+    },
+    {
+      "id": "eiland (geografisch gebied vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 18040],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 16,
+        "text-font": [
+          "LiberationSans-Italic",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#000000"}
+    },
+    {
+      "id": "geul, vaargeul (geografisch gebied vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 18050],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 13,
+        "text-font": [
+          "LiberationSans-Italic",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#005CE6"}
+    },
+    {
+      "id": "heidegebied (geografisch gebied vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 18060],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 13,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#73004C"}
+    },
+    {
+      "id": "heuvel, berg (geografisch gebied vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 18070],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 12,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#38A800"}
+    },
+    {
+      "id": "kaap, hoek (geografisch gebied vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 18090],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 12,
+        "text-font": [
+          "LiberationSans-Italic",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#000000"}
+    },
+    {
+      "id": "watergebied (geografisch gebied vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 18100],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 12,
+        "text-font": [
+          "LiberationSans-Regular",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#005CE6"}
+    },
+    {
+      "id": "polder (geografisch gebied vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 18120],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 12,
+        "text-font": [
+          "LiberationSans-Italic",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#267300"}
+    },
+    {
+      "id": "streek, veld (geografisch gebied vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 18130],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 12,
+        "text-font": [
+          "LiberationSans-Italic",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#686868"}
+    },
+    {
+      "id": "zee (geografisch gebied vlak)",
+      "type": "symbol",
+      "source": "top10nl",
+      "source-layer": "geografisch_gebied_vlak",
+      "filter": ["==", "visualisatiecode", 18180],
+      "layout": {
+        "text-field": "{naamnl}",
+        "text-size": 31.2,
+        "text-font": [
+          "LiberationSans-Bold",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {"text-color": "#005CE6"}
+    },
+    {
+      "id": "zeegat, zeearm (geografisch gebied vlak)",
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",

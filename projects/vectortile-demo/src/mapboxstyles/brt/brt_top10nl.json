@@ -1072,7 +1072,13 @@
       "source-layer": "gebouw_punt",
       "filter": ["==", "typegebouw", "windturbine"],
       "layout": {"icon-image": "windmolen"}
-    },
+    },{
+      "id": "terrein contour",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",  
+      "paint": {"line-color": "#565454"}
+       },
     {
       "id": "wal relief_lijn",
       "type": "line",

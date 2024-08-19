@@ -1089,6 +1089,39 @@
       }
     },
     {
+      "id": "talud lage zijde lijn",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "relief_talud_lage_zijde_lijn",
+       "layout": {"line-join": "miter"},
+      "paint": {
+        "line-dasharray": [
+          0.3,
+          1
+        ],
+        "line-color": "#626161",
+        "line-width": 5, 
+        "line-opacity": 0.5
+        
+      }
+    },
+    {
+      "id": "talud hoge zijde lijn",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "relief_talud_hoge_zijde_lijn",
+       "layout": {"line-join": "miter"},
+      "paint": {
+        "line-dasharray": [
+          0.3,
+          1
+        ],
+        "line-color": "#0A0A0A",
+        "line-width": 5, 
+        "line-opacity": 0.5        
+      }
+    },
+    {
       "id": "<all other values>",
       "type": "line",
       "source": "top10nl",

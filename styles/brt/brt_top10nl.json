@@ -980,6 +980,7 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
+      "filter": ["==", "typegebouw", "gemaal"],
       "layout": {"icon-image": "gemaal"}
     },
     {
@@ -987,6 +988,7 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
+      "filter": ["==", "typegebouw", "kapel"],
       "paint": {
         "circle-color": "#FCC5CA",
         "circle-radius": 1.3,
@@ -998,6 +1000,7 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
+      "filter": ["==", "typegebouw", "radarpost"],
       "paint": {
         "circle-color": "#FCD3CC",
         "circle-radius": 1.3,
@@ -1009,6 +1012,7 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
+      "filter": ["==", "typegebouw", "schoorsteen"],
       "paint": {
         "circle-color": "#A80000",
         "circle-radius": 1.3,
@@ -1020,6 +1024,7 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
+      "filter": ["==", "typegebouw", "toren"],
       "paint": {
         "circle-color": "#FFFFFF",
         "circle-radius": 4,
@@ -1031,6 +1036,7 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
+      "filter": ["==", "typegebouw", "uitzichttoren"],
       "paint": {"circle-color": "#000000", "circle-radius": 0.7}
     },
     {
@@ -1038,6 +1044,7 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
+      "filter": ["==", "typegebouw", "windmolen"],
       "layout": {"icon-image": "windmolen"}
     },
     {
@@ -1045,6 +1052,7 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
+      "filter": ["==", "typegebouw", "windmolen:, korenmolen"],
       "layout": {"icon-image": "windmolen"}
     },
     {
@@ -1052,6 +1060,7 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
+      "filter": ["==", "typegebouw", "windmolen:, watermolen"],
       "layout": {"icon-image": "windmolen"}
     },
     {
@@ -1059,6 +1068,7 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
+      "filter": ["==", "typegebouw", "windturbine"],
       "layout": {"icon-image": "windmolen"}
     },
     {
@@ -1192,7 +1202,7 @@
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
       "filter": ["==", "visualisatiecode", 15160],
-      "layout": {"icon-image": "triangle_circle"}
+      "layout": {"icon-image": "gps_triangle_circle"}
     },
     {
       "id": "grenspunt inrichtingselement_punt",
@@ -1340,7 +1350,7 @@
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
       "filter": ["==", "visualisatiecode", 15560],
-      "layout": {"icon-image": "triangle_circle"}
+      "layout": {"icon-image": "rd_triangle_circle"}
     },
     {
       "id": "scheepvaartlicht inrichtingselement_punt",

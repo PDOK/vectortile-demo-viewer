@@ -1099,7 +1099,7 @@
           0.3,
           1
         ],
-        "line-color": "#626161",
+        "line-color": "#949494",
         "line-width": 5, 
         "line-opacity": 0.5
         
@@ -1116,7 +1116,7 @@
           0.3,
           1
         ],
-        "line-color": "#0A0A0A",
+        "line-color": "#313030",
         "line-width": 5, 
         "line-opacity": 0.5        
       }

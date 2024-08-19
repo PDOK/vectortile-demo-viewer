@@ -287,6 +287,7 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "waterdeel_vlak",
+      "filter": [">=", "hoogteniveau", "0"],
       "paint": {"fill-outline-color": "#73B2FF"}
     },
     {
@@ -375,6 +376,7 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
+      "filter": [">=", "hoogteniveau", "0"],
       "paint": {"fill-outline-color": "#343434"}
     },
     {
@@ -382,6 +384,7 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
+      "filter": [">=", "hoogteniveau", "0"],
       "paint": {"fill-color": "#FFFFFF", "fill-opacity": 0}
     },
     {

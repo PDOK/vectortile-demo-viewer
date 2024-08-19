@@ -1079,10 +1079,13 @@
       "filter": ["==", "visualisatiecode", 16400],
       "layout": {"line-join": "miter"},
       "paint": {
-        "line-dasharray": [0, 1, 1],
-        "line-color": "#000000",
-        "line-width": 3,
-        "line-pattern": "streep"
+        "line-dasharray": [
+          0.1,
+          1
+        ],
+        "line-color": "#514C4C",
+        "line-width": 10,
+        "line-opacity": 0.5
       }
     },
     {

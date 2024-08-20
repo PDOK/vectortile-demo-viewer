@@ -1163,7 +1163,7 @@
       "source": "top10nl",
       "source-layer": "functioneel_gebied_vlak",
       "filter": ["==", "visualisatiecode", 19050],
-      "paint": {"fill-pattern": "camping_White"}
+      "paint": {"fill-pattern": "camping_Blue_Ribbon"}
     },
     {
       "id": "Sport Sport",

@@ -1086,6 +1086,30 @@
         "filter": ["==", "visualisatiecode", 15090],
         "layout": {"icon-image": "koedam"}
       },
+
+      {
+        "id": "waterdeel in duiker waterdeel_lijn ol ",
+        "type": "line",
+        "source": "top10nl",
+        "source-layer": "waterdeel_lijn",
+        "filter": [
+          "in",
+          "visualisatiecode",
+          -12103,
+          -12104,
+          -12202,
+          -12103,
+          -12201,
+          -12102,
+          -12101,
+          -12204
+        ],
+        "layout": {"line-join": "miter"},
+        "line-dasharray": [0.1, 1],
+        "line-color": "#3E4379",
+        "line-width": 3
+      },
+
     {
       "id": "wal relief_lijn",
       "type": "line",

@@ -208,7 +208,7 @@
       "source": "top10nl",
       "source-layer": "terrein_vlak",
       "filter": ["in", "visualisatiecode", 14062, 14063, 14060],
-      "paint": {"fill-pattern": "loofbos_Deep_Cerulean"}
+      "paint": {"fill-pattern": "gemengdbos_Deep_Cerulean"}
     },
     {
       "id": "Grasland terrein_vlak",
@@ -932,10 +932,7 @@
       "source": "top10nl",
       "source-layer": "gebouw_vlak",
       "filter": ["==", "visualisatiecode", 13200],
-      "paint": {
-        "fill-color": "#FFFFFF",
-        "fill-outline-color": "#FF0000"
-      }
+      "paint": {"fill-color": "#FFFFFF", "fill-outline-color": "#FF0000"}
     },
     {
       "id": "hoogbouw gebouw_vlak",

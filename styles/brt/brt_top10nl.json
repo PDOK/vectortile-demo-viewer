@@ -39,7 +39,7 @@
       }
     },
     {
-      "id": "geografisch_gebied_vlak geografisch_gebied_vlak",
+      "id": "geografisch_gebied_vlak",
       "type": "fill",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
@@ -50,7 +50,7 @@
       }
     },
     {
-      "id": "geografisch gebied geografisch_gebied_multivlak",
+      "id": "geografisch gebied",
       "type": "fill",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_multivlak",
@@ -1057,7 +1057,35 @@
       "source-layer": "gebouw_punt",
       "filter": ["==", "typegebouw", "windturbine"],
       "layout": {"icon-image": "windmolen"}
-    },
+    },{
+      "id": "terrein contour",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",  
+      "paint": {"line-color": "#565454", "line-width":0.3}
+       },
+       {
+        "id": "koedam inrichtingselement_lijn ol",
+        "type": "line",
+        "source": "top10nl",
+        "source-layer": "inrichtingselement_lijn",
+        "filter": ["==", "visualisatiecode", 15090],
+        "layout": {"line-join": "miter"},
+        "paint": {
+          "line-dasharray": [0.1, 1],
+          "line-color": "#77793E",
+          "line-width": 3
+         
+        }
+      },
+      {
+        "id": "koedam inrichtingselement_lijn ol 1",
+        "type": "symbol",
+        "source": "top10nl",
+        "source-layer": "inrichtingselement_lijn",
+        "filter": ["==", "visualisatiecode", 15090],
+        "layout": {"icon-image": "koedam"}
+      },
     {
       "id": "wal relief_lijn",
       "type": "line",
@@ -1066,14 +1094,50 @@
       "filter": ["==", "visualisatiecode", 16400],
       "layout": {"line-join": "miter"},
       "paint": {
-        "line-dasharray": [0, 1, 1],
-        "line-color": "#000000",
-        "line-width": 3,
-        "line-pattern": "streep"
+        "line-dasharray": [
+          0.1,
+          1
+        ],
+        "line-color": "#514C4C",
+        "line-width": 10,
+        "line-opacity": 0.5
       }
     },
     {
-      "id": "<all other values>",
+      "id": "talud lage zijde lijn",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "relief_talud_lage_zijde_lijn",
+       "layout": {"line-join": "miter"},
+      "paint": {
+        "line-dasharray": [
+          0.3,
+          1
+        ],
+        "line-color": "#949494",
+        "line-width": 5, 
+        "line-opacity": 0.5
+        
+      }
+    },
+    {
+      "id": "talud hoge zijde lijn",
+      "type": "line",
+      "source": "top10nl",
+      "source-layer": "relief_talud_hoge_zijde_lijn",
+       "layout": {"line-join": "miter"},
+      "paint": {
+        "line-dasharray": [
+          0.3,
+          1
+        ],
+        "line-color": "#313030",
+        "line-width": 5, 
+        "line-opacity": 0.5        
+      }
+    },
+    {
+      "id": "wegdeel hartlijn (in uitvoering)",
       "type": "line",
       "source": "top10nl",
       "source-layer": "wegdeel_hartlijn",

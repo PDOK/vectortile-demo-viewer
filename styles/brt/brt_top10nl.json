@@ -816,30 +816,6 @@
       "paint": {"line-color": "#000000"}
     },
     {
-      "id": "provincie grens",
-      "type": "line",
-      "source": "top10nl",
-      "source-layer": "registratief_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 17010],
-      "paint": {"line-color": "#A80000", "line-width":3}
-    },   
-    {
-      "id": "gemeente grens",
-      "type": "line",
-      "source": "top10nl",
-      "source-layer": "registratief_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 17020],
-      "paint": {"line-color": "#D99800", "line-width":3}
-    },   
-    {
-      "id": "land grens",
-      "type": "line",
-      "source": "top10nl",
-      "source-layer": "registratief_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 17000],
-      "paint": {"line-color": "#FFFF00", "line-width":3}
-    },
-    {
       "id": "koedam inrichtingselement_lijn",
       "type": "line",
       "source": "top10nl",
@@ -1099,7 +1075,7 @@
       "source": "top10nl",
       "source-layer": "functioneel_gebied_vlak",
       "filter": ["==", "visualisatiecode", 19050],
-      "paint": {"fill-pattern": "camping_White"}
+      "paint": {"fill-pattern": "camping_Blue_Ribbon"}
     },
     {
       "id": "Sport Sport",
@@ -1115,7 +1091,7 @@
       "source": "top10nl",
       "source-layer": "functioneel_gebied_multivlak",
       "filter": ["==", "visualisatiecode", 19050],
-      "paint": {"fill-pattern": "camping_White"}
+      "paint": {"fill-pattern": "camping_Blue_Ribbon"}
     },
     {
       "id": "dieptelijn hoogte_lijn",

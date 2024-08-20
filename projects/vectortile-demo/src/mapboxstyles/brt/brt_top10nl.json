@@ -547,31 +547,7 @@
       "filter": ["==", "visualisatiecode", 12100],
       "paint": {"line-dasharray": [1, 2], "line-color": "#73DFFF"}
     },
-    {
-      "id": "waterdeel in duiker waterdeel_lijn",
-      "type": "line",
-      "source": "top10nl",
-      "source-layer": "waterdeel_lijn",
-      "filter": [
-        "in",
-        "visualisatiecode",
-        -12103,
-        -12104,
-        -12202,
-        -12103,
-        -12201,
-        -12102,
-        -12101,
-        -12204
-      ],
-      "layout": {"line-join": "miter"},
-      "paint": {
-        "line-dasharray": [0, 1],
-        "line-color": "#000000",
-        "line-width": 10,
-        "line-pattern": "left-arrow"
-      }
-    },
+    
     {
       "id": "waterloop 0,5 - 3 m waterdeel_lijn",
       "type": "line",
@@ -1088,7 +1064,7 @@
       },
 
       {
-        "id": "waterdeel in duiker waterdeel_lijn ol ",
+        "id": "waterdeel in duiker waterdeel_lijn ol",
         "type": "line",
         "source": "top10nl",
         "source-layer": "waterdeel_lijn",
@@ -1106,7 +1082,7 @@
         ],
         "layout": {"line-join": "miter"},
         "line-dasharray": [0.1, 1],
-        "line-color": "#3E4379",
+        "line-color": "#4585B6",
         "line-width": 3
       },
 

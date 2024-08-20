@@ -260,7 +260,7 @@
       "source": "top10nl",
       "source-layer": "waterdeel_vlak",
       "filter": ["==", "visualisatiecode", 12600],
-      "paint": {"fill-pattern": "quadrat_Pirate_Gold"}
+      "paint": {"fill-pattern": "droogvallend_Pirate_Gold"}
     },
     {
       "id": "droogvallend  (LAT ) waterdeel_vlak",

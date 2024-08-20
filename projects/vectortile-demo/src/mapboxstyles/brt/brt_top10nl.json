@@ -851,6 +851,7 @@
       "filter": ["==", "visualisatiecode", 15210],
       "paint": {"line-color": "#000000"}
     },
+   
     {
       "id": "koedam inrichtingselement_lijn",
       "type": "line",
@@ -1074,8 +1075,30 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "terrein_vlak",  
-      "paint": {"line-color": "#565454"}
+      "paint": {"line-color": "#565454", "line-width":0.3}
        },
+       {
+        "id": "koedam inrichtingselement_lijn ol",
+        "type": "line",
+        "source": "top10nl",
+        "source-layer": "inrichtingselement_lijn",
+        "filter": ["==", "visualisatiecode", 15090],
+        "layout": {"line-join": "miter"},
+        "paint": {
+          "line-dasharray": [0.1, 1],
+          "line-color": "#77793E",
+          "line-width": 3
+         
+        }
+      },
+      {
+        "id": "koedam inrichtingselement_lijn ol 1",
+        "type": "symbol",
+        "source": "top10nl",
+        "source-layer": "inrichtingselement_lijn",
+        "filter": ["==", "visualisatiecode", 15090],
+        "layout": {"icon-image": "koedam"}
+      },
     {
       "id": "wal relief_lijn",
       "type": "line",

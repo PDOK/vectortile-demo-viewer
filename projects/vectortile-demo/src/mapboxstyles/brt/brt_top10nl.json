@@ -1049,8 +1049,8 @@
         "layout": {"line-join": "miter"},
         "paint": {
           "line-dasharray": [0.1, 1],
-          "line-color": "#77793E",
-          "line-width": 3
+          "line-color": "#3F4029",
+          "line-width": 10
          
         }
       },

@@ -1,8 +1,8 @@
 @font-face {
     font-family: 'LiberationSans';
-      src: url('LiberationSans-Regular.wolf2') format('woff2'),
+      src: url('LiberationSans-Regular.woff2') format('woff2'),
          url('LiberationSans-Regular.ttf') format('truetype'),
-         url('LiberationSans-Regular.wolf') format('woff');
+         url('LiberationSans-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

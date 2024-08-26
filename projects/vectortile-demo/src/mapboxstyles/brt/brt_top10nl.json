@@ -1019,22 +1019,6 @@
       }
     },
     {
-      "id": "koedam inrichtingselement_lijn",
-      "type": "line",
-      "source": "top10nl",
-      "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15090],
-      "layout": {
-        "line-join": "miter"
-      },
-      "paint": {
-        "line-dasharray": [0, 1],
-        "line-color": "#000000",
-        "line-width": 6,
-        "line-pattern": "koedam"
-      }
-    },
-    {
       "id": "muur inrichtingselement_lijn",
       "type": "line",
       "source": "top10nl",
@@ -1294,7 +1278,7 @@
       }
     },
     {
-      "id": "koedam inrichtingselement_lijn ol",
+      "id": "koedam inrichtingselement_lijn",
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
@@ -1306,16 +1290,6 @@
         "line-dasharray": [0.1, 1],
         "line-color": "#3F4029",
         "line-width": 10
-      }
-    },
-    {
-      "id": "koedam inrichtingselement_lijn ol 1",
-      "type": "symbol",
-      "source": "top10nl",
-      "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15090],
-      "layout": {
-        "icon-image": "koedam"
       }
     },
     {

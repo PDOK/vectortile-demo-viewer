@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'LiberationSans';
+      src: url('LiberationSans-Regular.wolf2') format('woff2'),
+         url('LiberationSans-Regular.ttf') format('truetype'),
+         url('LiberationSans-Regular.wolf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LiberationSans';
+    src: url('LiberationSans-Bold.woff2') format('woff2'),
+         url('LiberationSans-Bold.woff') format('woff'),
+         url('LiberationSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LiberationSans';
+    src: url('LiberationSans-BoldItalic.woff2') format('woff2'),
+         url('LiberationSans-BoldItalic.woff') format('woff'),
+         url('LiberationSans-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'LiberationSans';
+    src: url('LiberationSans-Italic.woff2') format('woff2'),
+         url('LiberationSans-Italic.woff') format('woff'),
+         url('LiberationSans-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}

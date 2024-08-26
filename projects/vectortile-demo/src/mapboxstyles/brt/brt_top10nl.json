@@ -1892,7 +1892,7 @@
         "text-field": "{naam}",
         "text-size": 9,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -1917,7 +1917,7 @@
         "text-field": "{naam}",
         "text-size": 11.2,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -1942,7 +1942,7 @@
         "text-field": "{naam}",
         "text-size": 9,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -1967,7 +1967,7 @@
         "text-field": "{naam}",
         "text-size": 9,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -1992,7 +1992,7 @@
         "text-field": "{naam}",
         "text-size": 9,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2016,7 +2016,7 @@
         "text-field": "{brugnaam}",
         "text-size": 18,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2041,7 +2041,7 @@
         "text-field": "{naamnl}",
         "text-size": 12.1,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2065,7 +2065,7 @@
         "text-field": "{naamnl}",
         "text-size": 12,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2089,7 +2089,7 @@
         "text-field": "{naamnl}",
         "text-size": 12,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2161,7 +2161,7 @@
         "text-field": "{naamnl}",
         "text-size": 13,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2185,7 +2185,7 @@
         "text-field": "{naamnl}",
         "text-size": 12,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2233,7 +2233,7 @@
         "text-field": "{naamnl}",
         "text-size": 12,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2305,7 +2305,7 @@
         "text-field": "{naamnl}",
         "text-size": 31.2,
         "text-font": [
-          "LiberationSans-Bold",
+          "Liberation Sans Bold",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2352,7 +2352,7 @@
         "text-field": "{knooppuntnaam}",
         "text-size": 12,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2377,7 +2377,7 @@
         "text-field": "{ewegnummer}",
         "text-size": 16.8,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2402,7 +2402,7 @@
         "text-field": "{nwegnummer}",
         "text-size": 12,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2427,7 +2427,7 @@
         "text-field": "{awegnummer}",
         "text-size": 14.8,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2464,7 +2464,7 @@
         "text-field": "{naamofficieel}",
         "text-size": 34.4,
         "text-font": [
-          "LiberationSans-Bold",
+          "Liberation Sans Bold",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2490,7 +2490,7 @@
         "text-field": "{naamofficieel}",
         "text-size": 34.4,
         "text-font": [
-          "LiberationSans-Bold",
+          "Liberation Sans Bold",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2516,7 +2516,7 @@
         "text-field": "{naamofficieel}",
         "text-size": 34.4,
         "text-font": [
-          "LiberationSans-Bold",
+          "Liberation Sans Bold",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2542,7 +2542,7 @@
         "text-field": "{naamofficieel}",
         "text-size": 34.4,
         "text-font": [
-          "LiberationSans-Bold",
+          "Liberation Sans Bold",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2568,7 +2568,7 @@
         "text-field": "{naamofficieel}",
         "text-size": 16.8,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2594,7 +2594,7 @@
         "text-field": "{naamofficieel}",
         "text-size": 21.6,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2672,7 +2672,7 @@
         "text-field": "{naamnl}",
         "text-size": 24,
         "text-font": [
-          "LiberationSans-Bold",
+          "Liberation Sans Bold",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2698,7 +2698,7 @@
         "text-field": "{naamnl}",
         "text-size": 23,
         "text-font": [
-          "LiberationSans-Bold",
+          "Liberation Sans Bold",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2724,7 +2724,7 @@
         "text-field": "{naamnl}",
         "text-size": 22,
         "text-font": [
-          "LiberationSans-Bold",
+          "Liberation Sans Bold",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2750,7 +2750,7 @@
         "text-field": "{naamnl}",
         "text-size": 23.6,
         "text-font": [
-          "LiberationSans-Bold",
+          "Liberation Sans Bold",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2776,7 +2776,7 @@
         "text-field": "{naamnl}",
         "text-size": 10,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2802,7 +2802,7 @@
         "text-field": "{naamnl}",
         "text-size": 14,
         "text-font": [
-          "Liberation Sans Regular",
+         "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",

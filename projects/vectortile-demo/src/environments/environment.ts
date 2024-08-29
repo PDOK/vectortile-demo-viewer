@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BRTTop10Standaardjsonurl: 'styles/brt/brt_top10nl.json',
+  BRTTop10Standaardjsonurl: 'https://api.pdok.nl/brt/top10nl/ogc/v1-demo/styles/brt_top10nl__netherlandsrdnewquad?f=json',
 
 
   BGTmapboxachtergrondjsonurl: 'styles/bgt_achtergrondvisualisatie.json',
@@ -20,6 +20,7 @@ export const environment = {
   //BESTUURLabelsOnly: 'styles/bs_test.json',
   BESTUURstd:
     'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0/styles/bestuurlijkegebieden_standaardvisualisatie?f=json',
+   
 
 }
 

@@ -1,7 +1,8 @@
 {
   "version": 8,
   "metadata": {
-    "ol:webfonts": "http://localhost:4200/assets/fonts/{font-family}/{fontweight}{-fontstyle}.css"
+    "ol:webfonts": "http://localhost:4200/assets/fonts/{font-family}/{fontweight}{-fontstyle}.css", 
+    "gokoala:title-items": "id"
   },
   "name": "",
   "center": [],

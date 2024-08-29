@@ -26,10 +26,10 @@ export const tileurlBestuur: VectorTileUrl = {
 }
 
 export const tileurlTop10: VectorTileUrl = {
-  vectorTileUrl: 'https://api.pdok.nl/brt/top10nl/ogc/v1-preprod/tiles/NetherlandsRDNewQuad',
+  vectorTileUrl: 'https://api.pdok.nl/brt/top10nl/ogc/v1-demo/tiles/NetherlandsRDNewQuad',
   extension: '.pbf',
   ogcApiRootUrl: {
-    url: "https://api.pdok.nl/brt/top10nl/ogc/v1-preprod",
+    url: "https://api.pdok.nl/brt/top10nl/ogc/v1-demo",
     lokaalIdRegex: /^\d{1,16}$/
   }
 }

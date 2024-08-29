@@ -46,7 +46,22 @@ export class DemoboxComponent {
   ngOnInit(): void {
     this.locationService.currentLocation.subscribe((currentLocation) => {
       // this.currentlocation = currentLocation;
+     console.log ( this.getAllAvailableFonts());
+    
     })
+  }
+
+  getAllAvailableFonts(): FontFace[] {
+    const fontSet = document.fonts;
+    console.log(fontSet);
+    // some fonts may still be unloaded if they aren't used on the site
+
+    const fonts: FontFace[] = [];
+    fontSet.forEach(font => {
+      fonts.push(font);
+      
+    });
+    return fonts;
   }
 
   DemoPreviewFeaturesToggle() {

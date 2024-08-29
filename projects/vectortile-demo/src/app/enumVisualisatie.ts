@@ -90,25 +90,10 @@ export function exhaustiveGuard(_value: never): never {
 
 export function getAllVisualisaties(): Visualisatie[] {
   const array: Visualisatie[] = []
-  if (demoSettings.previewFeature)
+
     for (const value of enumKeys(Visualisatie)) {
       array.push(Visualisatie[value])
-    }
-  else
-    for (const value of enumKeys(Visualisatie)) {
-      if (
-        [
-          'Top10nlBlanco',
-          'Top10nlKleurrijk',
-          'Top10nlStandaard',
-          'Top10nlTegels'
-        ].includes(value)
-      ) {
-        //skip
-      } else {
-        array.push(Visualisatie[value])
-      }
-    }
+    }  
   return array
 }
 

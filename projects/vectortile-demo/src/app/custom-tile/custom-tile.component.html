@@ -1,0 +1,27 @@
+<form [formGroup]="customtForm" (ngSubmit)="onSubmit()">
+ 
+
+
+<table>
+  <caption class="techcaption">
+    Aanpasbare Vectortile URL:
+  </caption>
+  <tbody>
+    <tr>
+      <td><label for="customUrl">URL:</label></td>
+      <td><input type="text" id="customUrl" formControlName="customUrl"/></td>
+    </tr>
+    <tr>
+      <td><label for="customUrlMinZoom">MinZoom:</label></td>
+      <td><input type="text" id="customUrlMinZoom" formControlName="customUrlMinZoom"/></td>
+    </tr>
+    <tr>
+      <td><label for="customUrlExtension">URL-Extension:</label></td>
+      <td><input type="text" id="customUrlExtension" formControlName="customUrlExtension"/></td>
+    </tr>
+  </tbody>
+</table>
+<button type="submit">Aanpassen</button>
+<button type="reset" (click)="onReset()">Reset</button>
+
+</form>

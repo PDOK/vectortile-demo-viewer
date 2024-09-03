@@ -67,7 +67,11 @@
 .demobox {
   margin: 1em;
   flex: 1;
-  max-height: 70vh;
+  overflow-y:scroll; 
+  max-height: 80vh;
+
+  
+  
 }
 
 .demobox button {

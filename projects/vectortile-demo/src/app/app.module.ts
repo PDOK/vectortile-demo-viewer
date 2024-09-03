@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
+import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { ColorPickerModule } from 'ngx-color-picker'
 import { AppRoutingModule } from './app-routing.module'
@@ -19,6 +20,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatDividerModule } from '@angular/material/divider'
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { ShowlinkComponent } from './showlink/showlink.component'
+import { CustomTileComponent } from "./custom-tile/custom-tile.component";
 
 
 @NgModule({ declarations: [
@@ -35,12 +37,12 @@ import { ShowlinkComponent } from './showlink/showlink.component'
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule,
-        ColorPickerModule,
-        BrowserAnimationsModule,
-        MatTooltipModule,
-        MatDividerModule,
-        //  MatButtonModule,
-        //  MatIconModule,
-        MatSlideToggleModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+    AppRoutingModule,
+    ColorPickerModule,
+    BrowserAnimationsModule,
+    MatTooltipModule,
+    MatDividerModule,
+    //  MatButtonModule,
+    //  MatIconModule,
+    MatSlideToggleModule, CustomTileComponent], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

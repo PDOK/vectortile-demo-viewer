@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
   receiveTitle(data: Visualisatie) {
     this.currentVis = data
 
-    this.styleurl = getStyleUrl(this.currentVis).url!
+    this.styleurl = getStyleUrl(this.currentVis).styleUrl!
   }
 
   onSelect(vis: Visualisatie): void {

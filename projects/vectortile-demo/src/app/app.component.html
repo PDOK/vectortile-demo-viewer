@@ -13,9 +13,9 @@
 
       <div *ngIf="isShow" id="divshow">
         <div>
-          <div *ngFor="let v of visualisatie" (click)="onSelect(v)">
+          <div *ngFor="let v of visualisatie" (click)="onSelect(v.visualisatie)">
             <button mat-button class="lbutton">
-              <span>{{ v }}</span>
+              <span>{{ v.title }}</span>
             </button>
           </div>
         </div>

@@ -35,6 +35,7 @@ import {
 import { LocationService, ViewLocation } from '../location.service'
 
 import { Circle, Stroke } from 'ol/style'
+import { LocalStorageService } from '../local-storage-service'
 import {
   getSpriteDataUrl,
   getSpriteImageUrl,
@@ -45,6 +46,9 @@ import {
   tileurlTop10,
   VectorTileUrl,
 } from './tileurl'
+import { Tile } from 'ol/layer'
+import { TileDebug } from 'ol/source'
+import BaseLayer from 'ol/layer/Base'
 
 @Component({
   selector: 'app-olmap',
@@ -60,7 +64,46 @@ export class OlmapComponent implements OnInit, OnChanges {
   colorMap = new ColorMap(LegendLevel.d1_layer);
   showUrl = '';
   zoom: number = 13;
+  private _tileurlCustom: VectorTileUrl | undefined
+
+
+  public get tileurlCustomZoom(): number {
+    const minzoomString: string | null = this.localStorageService.get('customUrlMinZoom')
+
+    if (minzoomString) {
+      const minzoom: number = parseInt(minzoomString, 10)
+
+      if (!isNaN(minzoom)) {
+        return minzoom
+      }
+    }
+
+    return 0
+  }
+
+
+
+  public get tileurlCustom(): VectorTileUrl | undefined {
+    const url = this.localStorageService.get('customUrl')
+    let extension = this.localStorageService.get('customUrlExtension')
+    if (!extension) {
+      extension = '.pbf'
+    }
+    let xyzTemplate = this.localStorageService.get('customUrlxyzTemplate')
+    if (!xyzTemplate) {
+      xyzTemplate = '/{z}/{y}/{x}'
+    }
+    if (url) {
+      const VTurl: VectorTileUrl = { vectorTileUrl: url, xyzTemplate: xyzTemplate, extension: extension, ogcApiRootUrl: undefined }
+      return VTurl
+    }
+    return undefined
+  }
+  public set tileurlCustom(value: VectorTileUrl) {
+    this.localStorageService.set({ key: 'customUrl', value: value?.vectorTileUrl })
+  }
   private ogcUrl: OGCApiRootUrl
+
 
   @Input() set visualisation(vis: Visualisatie) {
     this.SelectedVisualisation = vis
@@ -72,6 +115,8 @@ export class OlmapComponent implements OnInit, OnChanges {
     declutter: true,
     useInterimTilesOnError: false,
   });
+
+
 
   CurrentVectorTileLayer: VectorTileLayer<FeatureLike> = this.vectorTileLayerRD;
 
@@ -87,14 +132,24 @@ export class OlmapComponent implements OnInit, OnChanges {
   });
   */
 
+  resolutions: Array<number> = [];
+  matrixIds: Array<string> = [];
+
+
+
+
+
   map1: olMap = new olMap({
     layers: [this.vectorTileLayerRD], //, this.vectorTileLayerRD],
     target: 'map1',
     view: this.viewRD(this.zoom),
   });
 
-  resolutions: Array<number> = [];
-  matrixIds: Array<string> = [];
+
+
+
+
+
 
   //public selectedFeature: Feature<Geometry> | undefined;
 
@@ -119,7 +174,8 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   constructor(
     private router: Router,
-    private locationService: LocationService
+    private locationService: LocationService,
+    private localStorageService: LocalStorageService
   ) { }
 
   ngOnInit(): void {
@@ -163,6 +219,8 @@ export class OlmapComponent implements OnInit, OnChanges {
       this.map1.getTargetElement().style.cursor =
         found && this.detailsupdate ? 'pointer' : ''
     })
+    this.debuglayer()
+
   }
 
   ngOnChanges(): void {
@@ -249,15 +307,33 @@ export class OlmapComponent implements OnInit, OnChanges {
     this.changeStyleJson()
   }
 
+  visualisationRefresh(data: boolean) {
+
+    this.changeStyleJson()
+  }
+
   private changeStyleJson() {
+
+   this.debuglayer()
+
+
+
+
+
+
     let minzoom = 13
 
     switch (this.SelectedVisualisation) {
       case Visualisatie.BESTUURBlanko:
+      // fallsthrough
       case Visualisatie.BESTUURWithLabels:
       //  case Visualisatie.BESTUURLabelOnly:
+      // fallsthrough
       case Visualisatie.BESTUURstd:
         minzoom = 3
+        break
+      case Visualisatie.Custom1Blanko:
+        minzoom = this.tileurlCustomZoom
         break
 
       case Visualisatie.Top10nlBlanco:
@@ -279,6 +355,21 @@ export class OlmapComponent implements OnInit, OnChanges {
     this.map1.setView(this.viewRD(minzoom))
     vectorTileLayer.setVisible(true)
     const JsonUrl = getStyleUrl(this.SelectedVisualisation)
+
+    if (this.tileurlCustom) {
+      if (JsonUrl.source == 'custom') {
+        this.setTileSource(
+          this.rdProjection,
+          this.vectorTileLayerRD,
+          this.tileurlCustom,
+          2
+        )
+        this.showUrl = this.tileurlCustom.vectorTileUrl
+      }
+
+
+    }
+
 
     if (JsonUrl.source == 'bag') {
       this.setTileSource(
@@ -318,8 +409,8 @@ export class OlmapComponent implements OnInit, OnChanges {
       this.showUrl = tileurlTop10.vectorTileUrl
     }
 
-    if (JsonUrl.url) {
-      fetch(JsonUrl.url).then((response) => {
+    if (JsonUrl.styleUrl) {
+      fetch(JsonUrl.styleUrl).then((response) => {
         response.json().then((glStyle) => {
           //if you just want simply apply on style use "
           //import { applyStyle } from 'ol-mapbox-style';
@@ -357,6 +448,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       })
     } else {
       switch (this.SelectedVisualisation) {
+        case Visualisatie.Custom1Blanko:
         case Visualisatie.BESTUURBlanko:
         case Visualisatie.Bagblanko:
         case Visualisatie.BGTzerodefaultA_blanco:
@@ -367,19 +459,19 @@ export class OlmapComponent implements OnInit, OnChanges {
 
         /*
            case Visualisatie.Bagstd:
-   
+     
              if (vectorTileLayer.getSource()) {
                this.map1.setView(this.viewRD)
                vectorTileLayer.setStyle();
                vectorTileLayer.setVisible(true);
                vectorTileLayer.getSource()!.changed();
-   
-   
+     
+     
              }
              else {
                throw new Error("currentlayer not found");
              }
-   
+     
              */
 
         default:
@@ -461,6 +553,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.BagKleurrijk_tegels:
       case Visualisatie.Top10nlTegels:
       case Visualisatie.BGTzerodefaultB_tegels:
+      case Visualisatie.Custom1Tegels:
         return new DrawColor(
           'default zero',
           feature,
@@ -491,7 +584,8 @@ export class OlmapComponent implements OnInit, OnChanges {
       }
       case Visualisatie.Bagkleurrijk:
       case Visualisatie.Top10nlKleurrijk:
-      case Visualisatie.BGTzerodefaultD_kleur: {
+      case Visualisatie.BGTzerodefaultD_kleur:
+      case Visualisatie.Custom1Kleurrijk: {
         const layer = prop['layer']
         const zerodefaultText = GetLabelAnnotation(prop, layer)
         if (this.colorMap.has(layer)) {
@@ -509,6 +603,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       }
 
       case Visualisatie.Bagblanko:
+      case Visualisatie.Custom1Blanko:
       case Visualisatie.BGTzerodefaultA_blanco:
       case Visualisatie.Top10nlBlanco:
       case Visualisatie.BESTUURBlanko:
@@ -570,7 +665,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   getVectorTileUrl(tileurl: VectorTileUrl) {
-    return `${tileurl.vectorTileUrl}/{z}/{y}/{x}${tileurl.extension}`
+    return `${tileurl.vectorTileUrl}${tileurl.xyzTemplate}${tileurl.extension}`
   }
 
   getShowTileUrl() {
@@ -578,7 +673,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   getShowStyleUrl() {
-    const url = getStyleUrl(this.SelectedVisualisation).url
+    const url = getStyleUrl(this.SelectedVisualisation).styleUrl
     if (url) {
       return url
     } else {
@@ -587,6 +682,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       }
     }
   }
+
 
   setTileSource(
     projection: Projection,
@@ -605,6 +701,36 @@ export class OlmapComponent implements OnInit, OnChanges {
     vectorTileLayer.setSource(vtSource)
     vectorTileLayer.setVisible(true)
     vectorTileLayer.set('renderMode', 'hybrid')
+    this.debuglayer()
+
+  }
+
+  private debuglayer() {
+    const debugLayer = new Tile({
+      source: new TileDebug({
+        projection: this.rdProjection,
+        tileGrid: new TileGrid({
+          extent: this.rdProjection.getExtent(),
+          resolutions: this.resolutions,
+          tileSize: [256, 256],
+          origin: getTopLeft(this.rdProjection.getExtent()),
+        })
+      })
+    })
+
+    const debugvisible = this.localStorageService.getBoolean('showDebugLayer')
+
+ 
+    if (debugvisible) {
+      this.map1.setLayers( [this.vectorTileLayerRD, debugLayer]) 
+    
+    }else{
+      this.map1.setLayers( [this.vectorTileLayerRD]) 
+     }
+     this.map1.changed()
+
+
+
   }
 
   showselectedFeatures(): boolean {

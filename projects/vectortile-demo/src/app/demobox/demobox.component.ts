@@ -3,6 +3,7 @@ import { View } from 'ol'
 import { demoSettings } from '../app.component'
 import { Visualisatie, getRandomEnumValue } from '../enumVisualisatie'
 import { LocationService } from '../location.service'
+import { LocalStorageService } from '../local-storage-service'
 
 @Component({
   selector: 'app-demobox',
@@ -42,11 +43,11 @@ export class DemoboxComponent {
     demoSettings.previewFeature = value
   }
 
-  constructor(private locationService: LocationService) { }
+  constructor(private locationService: LocationService,private localStorageService: LocalStorageService) { }
   ngOnInit(): void {
     this.locationService.currentLocation.subscribe((currentLocation) => {
       // this.currentlocation = currentLocation;
-     console.log ( this.getAllAvailableFonts());
+     //console.log ( this.getAllAvailableFonts());
     
     })
   }
@@ -79,6 +80,7 @@ export class DemoboxComponent {
   }
 
   DemogotoStartLocationOnMap() {
+    this.localStorageService.removeAll()   
     this.visEmit.emit(Visualisatie.BGTstandaard)
     this.isDemoVisualisatieRotate = false
     this.isDemoLocatieRotate = false

@@ -2,6 +2,9 @@ import { environment } from '../environments/environment'
 import { LocalStorageService } from './local-storage-service'
 
 export enum Visualisatie {
+  Custom1Blanko = 'Aanpasbare Vectortile URL (Blanco)',
+  Custom1Kleurrijk = 'Aanpasbare Vectortile URL (kleurrijk)',
+  Custom1Tegels = 'Aanpasbare Vectortile URL (Kleurrijk tegels zichtbaar)',
   BGTachtergrond = 'BGT Achtergrond',
   BGTstandaard = 'BGT Standaard',
   Bagstd = 'BAG standaard',
@@ -21,8 +24,8 @@ export enum Visualisatie {
   BESTUURstd = 'Bestuurlijke gebieden',
   BESTUURWithLabels = 'Bestuurlijke gebieden met annotatie',
   //BESTUURLabelOnly = 'Bestuurlijke gebieden alleen labels',
-  BESTUURBlanko = 'Bestuurlijke gebieden (Blanco)',
-  Custom1Blanko = 'Aanpasbare Vectortile URL'
+  BESTUURBlanko = 'Bestuurlijke gebieden (Blanco)'
+
 }
 
 export type StyleUrl = {
@@ -72,6 +75,8 @@ export function getStyleUrl(vis: Visualisatie): StyleUrl {
     case Visualisatie.BESTUURBlanko:
       return { source: 'bestuurlijkegebieden', styleUrl: undefined }
     case Visualisatie.Custom1Blanko:
+    case Visualisatie.Custom1Kleurrijk:
+    case Visualisatie.Custom1Tegels:
       return { source: 'custom', styleUrl: undefined }
 
 
@@ -98,13 +103,13 @@ export function getAllVisualisaties(): { title: string, visualisatie: Visualisat
 
   for (const value of enumKeys(Visualisatie)) {
 
-    if (value == 'Custom1Blanko') {
+    if (value === 'Custom1Blanko' || value === 'Custom1Kleurrijk' || value ==='Custom1Tegels') {
+
+
       if (localStorageService.Exists('customUrl')) {
-        const url = localStorageService.get('customUrl')
-        if (url) {
-          array.push({ title: url, visualisatie: Visualisatie[value] })
-        }
+        array.push({ title: Visualisatie[value] , visualisatie: Visualisatie[value] })
       }
+
     }
 
     else {

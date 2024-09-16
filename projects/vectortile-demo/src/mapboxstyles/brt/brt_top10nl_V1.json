@@ -17,8 +17,8 @@
       "maxzoom": 11
     }
   },
-  "sprite": "styles/brt/sprite@1",
-  "glyphs": "assets/fonts/{fontstack}/{range}.pbf",
+  "sprite": "https://pdok.github.io/vectortile-demo-viewer/styles/brt/sprite@1",
+  "glyphs": "https://pdok.github.io/vectortile-demo-viewer/assets/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "functioneel_gebied_vlak",

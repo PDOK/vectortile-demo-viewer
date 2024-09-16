@@ -18,7 +18,7 @@
     }
   },
   "sprite": "https://api.pdok.nl/brt/top10nl/ogc/v1-demo/resources/standaardsprites/sprite@1",
-  "glyphs":  "assets/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "https://pdok.github.io/vectortile-demo-viewer/assets/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "functioneel_gebied_vlak",

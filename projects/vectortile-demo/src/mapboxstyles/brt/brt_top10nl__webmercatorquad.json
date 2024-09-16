@@ -1,7 +1,7 @@
 {
   "version": 8,
   "metadata": {
-    "ol:webfonts": "http://localhost:4200/assets/fonts/{font-family}/{fontweight}{-fontstyle}.css", 
+    "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1-demo/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
     "gokoala:title-items": "id"
   },
   "name": "",
@@ -11,14 +11,14 @@
     "top10nl": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/brt/top10nl/ogc/v1-demo/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+        "https://api.pdok.nl/brt/top10nl/ogc/v1-demo/tiles/WebMercatorQuad/{z}/{y}/{x}?f=mvt"
       ],
-      "minzoom": 9,
-      "maxzoom": 11
+      "minzoom": 14,
+      "maxzoom": 17
     }
   },
-  "sprite": "styles/brt/sprite@1",
-  "glyphs": "assets/fonts/{fontstack}/{range}.pbf",
+  "sprite": "https://api.pdok.nl/brt/top10nl/ogc/v1-demo/resources/standaardsprites/sprite@1",
+  "glyphs":  "assets/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "functioneel_gebied_vlak",

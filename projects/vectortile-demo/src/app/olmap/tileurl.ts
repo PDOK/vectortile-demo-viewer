@@ -29,11 +29,11 @@ export const tileurlBestuur: VectorTileUrl = {
 }
 
 export const tileurlTop10: VectorTileUrl = {
-  vectorTileUrl: 'https://api.pdok.nl/brt/top10nl/ogc/v1-demo/tiles/NetherlandsRDNewQuad',
+  vectorTileUrl: 'https://api.pdok.nl/brt/top10nl/ogc/v1/tiles/NetherlandsRDNewQuad',
   extension: '.pbf',
   xyzTemplate: '/{z}/{y}/{x}', 
   ogcApiRootUrl: {
-    url: "https://api.pdok.nl/brt/top10nl/ogc/v1-demo",
+    url: "https://api.pdok.nl/brt/top10nl/ogc/v1",
     lokaalIdRegex: /^\d{1,16}$/
   }
 }

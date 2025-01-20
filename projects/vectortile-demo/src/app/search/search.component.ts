@@ -3,10 +3,11 @@ import { Observable } from 'rxjs'
 import { DefaultService as PdokLocationService } from '../api/locatieserver/v3'
 import { DisplayItem, IdlookupService } from '../idlookup.service'
 import { LocationService } from '../location.service'
+import { CommonModule } from '@angular/common'
 
 export interface Suggest {
   response: Response
-  highlighting: Highlighting
+  highlighting: unknown
   spellcheck: Spellcheck
 }
 export interface Response {
@@ -19,7 +20,7 @@ export interface DocsEntity {
   weergavenaam: string
   centroide_rd: string
 }
-export interface Highlighting { }
+
 
 export interface high {
   suggest?: (string)[] | null
@@ -34,7 +35,10 @@ export interface Spellcheck {
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
+  imports: [
+    CommonModule]
+
 })
 export class SearchComponent implements OnInit {
 
@@ -47,7 +51,7 @@ export class SearchComponent implements OnInit {
 
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
-    // nothing 
+    // nothing
   }
 
   onSearchKey(search: string) {

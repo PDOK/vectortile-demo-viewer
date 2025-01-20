@@ -5,12 +5,10 @@ import { LocalStorageService, storageKey } from '../local-storage-service'
 import { MatSlideToggle } from '@angular/material/slide-toggle'
 
 @Component({
-  selector: 'app-custom-tile',
-  standalone: true,
-
-  imports: [FormsModule, ReactiveFormsModule, MatSlideToggle],
-  templateUrl: './custom-tile.component.html',
-  styleUrl: './custom-tile.component.scss'
+    selector: 'app-custom-tile',
+    imports: [FormsModule, ReactiveFormsModule, MatSlideToggle],
+    templateUrl: './custom-tile.component.html',
+    styleUrl: './custom-tile.component.scss'
 })
 export class CustomTileComponent {
 

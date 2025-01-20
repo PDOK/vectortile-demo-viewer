@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 
 
 @Component({
-  selector: 'app-showlink',
-  templateUrl: './showlink.component.html',
-  styleUrls: ['./showlink.component.scss']
+    selector: 'app-showlink',
+    templateUrl: './showlink.component.html',
+    styleUrls: ['./showlink.component.scss'],
+    
 })
 export class ShowlinkComponent {
   @Input() url = "https://www.pdok.nl"

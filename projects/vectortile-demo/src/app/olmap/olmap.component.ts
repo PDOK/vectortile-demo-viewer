@@ -48,12 +48,23 @@ import {
 } from './tileurl'
 import { Tile } from 'ol/layer'
 import { TileDebug } from 'ol/source'
+import { CustomTileComponent } from '../custom-tile/custom-tile.component'
+import { ShowlinkComponent } from '../showlink/showlink.component'
+import { DemoboxComponent } from '../demobox/demobox.component'
+import { MapexportComponent } from '../mapexport/mapexport.component'
+import { MapstylerComponent } from '../mapstyler/mapstyler.component'
+import { ObjectinfoComponent } from '../objectinfo/objectinfo.component'
+import { MatSlideToggle } from '@angular/material/slide-toggle'
+import { MatTooltip } from '@angular/material/tooltip'
+import { CommonModule } from '@angular/common'
 
 @Component({
-  selector: 'app-olmap',
-  templateUrl: './olmap.component.html',
-  styleUrls: ['./olmap.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-olmap',
+    templateUrl: './olmap.component.html',
+    styleUrls: ['./olmap.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    imports:[CommonModule, CustomTileComponent, ShowlinkComponent, DemoboxComponent, MapexportComponent , MapstylerComponent, ObjectinfoComponent, MatSlideToggle, MatTooltip]
+
 })
 export class OlmapComponent implements OnInit, OnChanges {
 
@@ -95,7 +106,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
     let tileMatrixPart = this.localStorageService.get('customTileMatrixPart')
     if (!tileMatrixPart) {
-      tileMatrixPart= '/NetherlandsRDNewQuad' 
+      tileMatrixPart= '/NetherlandsRDNewQuad'
     }
 
     if (url) {
@@ -288,17 +299,19 @@ export class OlmapComponent implements OnInit, OnChanges {
         color = fill.getColor() as string
       }
     } else {
-      const stStyle = st as any
-      const colcolor = stStyle.fill_.color_ as
+      const stStyle = st as Style
+      const fill = stStyle.getFill();
+      const colcolor = fill ? fill.getColor() as
         | string
         | number[]
         | CanvasGradient
         | CanvasPattern
+        : '';
       color = colcolor
     }
 
     if (color instanceof CanvasPattern) {
-      const canvas = true
+      // const canvas = true
       // not yet implemented boomgaard
     }
 
@@ -433,7 +446,7 @@ export class OlmapComponent implements OnInit, OnChanges {
                   imageUrl
                 ) as StyleFunction
                 //use applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
-                vectorTileLayer.setStyle(this.doStyle.bind(this) as any)
+                vectorTileLayer.setStyle(this.doStyle.bind(this) as StyleFunction)
               })
             })
           } else {
@@ -444,7 +457,7 @@ export class OlmapComponent implements OnInit, OnChanges {
               resolutions
             ) as StyleFunction
             //use applyStyle(vectorTileLayer, glStyle, "bgt", undefined, resolutions);
-            vectorTileLayer.setStyle(this.doStyle.bind(this) as any)
+            vectorTileLayer.setStyle(this.doStyle.bind(this) as StyleFunction)
           }
           // end of apply
         })
@@ -462,23 +475,23 @@ export class OlmapComponent implements OnInit, OnChanges {
 
         /*
            case Visualisatie.Bagstd:
-     
+
              if (vectorTileLayer.getSource()) {
                this.map1.setView(this.viewRD)
                vectorTileLayer.setStyle();
                vectorTileLayer.setVisible(true);
                vectorTileLayer.getSource()!.changed();
-     
-     
+
+
              }
              else {
                throw new Error("currentlayer not found");
              }
-     
+
              */
 
         default:
-          vectorTileLayer.setStyle(this.doStyle.bind(this) as any)
+          vectorTileLayer.setStyle(this.doStyle.bind(this) as StyleFunction)
           break
       }
     }
@@ -622,17 +635,17 @@ export class OlmapComponent implements OnInit, OnChanges {
       }
     }
 
-    function GetLabelAnnotation(prop: any, layer: string): Annotation {
+    function GetLabelAnnotation(prop: Record<string, unknown>, layer: string): Annotation {
       let text = ''
       if (layer === 'pand_nummeraanduiding') {
-        text = prop['tekst']
+        text = prop['tekst'] as string
       }
       if (layer === 'openbareruimtelabel') {
-        text = prop['openbareruimtenaam']
+        text = prop['openbareruimtenaam'] as string
       }
       if (text !== '') {
-        const deg = prop['hoek']
-        const rot = ((360 - deg) * Math.PI) / 180.0
+        const deg = prop['hoek'] as number
+        const rot = ((360 - deg ) * Math.PI) / 180.0
 
         const anno: LabelType = {
           text,
@@ -723,12 +736,12 @@ export class OlmapComponent implements OnInit, OnChanges {
 
     const debugvisible = this.localStorageService.getBoolean('showDebugLayer')
 
- 
+
     if (debugvisible) {
-      this.map1.setLayers( [this.vectorTileLayerRD, debugLayer]) 
-    
+      this.map1.setLayers( [this.vectorTileLayerRD, debugLayer])
+
     }else{
-      this.map1.setLayers( [this.vectorTileLayerRD]) 
+      this.map1.setLayers( [this.vectorTileLayerRD])
      }
      this.map1.changed()
 

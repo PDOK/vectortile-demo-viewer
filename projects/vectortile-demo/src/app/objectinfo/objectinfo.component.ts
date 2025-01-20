@@ -4,7 +4,10 @@ import { StyleFunction } from 'ol/style/Style'
 import { getFillColor } from '../color'
 import { NgElement, WithProperties } from '@angular/elements'
 import { environment } from '../../environments/environment'
-
+import { ShowlinkComponent } from '../showlink/showlink.component'
+import { OgcmapComponent } from './ogcmap/ogcmap.component'
+import { CommonModule, NgStyle } from '@angular/common'
+import { MatDivider } from '@angular/material/divider'
 //declare global {
 //interface HTMLElementTagNameMap {
 // 'app-ogc-api-view': NgElement & WithProperties<{ styleUrl: string }>
@@ -24,9 +27,11 @@ type proprow = {
 const DefaultColor = [0, 0, 0, 0]
 
 @Component({
-  selector: 'app-objectinfo',
-  templateUrl: './objectinfo.component.html',
-  styleUrls: ['./objectinfo.component.scss']
+    selector: 'app-objectinfo',
+    templateUrl: './objectinfo.component.html',
+    styleUrls: ['./objectinfo.component.scss'],
+    imports:[   CommonModule,ShowlinkComponent, OgcmapComponent, NgStyle, MatDivider]
+
 })
 
 

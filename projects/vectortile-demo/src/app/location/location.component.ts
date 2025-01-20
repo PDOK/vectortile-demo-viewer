@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { LocationService, ViewLocation } from '../location.service';
 const kaartenNLUrl= 'https://www.kaartenvannederland.nl/'
 @Component({
-  selector: 'app-location',
-  templateUrl: './location.component.html',
-  styleUrls: ['./location.component.scss']
+    selector: 'app-location',
+    templateUrl: './location.component.html',
+    styleUrls: ['./location.component.scss'],
+    
 })
 export class LocationComponent implements OnInit {
   location: ViewLocation;

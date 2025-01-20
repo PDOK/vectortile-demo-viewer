@@ -9,9 +9,10 @@ declare global {
 
 const BackgroundColor = '#FFFFFF';
 @Component({
-  selector: 'app-mapexport',
-  templateUrl: './mapexport.component.html',
-  styleUrls: ['./mapexport.component.scss']
+    selector: 'app-mapexport',
+    templateUrl: './mapexport.component.html',
+    styleUrls: ['./mapexport.component.scss'],
+    
 })
 export class MapexportComponent {
   @Input() map!: olMap

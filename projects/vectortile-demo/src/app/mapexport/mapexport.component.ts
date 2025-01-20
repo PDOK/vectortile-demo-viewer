@@ -28,7 +28,7 @@ export class MapexportComponent {
       this.mapContext = this.mapCanvas.nativeElement.getContext('2d');
    
 
-      var that = this
+      const that = this
       this.map.once('rendercomplete', function () {
         if (that.mapCanvas) {
         

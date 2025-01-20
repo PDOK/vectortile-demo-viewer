@@ -73,9 +73,15 @@ export class ObjectinfoComponent {
     for (const val in prop) {
 
       const p: proprow = { title: val, value: prop[val] }
-      if (val === "lokaal_id" || val === "lokaalid") {
+      if (val === "lokaal_id" || val === "lokaalid" || val === "identificatie") {
         if (this.ogcurl) {
-          ogcApiUrl = getOgcApiImtemUrl(this.ogcurl, prop["layer"], 'lokaal_id', prop[val])
+          let field = val
+
+          if (val ==="lokaalid"){
+            field = "lokaal_id"
+
+          }
+          ogcApiUrl = getOgcApiImtemUrl(this.ogcurl, prop["layer"],field, prop[val])
         }
 
       }

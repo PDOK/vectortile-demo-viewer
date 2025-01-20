@@ -48,7 +48,6 @@ import {
 } from './tileurl'
 import { Tile } from 'ol/layer'
 import { TileDebug } from 'ol/source'
-import BaseLayer from 'ol/layer/Base'
 
 @Component({
   selector: 'app-olmap',
@@ -93,15 +92,19 @@ export class OlmapComponent implements OnInit, OnChanges {
     if (!xyzTemplate) {
       xyzTemplate = '/{z}/{y}/{x}'
     }
+
+    let tileMatrixPart = this.localStorageService.get('customTileMatrixPart')
+    if (!tileMatrixPart) {
+      tileMatrixPart= '/NetherlandsRDNewQuad' 
+    }
+
     if (url) {
-      const VTurl: VectorTileUrl = { vectorTileUrl: url, xyzTemplate: xyzTemplate, extension: extension, ogcApiRootUrl: undefined }
+      const VTurl: VectorTileUrl = { vectorTileUrl: url, tileMatrixPart: tileMatrixPart,   xyzTemplate: xyzTemplate, extension: extension, ogcApiRootUrl: undefined }
       return VTurl
     }
     return undefined
   }
-  public set tileurlCustom(value: VectorTileUrl) {
-    this.localStorageService.set({ key: 'customUrl', value: value?.vectorTileUrl })
-  }
+
   private ogcUrl: OGCApiRootUrl
 
 
@@ -110,7 +113,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     this.colorMap.setSelector(LegendLevel.d1_layer)
   }
 
-  private vectorTileLayerRD = new VectorTileLayer({
+  public vectorTileLayerRD = new VectorTileLayer({
     renderMode: 'hybrid',
     declutter: true,
     useInterimTilesOnError: false,
@@ -307,7 +310,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     this.changeStyleJson()
   }
 
-  visualisationRefresh(data: boolean) {
+  visualisationRefresh() {
 
     this.changeStyleJson()
   }
@@ -354,7 +357,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     const resolutions = this.resolutions
     this.map1.setView(this.viewRD(minzoom))
     vectorTileLayer.setVisible(true)
-    const JsonUrl = getStyleUrl(this.SelectedVisualisation)
+    const JsonUrl = getStyleUrl(this.SelectedVisualisation,   'netherlandsrdnewquad')
 
     if (this.tileurlCustom) {
       if (JsonUrl.source == 'custom') {
@@ -665,7 +668,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   getVectorTileUrl(tileurl: VectorTileUrl) {
-    return `${tileurl.vectorTileUrl}${tileurl.xyzTemplate}${tileurl.extension}`
+    return `${tileurl.vectorTileUrl}${tileurl.tileMatrixPart}${tileurl.xyzTemplate}${tileurl.extension}`
   }
 
   getShowTileUrl() {
@@ -673,7 +676,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   getShowStyleUrl() {
-    const url = getStyleUrl(this.SelectedVisualisation).styleUrl
+    const url = getStyleUrl(this.SelectedVisualisation, 'netherlandsrdnewquad').styleUrl
     if (url) {
       return url
     } else {

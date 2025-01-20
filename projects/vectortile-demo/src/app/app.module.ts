@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { ColorPickerModule } from 'ngx-color-picker'
 import { AppRoutingModule } from './app-routing.module'

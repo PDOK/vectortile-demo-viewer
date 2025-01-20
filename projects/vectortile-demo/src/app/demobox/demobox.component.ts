@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core'
+import { Component, EventEmitter, Output, OnInit } from '@angular/core'
 import { View } from 'ol'
 import { demoSettings } from '../app.component'
 import { Visualisatie, getRandomEnumValue } from '../enumVisualisatie'
@@ -10,7 +10,7 @@ import { LocalStorageService } from '../local-storage-service'
   templateUrl: './demobox.component.html',
   styleUrls: ['./demobox.component.scss'],
 })
-export class DemoboxComponent {
+export class DemoboxComponent implements OnInit {
   @Output() visEmit: EventEmitter<Visualisatie> = new EventEmitter();
 
   demotextLocatieAan: string = 'Willekeurige locatie roulerend';
@@ -105,7 +105,7 @@ export class DemoboxComponent {
       const dx = 155000 + Math.round(Math.random() * 50000)
       const dy = 463000 + Math.round(Math.random() * 50000)
       const newloc = new View({
-        projection: this.locationService.rdProjection,
+        projection: this.locationService.projection,
         center: [dx, dy],
         zoom: 13,
         enableRotation: false,

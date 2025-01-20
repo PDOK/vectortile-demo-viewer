@@ -5,6 +5,15 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "firefox",
+      "request": "launch",
+      "reAttach": true,
+      "name": "Launch firefox localhost",
+      "url":  "http://127.0.0.1:4200/",
+      "webRoot": "${workspaceFolder}"
+    },
+ 
+    {
       "command": "npm start",
       "name": "Run npm start",
       "request": "launch",

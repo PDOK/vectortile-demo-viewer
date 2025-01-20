@@ -50,16 +50,6 @@
                 Reset Legenda
               </button>
             </div>
-
-            <div
-              class="legend-button-area-item"
-              *ngFor="let v of detaillevel | keyvalue"
-              (click)="onSelectLevel(v.value)"
-            >
-              <button [disabled]="disEnabledLevel(v)">
-                <span>{{ v.value }}</span>
-              </button>
-            </div>
           </div>
         </td>
       </tr>
@@ -130,4 +120,5 @@
       </tr>
     </tbody>
   </table>
+
 </div>

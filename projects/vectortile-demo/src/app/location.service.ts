@@ -49,12 +49,18 @@ export type ViewLocation = {
   providedIn: 'root'
 })
 export class LocationService {
-  public rdProjection = new Projection({
+  private _Projection = new Projection({
     code: 'EPSG:28992',
     extent: [-285401.92, 22598.08, 595401.92, 903401.92]
   })
+  public get projection() {
+    return this._Projection
+  }
+  public set projection(value) {
+    this._Projection = value
+  }
   public initialView = new View({
-    projection: this.rdProjection,
+    projection: this._Projection,
     center: [155000, 463000],
     zoom: 13,
     enableRotation: false
@@ -109,7 +115,7 @@ export class LocationService {
     this.idlookupService.getFeatures({ displayName: name, link: url }, params).subscribe((data) => {
       const vectorsource = new Vector({
         features: new GeoJSON().readFeatures(data, {
-          featureProjection: this.rdProjection
+          featureProjection: this._Projection
         }),
 
         attributions: name

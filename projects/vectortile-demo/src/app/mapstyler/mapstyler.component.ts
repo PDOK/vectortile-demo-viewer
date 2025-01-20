@@ -91,6 +91,7 @@ export class MapstylerComponent implements AfterViewInit {
 
   onSelectLevel(lev: LegendLevel) {
     this.ColorMap.setSelector(lev)
+    this._isShowStyler= true
     this.refreshlayer()
   }
 

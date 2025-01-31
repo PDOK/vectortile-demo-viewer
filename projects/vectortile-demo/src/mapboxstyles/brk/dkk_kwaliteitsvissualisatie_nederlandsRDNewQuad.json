@@ -153,6 +153,8 @@
           "sans-serif",
           "Noto Color Emoji"
         ],
+        "text-allow-overlap": true,
+        "icon-allow-overlap": true, 
         "symbol-placement": "line-center"
       },
       "paint": { "text-color": "#797979" }
@@ -212,8 +214,14 @@
           "sans-serif",
           "Noto Color Emoji"
         ],
-
-        "text-size": 15,
+         "text-size": {
+          "stops": [
+            [12, 10],
+            [13, 11],
+            [14, 12],
+            [15, 14]
+          ]
+        },
         "text-rotate": ["-", 360, ["get", "mshoek"]]
       }
     }

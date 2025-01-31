@@ -1,24 +1,25 @@
 {
   "version": 8,
   "name": "",
+  "id": "kadastrale kaart kwaliteitsvissualisatie",
   "metadata": {
     "ol:webfonts": "http://localhost:4200/assets/fonts/{font-family}/{fontweight}{-fontstyle}.css",
     "gokoala:title-items": "id"
   },
+
   "center": [],
   "pitch": 0,
   "sources": {
     "dkk": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v1-preprod/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+        "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v5-preprod/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
       ],
       "minzoom": 9,
       "maxzoom": 11
     }
   },
-  "sprite": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/standaardsprites/sprite@1",
-  "glyphs": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
+
   "layers": [
     {
       "id": "Bebouwing",
@@ -26,6 +27,103 @@
       "source": "dkk",
       "source-layer": "pand",
       "paint": { "fill-color": "#E6E6E6", "fill-outline-color": "#CDCDCD" }
+    },
+
+    {
+      "id": "Kwaliteitslabel Onbekend",
+      "type": "line",
+      "source": "dkk",
+      "source-layer": "kadastrale_grens",
+      "filter": ["in", "type_grens_waarde", "Voorlopig", "Administratief"],
+      "layout": { "line-join": "round" },
+      "paint": {
+        "line-dasharray": [4, 2],
+        "line-color": "#bbbbbb",
+        "line-width": 3
+      }
+    },
+    {
+      "id": "Kwaliteitslabel E",
+      "type": "line",
+      "source": "dkk",
+      "source-layer": "kadastrale_grens",
+      "filter": ["==", "classificatie_kwaliteit_waarde", "E"],
+      "paint": { "line-color": "#fe9c33", "line-width": 3 }
+    },
+    {
+      "id": "Kwaliteitslabel D",
+      "type": "line",
+      "source": "dkk",
+      "source-layer": "kadastrale_grens",
+      "filter": ["==", "classificatie_kwaliteit_waarde", "D"],
+      "paint": { "line-color": "#fed98e", "line-width": 3 }
+    },
+    {
+      "id": "Kwaliteitslabel C",
+      "type": "line",
+      "source": "dkk",
+      "source-layer": "kadastrale_grens",
+      "filter": ["==", "classificatie_kwaliteit_waarde", "C"],
+      "paint": { "line-color": "#bae4bc", "line-width": 3 }
+    },
+    {
+      "id": "Kwaliteitslabel B",
+      "type": "line",
+      "source": "dkk",
+      "source-layer": "kadastrale_grens",
+      "filter": ["==", "classificatie_kwaliteit_waarde", "B"],
+      "paint": { "line-color": "#008200", "line-width": 3 }
+    },
+
+    {
+      "id": "Bijpijling",
+      "type": "line",
+      "source": "dkk",
+      "source-layer": "perceel_bijpijling",
+      "paint": { "line-color": "#000001", "line-width": 1 }
+    },
+    {
+      "id": "Label (perceel label)",
+      "type": "symbol",
+      "source": "dkk",
+      "source-layer": "perceel_label",
+      "layout": {
+        "text-field": "{perceelnummer}",
+        "text-size": {
+          "stops": [
+            [12, 6],
+            [13, 8],
+            [14, 9],
+            [15, 12],
+            [16, 14]
+          ],
+          "default": 14
+        },
+        "text-font": [
+          "liberation-sans-italic",
+          "system-ui",
+          "Roboto",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Noto Color Emoji"
+        ],
+        "symbol-placement": "line-center"
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": {
+          "stops": [
+            [12, 8],
+            [13, 10],
+            [14, 12],
+            [15, 14],
+            [16, 16]
+          ]
+        }
+      }
     },
     {
       "id": "Nummeraanduidingreeks",
@@ -41,17 +139,9 @@
             [13, 6],
             [14, 10],
             [15, 14]
-
           ]
         },
-        "text-rotate": [
-          "-",
-          360,
-          [
-              "get",
-              "hoek"
-          ]
-      ],
+        "text-rotate": ["get", "hoek"],
 
         "text-font": [
           "liberation-sans",
@@ -68,13 +158,20 @@
       "paint": { "text-color": "#797979" }
     },
     {
-      "id": "Water (openbareruimtelabel)",
+      "id": "Water openbareruimtelabel",
       "type": "symbol",
       "source": "dkk",
       "source-layer": "openbareruimtelabel",
+      "paint": {
+        "text-color": "#002750"
+      },
+      "filter": [
+        "all",
+        ["==", "openbareruimtetype", "Water"],
+        ["==", "status", "bestaand"]
+      ],
       "layout": {
-        "text-field": "{tekst}",
-        "text-size": 11,
+        "text-field": "{openbareruimtenaam}",
         "text-font": [
           "liberation-sans-italic",
           "system-ui",
@@ -85,120 +182,9 @@
           "sans-serif",
           "Noto Color Emoji"
         ],
-        "symbol-placement": "line-center"
-      },
-      "paint": { "text-color": "#000000" }
-    },
-    {
-      "id": "Weg (openbareruimtelabel)",
-      "type": "symbol",
-      "source": "dkk",
-      "source-layer": "openbareruimtelabel",
-      "layout": {
-        "text-field": "{tekst}",
-        "text-size": 11,
-        "text-font": [
-          "liberation-sans",
-          "system-ui",
-          "Roboto",
-          "Arial",
-          "Noto Sans",
-          "Liberation Sans",
-          "sans-serif",
-          "Noto Color Emoji"
-        ],
-        "symbol-placement": "line-center"
-      },
-      "paint": { "text-color": "#000000" }
-    },
-    {
-      "id": "Perceel",
-      "type": "fill",
-      "source": "dkk",
-      "source-layer": "perceel",
-      "paint": {
-        "fill-outline-color": "#000001",
-        "fill-color": "rgba(0, 0, 0, 0)"
+
+        "text-size": 15
       }
-    },
-    {
-      "id": "Label (perceel label)",
-      "type": "symbol",
-      "source": "dkk",
-      "source-layer": "perceel_label",
-      "layout": {
-        "text-field": "{perceelnummer}",
-        "text-size": 7,
-        "text-font": [
-          "liberation-sans-italic",
-          "system-ui",
-          "Roboto",
-          "Arial",
-          "Noto Sans",
-          "Liberation Sans",
-          "sans-serif",
-          "Noto Color Emoji"
-        ],
-        "symbol-placement": "line-center"
-      },
-      "paint": {
-        "text-color": "#000000",
-        "text-halo-color": "#FFFFFF",
-        "text-halo-width": 2
-      }
-    },
-    {
-      "id": "Bijpijling",
-      "type": "line",
-      "source": "dkk",
-      "source-layer": "perceel_bijpijling",
-      "paint": { "line-color": "#000001", "line-width": 1 }
-    },
-    {
-      "id": "Kwaliteitslabel Onbekend",
-      "type": "line",
-      "source": "dkk",
-      "source-layer": "kadastrale_grens",
-      "filter": ["in", "type_grens_waarde", "Voorlopig", "Administratief"],
-      "layout": { "line-join": "round" },
-      "paint": {
-        "line-dasharray": [4, 2],
-        "line-color": "#bbbbbb",
-        "line-width": 2
-      }
-    },
-    {
-      "id": "Kwaliteitslabel E",
-      "type": "line",
-      "source": "dkk",
-      "source-layer": "kadastrale_grens",
-      "filter": ["==", "classificatie_kwaliteit_waarde", "E"],
-      "paint": { "line-color": "#fe9c33", "line-width": 2 }
-    },
-    {
-      "id": "Kwaliteitslabel D",
-      "type": "line",
-      "source": "dkk",
-      "source-layer": "kadastrale_grens",
-      "filter": ["==", "classificatie_kwaliteit_waarde", "D"],
-      "paint": { "line-color": "#fed98e", "line-width": 2 }
-    },
-    {
-      "id": "Kwaliteitslabel C",
-      "type": "line",
-      "source": "dkk",
-      "source-layer": "kadastrale_grens",
-      "filter": ["==", "classificatie_kwaliteit_waarde", "C"],
-      "paint": { "line-color": "#bae4bc", "line-width": 2 }
-    },
-    {
-      "id": "Kwaliteitslabel B",
-      "type": "line",
-      "source": "dkk",
-      "source-layer": "kadastrale_grens",
-      "filter": ["==", "classificatie_kwaliteit_waarde", "B"],
-      "paint": { "line-color": "#008200", "line-width": 2 }
     }
-  ],
-  "id": ""
+  ]
 }

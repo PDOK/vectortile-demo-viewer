@@ -167,11 +167,11 @@
       },
       "filter": [
         "all",
-        ["==", "openbareruimtetype", "Water"],
-        ["==", "status", "bestaand"]
+        ["==", "openbare_ruimte_type", "Water"],
+        ["==", "bgt_status", "bestaand"]
       ],
       "layout": {
-        "text-field": "{openbareruimtenaam}",
+        "text-field": "{tekst}",
         "text-font": [
           "liberation-sans-italic",
           "system-ui",
@@ -183,7 +183,38 @@
           "Noto Color Emoji"
         ],
 
-        "text-size": 15
+        "text-size": 15,
+        "text-rotate": ["-", 360, ["get", "mshoek"]]
+      }
+    },
+    {
+      "id": "Weg openbareruimtelabel",
+      "type": "symbol",
+      "source": "dkk",
+      "source-layer": "openbareruimtelabel",
+      "paint": {
+        "text-color": "#002750"
+      },
+      "filter": [
+        "all",
+        ["==", "openbare_ruimte_type", "Weg"],
+        ["==", "bgt_status", "bestaand"]
+      ],
+      "layout": {
+        "text-field": "{tekst}",
+        "text-font": [
+          "liberation-sans-italic",
+          "system-ui",
+          "Roboto",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Noto Color Emoji"
+        ],
+
+        "text-size": 15,
+        "text-rotate": ["-", 360, ["get", "mshoek"]]
       }
     }
   ]

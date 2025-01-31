@@ -2,7 +2,7 @@
   "version": 8,
   "name": "",
   "metadata": {
-    "ol:webfonts": "http://localhost:4200/assets/fonts/{font-family}/{fontweight}{-fontstyle}.css",
+    "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
     "gokoala:title-items": "id"
   },
   "center": [],
@@ -11,10 +11,9 @@
     "dkk": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v1-preprod/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
-      ],
-      "minzoom": 9,
-      "maxzoom": 11
+        "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v5-preprod/tiles/WebMercatorQuad/{z}/{y}/{x}?f=mvt"
+      ]
+
     }
   },
   "sprite": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/standaardsprites/sprite@1",
@@ -31,10 +30,10 @@
       }
     },
     {
-      "id": "Nummeraanduidingreeks pand_nummeraanduiding (pand nummeraanduiding)",
+      "id": "Nummeraanduidingreeks nummeraanduidingreeks (pand nummeraanduiding)",
       "type": "symbol",
       "source": "dkk",
-      "source-layer": "pand_nummeraanduiding",
+      "source-layer": "nummeraanduidingreeks",
       "layout": {
         "text-field": "{tekst}",
         "text-size": 6,
@@ -53,7 +52,7 @@
       "paint": {"text-color": "#C10101"}
     },
     {
-      "id": "Weg openbareruimtelabel (openbareruimtelabel)",
+      "id": "Weg openbareruimtelabel",
       "type": "symbol",
       "source": "dkk",
       "source-layer": "openbareruimtelabel",
@@ -96,17 +95,7 @@
       },
       "paint": {"text-color": "#000000"}
     },
-    {
-      "id": "Perceel perceel",
-      "type": "fill",
-      "source": "dkk",
-      "source-layer": "perceel",
-      "paint": {
-        "fill-outline-color": "#000001",
-        "fill-color": "rgba(0, 0, 0, 0)"
-      }
-    },
-    {
+     {
       "id": "Label perceel_label (perceel label)",
       "type": "symbol",
       "source": "dkk",

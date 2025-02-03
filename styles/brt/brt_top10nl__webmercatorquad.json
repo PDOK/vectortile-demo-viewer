@@ -1,7 +1,7 @@
 {
   "version": 8,
   "metadata": {
-    "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1-demo/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
+    "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
     "gokoala:title-items": "id"
   },
   "name": "",
@@ -11,14 +11,14 @@
     "top10nl": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/brt/top10nl/ogc/v1-demo/tiles/WebMercatorQuad/{z}/{y}/{x}?f=mvt"
+        "https://api.pdok.nl/brt/top10nl/ogc/v1/tiles/WebMercatorQuad/{z}/{y}/{x}?f=mvt"
       ],
       "minzoom": 14,
       "maxzoom": 17
     }
   },
-  "sprite": "https://api.pdok.nl/brt/top10nl/ogc/v1-demo/resources/standaardsprites/sprite@1",
-  "glyphs": "https://pdok.github.io/vectortile-demo-viewer/assets/fonts/{fontstack}/{range}.pbf",
+  "sprite": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/standaardsprites/sprite@1",
+  "glyphs": "https://pdok.github.io/vectortile-viewer/assets/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "functioneel_gebied_vlak",
@@ -90,7 +90,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14000, 14002, 14003],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14000,
+        14002,
+        14003
+      ],
       "paint": {
         "fill-color": "#686868"
       }
@@ -100,7 +106,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14010, 14012, 14013],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14010,
+        14012,
+        14013
+      ],
       "paint": {
         "fill-color": "#FFFFDE"
       }
@@ -110,7 +122,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14020, 14022, 14023],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14020,
+        14022,
+        14023
+      ],
       "paint": {
         "fill-pattern": "cross_Dove_Gray"
       }
@@ -120,7 +138,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14030, 14032, 14033],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14030,
+        14032,
+        14033
+      ],
       "paint": {
         "fill-color": "#9C9C9C"
       }
@@ -130,7 +154,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14040, 14042, 14043],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14040,
+        14042,
+        14043
+      ],
       "paint": {
         "fill-pattern": "kilometerpaal"
       }
@@ -140,7 +170,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14050, 14052, 14053],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14050,
+        14052,
+        14053
+      ],
       "paint": {
         "fill-pattern": "boomkwekerij_Camarone"
       }
@@ -150,7 +186,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14200, 14202, 14203],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14200,
+        14202,
+        14203
+      ],
       "paint": {
         "fill-color": "#FFFFFF"
       }
@@ -160,7 +202,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14100, 14102, 14103],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14100,
+        14102,
+        14103
+      ],
       "paint": {
         "fill-color": "#CCCCCC"
       }
@@ -170,7 +218,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14110, 14112, 14113],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14110,
+        14112,
+        14113
+      ],
       "paint": {
         "fill-color": "#CCCCCC"
       }
@@ -180,7 +234,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14210, 14212, 14213],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14210,
+        14212,
+        14213
+      ],
       "paint": {
         "fill-color": "#FFFF73"
       }
@@ -190,7 +250,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14120, 14122, 14123],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14120,
+        14122,
+        14123
+      ],
       "paint": {
         "fill-pattern": "fruitkwekerij"
       }
@@ -200,7 +266,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14062, 14063, 14060],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14062,
+        14063,
+        14060
+      ],
       "paint": {
         "fill-pattern": "gemengdbos_Deep_Cerulean"
       }
@@ -210,7 +282,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14130, 14132, 14133],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14130,
+        14132,
+        14133
+      ],
       "paint": {
         "fill-color": "#C9EB70"
       }
@@ -220,7 +298,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14070, 14072, 14073],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14070,
+        14072,
+        14073
+      ],
       "paint": {
         "fill-pattern": "Griend_Limeade"
       }
@@ -230,7 +314,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14140, 14142, 14143],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14140,
+        14142,
+        14143
+      ],
       "paint": {
         "fill-color": "#FCB3FB"
       }
@@ -240,7 +330,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14080, 14082, 14083],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14080,
+        14082,
+        14083
+      ],
       "paint": {
         "fill-pattern": "loofbos_Deep_Cerulean"
       }
@@ -250,7 +346,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14090, 14092, 14093],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14090,
+        14092,
+        14093
+      ],
       "paint": {
         "fill-pattern": "naaldbos_Deep_Cerulean"
       }
@@ -260,7 +362,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14160, 14162, 14163],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14160,
+        14162,
+        14163
+      ],
       "paint": {
         "fill-color": "#FFFFFF"
       }
@@ -270,7 +378,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14170, 14172, 14173],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14170,
+        14172,
+        14173
+      ],
       "paint": {
         "fill-pattern": "populier"
       }
@@ -280,7 +394,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14180, 14182, 14183],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14180,
+        14182,
+        14183
+      ],
       "paint": {
         "fill-color": "#FFFFFF"
       }
@@ -290,7 +410,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "terrein_vlak",
-      "filter": ["in", "visualisatiecode", 14190, 14192, 14193],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        14190,
+        14192,
+        14193
+      ],
       "paint": {
         "fill-color": "#FFFF73"
       }
@@ -300,7 +426,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "waterdeel_vlak",
-      "filter": [">=", "hoogteniveau", "0"],
+      "filter": [
+        ">=",
+        "hoogteniveau",
+        "0"
+      ],
       "paint": {
         "fill-outline-color": "#73B2FF"
       }
@@ -310,7 +440,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "waterdeel_vlak",
-      "filter": ["==", "visualisatiecode", 12600],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        12600
+      ],
       "paint": {
         "fill-pattern": "droogvallend_Pirate_Gold"
       }
@@ -320,7 +454,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "waterdeel_vlak",
-      "filter": ["==", "visualisatiecode", 12610],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        12610
+      ],
       "paint": {
         "fill-color": "#A0DCFF"
       }
@@ -330,7 +468,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "waterdeel_vlak",
-      "filter": ["==", "visualisatiecode", 12500],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        12500
+      ],
       "paint": {
         "fill-color": "#BEE8FF"
       }
@@ -340,7 +482,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "waterdeel_vlak",
-      "filter": ["==", "visualisatiecode", 12800],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        12800
+      ],
       "paint": {
         "fill-color": "#BEE8FF"
       }
@@ -350,7 +496,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "waterdeel_vlak",
-      "filter": ["==", "visualisatiecode", 12820],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        12820
+      ],
       "paint": {
         "fill-color": "#BEE8FF"
       }
@@ -379,7 +529,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "waterdeel_vlak",
-      "filter": ["==", "visualisatiecode", 12810],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        12810
+      ],
       "paint": {
         "fill-color": "#BEE8FF",
         "fill-outline-color": "#828282"
@@ -390,7 +544,14 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "waterdeel_vlak",
-      "filter": ["in", "visualisatiecode", 12400, 12410, 12420, 12430],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        12400,
+        12410,
+        12420,
+        12430
+      ],
       "paint": {
         "fill-color": "#BEE8FF",
         "fill-opacity": 1
@@ -401,7 +562,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "waterdeel_vlak",
-      "filter": ["==", "visualisatiecode", 12700],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        12700
+      ],
       "paint": {
         "fill-color": "#A0DCFF"
       }
@@ -411,7 +576,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
-      "filter": [">=", "hoogteniveau", "0"],
+      "filter": [
+        ">=",
+        "hoogteniveau",
+        "0"
+      ],
       "paint": {
         "fill-outline-color": "#343434"
       }
@@ -421,7 +590,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
-      "filter": [">=", "hoogteniveau", "0"],
+      "filter": [
+        ">=",
+        "hoogteniveau",
+        "0"
+      ],
       "paint": {
         "fill-color": "#FFFFFF",
         "fill-opacity": 0
@@ -432,7 +605,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
-      "filter": ["in", "visualisatiecode", 10202, 10200, 10201],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10202,
+        10200,
+        10201
+      ],
       "paint": {
         "fill-color": "#996089"
       }
@@ -442,7 +621,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
-      "filter": ["in", "visualisatiecode", 10742, 10740, 10741],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10742,
+        10740,
+        10741
+      ],
       "paint": {
         "fill-color": "#FFD37F"
       }
@@ -452,7 +637,12 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
-      "filter": ["in", "visualisatiecode", 10721, 10720],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10721,
+        10720
+      ],
       "paint": {
         "fill-color": "#B3B300"
       }
@@ -500,7 +690,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
-      "filter": ["in", "visualisatiecode", 10732, 10730, 10731],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10732,
+        10730,
+        10731
+      ],
       "paint": {
         "fill-color": "#9C9C9C"
       }
@@ -532,7 +728,12 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
-      "filter": ["in", "visualisatiecode", 10781, 10780],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10781,
+        10780
+      ],
       "paint": {
         "fill-color": "#FFFFFF"
       }
@@ -561,7 +762,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
-      "filter": ["in", "visualisatiecode", 10102, 10100, 10101],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10102,
+        10100,
+        10101
+      ],
       "paint": {
         "fill-color": "#CCCCCC"
       }
@@ -571,7 +778,12 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
-      "filter": ["in", "visualisatiecode", 10002, 10000],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10002,
+        10000
+      ],
       "paint": {
         "fill-color": "#CCCCCC"
       }
@@ -581,7 +793,13 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "wegdeel_vlak",
-      "filter": ["in", "visualisatiecode", 10602, 10601, 10600],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10602,
+        10601,
+        10600
+      ],
       "paint": {
         "fill-color": "#FFFFFF"
       }
@@ -610,7 +828,13 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "wegdeel_lijn",
-      "filter": ["in", "visualisatiecode", 10740, 10741, 10742],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10740,
+        10741,
+        10742
+      ],
       "layout": {
         "line-join": "bevel"
       },
@@ -624,12 +848,21 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "wegdeel_lijn",
-      "filter": ["in", "visualisatiecode", 10800, 10820, 10830],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10800,
+        10820,
+        10830
+      ],
       "layout": {
         "line-join": "miter"
       },
       "paint": {
-        "line-dasharray": [3, 4],
+        "line-dasharray": [
+          3,
+          4
+        ],
         "line-color": "#000000"
       }
     },
@@ -638,12 +871,19 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "wegdeel_lijn",
-      "filter": ["==", "visualisatiecode", 10770],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        10770
+      ],
       "layout": {
         "line-join": "miter"
       },
       "paint": {
-        "line-dasharray": [3, 7],
+        "line-dasharray": [
+          3,
+          7
+        ],
         "line-color": "#732600"
       }
     },
@@ -652,12 +892,20 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "wegdeel_lijn",
-      "filter": ["in", "visualisatiecode", 10750, 10751],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10750,
+        10751
+      ],
       "layout": {
         "line-join": "miter"
       },
       "paint": {
-        "line-dasharray": [3, 6],
+        "line-dasharray": [
+          3,
+          6
+        ],
         "line-color": "#000000"
       }
     },
@@ -666,9 +914,16 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "waterdeel_lijn",
-      "filter": ["==", "visualisatiecode", 12100],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        12100
+      ],
       "paint": {
-        "line-dasharray": [1, 2],
+        "line-dasharray": [
+          1,
+          2
+        ],
         "line-color": "#73DFFF"
       }
     },
@@ -677,7 +932,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "waterdeel_lijn",
-      "filter": ["==", "visualisatiecode", 12200],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        12200
+      ],
       "paint": {
         "line-color": "#73DFFF"
       }
@@ -687,7 +946,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "waterdeel_lijn",
-      "filter": ["==", "visualisatiecode", 12300],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        12300
+      ],
       "paint": {
         "line-color": "#00C5FF",
         "line-width": 1.5
@@ -698,7 +961,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "waterdeel_lijn",
-      "filter": ["==", "visualisatiecode", 12810],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        12810
+      ],
       "paint": {
         "line-color": "#73DFFF",
         "line-width": 2
@@ -709,7 +976,13 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "spoorbaandeel_lijn",
-      "filter": ["in", "visualisatiecode", 11000, 11001, 11002],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        11000,
+        11001,
+        11002
+      ],
       "layout": {
         "line-join": "miter"
       },
@@ -723,7 +996,13 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "spoorbaandeel_lijn",
-      "filter": ["in", "visualisatiecode", 11000, 11001, 11002],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        11000,
+        11001,
+        11002
+      ],
       "layout": {
         "line-join": "round"
       },
@@ -737,12 +1016,21 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "spoorbaandeel_lijn",
-      "filter": ["in", "visualisatiecode", 11000, 11001, 11002],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        11000,
+        11001,
+        11002
+      ],
       "layout": {
         "line-join": "round"
       },
       "paint": {
-        "line-dasharray": [20, 18],
+        "line-dasharray": [
+          20,
+          18
+        ],
         "line-color": "#FFFFFF",
         "line-width": 2.6
       }
@@ -752,7 +1040,13 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "spoorbaandeel_lijn",
-      "filter": ["in", "visualisatiecode", 11300, 11301, 11302],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        11300,
+        11301,
+        11302
+      ],
       "layout": {
         "line-join": "miter"
       },
@@ -766,7 +1060,13 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "spoorbaandeel_lijn",
-      "filter": ["in", "visualisatiecode", 11300, 11301, 11302],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        11300,
+        11301,
+        11302
+      ],
       "layout": {
         "line-join": "round"
       },
@@ -780,12 +1080,21 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "spoorbaandeel_lijn",
-      "filter": ["in", "visualisatiecode", 11300, 11301, 11302],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        11300,
+        11301,
+        11302
+      ],
       "layout": {
         "line-join": "round"
       },
       "paint": {
-        "line-dasharray": [20, 18],
+        "line-dasharray": [
+          20,
+          18
+        ],
         "line-color": "#FFFFFF",
         "line-width": 2.6
       }
@@ -795,7 +1104,13 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "spoorbaandeel_lijn",
-      "filter": ["in", "visualisatiecode", 11200, 11201, 11202],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        11200,
+        11201,
+        11202
+      ],
       "layout": {
         "line-join": "miter"
       },
@@ -809,7 +1124,13 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "spoorbaandeel_lijn",
-      "filter": ["in", "visualisatiecode", 11200, 11201, 11202],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        11200,
+        11201,
+        11202
+      ],
       "layout": {
         "line-join": "round"
       },
@@ -823,12 +1144,21 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "spoorbaandeel_lijn",
-      "filter": ["in", "visualisatiecode", 11200, 11201, 11202],
+      "filter": [
+        "in",
+        "visualisatiecode",
+        11200,
+        11201,
+        11202
+      ],
       "layout": {
         "line-join": "round"
       },
       "paint": {
-        "line-dasharray": [20, 18],
+        "line-dasharray": [
+          20,
+          18
+        ],
         "line-color": "#FFFFFF",
         "line-width": 2.6
       }
@@ -907,7 +1237,10 @@
         "line-join": "round"
       },
       "paint": {
-        "line-dasharray": [18, 20],
+        "line-dasharray": [
+          18,
+          20
+        ],
         "line-color": "#FFFFFF",
         "line-width": 2.6
       }
@@ -926,7 +1259,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15000],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15000
+      ],
       "paint": {
         "line-color": "#000000",
         "line-width": 1.5
@@ -937,9 +1274,16 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15020],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15020
+      ],
       "paint": {
-        "line-dasharray": [1, 20],
+        "line-dasharray": [
+          1,
+          20
+        ],
         "line-color": "#000000"
       }
     },
@@ -948,7 +1292,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15130],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15130
+      ],
       "paint": {
         "line-color": "#B5B3B3"
       }
@@ -958,9 +1306,16 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15180],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15180
+      ],
       "paint": {
-        "line-dasharray": [1, 26],
+        "line-dasharray": [
+          1,
+          26
+        ],
         "line-color": "#808080"
       }
     },
@@ -969,9 +1324,16 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15190],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15190
+      ],
       "paint": {
-        "line-dasharray": [1, 11],
+        "line-dasharray": [
+          1,
+          11
+        ],
         "line-color": "#000000",
         "line-width": 2
       }
@@ -981,7 +1343,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15210],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15210
+      ],
       "paint": {
         "line-color": "#000000"
       }
@@ -991,7 +1357,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "registratief_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 17010],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        17010
+      ],
       "paint": {
         "line-color": "#A80000",
         "line-width": 3
@@ -1002,7 +1372,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "registratief_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 17020],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        17020
+      ],
       "paint": {
         "line-color": "#D99800",
         "line-width": 3
@@ -1013,7 +1387,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "registratief_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 17000],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        17000
+      ],
       "paint": {
         "line-color": "#FFFF00",
         "line-width": 3
@@ -1024,7 +1402,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15460],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15460
+      ],
       "paint": {
         "line-color": "#FF0000"
       }
@@ -1034,7 +1416,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15490],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15490
+      ],
       "paint": {
         "line-color": "#008096"
       }
@@ -1044,9 +1430,16 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15570],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15570
+      ],
       "paint": {
-        "line-dasharray": [3, 129],
+        "line-dasharray": [
+          3,
+          129
+        ],
         "line-color": "#0F7C81",
         "line-width": 7
       }
@@ -1056,7 +1449,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15610],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15610
+      ],
       "layout": {
         "line-join": "round"
       },
@@ -1070,7 +1467,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15670],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15670
+      ],
       "paint": {
         "line-color": "#A8A7A7"
       }
@@ -1080,7 +1481,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15720],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15720
+      ],
       "paint": {
         "line-color": "#BCB8FC"
       }
@@ -1090,7 +1495,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15760],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15760
+      ],
       "paint": {
         "line-color": "#000000"
       }
@@ -1100,7 +1509,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "gebouw_vlak",
-      "filter": ["==", "visualisatiecode", 13200],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        13200
+      ],
       "paint": {
         "fill-color": "#FFFFFF",
         "fill-outline-color": "#FF0000"
@@ -1111,7 +1524,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "gebouw_vlak",
-      "filter": ["==", "visualisatiecode", 13100],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        13100
+      ],
       "paint": {
         "fill-color": "#A80000"
       }
@@ -1121,7 +1538,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "gebouw_vlak",
-      "filter": ["==", "visualisatiecode", 13300],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        13300
+      ],
       "paint": {
         "fill-color": "#B2B2B2",
         "fill-outline-color": "#4E4E4E"
@@ -1132,7 +1553,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "gebouw_vlak",
-      "filter": ["==", "visualisatiecode", 13400],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        13400
+      ],
       "paint": {
         "fill-color": "#CCB366",
         "fill-outline-color": "#FF0000"
@@ -1143,7 +1568,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "gebouw_vlak",
-      "filter": ["==", "visualisatiecode", 13000],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        13000
+      ],
       "paint": {
         "fill-color": "#4E4E4E"
       }
@@ -1153,7 +1582,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "filter": ["==", "typegebouw", "brandtoren"],
+      "filter": [
+        "==",
+        "typegebouw",
+        "brandtoren"
+      ],
       "paint": {
         "circle-color": "#000000",
         "circle-radius": 0.7
@@ -1164,7 +1597,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "filter": ["==", "typegebouw", "gemaal"],
+      "filter": [
+        "==",
+        "typegebouw",
+        "gemaal"
+      ],
       "layout": {
         "icon-image": "gemaal"
       }
@@ -1174,7 +1611,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "filter": ["==", "typegebouw", "kapel"],
+      "filter": [
+        "==",
+        "typegebouw",
+        "kapel"
+      ],
       "paint": {
         "circle-color": "#FCC5CA",
         "circle-radius": 1.3,
@@ -1186,7 +1627,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "filter": ["==", "typegebouw", "radarpost"],
+      "filter": [
+        "==",
+        "typegebouw",
+        "radarpost"
+      ],
       "paint": {
         "circle-color": "#FCD3CC",
         "circle-radius": 1.3,
@@ -1198,7 +1643,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "filter": ["==", "typegebouw", "schoorsteen"],
+      "filter": [
+        "==",
+        "typegebouw",
+        "schoorsteen"
+      ],
       "paint": {
         "circle-color": "#A80000",
         "circle-radius": 1.3,
@@ -1210,7 +1659,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "filter": ["==", "typegebouw", "toren"],
+      "filter": [
+        "==",
+        "typegebouw",
+        "toren"
+      ],
       "paint": {
         "circle-color": "#FFFFFF",
         "circle-radius": 4,
@@ -1222,7 +1675,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "filter": ["==", "typegebouw", "uitzichttoren"],
+      "filter": [
+        "==",
+        "typegebouw",
+        "uitzichttoren"
+      ],
       "paint": {
         "circle-color": "#000000",
         "circle-radius": 0.7
@@ -1233,7 +1690,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "filter": ["==", "typegebouw", "windmolen"],
+      "filter": [
+        "==",
+        "typegebouw",
+        "windmolen"
+      ],
       "layout": {
         "icon-image": "windmolen"
       }
@@ -1243,7 +1704,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "filter": ["==", "typegebouw", "windmolen:, korenmolen"],
+      "filter": [
+        "==",
+        "typegebouw",
+        "windmolen:, korenmolen"
+      ],
       "layout": {
         "icon-image": "windmolen"
       }
@@ -1253,7 +1718,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "filter": ["==", "typegebouw", "windmolen:, watermolen"],
+      "filter": [
+        "==",
+        "typegebouw",
+        "windmolen:, watermolen"
+      ],
       "layout": {
         "icon-image": "windmolen"
       }
@@ -1263,7 +1732,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "gebouw_punt",
-      "filter": ["==", "typegebouw", "windturbine"],
+      "filter": [
+        "==",
+        "typegebouw",
+        "windturbine"
+      ],
       "layout": {
         "icon-image": "windmolen"
       }
@@ -1283,12 +1756,19 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "inrichtingselement_lijn",
-      "filter": ["==", "visualisatiecode", 15090],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15090
+      ],
       "layout": {
         "line-join": "miter"
       },
       "paint": {
-        "line-dasharray": [0.1, 1],
+        "line-dasharray": [
+          0.1,
+          1
+        ],
         "line-color": "#3F4029",
         "line-width": 10
       }
@@ -1313,7 +1793,10 @@
       "layout": {
         "line-join": "miter"
       },
-      "line-dasharray": [0.1, 1],
+      "line-dasharray": [
+        0.1,
+        1
+      ],
       "line-color": "#4585B6",
       "line-width": 3
     },
@@ -1322,12 +1805,19 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "relief_lijn",
-      "filter": ["==", "visualisatiecode", 16400],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        16400
+      ],
       "layout": {
         "line-join": "miter"
       },
       "paint": {
-        "line-dasharray": [0.1, 1],
+        "line-dasharray": [
+          0.1,
+          1
+        ],
         "line-color": "#514C4C",
         "line-width": 10,
         "line-opacity": 0.5
@@ -1342,7 +1832,10 @@
         "line-join": "miter"
       },
       "paint": {
-        "line-dasharray": [0.3, 1],
+        "line-dasharray": [
+          0.3,
+          1
+        ],
         "line-color": "#949494",
         "line-width": 5,
         "line-opacity": 0.5
@@ -1357,7 +1850,10 @@
         "line-join": "miter"
       },
       "paint": {
-        "line-dasharray": [0.3, 1],
+        "line-dasharray": [
+          0.3,
+          1
+        ],
         "line-color": "#313030",
         "line-width": 5,
         "line-opacity": 0.5
@@ -1368,12 +1864,19 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "wegdeel_hartlijn",
-      "filter": ["==", "status", "in uitvoering"],
+      "filter": [
+        "==",
+        "status",
+        "in uitvoering"
+      ],
       "layout": {
         "line-join": "round"
       },
       "paint": {
-        "line-dasharray": [5, 4],
+        "line-dasharray": [
+          5,
+          4
+        ],
         "line-color": "#AAAAAA",
         "line-width": 3
       }
@@ -1383,7 +1886,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "functioneel_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 19450],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        19450
+      ],
       "paint": {
         "fill-pattern": "Sport_Blue_Ribbon"
       }
@@ -1393,7 +1900,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "functioneel_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 19050],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        19050
+      ],
       "paint": {
         "fill-pattern": "camping_Blue_Ribbon"
       }
@@ -1403,7 +1914,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "functioneel_gebied_multivlak",
-      "filter": ["==", "visualisatiecode", 19450],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        19450
+      ],
       "paint": {
         "fill-pattern": "Sport_Blue_Ribbon"
       }
@@ -1413,7 +1928,11 @@
       "type": "fill",
       "source": "top10nl",
       "source-layer": "functioneel_gebied_multivlak",
-      "filter": ["==", "visualisatiecode", 19050],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        19050
+      ],
       "paint": {
         "fill-pattern": "camping_Blue_Ribbon"
       }
@@ -1423,12 +1942,19 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "hoogte_lijn",
-      "filter": ["==", "visualisatiecode", 16000],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        16000
+      ],
       "layout": {
         "line-join": "miter"
       },
       "paint": {
-        "line-dasharray": [3, 5],
+        "line-dasharray": [
+          3,
+          5
+        ],
         "line-color": "#004DA8",
         "line-width": 0.5
       }
@@ -1438,12 +1964,19 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "hoogte_lijn",
-      "filter": ["==", "visualisatiecode", 16200],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        16200
+      ],
       "layout": {
         "line-join": "miter"
       },
       "paint": {
-        "line-dasharray": [3, 5],
+        "line-dasharray": [
+          3,
+          5
+        ],
         "line-color": "#A83800",
         "line-width": 0.5
       }
@@ -1453,7 +1986,11 @@
       "type": "line",
       "source": "top10nl",
       "source-layer": "hoogte_lijn",
-      "filter": ["==", "visualisatiecode", 16500],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        16500
+      ],
       "paint": {
         "line-color": "#004DA8"
       }
@@ -1463,7 +2000,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15010],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15010
+      ],
       "paint": {
         "circle-color": "#000000",
         "circle-radius": 0.7
@@ -1474,7 +2015,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15030],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15030
+      ],
       "paint": {
         "circle-color": "#000000",
         "circle-radius": 1
@@ -1485,7 +2030,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15100],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15100
+      ],
       "paint": {
         "circle-color": "#000000",
         "circle-radius": 0.7
@@ -1496,7 +2045,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15120],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15120
+      ],
       "layout": {
         "icon-image": "gedenkteken"
       }
@@ -1506,7 +2059,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15160],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15160
+      ],
       "layout": {
         "icon-image": "gps_triangle_circle"
       }
@@ -1516,7 +2073,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15170],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15170
+      ],
       "paint": {
         "circle-color": "#FF0000",
         "circle-radius": 1.3,
@@ -1528,7 +2089,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15220],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15220
+      ],
       "paint": {
         "circle-color": "#000000",
         "circle-radius": 2.7
@@ -1539,7 +2104,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15280],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15280
+      ],
       "layout": {
         "icon-image": "kilometerpaal_Red"
       }
@@ -1549,7 +2118,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15290],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15290
+      ],
       "paint": {
         "circle-color": "#FF0000",
         "circle-radius": 1.7
@@ -1560,7 +2133,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15300],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15300
+      ],
       "layout": {
         "icon-image": "kilometerpaal_water"
       }
@@ -1570,7 +2147,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15310],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15310
+      ],
       "paint": {
         "circle-color": "#004DA8",
         "circle-radius": 1.7
@@ -1581,7 +2162,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15320],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15320
+      ],
       "paint": {
         "circle-color": "#000000",
         "circle-radius": 1.7
@@ -1592,7 +2177,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15350],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15350
+      ],
       "paint": {
         "circle-color": "#FCC0E4",
         "circle-radius": 1.3,
@@ -1604,7 +2193,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15380],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15380
+      ],
       "paint": {
         "circle-color": "#FAFCC7",
         "circle-radius": 1.3,
@@ -1616,7 +2209,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15450],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15450
+      ],
       "paint": {
         "circle-color": "#FF0000",
         "circle-radius": 1.7,
@@ -1628,7 +2225,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15900],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15900
+      ],
       "paint": {
         "circle-color": "#FCCCF9",
         "circle-radius": 1.3,
@@ -1640,7 +2241,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15480],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15480
+      ],
       "paint": {
         "circle-color": "#000000",
         "circle-radius": 1.7
@@ -1651,7 +2256,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15510],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15510
+      ],
       "paint": {
         "circle-color": "#C7B6FC",
         "circle-radius": 0.2,
@@ -1663,7 +2272,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15520],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15520
+      ],
       "paint": {
         "circle-color": "#FFFFFF",
         "circle-radius": 0.3,
@@ -1675,7 +2288,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15560],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15560
+      ],
       "layout": {
         "icon-image": "rd_triangle_circle"
       }
@@ -1685,7 +2302,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15920],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15920
+      ],
       "layout": {
         "icon-image": "scheepvaartlicht"
       }
@@ -1695,7 +2316,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15590],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15590
+      ],
       "paint": {
         "circle-color": "#FCE4CF",
         "circle-radius": 1.3,
@@ -1707,7 +2332,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15600],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15600
+      ],
       "paint": {
         "circle-color": "#E9FCBB",
         "circle-radius": 1.3,
@@ -1719,7 +2348,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15930],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15930
+      ],
       "paint": {
         "circle-color": "#FCCCF9",
         "circle-radius": 1.3,
@@ -1731,7 +2364,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15660],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15660
+      ],
       "paint": {
         "circle-color": "#D7F9FC",
         "circle-radius": 1.3,
@@ -1743,7 +2380,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15940],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15940
+      ],
       "paint": {
         "circle-color": "#FCCCF9",
         "circle-radius": 1.3,
@@ -1755,7 +2396,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15770],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15770
+      ],
       "layout": {
         "icon-image": "wegwijzer"
       }
@@ -1765,7 +2410,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15810],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15810
+      ],
       "paint": {
         "circle-color": "#FCB8B6",
         "circle-radius": 1.3,
@@ -1777,7 +2426,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15840],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15840
+      ],
       "layout": {
         "icon-image": "zendmast"
       }
@@ -1787,7 +2440,11 @@
       "type": "circle",
       "source": "top10nl",
       "source-layer": "inrichtingselement_punt",
-      "filter": ["==", "visualisatiecode", 15850],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        15850
+      ],
       "paint": {
         "circle-color": "#FCC6B8",
         "circle-radius": 1.3,
@@ -1799,7 +2456,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "hoogte_punt",
-      "filter": ["==", "visualisatiecode", 16100],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        16100
+      ],
       "layout": {
         "text-field": "{hoogte}",
         "text-size": 10.4,
@@ -1823,7 +2484,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "hoogte_punt",
-      "filter": ["==", "visualisatiecode", 16300],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        16300
+      ],
       "layout": {
         "text-field": "{hoogte}",
         "text-size": 10.4,
@@ -1847,7 +2512,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "hoogte_punt",
-      "filter": ["==", "visualisatiecode", 16600],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        16600
+      ],
       "layout": {
         "icon-image": "plus_Pompadour"
       }
@@ -1857,7 +2526,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "hoogte_punt",
-      "filter": ["==", "visualisatiecode", 16610],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        16610
+      ],
       "layout": {
         "icon-image": "plus_Pompadour"
       }
@@ -1867,7 +2540,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "hoogte_punt",
-      "filter": ["==", "visualisatiecode", 16620],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        16620
+      ],
       "layout": {
         "icon-image": "plus_Pompadour"
       }
@@ -1888,12 +2565,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "wegdeel_hartlijn",
-      "filter": ["==", "typeweg", "overig"],
+      "filter": [
+        "==",
+        "typeweg",
+        "overig"
+      ],
       "layout": {
         "text-field": "{naam}",
         "text-size": 9,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -1913,12 +2594,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "wegdeel_hartlijn",
-      "filter": ["==", "typeweg", "straat"],
+      "filter": [
+        "==",
+        "typeweg",
+        "straat"
+      ],
       "layout": {
         "text-field": "{naam}",
         "text-size": 11.2,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -1938,12 +2623,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "wegdeel_hartlijn",
-      "filter": ["==", "typeweg", "lokale weg"],
+      "filter": [
+        "==",
+        "typeweg",
+        "lokale weg"
+      ],
       "layout": {
         "text-field": "{naam}",
         "text-size": 9,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -1963,12 +2652,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "wegdeel_hartlijn",
-      "filter": ["==", "typeweg", "regionale weg"],
+      "filter": [
+        "==",
+        "typeweg",
+        "regionale weg"
+      ],
       "layout": {
         "text-field": "{naam}",
         "text-size": 9,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -1988,12 +2681,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "wegdeel_hartlijn",
-      "filter": ["in", "typeweg", "hoofdweg"],
+      "filter": [
+        "in",
+        "typeweg",
+        "hoofdweg"
+      ],
       "layout": {
         "text-field": "{naam}",
         "text-size": 9,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2017,7 +2714,7 @@
         "text-field": "{brugnaam}",
         "text-size": 18,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2037,12 +2734,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 18000],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18000
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 12.1,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2061,12 +2762,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 18010],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18010
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 12,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2085,12 +2790,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 18030],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18030
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 12,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2109,7 +2818,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 18040],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18040
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 16,
@@ -2133,7 +2846,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 18050],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18050
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 13,
@@ -2157,12 +2874,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 18060],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18060
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 13,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2181,12 +2902,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 18070],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18070
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 12,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2205,7 +2930,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 18090],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18090
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 12,
@@ -2229,12 +2958,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 18100],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18100
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 12,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2253,7 +2986,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 18120],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18120
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 12,
@@ -2277,7 +3014,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 18130],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18130
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 12,
@@ -2301,7 +3042,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 18180],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18180
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 31.2,
@@ -2325,7 +3070,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "geografisch_gebied_vlak",
-      "filter": ["==", "visualisatiecode", 18190],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18190
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 16,
@@ -2353,7 +3102,7 @@
         "text-field": "{knooppuntnaam}",
         "text-size": 12,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2378,7 +3127,7 @@
         "text-field": "{ewegnummer}",
         "text-size": 16.8,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2403,7 +3152,7 @@
         "text-field": "{nwegnummer}",
         "text-size": 12,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2428,7 +3177,7 @@
         "text-field": "{awegnummer}",
         "text-size": 14.8,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2460,7 +3209,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_punt",
-      "filter": ["==", "visualisatiecode", 18400],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18400
+      ],
       "layout": {
         "text-field": "{naamofficieel}",
         "text-size": 34.4,
@@ -2486,7 +3239,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_punt",
-      "filter": ["==", "visualisatiecode", 18410],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18410
+      ],
       "layout": {
         "text-field": "{naamofficieel}",
         "text-size": 34.4,
@@ -2512,7 +3269,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_punt",
-      "filter": ["==", "visualisatiecode", 18420],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18420
+      ],
       "layout": {
         "text-field": "{naamofficieel}",
         "text-size": 34.4,
@@ -2538,7 +3299,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_punt",
-      "filter": ["==", "visualisatiecode", 18430],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18430
+      ],
       "layout": {
         "text-field": "{naamofficieel}",
         "text-size": 34.4,
@@ -2564,12 +3329,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_punt",
-      "filter": ["==", "visualisatiecode", 18450],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18450
+      ],
       "layout": {
         "text-field": "{naamofficieel}",
         "text-size": 16.8,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2590,12 +3359,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_punt",
-      "filter": ["==", "visualisatiecode", 18440],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18440
+      ],
       "layout": {
         "text-field": "{naamofficieel}",
         "text-size": 21.6,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2616,7 +3389,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_punt",
-      "filter": ["==", "visualisatiecode", 18500],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18500
+      ],
       "layout": {
         "text-field": "{naamofficieel}",
         "text-size": 21.6,
@@ -2642,7 +3419,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_punt",
-      "filter": ["==", "visualisatiecode", 18510],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18510
+      ],
       "layout": {
         "text-field": "{naamofficieel}",
         "text-size": 16,
@@ -2668,7 +3449,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_vlak",
-      "filter": ["==", "visualisatiecode", 18400],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18400
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 24,
@@ -2694,7 +3479,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_vlak",
-      "filter": ["==", "visualisatiecode", 18410],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18410
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 23,
@@ -2720,7 +3509,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_vlak",
-      "filter": ["==", "visualisatiecode", 18420],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18420
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 22,
@@ -2746,7 +3539,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_vlak",
-      "filter": ["==", "visualisatiecode", 18430],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18430
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 23.6,
@@ -2772,12 +3569,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_vlak",
-      "filter": ["==", "visualisatiecode", 18450],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18450
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 10,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2798,12 +3599,16 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_vlak",
-      "filter": ["==", "visualisatiecode", 18440],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18440
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 14,
         "text-font": [
-         "Liberation Sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -2824,7 +3629,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_vlak",
-      "filter": ["==", "visualisatiecode", 18500],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18500
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 17,
@@ -2850,7 +3659,11 @@
       "type": "symbol",
       "source": "top10nl",
       "source-layer": "plaats_vlak",
-      "filter": ["==", "visualisatiecode", 18510],
+      "filter": [
+        "==",
+        "visualisatiecode",
+        18510
+      ],
       "layout": {
         "text-field": "{naamnl}",
         "text-size": 17,

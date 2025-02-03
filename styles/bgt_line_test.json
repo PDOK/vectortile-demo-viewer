@@ -8,8 +8,8 @@
     0,
     0
   ],
-  "sprite": "https://api.pdok.nl/lv/bgt/ogc/v1/resources/standaardsprites/sprites",
-  "glyphs": "https://api.pdok.nl/lv/bgt/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
+  "sprite": "https://api.pdok.nl/lv/bgt/ogc/v1_0/resources/standaardsprites/sprites",
+  "glyphs": "https://api.pdok.nl/lv/bgt/ogc/v1_0/resources/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "Ongeclassificeerd ongeclassificeerd line0",
@@ -13997,7 +13997,7 @@
     "bgt": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/lv/bgt/ogc/v1/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+        "https://api.pdok.nl/lv/bgt/ogc/v1_0/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
       ]
     }
   }

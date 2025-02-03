@@ -11,7 +11,7 @@
     "top10nl": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/brt/top10nl/ogc/v1/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+        "https://api.pdok.nl/brt/top10nl/ogc/v1-demo/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
       ],
       "minzoom": 9,
       "maxzoom": 11

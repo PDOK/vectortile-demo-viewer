@@ -30,13 +30,23 @@
       }
     },
     {
-      "id": "Nummeraanduidingreeks nummeraanduidingreeks (pand nummeraanduiding)",
+      "id": "Nummeraanduidingreeks",
       "type": "symbol",
       "source": "dkk",
-      "source-layer": "nummeraanduidingreeks",
+      "source-layer": "pand_nummeraanduiding",
+
       "layout": {
         "text-field": "{tekst}",
-        "text-size": 6,
+        "text-size": {
+          "stops": [
+            [12, 4],
+            [13, 6],
+            [14, 10],
+            [15, 14]
+          ]
+        },
+        "text-rotate": ["get", "hoek"],
+
         "text-font": [
           "liberation-sans",
           "system-ui",
@@ -47,9 +57,11 @@
           "sans-serif",
           "Noto Color Emoji"
         ],
+        "text-allow-overlap": true,
+        "icon-allow-overlap": true,
         "symbol-placement": "line-center"
       },
-      "paint": {"text-color": "#C10101"}
+      "paint": { "text-color": "#C10101" }
     },
     {
       "id": "Weg openbareruimtelabel",
@@ -95,14 +107,23 @@
       },
       "paint": {"text-color": "#000000"}
     },
-     {
-      "id": "Label perceel_label (perceel label)",
+    {
+      "id": "Perceel label",
       "type": "symbol",
       "source": "dkk",
       "source-layer": "perceel_label",
       "layout": {
         "text-field": "{perceelnummer}",
-        "text-size": 7,
+        "text-size": {
+          "stops": [
+            [12, 6],
+            [13, 7],
+            [14, 9],
+            [15, 12],
+            [16, 14]
+          ],
+          "default": 14
+        },
         "text-font": [
           "liberation-sans-italic",
           "system-ui",
@@ -118,9 +139,18 @@
       "paint": {
         "text-color": "#000000",
         "text-halo-color": "#FFFFFF",
-        "text-halo-width": 2
+        "text-halo-width": {
+          "stops": [
+            [12, 8],
+            [13, 10],
+            [14, 12],
+            [15, 14],
+            [16, 16]
+          ]
+        }
       }
     },
+
     {
       "id": "Bijpijling perceel_bijpijling",
       "type": "line",

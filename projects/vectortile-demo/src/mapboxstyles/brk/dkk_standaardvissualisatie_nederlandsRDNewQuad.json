@@ -20,7 +20,7 @@
   "glyphs": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
-      "id": "Bebouwing pand",
+      "id": "Bebouwing",
       "type": "fill",
       "source": "dkk",
       "source-layer": "pand",
@@ -130,14 +130,14 @@
       }
     },
     {
-      "id": "Bijpijling perceel_bijpijling",
+      "id": "Bijpijling",
       "type": "line",
       "source": "dkk",
       "source-layer": "perceel_bijpijling",
       "paint": {"line-color": "#000001", "line-width": 1}
     },
     {
-      "id": "Voorlopig kadastrale_grens",
+      "id": "Kadastrale grens Voorlopig",
       "type": "line",
       "source": "dkk",
       "source-layer": "kadastrale_grens",
@@ -145,7 +145,7 @@
       "paint": {"line-color": "#CC9900", "line-width": 2}
     },
     {
-      "id": "Administratief kadastrale_grens",
+      "id": "Kadastrale grens Administratief",
       "type": "line",
       "source": "dkk",
       "source-layer": "kadastrale_grens",
@@ -153,7 +153,7 @@
       "paint": {"line-color": "#5CF6D1", "line-width": 2}
     },
     {
-      "id": "Definitief kadastrale_grens",
+      "id": "Kadastrale grens Definitief",
       "type": "line",
       "source": "dkk",
       "source-layer": "kadastrale_grens",

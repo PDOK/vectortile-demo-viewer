@@ -14,4 +14,6 @@ export const environment = {
   BESTUURstd:
     'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0/styles/bestuurlijkegebieden_standaardvisualisatie?f=json',
   BRTTop10Standaardjsonurl: 'https://api.pdok.nl/brt/top10nl/ogc/v1-demo/styles/brt_top10nl__netherlandsrdnewquad?f=json',
+  DKKstandaard:'styles/brk/dkk_standaardvissualisatie_nederlandsRDNewQuad.json',
+  DKKkwaliteit: 'styles/brk/dkk_kwaliteitsvissualisatie_nederlandsRDNewQuad.json'
 }

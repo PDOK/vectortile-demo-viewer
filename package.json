@@ -19,6 +19,7 @@
     "valachter": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bgt_achtergrondvisualisatie.json",
     "valstandaard": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bgt_standaardvisualisatie.json",
     "valtactiel": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/tactielevisualisatie.json",
+    "valbrk1": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/brk/dkk_kwaliteitsvissualisatie_webmercatorquad.json",
     "runupdate": "ng update  @angular/core @angular/cli @angular/cdk @angular/material"
   },
   "private": true,
@@ -38,9 +39,10 @@
     "@types/geojson": "^7946.0.14",
     "ngx-color-picker": "^16.0.0",
     "ol": "9.2.4",
-    "ol-mapbox-style": "^12.3.4",
+    "ol-mapbox-style": "12.4.0",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.3"
+
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.1.2",

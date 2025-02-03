@@ -13,18 +13,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "allowedCommonJsDependencies": [
-              "color-name",
-              "pbf",
-              "rbush"
-            ],
+            "allowedCommonJsDependencies": ["color-name", "pbf", "rbush"],
             "outputPath": {
               "base": "dist/vectortile-demo/"
             },
             "index": "projects/vectortile-demo/src/index.html",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/vectortile-demo/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -43,13 +37,12 @@
             ],
             "styles": [
               "node_modules/ol/ol.css",
-              "projects/vectortile-demo/src/assets/view-component/styles.css",
               "projects/vectortile-demo/src/styles.scss",
               "projects/vectortile-demo/src/theme.scss"
             ],
             "scripts": [
-              "projects/vectortile-demo/src/assets/view-component/main.js",
-              "projects/vectortile-demo/src/assets/view-component/runtime.js"
+
+
             ],
             "browser": "projects/vectortile-demo/src/main.ts"
           },
@@ -170,8 +163,6 @@
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }

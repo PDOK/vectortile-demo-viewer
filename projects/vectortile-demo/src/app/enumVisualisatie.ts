@@ -1,10 +1,13 @@
 import { environment } from '../environments/environment'
+import { demoSettings } from './app.component'
 import { LocalStorageService } from './local-storage-service'
 
 export enum Visualisatie {
   Custom1Blanko = 'Aanpasbare Vectortile URL (Blanco)',
   Custom1Kleurrijk = 'Aanpasbare Vectortile URL (kleurrijk)',
   Custom1Tegels = 'Aanpasbare Vectortile URL (Kleurrijk tegels zichtbaar)',
+  DKKStandaard = 'Kadastrale kaart Standaard visualisatie',
+  DKKKwaliteit = 'Kadastrale kaart Kwaliteits visualisatie',
   BGTachtergrond = 'BGT Achtergrond',
   BGTstandaard = 'BGT Standaard',
   Bagstd = 'BAG standaard',
@@ -24,11 +27,12 @@ export enum Visualisatie {
   BESTUURstd = 'Bestuurlijke gebieden',
   BESTUURWithLabels = 'Bestuurlijke gebieden met annotatie',
   //BESTUURLabelOnly = 'Bestuurlijke gebieden alleen labels',
-  BESTUURBlanko = 'Bestuurlijke gebieden (Blanco)'
+  BESTUURBlanko = 'Bestuurlijke gebieden (Blanco)',
+
 
 }
-export type Quad = 'netherlandsrdnewquad'| 'europeanetrs89_laeaquad'| 'webmercatorquad'
-type SourceType = 'bag' | 'bgt' | 'bestuurlijkegebieden' | 'top10nl' | 'custom'
+export type Quad = 'netherlandsrdnewquad' | 'europeanetrs89_laeaquad' | 'webmercatorquad'
+type SourceType = 'bag' | 'bgt' | 'dkk' | 'bestuurlijkegebieden' | 'top10nl' | 'custom'
 
 export type StyleUrl = {
   source: SourceType
@@ -38,6 +42,8 @@ export type StyleUrl = {
 
 export function getStyleUrl(vis: Visualisatie, quad: Quad): StyleUrl {
   const styleMap: { [key in Visualisatie]: { source: SourceType; styleUrl?: string } } = {
+    [Visualisatie.DKKStandaard]: { source: 'dkk', styleUrl: environment.DKKstandaard },
+    [Visualisatie.DKKKwaliteit]: { source: 'dkk', styleUrl: environment.DKKkwaliteit },
     [Visualisatie.BGTachtergrond]: { source: 'bgt', styleUrl: environment.BGTmapboxachtergrondjsonurl },
     [Visualisatie.Top10nlStandaard]: { source: 'top10nl', styleUrl: environment.BRTTop10Standaardjsonurl[quad].href },
     [Visualisatie.BGTstandaard]: { source: 'bgt', styleUrl: environment.BGTmapboxstandaardjsonurl },
@@ -59,11 +65,12 @@ export function getStyleUrl(vis: Visualisatie, quad: Quad): StyleUrl {
     [Visualisatie.Custom1Blanko]: { source: 'custom', styleUrl: undefined },
     [Visualisatie.Custom1Kleurrijk]: { source: 'custom', styleUrl: undefined },
     [Visualisatie.Custom1Tegels]: { source: 'custom', styleUrl: undefined },
-  };
 
-  const result = styleMap[vis] as StyleUrl;
+  }
 
-  return result;
+  const result = styleMap[vis] as StyleUrl
+
+  return result
 }
 
 
@@ -95,7 +102,16 @@ export function getAllVisualisaties(): { title: string, visualisatie: Visualisat
     }
 
     else {
+      if (value=='DKKKwaliteit' || value == "DKKStandaard")
+        {
+          if (demoSettings.previewFeature){
+            array.push({ title: Visualisatie[value], visualisatie: Visualisatie[value] })
+          }
+
+        }else
+        {
       array.push({ title: Visualisatie[value], visualisatie: Visualisatie[value] })
+        }
     }
   }
   return array

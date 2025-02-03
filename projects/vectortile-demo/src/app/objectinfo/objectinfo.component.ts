@@ -2,8 +2,6 @@ import { Component, ElementRef, Input, OnChanges, ViewChild, AfterViewInit, OnIn
 import { FeatureLike } from 'ol/Feature'
 import { StyleFunction } from 'ol/style/Style'
 import { getFillColor } from '../color'
-import { NgElement, WithProperties } from '@angular/elements'
-import { environment } from '../../environments/environment'
 import { ShowlinkComponent } from '../showlink/showlink.component'
 import { OgcmapComponent } from './ogcmap/ogcmap.component'
 import { CommonModule, NgStyle } from '@angular/common'

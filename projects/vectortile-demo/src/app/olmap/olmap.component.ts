@@ -34,8 +34,19 @@ import {
 } from '../enumVisualisatie'
 import { LocationService, ViewLocation } from '../location.service'
 
+import { CommonModule } from '@angular/common'
+import { MatSlideToggle } from '@angular/material/slide-toggle'
+import { MatTooltip } from '@angular/material/tooltip'
+import { Tile } from 'ol/layer'
+import { TileDebug } from 'ol/source'
 import { Circle, Stroke } from 'ol/style'
+import { CustomTileComponent } from '../custom-tile/custom-tile.component'
+import { DemoboxComponent } from '../demobox/demobox.component'
 import { LocalStorageService } from '../local-storage-service'
+import { MapexportComponent } from '../mapexport/mapexport.component'
+import { MapstylerComponent } from '../mapstyler/mapstyler.component'
+import { ObjectinfoComponent } from '../objectinfo/objectinfo.component'
+import { ShowlinkComponent } from '../showlink/showlink.component'
 import {
   getSpriteDataUrl,
   getSpriteImageUrl,
@@ -43,27 +54,17 @@ import {
   tileurlBAG,
   tileurlBestuur,
   tileurlBGT,
+  tileurlDKK,
   tileurlTop10,
   VectorTileUrl,
 } from './tileurl'
-import { Tile } from 'ol/layer'
-import { TileDebug } from 'ol/source'
-import { CustomTileComponent } from '../custom-tile/custom-tile.component'
-import { ShowlinkComponent } from '../showlink/showlink.component'
-import { DemoboxComponent } from '../demobox/demobox.component'
-import { MapexportComponent } from '../mapexport/mapexport.component'
-import { MapstylerComponent } from '../mapstyler/mapstyler.component'
-import { ObjectinfoComponent } from '../objectinfo/objectinfo.component'
-import { MatSlideToggle } from '@angular/material/slide-toggle'
-import { MatTooltip } from '@angular/material/tooltip'
-import { CommonModule } from '@angular/common'
 
 @Component({
-    selector: 'app-olmap',
-    templateUrl: './olmap.component.html',
-    styleUrls: ['./olmap.component.scss'],
-    encapsulation: ViewEncapsulation.None,
-    imports:[CommonModule, CustomTileComponent, ShowlinkComponent, DemoboxComponent, MapexportComponent , MapstylerComponent, ObjectinfoComponent, MatSlideToggle, MatTooltip]
+  selector: 'app-olmap',
+  templateUrl: './olmap.component.html',
+  styleUrls: ['./olmap.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  imports: [CommonModule, CustomTileComponent, ShowlinkComponent, DemoboxComponent, MapexportComponent, MapstylerComponent, ObjectinfoComponent, MatSlideToggle, MatTooltip]
 
 })
 export class OlmapComponent implements OnInit, OnChanges {
@@ -106,11 +107,11 @@ export class OlmapComponent implements OnInit, OnChanges {
 
     let tileMatrixPart = this.localStorageService.get('customTileMatrixPart')
     if (!tileMatrixPart) {
-      tileMatrixPart= '/NetherlandsRDNewQuad'
+      tileMatrixPart = '/NetherlandsRDNewQuad'
     }
 
     if (url) {
-      const VTurl: VectorTileUrl = { vectorTileUrl: url, tileMatrixPart: tileMatrixPart,   xyzTemplate: xyzTemplate, extension: extension, ogcApiRootUrl: undefined }
+      const VTurl: VectorTileUrl = { vectorTileUrl: url, tileMatrixPart: tileMatrixPart, xyzTemplate: xyzTemplate, extension: extension, ogcApiRootUrl: undefined }
       return VTurl
     }
     return undefined
@@ -300,13 +301,13 @@ export class OlmapComponent implements OnInit, OnChanges {
       }
     } else {
       const stStyle = st as Style
-      const fill = stStyle.getFill();
+      const fill = stStyle.getFill()
       const colcolor = fill ? fill.getColor() as
         | string
         | number[]
         | CanvasGradient
         | CanvasPattern
-        : '';
+        : ''
       color = colcolor
     }
 
@@ -330,7 +331,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   private changeStyleJson() {
 
-   this.debuglayer()
+    this.debuglayer()
 
 
 
@@ -347,6 +348,10 @@ export class OlmapComponent implements OnInit, OnChanges {
       // fallsthrough
       case Visualisatie.BESTUURstd:
         minzoom = 3
+        break
+      case Visualisatie.DKKKwaliteit:
+      case Visualisatie.DKKStandaard:
+        minzoom = 13
         break
       case Visualisatie.Custom1Blanko:
         minzoom = this.tileurlCustomZoom
@@ -370,7 +375,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     const resolutions = this.resolutions
     this.map1.setView(this.viewRD(minzoom))
     vectorTileLayer.setVisible(true)
-    const JsonUrl = getStyleUrl(this.SelectedVisualisation,   'netherlandsrdnewquad')
+    const JsonUrl = getStyleUrl(this.SelectedVisualisation, 'netherlandsrdnewquad')
 
     if (this.tileurlCustom) {
       if (JsonUrl.source == 'custom') {
@@ -378,7 +383,7 @@ export class OlmapComponent implements OnInit, OnChanges {
           this.rdProjection,
           this.vectorTileLayerRD,
           this.tileurlCustom,
-          2
+          minzoom
         )
         this.showUrl = this.tileurlCustom.vectorTileUrl
       }
@@ -421,6 +426,15 @@ export class OlmapComponent implements OnInit, OnChanges {
         this.vectorTileLayerRD,
         tileurlTop10,
         11
+      )
+      this.showUrl = tileurlTop10.vectorTileUrl
+    }
+      if (JsonUrl.source == 'dkk') {
+      this.setTileSource(
+        this.rdProjection,
+        this.vectorTileLayerRD,
+        tileurlDKK,
+        12
       )
       this.showUrl = tileurlTop10.vectorTileUrl
     }
@@ -522,6 +536,8 @@ export class OlmapComponent implements OnInit, OnChanges {
     const isText = GetLabelAnnotation(prop, prop['layer'])
     switch (this.SelectedVisualisation) {
       // case Visualisatie.BGTtactiel:
+      case Visualisatie.DKKStandaard:
+      case Visualisatie.DKKKwaliteit:
       case Visualisatie.Top10nlStandaard:
       case Visualisatie.BGTstandaard:
       case Visualisatie.BGTachtergrond:
@@ -640,86 +656,103 @@ export class OlmapComponent implements OnInit, OnChanges {
       if (layer === 'pand_nummeraanduiding') {
         text = prop['tekst'] as string
       }
+      if (layer === 'perceel_label') {
+        text = prop['perceelnummer'] as string
+      }
       if (layer === 'openbareruimtelabel') {
         text = prop['openbareruimtenaam'] as string
       }
+
       if (text !== '') {
         const deg = prop['hoek'] as number
-        const rot = ((360 - deg ) * Math.PI) / 180.0
+        const rot = ((360 - deg) * Math.PI) / 180.0
+        if (rot) {
+          const anno: LabelType = {
+            text,
+            rotation: rot,
+            font: '',
+            backgroundfill: new Fill({ color: 'white' })
 
-        const anno: LabelType = {
-          text,
-          rotation: rot,
-          font: '',
-          backgroundfill: new Fill({ color: 'white' }),
+          }
+          return anno
+        } else {
+          const anno: LabelType = {
+            text,
+            rotation: 0,
+            font: '',
+            backgroundfill: new Fill({ color: 'white' })
+
+
+
+          }
+          return anno
         }
-        return anno
-      } else {
+      }
+      else {
         return false
       }
     }
   }
+    getVectorTileSource(
+      projection: Projection,
+      tileEndpoint: VectorTileUrl,
+      zoom: number
+    ) {
+      this.resolutions = this.getResolutionsVt(zoom)
+      return new VectorTileSource({
+        format: new MVT(),
+        projection: projection,
+        tileGrid: new TileGrid({
+          extent: projection.getExtent(),
+          resolutions: this.resolutions,
+          tileSize: [256, 256],
+          origin: getTopLeft(projection.getExtent()),
+        }),
+        url: this.getVectorTileUrl(tileEndpoint),
+        cacheSize: 0,
+      })
+    }
 
-  getVectorTileSource(
-    projection: Projection,
-    tileEndpoint: VectorTileUrl,
-    zoom: number
-  ) {
-    this.resolutions = this.getResolutionsVt(zoom)
-    return new VectorTileSource({
-      format: new MVT(),
-      projection: projection,
-      tileGrid: new TileGrid({
-        extent: projection.getExtent(),
-        resolutions: this.resolutions,
-        tileSize: [256, 256],
-        origin: getTopLeft(projection.getExtent()),
-      }),
-      url: this.getVectorTileUrl(tileEndpoint),
-      cacheSize: 0,
-    })
-  }
+    getVectorTileUrl(tileurl: VectorTileUrl) {
+      return `${tileurl.vectorTileUrl}${tileurl.tileMatrixPart}${tileurl.xyzTemplate}${tileurl.extension}`
+    }
 
-  getVectorTileUrl(tileurl: VectorTileUrl) {
-    return `${tileurl.vectorTileUrl}${tileurl.tileMatrixPart}${tileurl.xyzTemplate}${tileurl.extension}`
-  }
+    getShowTileUrl() {
+      return this.showUrl
+    }
 
-  getShowTileUrl() {
-    return this.showUrl
-  }
-
-  getShowStyleUrl() {
-    const url = getStyleUrl(this.SelectedVisualisation, 'netherlandsrdnewquad').styleUrl
-    if (url) {
-      return url
-    } else {
-      {
-        return ''
+    getShowStyleUrl() {
+      const url = getStyleUrl(this.SelectedVisualisation, 'netherlandsrdnewquad').styleUrl
+      if (url) {
+        return url
+      } else {
+        {
+          return ''
+        }
       }
     }
-  }
 
 
-  setTileSource(
-    projection: Projection,
-    vectorTileLayer: VectorTileLayer<FeatureLike>,
-    tileEndpoint: VectorTileUrl,
-    zoom: number
-  ) {
-    const vtSource = this.getVectorTileSource(projection, tileEndpoint, zoom)
-    this.ogcUrl = tileEndpoint.ogcApiRootUrl
-    if (this.ogcUrl) {
-      this.locationService.OgcAPI = this.ogcUrl
+    setTileSource(
+      projection: Projection,
+      vectorTileLayer: VectorTileLayer<FeatureLike>,
+      tileEndpoint: VectorTileUrl,
+      zoom: number
+    ) {
+      const vtSource = this.getVectorTileSource(projection, tileEndpoint, zoom)
+      this.ogcUrl = tileEndpoint.ogcApiRootUrl
+      if (this.ogcUrl) {
+        this.locationService.OgcAPI = this.ogcUrl
+      }
+
+      // set invisible to prevent unstyled flashing of vectorTileLayer
+      vectorTileLayer.setVisible(false)
+      vectorTileLayer.setSource(vtSource)
+      vectorTileLayer.setVisible(true)
+      vectorTileLayer.set('renderMode', 'hybrid')
+      this.debuglayer()
+
     }
-
-    // set invisible to prevent unstyled flashing of vectorTileLayer
-    vectorTileLayer.setVisible(false)
-    vectorTileLayer.setSource(vtSource)
-    vectorTileLayer.setVisible(true)
-    vectorTileLayer.set('renderMode', 'hybrid')
-    this.debuglayer()
-
-  }
 
   private debuglayer() {
     const debugLayer = new Tile({
@@ -738,12 +771,12 @@ export class OlmapComponent implements OnInit, OnChanges {
 
 
     if (debugvisible) {
-      this.map1.setLayers( [this.vectorTileLayerRD, debugLayer])
+      this.map1.setLayers([this.vectorTileLayerRD, debugLayer])
 
-    }else{
-      this.map1.setLayers( [this.vectorTileLayerRD])
-     }
-     this.map1.changed()
+    } else {
+      this.map1.setLayers([this.vectorTileLayerRD])
+    }
+    this.map1.changed()
 
 
 

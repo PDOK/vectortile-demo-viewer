@@ -16,6 +16,17 @@ export const tileurlBGT: VectorTileUrl = {
     lokaalIdRegex: /[GPWL]{1}\d{4}\.[a-f0-9]{32}/g
   }
 }
+export const tileurlDKK: VectorTileUrl = {
+  vectorTileUrl: 'https://api.pdok.nl/kadaster/kadastralekaart/ogc/v5-preprod/tiles',
+  tileMatrixPart:RDPART ,
+  extension: '.pbf',
+  xyzTemplate: '/{z}/{y}/{x}',
+  ogcApiRootUrl: {
+    url: "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v5-preprod",
+    lokaalIdRegex: /[GPWL]{1}\d{4}\.[a-f0-9]{32}/g
+  }
+}
+
 export const tileurlBAG: VectorTileUrl = {
   vectorTileUrl: 'https://api.pdok.nl/lv/bag/ogc/v1_0/tiles',
   tileMatrixPart:RDPART ,

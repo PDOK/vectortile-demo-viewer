@@ -1,6 +1,5 @@
 import { CommonModule, KeyValue } from '@angular/common'
 import {
-  AfterContentInit,
   AfterViewInit,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
@@ -15,6 +14,8 @@ import { FeatureLike } from 'ol/Feature'
 import { DrawColor } from '../color'
 
 import { IColorMap, LegendLevel } from '../colorMap'
+
+
 
 import {  ColorPickerModule } from 'ngx-color-picker'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
@@ -32,8 +33,6 @@ declare global {
     styleUrls: ['./mapstyler.component.scss'],
     imports:[ CommonModule, ColorPickerModule, MatSlideToggleModule],
     schemas:[CUSTOM_ELEMENTS_SCHEMA]
-
-
 })
 export class MapstylerComponent implements AfterViewInit {
 

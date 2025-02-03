@@ -10,10 +10,11 @@ import { OlmapComponent } from './olmap/olmap.component'
 import { ShowlinkComponent } from './showlink/showlink.component'
 import { CommonModule } from '@angular/common'
 import { SearchComponent } from './search/search.component'
+import { environment } from '../environments/environment'
 export const demoSettings = {
   demoVisualisatieRotate: false,
   demoLocatieRotate: false,
-  previewFeature: false,
+  previewFeature: !environment.production,
 }
 
 @Component({

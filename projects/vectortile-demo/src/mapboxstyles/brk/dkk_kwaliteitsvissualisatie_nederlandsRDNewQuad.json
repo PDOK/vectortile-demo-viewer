@@ -82,49 +82,7 @@
       "source-layer": "perceel_bijpijling",
       "paint": { "line-color": "#000001", "line-width": 1 }
     },
-    {
-      "id": "Perceel label",
-      "type": "symbol",
-      "source": "dkk",
-      "source-layer": "perceel_label",
-      "layout": {
-        "text-field": "{perceelnummer}",
-        "text-size": {
-          "stops": [
-            [12, 6],
-            [13, 7],
-            [14, 9],
-            [15, 12],
-            [16, 14]
-          ],
-          "default": 14
-        },
-        "text-font": [
-          "liberation-sans-italic",
-          "system-ui",
-          "Roboto",
-          "Arial",
-          "Noto Sans",
-          "Liberation Sans",
-          "sans-serif",
-          "Noto Color Emoji"
-        ],
-        "symbol-placement": "line-center"
-      },
-      "paint": {
-        "text-color": "#000000",
-        "text-halo-color": "#FFFFFF",
-        "text-halo-width": {
-          "stops": [
-            [12, 8],
-            [13, 10],
-            [14, 12],
-            [15, 14],
-            [16, 16]
-          ]
-        }
-      }
-    },
+
     {
       "id": "Nummeraanduidingreeks",
       "type": "symbol",
@@ -214,7 +172,7 @@
           "sans-serif",
           "Noto Color Emoji"
         ],
-         "text-size": {
+        "text-size": {
           "stops": [
             [12, 10],
             [13, 11],
@@ -223,6 +181,50 @@
           ]
         },
         "text-rotate": ["-", 360, ["get", "mshoek"]]
+      }
+    },
+    {
+      "id": "Perceel label",
+      "type": "symbol",
+      "source": "dkk",
+      "source-layer": "perceel_label",
+      "layout": {
+        "text-field": "{perceelnummer}",
+        "text-allow-overlap": true,
+        "icon-allow-overlap": true,
+        "text-size": {
+          "stops": [
+            [12, 6],
+            [13, 6],
+            [14, 9],
+            [15, 12],
+            [16, 14]
+          ],
+          "default": 14
+        },
+        "text-font": [
+          "liberation-sans-italic",
+          "system-ui",
+          "Roboto",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": {
+          "stops": [
+            [12, 6],
+            [13, 65],
+            [14, 12],
+            [15, 14],
+            [16, 16]
+          ]
+        }
       }
     }
   ]

@@ -2,6 +2,7 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { demoSettings } from '../app/app.component'
 import { Quad } from '../app/enumVisualisatie'
 
 
@@ -19,6 +20,7 @@ const urlQuad = (base: string, constantPath: string, constantQuery: string): { [
 
 export const environment = {
   production: false,
+
   //'https://api.pdok.nl/brt/top10nl/ogc/v1-demo/styles'
   BRTTop10Standaardjsonurl: urlQuad( 'http://127.0.0.1:4200/styles/brt', '/brt_top10nl__', 'f=mapbox'),
   BGTmapboxachtergrondjsonurl: 'styles/bgt_achtergrondvisualisatie.json',

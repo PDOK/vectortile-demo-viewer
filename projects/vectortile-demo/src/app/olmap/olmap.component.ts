@@ -436,7 +436,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         tileurlDKK,
         12
       )
-      this.showUrl = tileurlTop10.vectorTileUrl
+      this.showUrl = tileurlDKK.vectorTileUrl
     }
 
     if (JsonUrl.styleUrl) {

@@ -25,10 +25,10 @@ type proprow = {
 const DefaultColor = [0, 0, 0, 0]
 
 @Component({
-    selector: 'app-objectinfo',
-    templateUrl: './objectinfo.component.html',
-    styleUrls: ['./objectinfo.component.scss'],
-    imports:[   CommonModule,ShowlinkComponent, OgcmapComponent, NgStyle, MatDivider]
+  selector: 'app-objectinfo',
+  templateUrl: './objectinfo.component.html',
+  styleUrls: ['./objectinfo.component.scss'],
+  imports: [CommonModule, ShowlinkComponent, OgcmapComponent, NgStyle, MatDivider]
 
 })
 
@@ -74,33 +74,60 @@ export class ObjectinfoComponent {
     const prop = feature.getProperties()
     let ogcApiUrl = ""
     for (const val in prop) {
-
       const p: proprow = { title: val, value: prop[val] }
-      if (val === "lokaal_id" || val === "lokaalid" || val === "identificatie") {
+      if (val === "lokaal_id" || val === "lokaalid" || val === "identificatie" || val === "identificatie_lokaal_id") {
         if (this.ogcurl) {
           let field = val
-
-          if (val ==="lokaalid"){
+          if (val === "lokaalid") {
             field = "lokaal_id"
+          }
+          let collection = prop["layer"]
+          if (val === "identificatie_lokaal_id") {
+            collection = this.renameDKK(prop, collection)
+
 
           }
-          ogcApiUrl = getOgcApiImtemUrl(this.ogcurl, prop["layer"],field, prop[val])
+          ogcApiUrl = getOgcApiImtemUrl(this.ogcurl, collection, field, prop[val])
+
         }
 
-      }
 
+      }
+      if (val === "external_fid") {
+        if (this.ogcurl) {
+          let collection = prop["layer"]
+          collection = this.renameDKK(prop, collection)
+
+
+          ogcApiUrl = getOgcApiImtemUrlExternalFid(this.ogcurl, collection, "externalFid", prop[val])
+        }
+      }
       proptable.push(p)
     }
-
-
-
-
 
     return {
       rows: proptable, ogcurl: ogcApiUrl
     }
   }
 
+
+  private renameDKK(prop: { [x: string]: any }, collection: any) {
+    if (prop["layer"] === "pand") {
+      collection = "bebouwing"
+    }
+
+    if (prop["layer"] === "openbareruimtelabel") {
+      collection = "openbareruimtenaam"
+    }
+    if (prop["layer"] === "kadastrale_grens") {
+      collection = "kadastralegrens"
+    }
+
+    if (prop["layer"] === "pand_nummeraanduiding") {
+      collection = "nummeraanduidingreeks"
+    }
+    return collection
+  }
 
   selectedFillStyle(feature: FeatureLike) {
     const mpstyle = this.styleFunction
@@ -130,6 +157,13 @@ function getOgcApiImtemUrl(OGCurl: string, layer: string, field: string, lokaal_
 
 
   return OGCurl + "/collections/" + layer + "/items?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F28992&" + field + "=" + lokaal_id
+}
+
+function getOgcApiImtemUrlExternalFid(OGCurl: string, layer: string, field: string, externalFid:string): string {
+
+
+
+  return OGCurl + "/collections/" + layer + "/items/" + externalFid + "?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F28992&"
 }
 
 

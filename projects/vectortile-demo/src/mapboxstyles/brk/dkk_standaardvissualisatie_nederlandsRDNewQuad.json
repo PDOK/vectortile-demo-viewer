@@ -64,35 +64,20 @@
       "paint": { "text-color": "#C10101" }
     },
     {
-      "id": "Weg openbareruimtelabel",
+      "id": "Water openbareruimtelabel",
       "type": "symbol",
       "source": "dkk",
       "source-layer": "openbareruimtelabel",
-      "layout": {
-        "text-field": "{tekst}",
-        "text-size": 11,
-        "text-font": [
-          "liberation-sans",
-          "system-ui",
-          "Roboto",
-          "Arial",
-          "Noto Sans",
-          "Liberation Sans",
-          "sans-serif",
-          "Noto Color Emoji"
-        ],
-        "symbol-placement": "line-center"
+      "paint": {
+        "text-color": "#002750"
       },
-      "paint": {"text-color": "#000000"}
-    },
-    {
-      "id": "Water openbareruimtelabel (openbareruimtelabel)",
-      "type": "symbol",
-      "source": "dkk",
-      "source-layer": "openbareruimtelabel",
+      "filter": [
+        "all",
+        ["==", "openbare_ruimte_type", "Water"],
+        ["==", "bgt_status", "bestaand"]
+      ],
       "layout": {
         "text-field": "{tekst}",
-        "text-size": 11,
         "text-font": [
           "liberation-sans-italic",
           "system-ui",
@@ -103,21 +88,91 @@
           "sans-serif",
           "Noto Color Emoji"
         ],
-        "symbol-placement": "line-center"
-      },
-      "paint": {"text-color": "#000000"}
+
+        "text-size": 15,
+        "text-rotate": ["-", 360, ["get", "mshoek"]]
+      }
     },
     {
-      "id": "Perceel label",
+      "id": "Weg openbareruimtelabel",
+      "type": "symbol",
+      "source": "dkk",
+      "source-layer": "openbareruimtelabel",
+      "paint": {
+        "text-color": "#002750"
+      },
+      "filter": [
+        "all",
+        ["==", "openbare_ruimte_type", "Weg"],
+        ["==", "bgt_status", "bestaand"]
+      ],
+      "layout": {
+        "text-field": "{tekst}",
+        "text-font": [
+          "liberation-sans-italic",
+          "system-ui",
+          "Roboto",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Noto Color Emoji"
+        ],
+        "text-size": {
+          "stops": [
+            [12, 10],
+            [13, 11],
+            [14, 12],
+            [15, 14]
+          ]
+        },
+        "text-rotate": ["-", 360, ["get", "mshoek"]]
+      }
+    },
+    {
+      "id": "Bijpijling perceel_bijpijling",
+      "type": "line",
+      "source": "dkk",
+      "source-layer": "perceel_bijpijling",
+      "paint": {"line-color": "#000001", "line-width": 1}
+    },
+    {
+      "id": "Voorlopig kadastrale_grens",
+      "type": "line",
+      "source": "dkk",
+      "source-layer": "kadastrale_grens",
+      "filter": ["==", "type_grens_waarde", "Voorlopig"],
+      "paint": {"line-color": "#CC9900", "line-width": 2}
+    },
+    {
+      "id": "Administratief kadastrale_grens",
+      "type": "line",
+      "source": "dkk",
+      "source-layer": "kadastrale_grens",
+      "filter": ["==", "type_grens_waarde", "Administratief"],
+      "paint": {"line-color": "#5CF6D1", "line-width": 2}
+    },
+    {
+      "id": "Definitief kadastrale_grens",
+      "type": "line",
+      "source": "dkk",
+      "source-layer": "kadastrale_grens",
+      "filter": ["==", "type_grens_waarde", "Definitief"],
+      "paint": {"line-color": "#000001", "line-width": 2}
+    },
+    {
+      "id": "Perceel Label",
       "type": "symbol",
       "source": "dkk",
       "source-layer": "perceel_label",
       "layout": {
         "text-field": "{perceelnummer}",
+        "text-allow-overlap": true,
+        "icon-allow-overlap": true,
         "text-size": {
           "stops": [
             [12, 6],
-            [13, 7],
+            [13, 6],
             [14, 9],
             [15, 12],
             [16, 14]
@@ -133,54 +188,23 @@
           "Liberation Sans",
           "sans-serif",
           "Noto Color Emoji"
-        ],
-        "symbol-placement": "line-center"
+        ]
       },
       "paint": {
         "text-color": "#000000",
         "text-halo-color": "#FFFFFF",
         "text-halo-width": {
           "stops": [
-            [12, 8],
-            [13, 10],
+            [12, 6],
+            [13, 65],
             [14, 12],
             [15, 14],
             [16, 16]
           ]
         }
       }
-    },
-
-    {
-      "id": "Bijpijling perceel_bijpijling",
-      "type": "line",
-      "source": "dkk",
-      "source-layer": "perceel_bijpijling",
-      "paint": {"line-color": "#000001", "line-width": 1}
-    },
-    {
-      "id": "Voorlopig kadastrale_grens",
-      "type": "line",
-      "source": "dkk",
-      "source-layer": "kadastrale_grens",
-      "filter": ["==", "'type_grens_waarde'", "'Voorlopig'"],
-      "paint": {"line-color": "#CC9900", "line-width": 2}
-    },
-    {
-      "id": "Administratief kadastrale_grens",
-      "type": "line",
-      "source": "dkk",
-      "source-layer": "kadastrale_grens",
-      "filter": ["==", "'type_grens_waarde'", "'Administratief'"],
-      "paint": {"line-color": "#5CF6D1", "line-width": 2}
-    },
-    {
-      "id": "Definitief kadastrale_grens",
-      "type": "line",
-      "source": "dkk",
-      "source-layer": "kadastrale_grens",
-      "paint": {"line-color": "#000001", "line-width": 2}
     }
+
   ],
   "id": ""
 }

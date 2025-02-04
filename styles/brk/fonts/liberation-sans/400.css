@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Liberation Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src:
+    url("LiberationSans-Regular.woff2")format("woff2"),
+    url("LiberationSans-Regular.ttf")format("truetype"),
+    url("LiberationSans-Regular.woff")format("woff");
+
+}

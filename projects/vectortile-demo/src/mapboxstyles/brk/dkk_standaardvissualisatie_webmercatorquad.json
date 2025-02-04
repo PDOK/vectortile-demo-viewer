@@ -57,7 +57,7 @@
           "Noto Color Emoji"
         ],
         "text-allow-overlap": true,
-        "icon-allow-overlap": true,
+        "icon-allow-overlap": true
       },
       "paint": { "text-color": "#C10101" }
     },

@@ -5,7 +5,7 @@
   "zoom": 12,
   "pitch": 50,
   "center": [0, 0],
-  "glyphs": "https://api.pdok.nl/lv/bgt/ogc/v1_0/resources/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "https://api.pdok.nl/lv/bgt/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
 
   "layers": [
     {

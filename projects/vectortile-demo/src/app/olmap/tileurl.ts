@@ -7,7 +7,7 @@ export type VectorTileUrl = {
 }
 const RDPART = '/NetherlandsRDNewQuad'
 export const tileurlBGT: VectorTileUrl = {
-  vectorTileUrl: 'https://api.pdok.nl/lv/bgt/ogc/v1_0/tiles',
+  vectorTileUrl: 'https://api.pdok.nl/lv/bgt/ogc/v1/tiles',
   tileMatrixPart:RDPART ,
   extension: '.pbf',
   xyzTemplate: '/{z}/{y}/{x}',

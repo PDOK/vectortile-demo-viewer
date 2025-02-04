@@ -361,7 +361,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.Top10nlKleurrijk:
       case Visualisatie.Top10nlStandaard:
       case Visualisatie.Top10nlTegels:
-        minzoom = 10
+        minzoom = 9.05
         break
 
       default:

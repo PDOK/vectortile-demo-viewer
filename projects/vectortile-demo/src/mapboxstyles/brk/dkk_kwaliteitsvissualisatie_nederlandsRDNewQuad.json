@@ -3,7 +3,7 @@
   "name": "",
   "id": "kadastrale kaart kwaliteitsvissualisatie nederlandsRDNewQuad",
   "metadata": {
-    "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1-demo/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
+    "ol:webfonts": "https://pdok.github.io/vectortile-demo-viewer/styles/fonts/{font-family}/{fontweight}{-fontstyle}.css",
     "gokoala:title-items": "id"
   },
 
@@ -19,7 +19,7 @@
       "maxzoom": 12
     }
   },
-  "glyphs": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "https://pdok.github.io/vectortile-demo-viewer/styles/brk/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "Bebouwing",

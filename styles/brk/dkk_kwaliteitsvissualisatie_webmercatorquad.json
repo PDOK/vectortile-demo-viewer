@@ -1,13 +1,11 @@
 {
   "version": 8,
   "name": "",
-  "id": "kadastrale kaart kwaliteitsvissualisatie",
+  "id": "kadastrale kaart kwaliteitsvissualisatie webmercatorquad",
   "metadata": {
-
+    "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1-demo/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
     "gokoala:title-items": "id"
   },
-  "sprite": "https://api.pdok.nl/lv/bgt/ogc/v1/resources/standaardsprites/sprites",
-  "glyphs": "https://api.pdok.nl/lv/bgt/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
 
   "center": [],
   "pitch": 0,
@@ -84,49 +82,7 @@
       "source-layer": "perceel_bijpijling",
       "paint": { "line-color": "#000001", "line-width": 1 }
     },
-    {
-      "id": "Perceel label",
-      "type": "symbol",
-      "source": "dkk",
-      "source-layer": "perceel_label",
-      "layout": {
-        "text-field": "{perceelnummer}",
-        "text-size": {
-          "stops": [
-            [17, 6],
-            [18, 8],
-            [19, 9],
-            [20, 12],
-            [21, 14]
-          ],
-          "default": 14
-        },
-        "text-font": [
-          "liberation-sans-italic",
-          "system-ui",
-          "Roboto",
-          "Arial",
-          "Noto Sans",
-          "Liberation Sans",
-          "sans-serif",
-          "Noto Color Emoji"
-        ],
-        "symbol-placement": "line-center"
-      },
-      "paint": {
-        "text-color": "#000000",
-        "text-halo-color": "#FFFFFF",
-        "text-halo-width": {
-          "stops": [
-            [17, 8],
-            [18, 10],
-            [19, 12],
-            [20, 14],
-            [21, 16]
-          ]
-        }
-      }
-    },
+
     {
       "id": "Nummeraanduidingreeks",
       "type": "symbol",
@@ -225,6 +181,50 @@
           ]
         },
         "text-rotate": ["-", 360, ["get", "mshoek"]]
+      }
+    },
+    {
+      "id": "Perceel label",
+      "type": "symbol",
+      "source": "dkk",
+      "source-layer": "perceel_label",
+      "layout": {
+        "text-field": "{perceelnummer}",
+        "text-allow-overlap": true,
+        "icon-allow-overlap": true,
+        "text-size": {
+          "stops": [
+            [17, 6],
+            [18, 8],
+            [19, 9],
+            [20, 12],
+            [21, 14]
+          ],
+          "default": 14
+        },
+        "text-font": [
+          "liberation-sans-italic",
+          "system-ui",
+          "Roboto",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": {
+          "stops": [
+            [17, 8],
+            [18, 10],
+            [19, 12],
+            [20, 14],
+            [21, 16]
+          ]
+        }
       }
     }
   ]

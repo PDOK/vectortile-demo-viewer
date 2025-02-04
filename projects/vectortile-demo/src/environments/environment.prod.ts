@@ -20,7 +20,7 @@ const urlQuad = (base: string, constantPath: string, constantQuery: string): { [
 export const environment = {
   production: true,
 
-  BRTTop10Standaardjsonurl: urlQuad( 'https://api.pdok.nl/brt/top10nl/ogc/v1-demo/styles', '/brt_top10nl__', 'f=mapbox'),
+  BRTTop10Standaardjsonurl: urlQuad( 'https://api.pdok.nl/brt/top10nl/ogc/v1/styles', '/brt_top10nl__', 'f=mapbox'),
   BGTmapboxachtergrondjsonurl: 'styles/bgt_achtergrondvisualisatie.json',
   BGTmapboxstandaardjsonurl: 'styles/bgt_standaardvisualisatie.json',
   BAGmapboxbagstd:    urlQuad('https://api.pdok.nl/lv/bag/ogc/v1_0/styles', '/bag_standaardvisualisatie__', 'f=json'),

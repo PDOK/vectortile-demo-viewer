@@ -6,6 +6,7 @@
     "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1-demo/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
     "gokoala:title-items": "id"
   },
+  "glyphs": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
 
   "center": [],
   "pitch": 0,

@@ -16,7 +16,6 @@
 
     }
   },
-  "sprite": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/standaardsprites/sprite@1",
   "glyphs": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {

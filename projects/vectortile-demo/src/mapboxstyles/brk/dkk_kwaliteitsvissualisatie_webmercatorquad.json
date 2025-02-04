@@ -104,7 +104,7 @@
         "text-rotate": ["get", "hoek"],
 
         "text-font": [
-          "liberation-sans",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -135,7 +135,7 @@
       "layout": {
         "text-field": "{tekst}",
         "text-font": [
-          "liberation-sans-italic",
+          "Liberation Sans Italic",
           "system-ui",
           "Roboto",
           "Arial",
@@ -165,7 +165,7 @@
       "layout": {
         "text-field": "{tekst}",
         "text-font": [
-          "liberation-sans-italic",
+          "Liberation Sans Italic",
           "system-ui",
           "Roboto",
           "Arial",
@@ -205,7 +205,7 @@
           "default": 14
         },
         "text-font": [
-          "liberation-sans-italic",
+          "Liberation Sans Italic",
           "system-ui",
           "Roboto",
           "Arial",

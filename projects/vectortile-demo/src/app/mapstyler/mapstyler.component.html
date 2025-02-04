@@ -41,23 +41,14 @@
             type="checkbox"
             checked
             (change)="onCheckboxAllChange($event)"
+            title="Toggle all values"
           />
         </td>
         <td>
           <div class="legend-button-area">
             <div class="legend-button-area-item">
-              <button (click)="NewColorMap()" type="checkbox">
+              <button (click)="NewColorMap()" type="button">
                 Reset Legenda
-              </button>
-            </div>
-
-            <div
-              class="legend-button-area-item"
-              *ngFor="let v of detaillevel | keyvalue"
-              (click)="onSelectLevel(v.value)"
-            >
-              <button [disabled]="disEnabledLevel(v)">
-                <span>{{ v.value }}</span>
               </button>
             </div>
           </div>
@@ -70,6 +61,7 @@
             type="checkbox"
             [checked]="colorArrayChecked(true)"
             (change)="onCheckboxLabelsChange($event)"
+            title="Toggle labels"
           />
         </td>
 
@@ -80,6 +72,7 @@
                 type="checkbox"
                 [checked]="x.value.show"
                 (change)="onCheckboxChange($event, x)"
+                title="Toggle visibility"
               />
               {{ x.key }}
               <ng-container *ngIf="x.value.show">
@@ -89,6 +82,7 @@
 
                 <div class="colorpick">
                   <input
+                    title="Pick a color"
                     [(colorPicker)]="x.value.rbgString"
                     [style.background]="x.value.rbgString"
                     [cpOutputFormat]="'rgba'"
@@ -111,12 +105,14 @@
             type="checkbox"
             [checked]="x.value.show"
             (change)="onCheckboxChange($event, x)"
+            title="Toggle visibility"
           />
         </td>
         <td>
           <div *ngIf="x.value.show">
             <div class="colorpick">
               <input
+                title="Pick a color"
                 [(colorPicker)]="x.value.rbgString"
                 [style.background]="x.value.rbgString"
                 [cpOutputFormat]="'rgba'"
@@ -130,4 +126,5 @@
       </tr>
     </tbody>
   </table>
+
 </div>

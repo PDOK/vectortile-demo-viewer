@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { LocationService, ViewLocation } from '../location.service';
 const kaartenNLUrl= 'https://www.kaartenvannederland.nl/'
 @Component({
-  selector: 'app-location',
-  templateUrl: './location.component.html',
-  styleUrls: ['./location.component.scss']
+    selector: 'app-location',
+    templateUrl: './location.component.html',
+    styleUrls: ['./location.component.scss'],
+    
 })
 export class LocationComponent implements OnInit {
   location: ViewLocation;
@@ -21,8 +22,8 @@ export class LocationComponent implements OnInit {
     this.locationService.currentLocation.subscribe(currentLocation => {
       this.location= currentLocation;
       this.xy = this.location.view!.getCenter();
-      var zoomlevel= this.location.view!.getZoom()!;
-      let params = new HttpParams().append('geometry.x', this.xy[0]).append('geometry.y', this.xy[1]).append('zoomlevel', zoomlevel);
+      const zoomlevel= this.location.view!.getZoom()!;
+      const params = new HttpParams().append('geometry.x', this.xy[0]).append('geometry.y', this.xy[1]).append('zoomlevel', zoomlevel);
        
       this.kaartenNLUrl=kaartenNLUrl+ "#?"+params.toString();
        

@@ -1,16 +1,26 @@
-import { Component, EventEmitter, Output } from '@angular/core'
+import { Component, EventEmitter, Output, OnInit } from '@angular/core'
 import { View } from 'ol'
 import { demoSettings } from '../app.component'
 import { Visualisatie, getRandomEnumValue } from '../enumVisualisatie'
 import { LocationService } from '../location.service'
 import { LocalStorageService } from '../local-storage-service'
+import { CommonModule } from '@angular/common'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MatTooltipModule } from '@angular/material/tooltip'
 
 @Component({
-  selector: 'app-demobox',
-  templateUrl: './demobox.component.html',
-  styleUrls: ['./demobox.component.scss'],
+    selector: 'app-demobox',
+    templateUrl: './demobox.component.html',
+    styleUrls: ['./demobox.component.scss'],
+    imports: [
+      CommonModule,
+      MatSlideToggleModule,
+      MatTooltipModule,
+    
+  ],
+
 })
-export class DemoboxComponent {
+export class DemoboxComponent implements OnInit {
   @Output() visEmit: EventEmitter<Visualisatie> = new EventEmitter();
 
   demotextLocatieAan: string = 'Willekeurige locatie roulerend';
@@ -48,7 +58,7 @@ export class DemoboxComponent {
     this.locationService.currentLocation.subscribe((currentLocation) => {
       // this.currentlocation = currentLocation;
      //console.log ( this.getAllAvailableFonts());
-    
+
     })
   }
 
@@ -60,7 +70,7 @@ export class DemoboxComponent {
     const fonts: FontFace[] = [];
     fontSet.forEach(font => {
       fonts.push(font);
-      
+
     });
     return fonts;
   }
@@ -80,7 +90,7 @@ export class DemoboxComponent {
   }
 
   DemogotoStartLocationOnMap() {
-    this.localStorageService.removeAll()   
+    this.localStorageService.removeAll()
     this.visEmit.emit(Visualisatie.BGTstandaard)
     this.isDemoVisualisatieRotate = false
     this.isDemoLocatieRotate = false
@@ -105,7 +115,7 @@ export class DemoboxComponent {
       const dx = 155000 + Math.round(Math.random() * 50000)
       const dy = 463000 + Math.round(Math.random() * 50000)
       const newloc = new View({
-        projection: this.locationService.rdProjection,
+        projection: this.locationService.projection,
         center: [dx, dy],
         zoom: 13,
         enableRotation: false,

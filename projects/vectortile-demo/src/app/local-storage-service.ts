@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
-import { isType } from 'ol/expr/expression'
 
-export type storageKey = "customUrl" | "customUrlExtension" | "customUrlMinZoom" | "customUrlxyzTemplate" | "showDebugLayer"
+export type storageKey = "customUrl" | "customUrlExtension" | "customUrlMinZoom" | "customUrlxyzTemplate" | "showDebugLayer" |"customTileMatrixPart"
 export type storageItem = {
   key: storageKey,
   value: string | boolean
@@ -19,9 +18,7 @@ export class LocalStorageService {
   constructor() { }
 
   public set(item: storageItem): void {
-    console.log(' store :', item)
-
-    if (typeof (item.value) === 'boolean') {
+     if (typeof (item.value) === 'boolean') {
       if (item.value)
         item.value = "true"
       else {
@@ -57,10 +54,8 @@ export class LocalStorageService {
       return ''
     }
 
-    try {
-      console.log('Parsing:', store)
-      const parsed = JSON.parse(store)
-      console.log('Parsed JSON:', parsed)
+    try {  
+      const parsed = JSON.parse(store)    
       return parsed.value
     } catch (error) {
       console.error('Error parsing JSON:', store, error)
@@ -79,6 +74,6 @@ export class LocalStorageService {
   }
 
   public removeAll() {
-    (['customUrl', 'customUrlExtension', 'customUrlMinZoom', 'customUrlxyzTemplate', 'showDebugLayer'] as storageKey[]).forEach(key => this.remove(key))
+    (['customUrl', 'customUrlExtension', 'customUrlMinZoom', 'customUrlxyzTemplate', 'showDebugLayer', 'customTileMatrixPart'] as storageKey[]).forEach(key => this.remove(key))
   }
 }

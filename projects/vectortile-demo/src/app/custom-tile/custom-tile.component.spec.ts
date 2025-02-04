@@ -1,108 +1,111 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CustomTileComponent } from './custom-tile.component';
-import { LocalStorageService, storageKey } from '../local-storage-service';
-import { Visualisatie } from '../enumVisualisatie';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { ReactiveFormsModule } from '@angular/forms'
+import { CustomTileComponent } from './custom-tile.component'
+import { LocalStorageService, storageKey } from '../local-storage-service'
+import { Visualisatie } from '../enumVisualisatie'
 
 describe('CustomTileComponent', () => {
-  let component: CustomTileComponent;
-  let fixture: ComponentFixture<CustomTileComponent>;
-  let localStorageService: jasmine.SpyObj<LocalStorageService>;
+  let component: CustomTileComponent
+  let fixture: ComponentFixture<CustomTileComponent>
+  let localStorageService: jasmine.SpyObj<LocalStorageService>
 
   beforeEach(async () => {
-    const localStorageSpy = jasmine.createSpyObj('LocalStorageService', ['Exists', 'get', 'set', 'remove', 'removeAll']);
+    const localStorageSpy = jasmine.createSpyObj('LocalStorageService', ['Exists', 'get', 'set', 'remove', 'removeAll'])
 
     await TestBed.configureTestingModule({
-    
+
       imports: [CustomTileComponent, ReactiveFormsModule],
       providers: [
         { provide: LocalStorageService, useValue: localStorageSpy }
       ]
-    }).compileComponents();
+    }).compileComponents()
 
-    localStorageService = TestBed.inject(LocalStorageService) as jasmine.SpyObj<LocalStorageService>;
+    localStorageService = TestBed.inject(LocalStorageService) as jasmine.SpyObj<LocalStorageService>
 
- 
 
-    localStorageService.Exists.and.callFake((key: storageKey) => key === 'customUrl'|| key === 'customUrlxyzTemplate' || 
-    key === 'customUrlExtension' || key === 'customUrlMinZoom'|| key==='showDebugLayer');
+
+    localStorageService.Exists.and.callFake((key: storageKey) => key === 'customUrl' || key === 'customUrlxyzTemplate' ||
+      key === 'customUrlExtension' || key === 'customUrlMinZoom' || key === 'showDebugLayer' || key === 'customTileMatrixPart')
     localStorageService.get.and.callFake((key: string) => {
       switch (key) {
-        case 'customUrl': return 'http://example.com';
-        case 'customUrlExtension': return '.json';
-        case 'customUrlMinZoom': return '10';
-        case 'customUrlxyzTemplate' : return 'T{z}{x}{y}'; 
-        case 'showDebugLayer' : return 'True'; 
-       
-        default: return '';
+        case 'customUrl': return 'http://example.com'
+        case 'customTileMatrixPart': return ''
+        case 'customUrlExtension': return '.json'
+        case 'customUrlMinZoom': return '10'
+        case 'customUrlxyzTemplate': return 'T{z}{x}{y}'
+        case 'showDebugLayer': return 'True'
+
+        default: return ''
       }
-    });
+    })
 
-    fixture = TestBed.createComponent(CustomTileComponent);
-    component = fixture.componentInstance;
+    fixture = TestBed.createComponent(CustomTileComponent)
+    component = fixture.componentInstance
 
-    fixture.detectChanges();
-  });
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    expect(component).toBeTruthy()
+  })
 
   it('should initialize form with values from localStorage', () => {
     expect(component.customtForm.value).toEqual({
       customUrl: 'http://example.com',
       customUrlExtension: '.json',
-      customUrlMinZoom: '10', 
-      customUrlxyzTemplate: 'T{z}{x}{y}', 
-      showDebugLayer: "True"
-    });
-  });
+      customUrlMinZoom: '10',
+      customUrlxyzTemplate: 'T{z}{x}{y}',
+      showDebugLayer: "True",
+      customTileMatrixPart: ''
+    })
+  })
 
   it('should call localStorageService.set on form submit', () => {
     component.customtForm.setValue({
       customUrl: 'http://newexample.com',
       customUrlExtension: '.xml',
-      customUrlxyzTemplate: 'N{z}{x}{y}', 
-      customUrlMinZoom: '12', 
-            showDebugLayer: "False"
-    });
+      customUrlxyzTemplate: 'N{z}{x}{y}',
+      customUrlMinZoom: '12',
+      showDebugLayer: "False",
+      customTileMatrixPart: ''
+    })
 
-    component.onSubmit();
+    component.onSubmit()
 
-    expect(localStorageService.set).toHaveBeenCalledWith({ key: 'customUrl', value: 'http://newexample.com' });
-    expect(localStorageService.set).toHaveBeenCalledWith({ key: 'customUrlExtension', value: '.xml' });
-    expect(localStorageService.set).toHaveBeenCalledWith({ key: 'customUrlMinZoom', value: '12' });
-    expect(localStorageService.set).toHaveBeenCalledWith({ key: 'customUrlxyzTemplate', value: 'N{z}{x}{y}' });
-    expect(localStorageService.set).toHaveBeenCalledWith({ key: 'showDebugLayer', value: 'False' });
-  });
+    expect(localStorageService.set).toHaveBeenCalledWith({ key: 'customUrl', value: 'http://newexample.com' })
+    expect(localStorageService.set).toHaveBeenCalledWith({ key: 'customUrlExtension', value: '.xml' })
+    expect(localStorageService.set).toHaveBeenCalledWith({ key: 'customUrlMinZoom', value: '12' })
+    expect(localStorageService.set).toHaveBeenCalledWith({ key: 'customUrlxyzTemplate', value: 'N{z}{x}{y}' })
+    expect(localStorageService.set).toHaveBeenCalledWith({ key: 'showDebugLayer', value: 'False' })
+  })
 
   it('should emit visEmit event on form submit', () => {
-    spyOn(component.visEmit, 'emit');
+    spyOn(component.visEmit, 'emit')
 
-    component.onSubmit();
+    component.onSubmit()
 
-    expect(component.visEmit.emit).toHaveBeenCalledWith(Visualisatie.Custom1Blanko);
-  });
+    expect(component.visEmit.emit).toHaveBeenCalledWith(Visualisatie.Custom1Blanko)
+  })
 
   it('should reset form and call localStorageService.remove on reset', () => {
-    component.onReset();
+    component.onReset()
 
-    expect(localStorageService.removeAll).toHaveBeenCalled();
+    expect(localStorageService.removeAll).toHaveBeenCalled()
     expect(component.customtForm.value).toEqual({
       customUrl: null,
       customUrlExtension: null,
       customUrlxyzTemplate: null,
-      customUrlMinZoom: null, 
-      showDebugLayer:null
-      
-    });
-  });
+      customUrlMinZoom: null,
+      showDebugLayer: null,
+      customTileMatrixPart: null
+    })
+  })
 
   it('should emit visEmit event on reset', () => {
-    spyOn(component.visEmit, 'emit');
+    spyOn(component.visEmit, 'emit')
 
-    component.onReset();
+    component.onReset()
 
-    expect(component.visEmit.emit).toHaveBeenCalledWith(Visualisatie.BGTachtergrond);
-  });
-});
+    expect(component.visEmit.emit).toHaveBeenCalledWith(Visualisatie.BGTachtergrond)
+  })
+})

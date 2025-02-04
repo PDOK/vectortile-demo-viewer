@@ -46,6 +46,7 @@ export function getFillColor(st: void | Style | Style[]) {
         }
     }
     else {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const stStyle = st as any
         if (stStyle) {
             const colcolor = stStyle.fill_.color_ as string | number[] | CanvasGradient | CanvasPattern
@@ -116,6 +117,7 @@ export class DrawColor {
 
     }
     private _show = true;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     readonly legendfeature: Feature<Geometry> | any
     setRbg(r: number, b: number, g: number) {
         this.r = r
@@ -322,18 +324,6 @@ export class DrawColor {
             }
 
 
-            const aimage = new RegularShape({
-                fill: new Fill({
-                    color: `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`
-
-                }),
-                stroke: new Stroke({
-                    color: `rgb(${this.r}, ${this.g}, ${this.b}, ${this.a})`
-                }),
-                points: 4,
-                radius: 10,
-                angle: Math.PI / 4,
-            })
 
 
 

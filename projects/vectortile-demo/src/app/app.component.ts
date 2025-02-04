@@ -5,16 +5,24 @@ import {
   getAllVisualisaties,
   getStyleUrl,
 } from './enumVisualisatie'
+import { LocationComponent } from './location/location.component'
+import { OlmapComponent } from './olmap/olmap.component'
+import { ShowlinkComponent } from './showlink/showlink.component'
+import { CommonModule } from '@angular/common'
+import { SearchComponent } from './search/search.component'
+import { environment } from '../environments/environment'
 export const demoSettings = {
   demoVisualisatieRotate: false,
   demoLocatieRotate: false,
-  previewFeature: false,
+  previewFeature: !environment.production,
 }
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    imports:[CommonModule, LocationComponent, OlmapComponent, ShowlinkComponent, SearchComponent]
+
 })
 export class AppComponent implements OnInit {
   enumFromValue = <T extends Record<string, string>>(
@@ -48,7 +56,7 @@ export class AppComponent implements OnInit {
   receiveTitle(data: Visualisatie) {
     this.currentVis = data
 
-    this.styleurl = getStyleUrl(this.currentVis).styleUrl!
+    this.styleurl = getStyleUrl(this.currentVis, "netherlandsrdnewquad").styleUrl!
   }
 
   onSelect(vis: Visualisatie): void {

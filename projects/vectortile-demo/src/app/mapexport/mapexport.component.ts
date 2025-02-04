@@ -9,9 +9,10 @@ declare global {
 
 const BackgroundColor = '#FFFFFF';
 @Component({
-  selector: 'app-mapexport',
-  templateUrl: './mapexport.component.html',
-  styleUrls: ['./mapexport.component.scss']
+    selector: 'app-mapexport',
+    templateUrl: './mapexport.component.html',
+    styleUrls: ['./mapexport.component.scss'],
+    
 })
 export class MapexportComponent {
   @Input() map!: olMap
@@ -28,7 +29,7 @@ export class MapexportComponent {
       this.mapContext = this.mapCanvas.nativeElement.getContext('2d');
    
 
-      var that = this
+      const that = this
       this.map.once('rendercomplete', function () {
         if (that.mapCanvas) {
         

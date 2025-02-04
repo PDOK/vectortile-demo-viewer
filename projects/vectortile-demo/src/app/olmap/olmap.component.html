@@ -59,6 +59,9 @@
           </app-mapstyler>
         </div>
       </div>
+      <!--div class ='mapuntik'>
+      edit met mapuntik:<app-showlink [url]="getShowTileUrl()" ></app-showlink>
+    </div-->
 
       <div *ngIf="isShowDemo" class="row container-fluid">
         <div class="infotextbox">
@@ -100,7 +103,7 @@
               </tbody>
             </table>
           
-            <app-custom-tile (visEmit)="visualisationChange($event)"  (gridEmit)="visualisationRefresh($event)"> </app-custom-tile>   
+            <app-custom-tile (visEmit)="visualisationChange($event)"  (gridEmit)="visualisationRefresh()"> </app-custom-tile>   
                  
           
           </div>

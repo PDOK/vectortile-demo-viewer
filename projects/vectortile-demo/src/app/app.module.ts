@@ -1,6 +1,5 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core'
+import { ApplicationRef, CUSTOM_ELEMENTS_SCHEMA, NgModule, DoBootstrap } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { ColorPickerModule } from 'ngx-color-picker'
 import { AppRoutingModule } from './app-routing.module'
@@ -8,7 +7,6 @@ import { AppComponent } from './app.component'
 import { OlmapComponent } from './olmap/olmap.component'
 import { SearchComponent } from './search/search.component'
 import { ObjectinfoComponent } from './objectinfo/objectinfo.component'
-import { OgcmapComponent } from './objectinfo/ogcmap/ogcmap.component'
 import { MapexportComponent } from './mapexport/mapexport.component'
 import { MapstylerComponent } from './mapstyler/mapstyler.component'
 import { LocationComponent } from './location/location.component'
@@ -24,19 +22,13 @@ import { CustomTileComponent } from "./custom-tile/custom-tile.component";
 
 
 @NgModule({ declarations: [
-        AppComponent,
-        OlmapComponent,
-        SearchComponent,
-        ObjectinfoComponent,
-        MapexportComponent,
-        MapstylerComponent,
-        LocationComponent,
-        DemoboxComponent,
-        ShowlinkComponent,
-        OgcmapComponent,
+
     ],
+
+
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+
+    imports: [ AppComponent,BrowserModule,
     AppRoutingModule,
     ColorPickerModule,
     BrowserAnimationsModule,
@@ -44,5 +36,19 @@ import { CustomTileComponent } from "./custom-tile/custom-tile.component";
     MatDividerModule,
     //  MatButtonModule,
     //  MatIconModule,
-    MatSlideToggleModule, CustomTileComponent], providers: [provideHttpClient(withInterceptorsFromDi())] })
-export class AppModule { }
+    MatSlideToggleModule, CustomTileComponent,
+    OlmapComponent,
+    SearchComponent,
+    ObjectinfoComponent,
+    MapexportComponent,
+    MapstylerComponent,
+    LocationComponent,
+    DemoboxComponent,
+    ShowlinkComponent,
+  ], providers: [provideHttpClient(withInterceptorsFromDi())] })
+
+  export class AppModule implements DoBootstrap {
+    ngDoBootstrap(appRef: ApplicationRef) {
+      appRef.bootstrap(AppComponent);
+    }
+  }

@@ -1,8 +1,8 @@
-import { KeyValue } from '@angular/common'
+import { CommonModule, KeyValue } from '@angular/common'
 import {
-  AfterContentInit,
   AfterViewInit,
   Component,
+  CUSTOM_ELEMENTS_SCHEMA,
   ElementRef,
   Input,
   ViewChild,
@@ -12,7 +12,14 @@ import { NgElement, WithProperties } from '@angular/elements'
 import VectorTileLayer from 'ol/layer/VectorTile'
 import { FeatureLike } from 'ol/Feature'
 import { DrawColor } from '../color'
+
 import { IColorMap, LegendLevel } from '../colorMap'
+
+
+
+import {  ColorPickerModule } from 'ngx-color-picker'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -21,9 +28,11 @@ declare global {
 }
 
 @Component({
-  selector: 'app-mapstyler',
-  templateUrl: './mapstyler.component.html',
-  styleUrls: ['./mapstyler.component.scss'],
+    selector: 'app-mapstyler',
+    templateUrl: './mapstyler.component.html',
+    styleUrls: ['./mapstyler.component.scss'],
+    imports:[ CommonModule, ColorPickerModule, MatSlideToggleModule],
+    schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MapstylerComponent implements AfterViewInit {
 
@@ -91,6 +100,7 @@ export class MapstylerComponent implements AfterViewInit {
 
   onSelectLevel(lev: LegendLevel) {
     this.ColorMap.setSelector(lev)
+    this._isShowStyler= true
     this.refreshlayer()
   }
 

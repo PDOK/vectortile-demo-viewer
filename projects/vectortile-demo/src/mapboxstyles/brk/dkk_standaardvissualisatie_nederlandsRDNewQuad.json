@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "name": "",
+  "name": "Kadastrale kaart standaardvissualisatie nederlandsRDNewQuad",
   "metadata": {
     "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
     "gokoala:title-items": "id"
@@ -59,7 +59,7 @@
         ],
         "text-allow-overlap": true,
         "icon-allow-overlap": true,
-        "symbol-placement": "line-center"
+    
       },
       "paint": { "text-color": "#C10101" }
     },

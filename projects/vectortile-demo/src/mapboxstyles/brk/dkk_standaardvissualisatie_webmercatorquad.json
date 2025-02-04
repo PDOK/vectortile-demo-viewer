@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "name": "",
+  "name": "Kadastrale kaart standaardvissualisatie webmercatorquad",
   "metadata": {
     "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
     "gokoala:title-items": "id"
@@ -20,7 +20,7 @@
   "glyphs": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
-      "id": "Bebouwing pand",
+      "id": "Bebouwing",
       "type": "fill",
       "source": "dkk",
       "source-layer": "pand",
@@ -30,13 +30,22 @@
       }
     },
     {
-      "id": "Nummeraanduidingreeks nummeraanduidingreeks (pand nummeraanduiding)",
+      "id": "Nummeraanduidingreeks",
       "type": "symbol",
       "source": "dkk",
-      "source-layer": "nummeraanduidingreeks",
+      "source-layer": "pand_nummeraanduiding",
+
       "layout": {
         "text-field": "{tekst}",
-        "text-size": 6,
+        "text-size": {
+          "stops": [
+            [17, 4],
+            [18, 6],
+            [19, 10],
+            [20, 14]
+          ]
+        },
+        "text-rotate": ["get", "hoek"],
         "text-font": [
           "liberation-sans",
           "system-ui",
@@ -47,110 +56,153 @@
           "sans-serif",
           "Noto Color Emoji"
         ],
-        "symbol-placement": "line-center"
+        "text-allow-overlap": true,
+        "icon-allow-overlap": true,
       },
-      "paint": {"text-color": "#C10101"}
+      "paint": { "text-color": "#C10101" }
+    },
+    {
+      "id": "Water openbareruimtelabel",
+      "type": "symbol",
+      "source": "dkk",
+      "source-layer": "openbareruimtelabel",
+      "paint": {
+        "text-color": "#002750"
+      },
+      "filter": [
+        "all",
+        ["==", "openbare_ruimte_type", "Water"],
+        ["==", "bgt_status", "bestaand"]
+      ],
+      "layout": {
+        "text-field": "{tekst}",
+        "text-font": [
+          "liberation-sans-italic",
+          "system-ui",
+          "Roboto",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Noto Color Emoji"
+        ],
+
+        "text-size": 15,
+        "text-rotate": ["-", 360, ["get", "mshoek"]]
+      }
     },
     {
       "id": "Weg openbareruimtelabel",
       "type": "symbol",
       "source": "dkk",
       "source-layer": "openbareruimtelabel",
-      "layout": {
-        "text-field": "{tekst}",
-        "text-size": 11,
-        "text-font": [
-          "liberation-sans",
-          "system-ui",
-          "Roboto",
-          "Arial",
-          "Noto Sans",
-          "Liberation Sans",
-          "sans-serif",
-          "Noto Color Emoji"
-        ],
-        "symbol-placement": "line-center"
-      },
-      "paint": {"text-color": "#000000"}
-    },
-    {
-      "id": "Water openbareruimtelabel (openbareruimtelabel)",
-      "type": "symbol",
-      "source": "dkk",
-      "source-layer": "openbareruimtelabel",
-      "layout": {
-        "text-field": "{tekst}",
-        "text-size": 11,
-        "text-font": [
-          "liberation-sans-italic",
-          "system-ui",
-          "Roboto",
-          "Arial",
-          "Noto Sans",
-          "Liberation Sans",
-          "sans-serif",
-          "Noto Color Emoji"
-        ],
-        "symbol-placement": "line-center"
-      },
-      "paint": {"text-color": "#000000"}
-    },
-     {
-      "id": "Label perceel_label (perceel label)",
-      "type": "symbol",
-      "source": "dkk",
-      "source-layer": "perceel_label",
-      "layout": {
-        "text-field": "{perceelnummer}",
-        "text-size": 7,
-        "text-font": [
-          "liberation-sans-italic",
-          "system-ui",
-          "Roboto",
-          "Arial",
-          "Noto Sans",
-          "Liberation Sans",
-          "sans-serif",
-          "Noto Color Emoji"
-        ],
-        "symbol-placement": "line-center"
-      },
       "paint": {
-        "text-color": "#000000",
-        "text-halo-color": "#FFFFFF",
-        "text-halo-width": 2
+        "text-color": "#002750"
+      },
+      "filter": [
+        "all",
+        ["==", "openbare_ruimte_type", "Weg"],
+        ["==", "bgt_status", "bestaand"]
+      ],
+      "layout": {
+        "text-field": "{tekst}",
+        "text-font": [
+          "liberation-sans-italic",
+          "system-ui",
+          "Roboto",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Noto Color Emoji"
+        ],
+        "text-size": {
+          "stops": [
+            [17, 10],
+            [18, 11],
+            [19, 12],
+            [20, 14]
+          ]
+        },
+        "text-rotate": ["-", 360, ["get", "mshoek"]]
       }
     },
     {
-      "id": "Bijpijling perceel_bijpijling",
+      "id": "Bijpijling",
       "type": "line",
       "source": "dkk",
       "source-layer": "perceel_bijpijling",
       "paint": {"line-color": "#000001", "line-width": 1}
     },
     {
-      "id": "Voorlopig kadastrale_grens",
+      "id": "Kadastrale grens Voorlopig",
       "type": "line",
       "source": "dkk",
       "source-layer": "kadastrale_grens",
-      "filter": ["==", "'type_grens_waarde'", "'Voorlopig'"],
+      "filter": ["==", "type_grens_waarde", "Voorlopig"],
       "paint": {"line-color": "#CC9900", "line-width": 2}
     },
     {
-      "id": "Administratief kadastrale_grens",
+      "id": "Kadastrale grens Administratief",
       "type": "line",
       "source": "dkk",
       "source-layer": "kadastrale_grens",
-      "filter": ["==", "'type_grens_waarde'", "'Administratief'"],
+      "filter": ["==", "type_grens_waarde", "Administratief"],
       "paint": {"line-color": "#5CF6D1", "line-width": 2}
     },
     {
-      "id": "Definitief kadastrale_grens",
+      "id": "Kadastrale grens Definitief",
       "type": "line",
       "source": "dkk",
       "source-layer": "kadastrale_grens",
+      "filter": ["==", "type_grens_waarde", "Definitief"],
       "paint": {"line-color": "#000001", "line-width": 2}
+    },
+    {
+      "id": "Perceel Label",
+      "type": "symbol",
+      "source": "dkk",
+      "source-layer": "perceel_label",
+      "layout": {
+        "text-field": "{perceelnummer}",
+        "text-allow-overlap": true,
+        "icon-allow-overlap": true,
+        "text-size": {
+          "stops": [
+            [17, 6],
+            [18, 6],
+            [19, 9],
+            [20, 12],
+            [21, 14]
+          ],
+          "default": 14
+        },
+        "text-font": [
+          "liberation-sans-italic",
+          "system-ui",
+          "Roboto",
+          "Arial",
+          "Noto Sans",
+          "Liberation Sans",
+          "sans-serif",
+          "Noto Color Emoji"
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": {
+          "stops": [
+            [17, 6],
+            [18, 65],
+            [19, 12],
+            [20, 14],
+            [21, 16]
+          ]
+        }
+      }
     }
+
   ],
   "id": ""
 }

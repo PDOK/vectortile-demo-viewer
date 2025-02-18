@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core'
+import { AfterViewInit, Component, ElementRef, OnInit, ViewEncapsulation } from '@angular/core'
 import { Observable } from 'rxjs'
 import { DefaultService as PdokLocationService } from '../api/locatieserver/v3'
 import { DisplayItem, IdlookupService } from '../idlookup.service'
 import { LocationService } from '../location.service'
 import { CommonModule } from '@angular/common'
+import { SearchnewComponent } from "../searchnew/searchnew.component";
+import {demoSettings} from '../app.component'
+
 
 export interface Suggest {
   response: Response
@@ -33,28 +36,68 @@ export interface Spellcheck {
 
 
 @Component({
+   encapsulation: ViewEncapsulation.None,
+  standalone: true,
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
   imports: [
-    CommonModule]
+    CommonModule,
+    SearchnewComponent
+]
+
 
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, AfterViewInit {
+
 
   $suggest!: Observable<Suggest>
   searchListVisible: boolean = false;
   searchLocation: string = ""
   $ids!: Observable<(false | DisplayItem)[]>
 
-  constructor(private pdokLocationService: PdokLocationService, private locationService: LocationService, private idlookupService: IdlookupService) { }
+inputHeight=5
+inputWidth=25
+  previewLocApi: boolean = false
+
+  constructor( private elementRef: ElementRef, private pdokLocationService: PdokLocationService, private locationService: LocationService, private idlookupService: IdlookupService) { }
 
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
-    // nothing
+    this.setsize()
+    this.previewLocApi= false
+
+
+
+  }
+
+ngAfterViewInit(): void {
+
+}
+
+  setsize(){
+    try {
+      const elm: HTMLElement = this.elementRef.nativeElement.querySelector("[class='searchBox']");
+      if (elm) {
+        this.inputWidth = elm.offsetWidth;
+        this.inputHeight = elm.offsetHeight;
+      } else {
+        console.error("Element with class 'searchBox' not found.");
+      }
+    } catch (error) {
+      console.error("An error occurred while setting input dimensions:", error);
+    }
+
+
   }
 
   onSearchKey(search: string) {
+
+    if (search==="locationAPI") {
+      this.previewLocApi= true
+
+    }
+
     const ogc = this.locationService.OgcAPI
     if (ogc) {
       const t = this.findTokens(search, ogc.lokaalIdRegex)
@@ -67,6 +110,7 @@ export class SearchComponent implements OnInit {
       this.$suggest = this.pdokLocationService.suggestGet(search, 'weergavenaam centroide_rd', undefined, undefined, undefined, 7)
     }
     this.searchListVisible = true
+
   }
 
 
@@ -109,4 +153,11 @@ export class SearchComponent implements OnInit {
     }
     else return undefined
   }
+
+  handleactiveSearchNewText(searchstring : string) {
+    this.searchLocation = searchstring
+
+    this.onSearchKey(searchstring)
+    }
+
 }

@@ -4,8 +4,18 @@
   width: var(--searchwidth, 30vw);
   top: var(--searchtop, 14vh);
   z-index: 4;
+  display: flex;
 
 }
+.searchnew{
+  height: calc(var(--buttonheight, 1vh) *0.5);
+  font-size: var(--fontsize, 1vh);
+  font-family: var(--fontfamily, "Roboto");
+  background-color: whitesmoke;
+  width: var(--searchwidth, 20vw);
+
+}
+
 
 .searchBox {
   height: calc(var(--buttonheight, 1vh) *0.5);

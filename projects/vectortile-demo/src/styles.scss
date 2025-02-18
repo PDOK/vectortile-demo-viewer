@@ -2,10 +2,13 @@
 @use '@angular/material' as mat;
 @include mat.elevation-classes();
 @include mat.app-background();
-@import url('assets/fonts/fonts.css');
+@import url('mapboxstyles/brk/fonts/fonts.css');
+@import url(https://pdok.github.io/gokoala/styles.css);
 
 
 :root {
+
+
 
   --oranje: #ffa500;
   --pdokblauw: #1a1e4f;

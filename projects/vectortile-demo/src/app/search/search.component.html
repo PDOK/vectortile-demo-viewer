@@ -4,13 +4,14 @@
       class="searchBox"
       autoComplete="off"
       [value]="searchLocation"
-      #searchbox
+   #searchbox
       (keyup)="onSearchKey(searchbox.value)"
-      type="text"
+    type="text"
       placeholder="Voer Locatie in"
       title="Voer Locatie in"
       list="locatie-auto-complete"
     />
+
 
     <div *ngIf="searchListVisible">
       <div
@@ -28,4 +29,7 @@
       </div>
     </div>
   </div>
+
+  <app-searchnew *ngIf="previewLocApi" (activeSearchText)="handleactiveSearchNewText($event)"></app-searchnew>
 </div>
+

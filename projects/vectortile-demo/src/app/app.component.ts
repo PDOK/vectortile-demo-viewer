@@ -15,6 +15,7 @@ export const demoSettings = {
   demoVisualisatieRotate: false,
   demoLocatieRotate: false,
   previewFeature: !environment.production,
+  demoLocationApi: true
 }
 
 @Component({

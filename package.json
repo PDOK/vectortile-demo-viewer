@@ -20,6 +20,7 @@
     "valstandaard": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/bgt_standaardvisualisatie.json",
     "valtactiel": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/tactielevisualisatie.json",
     "valbrk1": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/brk/dkk_kwaliteitsvissualisatie_webmercatorquad.json",
+    "valbrk2": "gl-style-format projects/vectortile-demo/src/mapboxstyles/brk/dkk_kwaliteitsvissualisatie_webmercatorquad.json > projects/vectortile-demo/src/mapboxstyles/brk/dkk_kwaliteitsvissualisatie_webmercatorquad2json ",
     "runupdate": "ng update  @angular/core @angular/cli @angular/cdk @angular/material"
   },
   "private": true,

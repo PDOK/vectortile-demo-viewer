@@ -1,0 +1,29 @@
+
+
+
+
+
+
+.locationsearchclass{
+
+  width: var(--searchwidth, 20vw);
+}
+#locationsearchnew{
+  --ls-searchbox-width: var(--searchwidth, 80em);
+  --ls-search-textbox-width: var(--searchwidth, 80em);
+  --ls-searchbox-height: calc(var(--buttonheight, 1vh) *0.5);
+  --ls-searchbox-padding: 1px;
+  --ls-searchbox-margin: 0px;
+  --ls-searchbox-border: solid, 2px, rgb(170, 170, 170);
+  --ls-selectbox-buttonheight: var(--buttonheight, 2vh);
+
+  --ls-selectbox-fontsize:var(--fontsize, 1vh);
+  --ls-selectbox-font-family:var(--font-family, "Roboto");
+  --ls-options-background-color: rgba(245, 245, 245, 0.6);
+  --ls-searchbox-collections-left: 50vw;
+
+
+
+}
+
+

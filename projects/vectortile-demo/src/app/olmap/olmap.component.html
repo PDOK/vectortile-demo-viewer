@@ -66,9 +66,9 @@
       <div *ngIf="isShowDemo" class="row container-fluid">
         <div class="infotextbox">
           <div class="demobox">
-       
+
             <app-demobox (visEmit)="visualisationChange($event)"> </app-demobox>
-            <app-mapexport [map]="this.map1"></app-mapexport>
+            <app-mapexport [olMap]="this.map1"></app-mapexport>
 
             <table>
               <caption class="techcaption">
@@ -102,10 +102,10 @@
                 </tr>
               </tbody>
             </table>
-          
-            <app-custom-tile (visEmit)="visualisationChange($event)"  (gridEmit)="visualisationRefresh()"> </app-custom-tile>   
-                 
-          
+
+            <app-custom-tile (visEmit)="visualisationChange($event)"  (gridEmit)="visualisationRefresh()"> </app-custom-tile>
+
+
           </div>
         </div>
       </div>

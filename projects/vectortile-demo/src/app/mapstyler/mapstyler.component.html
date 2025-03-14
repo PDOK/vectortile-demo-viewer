@@ -5,7 +5,7 @@
     [matTooltip]="
       !isShowStyler
         ? 'Select om zelf de visualisatie aan te passen'
-        : 'Selecxt om Standaard visualisatie tonen'
+        : 'Select om Standaard visualisatie tonen'
     "
     [matTooltipPosition]="'left'"
     aria-label="Toon object informatie"
@@ -77,7 +77,7 @@
               {{ x.key }}
               <ng-container *ngIf="x.value.show">
                 <div [ngStyle]="x.value.textcolorRbgString()">
-                  {{ x.value.sampleText }}
+                  {{x.value.sampleText}}
                 </div>
 
                 <div class="colorpick">

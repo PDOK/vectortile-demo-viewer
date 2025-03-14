@@ -1,9 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { OlmapComponent } from './olmap.component';
-import { LocalStorageService } from '../local-storage-service';
+import VectorTileLayer from 'ol/layer/VectorTile';
 import { Visualisatie } from '../enumVisualisatie';
-import VectorTileLayer from 'ol/layer/VectorTile'
-import { HttpClientModule } from '@angular/common/http'
+import { LocalStorageService } from '../local-storage-service';
+import { OlmapComponent } from './olmap.component';
 
 
 describe('OlmapComponent', () => {
@@ -37,7 +37,7 @@ describe('OlmapComponent', () => {
 
   it('should get tileurlCustomZoom', () => {
     spyOn(localStorageService, 'get').and.returnValue('5');
-    expect(component.tileurlCustomZoom).toBe(5);
+    expect(component.tileurlCustomMinZoom).toBe(5);
   });
 
 
@@ -58,8 +58,8 @@ describe('OlmapComponent', () => {
     component.visualisation = Visualisatie.BGTachtergrond;
     expect(component[ 'SelectedVisualisation']).toBe(Visualisatie.BGTachtergrond);
   });
- 
- 
+
+
 
   it('should interact with map correctly', () => {
     const newLayer = new VectorTileLayer();
@@ -67,6 +67,6 @@ describe('OlmapComponent', () => {
     expect(component.map1.getLayers().getArray()).toContain(newLayer);
   });
 
-   
-  
+
+
 });

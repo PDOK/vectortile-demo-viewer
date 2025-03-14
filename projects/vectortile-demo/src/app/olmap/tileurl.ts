@@ -17,12 +17,12 @@ export const tileurlBGT: VectorTileUrl = {
   }
 }
 export const tileurlDKK: VectorTileUrl = {
-  vectorTileUrl: 'https://api.pdok.nl/kadaster/kadastralekaart/ogc/v5-preprod/tiles',
+  vectorTileUrl: 'https://api.pdok.nl/kadaster/kadastralekaart/ogc/v5-demo/tiles',
   tileMatrixPart:RDPART ,
   extension: '.pbf',
   xyzTemplate: '/{z}/{y}/{x}',
   ogcApiRootUrl: {
-    url: "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v5-preprod",
+    url: "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v5-demo",
     lokaalIdRegex: /[GPWL]{1}\d{4}\.[a-f0-9]{32}/g
   }
 }

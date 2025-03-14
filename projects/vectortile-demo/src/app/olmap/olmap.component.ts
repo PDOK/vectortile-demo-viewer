@@ -78,7 +78,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   private _tileurlCustom: VectorTileUrl | undefined
 
 
-  public get tileurlCustomZoom(): number {
+  public get tileurlCustomMinZoom(): number {
     const minzoomString: string | null = this.localStorageService.get('customUrlMinZoom')
 
     if (minzoomString) {
@@ -354,7 +354,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         minzoom = 13
         break
       case Visualisatie.Custom1Blanko:
-        minzoom = this.tileurlCustomZoom
+        minzoom = this.tileurlCustomMinZoom
         break
 
       case Visualisatie.Top10nlBlanco:
@@ -698,7 +698,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       tileEndpoint: VectorTileUrl,
       zoom: number
     ) {
-      this.resolutions = this.getResolutionsVt(zoom)
+      this.resolutions = this.getResolutionsVt(12)
       return new VectorTileSource({
         format: new MVT(),
         projection: projection,

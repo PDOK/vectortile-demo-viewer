@@ -7,6 +7,7 @@ import {
   Input,
   ViewChild,
 } from '@angular/core'
+import { MapexportComponent } from '../mapexport/mapexport.component'
 
 import { NgElement, WithProperties } from '@angular/elements'
 import VectorTileLayer from 'ol/layer/VectorTile'
@@ -21,11 +22,11 @@ import {  ColorPickerModule } from 'ngx-color-picker'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 
 
-declare global {
+/* declare global {
   interface HTMLElementTagNameMap {
     'app-legend-view': NgElement & WithProperties<{ styleUrl: string }>
   }
-}
+} */
 
 @Component({
     selector: 'app-mapstyler',

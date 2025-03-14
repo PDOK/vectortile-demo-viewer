@@ -2,13 +2,13 @@ import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, C
 import { NgElement, WithProperties } from '@angular/elements'
 import { ShowlinkComponent } from '../../showlink/showlink.component'
 import { CommonModule } from '@angular/common'
-declare global {
+/* declare global {
   interface HTMLElementTagNameMap {
     'app-feature-view': NgElement & WithProperties<{
       itemsUrl: string
     }>
   }
-}
+} */
 
 
 @Component({

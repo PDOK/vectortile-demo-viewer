@@ -22,7 +22,7 @@
           "RijksoverheidSansTextTT-Regular",
           "Roboto Black",
           "Arial Unicode MS Bold",
-          "Noto Sans Italic", 
+          "Noto Sans Italic",
           "RijksoverheidSansTextTT-Regular",
           "system-ui",
           "-apple-system",
@@ -37,9 +37,9 @@
     "Segoe UI Emoji",
     "Segoe UI Symbol",
     "Noto Color Emoji",
-          "Open Sans", 
+          "Open Sans",
           "Noto Sans"
-          
+
         ],
 
         "text-field": "{naam}",
@@ -54,7 +54,7 @@
     "bestuurlijkegebieden": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0-preprod/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+        "https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
       ]
     }
   }

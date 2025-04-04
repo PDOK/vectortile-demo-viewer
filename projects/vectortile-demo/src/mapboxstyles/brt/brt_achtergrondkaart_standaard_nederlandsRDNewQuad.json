@@ -69,6 +69,83 @@
     ,
 
     {
+      "id": "wegdeellijn contour",
+      "type": "line",
+      "source": "brt",
+      "source-layer": "wegdeellijn",
+      "paint": {
+        "line-width": 5,
+        "line-color": [
+          "match",
+          ["get", "vistext"],
+          "E-weg", "#E69800",
+
+          "autosnelweg", "#E69800",
+            "autosnelweg op brug", "#E69800",
+            "hoofdweg", "#F9E11E",
+            "hoofdweg op brug", "#F9E11E",
+            "autosnelweg oprit/afrit", "#E69800",
+            "hoofdweg oprit/afrit", "#D1C1BE",
+            "regionale weg",  "#D1C1BE",
+            "regionale weg op brug",  "#D1C1BE",
+            "autosnelweg in tunnel", "#CCCCCC",
+            "regionale weg in tunnel", "#CCCCCC",
+            "lokale weg in tunnel", "#CCCCCC",
+            "hoofdweg in tunnel", "#CCCCCC",
+            "lokale weg", "#D1C1BE",
+            "lokale weg op brug", "#D1C1BE",
+            "regionale weg oprit/afrit", "#D1C1BE",
+            "straat in tunnel", "#CCCCCC",
+            "straat", "#E3DCE7",
+            "straat op brug", "#E3DCE7",
+            "overig", "#D1C1BE",
+            "fietspad", "#D1C1BE",
+            "transparent"
+        ]
+
+
+
+      }
+    },
+    {
+      "id": "wegdeellijn",
+      "type": "line",
+      "source": "brt",
+      "source-layer": "wegdeellijn",
+      "paint": {
+        "line-width": 3,
+        "line-color": [
+          "match",
+          ["get", "vistext"],
+          "E-weg", "#FCEF84",
+          "autosnelweg", "#F9E11E",
+          "autosnelweg op brug", "#F9E11E",
+          "hoofdweg", "#FCEF84",
+          "hoofdweg op brug", "#FCEF84",
+          "autosnelweg oprit/afrit", "#F9E11E",
+          "hoofdweg oprit/afrit", "#FCEF84",
+          "regionale weg", "#FCEF84",
+          "regionale weg op brug", "#FCEF84",
+          "autosnelweg in tunnel", "#E1E1E1",
+          "regionale weg in tunnel", "#E1E1E1",
+          "lokale weg in tunnel", "#E1E1E1",
+          "hoofdweg in tunnel", "#E1E1E1",
+          "lokale weg", "#FFFFFF",
+          "lokale weg op brug", "#FFFFFF",
+          "regionale weg oprit/afrit", "#FCEF84",
+          "straat in tunnel", "#E1E1E1",
+          "straat", "#FFFFFF",
+          "straat op brug", "#FFFFFF",
+          "overig", "#D1C1BE",
+          "fietspad", "#B2B2B2",
+          "transparent"
+        ]
+
+
+
+      }
+    },
+    {
       "id": "wegdeelvlak",
       "type": "fill",
       "paint": {
@@ -102,43 +179,6 @@
     },
 
 
-    {
-      "id": "wegdeellijn",
-      "type": "line",
-      "source": "brt",
-      "source-layer": "wegdeellijn",
-      "paint": {
-        "line-color": [
-          "match",
-          ["get", "vistext"],
-          "E-weg", "#FCEF84",
-          "autosnelweg", "#F9E11E",
-          "autosnelweg op brug", "#F9E11E",
-          "hoofdweg", "#FCEF84",
-          "hoofdweg op brug", "#FCEF84",
-          "autosnelweg oprit/afrit", "#F9E11E",
-          "hoofdweg oprit/afrit", "#FCEF84",
-          "regionale weg", "#FCEF84",
-          "regionale weg op brug", "#FCEF84",
-          "autosnelweg in tunnel", "#E1E1E1",
-          "regionale weg in tunnel", "#E1E1E1",
-          "lokale weg in tunnel", "#E1E1E1",
-          "hoofdweg in tunnel", "#E1E1E1",
-          "lokale weg", "#FFFFFF",
-          "lokale weg op brug", "#FFFFFF",
-          "regionale weg oprit/afrit", "#FCEF84",
-          "straat in tunnel", "#E1E1E1",
-          "straat", "#FFFFFF",
-          "straat op brug", "#FFFFFF",
-          "overig", "#D1C1BE",
-          "fietspad", "#B2B2B2",
-          "transparent"
-        ]
-
-
-
-      }
-    },
 
 
 

@@ -44,6 +44,31 @@
       "source-layer": "waterdeelvlak"
     },
 
+    {
+      "id": "Bodemgebruik",
+      "type": "fill",
+      "paint": {
+        "fill-color": [
+          "match",
+          ["get", "vistext"],
+          "steenglooing", "#A4A4A4",
+          "zand", "#FDF6BB",
+          "Zand met dras, moeras, riet", "#FDF6BB",
+          "heide", "#DDA1C1",
+          "Heide met dras, moeras, riet", "#DDA1C1",
+          "bos", "#C3DBB5",
+          "Bos met dras, moeras, riet", "#C3DBB5",
+          "bebouwd gebied", "#E3DCE7",
+          "aanlegsteiger", "#B2B2B2",
+          "zee", "#80BDE3",
+          "meer, plas", "#80BDE3", "transparent"]
+        },
+        "source": "brt",
+        "source-layer": "terreinvlak"
+      }
+    ,
+
+
         {
           "id": "registratiefgebiedlijn",
           "type": "line",

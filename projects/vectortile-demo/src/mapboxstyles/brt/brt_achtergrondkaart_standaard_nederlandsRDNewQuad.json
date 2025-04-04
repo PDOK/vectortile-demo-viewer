@@ -49,43 +49,39 @@
           "type": "line",
           "source": "brt",
           "source-layer": "registratiefgebiedlijn",
-          "paint": {
+            "paint": {
             "line-color": [
               "match",
-              ["get", "viscode"],
-              "18080", "#808080",
-              "18089", "#B2B2B2",
-              "18040", "#B2B2B2",
+              ["get", "vistext"],
+              "land/grens (NL)", "#808080",
+              "landsgrens (NL-BE, NL-DE)", "#B2B2B2",
+              "provinciegrens", "#B2B2B2",
               "transparent"
-            ]   ,
-                 "line-width": [
+            ],
+            "line-width": [
               "interpolate",
               ["linear"],
               ["zoom"],
               0, [
-                "match",
-                ["get", "viscode"],
-                "18080", 0.1,
-                "18089", 0.5,
-                "18040", 0.1,
-                0.1
+              "match",
+              ["get", "vistext"],
+              "land/grens (NL)", 0.1,
+              "landsgrens (NL-BE, NL-DE)", 0.5,
+              "provinciegrens", 0.1,
+              0.1
               ],
               14, [
-                "match",
-                ["get", "viscode"],
-                "18080", 0.2,
-                "18089", 1,
-                "18040", 0.4,
-                0.2
+              "match",
+              ["get", "vistext"],
+              "land/grens (NL)", 0.2,
+              "landsgrens (NL-BE, NL-DE)", 1,
+              "provinciegrens", 0.4,
+              0.2
               ]
             ]
-
+            }
           }
-        }
-
-
-  ],
-
+         ],
   "sources": {
     "brt": {
       "type": "vector",

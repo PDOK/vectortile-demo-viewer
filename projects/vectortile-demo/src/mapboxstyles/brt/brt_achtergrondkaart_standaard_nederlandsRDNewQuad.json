@@ -100,6 +100,48 @@
       "source": "brt",
       "source-layer": "wegdeelvlak"
     },
+
+
+    {
+      "id": "wegdeellijn",
+      "type": "line",
+      "source": "brt",
+      "source-layer": "wegdeellijn",
+      "paint": {
+        "line-color": [
+          "match",
+          ["get", "vistext"],
+          "E-weg", "#FCEF84",
+          "autosnelweg", "#F9E11E",
+          "autosnelweg op brug", "#F9E11E",
+          "hoofdweg", "#FCEF84",
+          "hoofdweg op brug", "#FCEF84",
+          "autosnelweg oprit/afrit", "#F9E11E",
+          "hoofdweg oprit/afrit", "#FCEF84",
+          "regionale weg", "#FCEF84",
+          "regionale weg op brug", "#FCEF84",
+          "autosnelweg in tunnel", "#E1E1E1",
+          "regionale weg in tunnel", "#E1E1E1",
+          "lokale weg in tunnel", "#E1E1E1",
+          "hoofdweg in tunnel", "#E1E1E1",
+          "lokale weg", "#FFFFFF",
+          "lokale weg op brug", "#FFFFFF",
+          "regionale weg oprit/afrit", "#FCEF84",
+          "straat in tunnel", "#E1E1E1",
+          "straat", "#FFFFFF",
+          "straat op brug", "#FFFFFF",
+          "overig", "#D1C1BE",
+          "fietspad", "#B2B2B2",
+          "transparent"
+        ]
+
+
+
+      }
+    },
+
+
+
         {
           "id": "registratiefgebiedlijn",
           "type": "line",
@@ -124,7 +166,7 @@
               "land/grens (NL)", 0.1,
               "landsgrens (NL-BE, NL-DE)", 0.5,
               "provinciegrens", 0.1,
-              0.1
+              0.05
               ],
               14, [
               "match",
@@ -132,7 +174,7 @@
               "land/grens (NL)", 0.2,
               "landsgrens (NL-BE, NL-DE)", 1,
               "provinciegrens", 0.4,
-              0.2
+              0.1
               ]
             ]
             }

@@ -68,7 +68,38 @@
       }
     ,
 
+    {
+      "id": "wegdeelvlak",
+      "type": "fill",
+      "paint": {
+        "fill-color": [
+          "match",
+          ["get", "vistext"],
+            "autosnelweg | hoofdweg", "#F9E11E",
+            "weg in tunnel", "#E1E1E1",
+            "overig", "#FFFFFF",
+            "straat", "#FFFFFF",
+            "regionale weg", "#FCEF84", "transparent"]
 
+
+        ,
+
+          "fill-outline-color":[
+            "match",
+            ["get", "vistext"],
+
+              "autosnelweg|hoofdweg", "#E17000",
+              "weg in tunnel", "#E1E1E1",
+              "overig", "#D1C1BE",
+              "straat", "#D1C1BE",
+              "regionale weg", "#D1C1BE", "transparent"]
+
+
+        },
+
+      "source": "brt",
+      "source-layer": "wegdeelvlak"
+    },
         {
           "id": "registratiefgebiedlijn",
           "type": "line",

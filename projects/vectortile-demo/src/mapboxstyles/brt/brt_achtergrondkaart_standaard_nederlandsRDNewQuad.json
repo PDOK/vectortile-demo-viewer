@@ -65,7 +65,19 @@
         },
         "source": "brt",
         "source-layer": "terreinvlak"
-      }
+      },
+
+      {
+        "id": "Gebouw",
+        "type": "fill",
+        "paint": {
+          "fill-color": "#D1D1D1"       },
+          "source": "brt",
+          "source-layer": "gebouwvlak"
+        }
+
+
+
     ,
 
     {
@@ -152,11 +164,28 @@
         "fill-color": [
           "match",
           ["get", "vistext"],
-            "autosnelweg | hoofdweg", "#F9E11E",
-            "weg in tunnel", "#E1E1E1",
-            "overig", "#FFFFFF",
-            "straat", "#FFFFFF",
-            "regionale weg", "#FCEF84", "transparent"]
+          "E-weg", "#FCEF84",
+          "autosnelweg", "#F9E11E",
+          "autosnelweg op brug", "#F9E11E",
+          "hoofdweg", "#FCEF84",
+          "hoofdweg op brug", "#FCEF84",
+          "autosnelweg oprit/afrit", "#F9E11E",
+          "hoofdweg oprit/afrit", "#FCEF84",
+          "regionale weg", "#FCEF84",
+          "regionale weg op brug", "#FCEF84",
+          "autosnelweg in tunnel", "#E1E1E1",
+          "regionale weg in tunnel", "#E1E1E1",
+          "lokale weg in tunnel", "#E1E1E1",
+          "hoofdweg in tunnel", "#E1E1E1",
+          "lokale weg", "#FFFFFF",
+          "lokale weg op brug", "#FFFFFF",
+          "regionale weg oprit/afrit", "#FCEF84",
+          "straat in tunnel", "#E1E1E1",
+          "straat", "#FFFFFF",
+          "straat op brug", "#FFFFFF",
+          "overig", "#D1C1BE",
+          "fietspad", "#B2B2B2",
+          "transparent"]
 
 
         ,
@@ -165,11 +194,29 @@
             "match",
             ["get", "vistext"],
 
-              "autosnelweg|hoofdweg", "#E17000",
-              "weg in tunnel", "#E1E1E1",
+            "E-weg", "#E69800",
+
+            "autosnelweg", "#E69800",
+              "autosnelweg op brug", "#E69800",
+              "hoofdweg", "#F9E11E",
+              "hoofdweg op brug", "#F9E11E",
+              "autosnelweg oprit/afrit", "#E69800",
+              "hoofdweg oprit/afrit", "#D1C1BE",
+              "regionale weg",  "#D1C1BE",
+              "regionale weg op brug",  "#D1C1BE",
+              "autosnelweg in tunnel", "#CCCCCC",
+              "regionale weg in tunnel", "#CCCCCC",
+              "lokale weg in tunnel", "#CCCCCC",
+              "hoofdweg in tunnel", "#CCCCCC",
+              "lokale weg", "#D1C1BE",
+              "lokale weg op brug", "#D1C1BE",
+              "regionale weg oprit/afrit", "#D1C1BE",
+              "straat in tunnel", "#CCCCCC",
+              "straat", "#E3DCE7",
+              "straat op brug", "#E3DCE7",
               "overig", "#D1C1BE",
-              "straat", "#D1C1BE",
-              "regionale weg", "#D1C1BE", "transparent"]
+              "fietspad", "#D1C1BE",
+              "transparent"]
 
 
         },

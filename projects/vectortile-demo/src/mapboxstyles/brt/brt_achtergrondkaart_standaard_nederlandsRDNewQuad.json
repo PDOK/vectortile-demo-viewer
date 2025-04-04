@@ -1,8 +1,8 @@
 {
   "version": 8,
   "metadata": {
-    "ol:webfonts": "http://localhost:4200/assets/fonts/{font-family}/{fontweight}{-fontstyle}.css",
-    "gokoala:title-items": "id"
+    "ol:webfonts": "http://localhost:4200/assets/fonts/{font-family}/{fontweight}{-fontstyle}.css"
+
   },
   "name": "BRT Achtergrondkaart Standaard Nederlands RD New Quad",
   "id": "brt_achtergrondkaart_standaard_nl_RDNewQuad",
@@ -12,7 +12,7 @@
   "glyphs": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
-      "id": "Nederland",
+      "id": "Onderlegger Nederland",
       "type": "fill",
       "paint": {
 
@@ -22,7 +22,7 @@
         "land/grens (NL)", "#FFFFFF",
         "(zee)water", "#80BDE3",
         "onderlegger Nederland", "#FFFFFF",
-        "#000000"  ]
+       "transparent" ]
       },
       "source": "brt",
       "source-layer": "nederland"
@@ -37,7 +37,7 @@
         "zee", "#80BDE3",
         "meer, plas", "#80BDE3",
         "droogvallend", "#90C0E4",
-        "#000000"
+        "transparent"
       ]
       },
       "source": "brt",
@@ -56,10 +56,33 @@
               "18080", "#808080",
               "18089", "#B2B2B2",
               "18040", "#B2B2B2",
-              "#000000"
+              "transparent"
+            ]   ,
+                 "line-width": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              0, [
+                "match",
+                ["get", "viscode"],
+                "18080", 0.1,
+                "18089", 0.5,
+                "18040", 0.1,
+                0.1
+              ],
+              14, [
+                "match",
+                ["get", "viscode"],
+                "18080", 0.2,
+                "18089", 1,
+                "18040", 0.4,
+                0.2
+              ]
             ]
+
+          }
         }
-      }
+
 
   ],
 

@@ -39,7 +39,7 @@
       "paint": {
         "line-dasharray": [4, 2],
         "line-color": "#bbbbbb",
-        "line-width": 3
+        "line-width": 1.5
       }
     },
     {
@@ -48,7 +48,7 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "classificatie_kwaliteit_waarde", "E"],
-      "paint": { "line-color": "#fe9c33", "line-width": 3 }
+      "paint": { "line-color": "#fe9c33", "line-width": 1.5 }
     },
     {
       "id": "Kwaliteitslabel D",
@@ -56,7 +56,7 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "classificatie_kwaliteit_waarde", "D"],
-      "paint": { "line-color": "#fed98e", "line-width": 3 }
+      "paint": { "line-color": "#fed98e", "line-width": 1.5 }
     },
     {
       "id": "Kwaliteitslabel C",
@@ -64,7 +64,7 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "classificatie_kwaliteit_waarde", "C"],
-      "paint": { "line-color": "#bae4bc", "line-width": 3 }
+      "paint": { "line-color": "#bae4bc", "line-width": 1.5 }
     },
     {
       "id": "Kwaliteitslabel B",
@@ -72,7 +72,7 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "classificatie_kwaliteit_waarde", "B"],
-      "paint": { "line-color": "#008200", "line-width": 3 }
+      "paint": { "line-color": "#008200", "line-width": 1.5 }
     },
 
     {
@@ -143,7 +143,14 @@
           "Noto Color Emoji"
         ],
 
-        "text-size": 15,
+        "text-size": {
+          "stops": [
+            [12, 11],
+            [13, 11],
+            [14, 12],
+            [15, 14]
+          ]
+        },
         "text-rotate": ["-", 360, ["get", "mshoek"]]
       }
     },
@@ -163,7 +170,7 @@
       "layout": {
         "text-field": "{tekst}",
         "text-font": [
-          "Liberation Sans Italic",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -174,7 +181,7 @@
         ],
         "text-size": {
           "stops": [
-            [12, 10],
+            [12, 11],
             [13, 11],
             [14, 12],
             [15, 14]

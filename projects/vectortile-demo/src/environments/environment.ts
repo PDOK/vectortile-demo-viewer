@@ -31,7 +31,8 @@ export const environment = {
   BESTUURWithLabels: 'styles/bestuurlijkegebieden_annotated.json',
   BESTUURstd:    'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0/styles/bestuurlijkegebieden_standaardvisualisatie?f=json',
   DKKstandaard:'styles/brk/dkk_standaardvissualisatie_nederlandsRDNewQuad.json',
-  DKKkwaliteit: 'styles/brk/dkk_kwaliteitsvissualisatie_nederlandsRDNewQuad.json'
+  DKKkwaliteit: 'styles/brk/dkk_kwaliteitsvissualisatie_nederlandsRDNewQuad.json',
+  BrtAchtergrondStandaard: 'styles/brt/brt_achtergrondkaart_standaard_nederlandsRDNewQuad.json'
 
 }
 

@@ -6,6 +6,7 @@ export enum Visualisatie {
   Custom1Blanko = 'Aanpasbare Vectortile URL (Blanco)',
   Custom1Kleurrijk = 'Aanpasbare Vectortile URL (kleurrijk)',
   Custom1Tegels = 'Aanpasbare Vectortile URL (Kleurrijk tegels zichtbaar)',
+  BRTAchtergrondStandaard = 'BRT Achtergrond standaard',
   DKKStandaard = 'Kadastrale kaart Standaard visualisatie',
   DKKKwaliteit = 'Kadastrale kaart Kwaliteits visualisatie',
   BGTachtergrond = 'BGT Achtergrond',
@@ -30,9 +31,10 @@ export enum Visualisatie {
   BESTUURBlanko = 'Bestuurlijke gebieden (Blanco)',
 
 
+
 }
 export type Quad = 'netherlandsrdnewquad' | 'europeanetrs89_laeaquad' | 'webmercatorquad'
-type SourceType = 'bag' | 'bgt' | 'dkk' | 'bestuurlijkegebieden' | 'top10nl' | 'custom'
+type SourceType = 'bag' | 'bgt' | 'dkk' | 'bestuurlijkegebieden' | 'top10nl' | 'custom'|'brt'
 
 export type StyleUrl = {
   source: SourceType
@@ -42,6 +44,7 @@ export type StyleUrl = {
 
 export function getStyleUrl(vis: Visualisatie, quad: Quad): StyleUrl {
   const styleMap: { [key in Visualisatie]: { source: SourceType; styleUrl?: string } } = {
+    [Visualisatie.BRTAchtergrondStandaard]: { source: 'brt', styleUrl: environment.BrtAchtergrondStandaard },
     [Visualisatie.DKKStandaard]: { source: 'dkk', styleUrl: environment.DKKstandaard },
     [Visualisatie.DKKKwaliteit]: { source: 'dkk', styleUrl: environment.DKKkwaliteit },
     [Visualisatie.BGTachtergrond]: { source: 'bgt', styleUrl: environment.BGTmapboxachtergrondjsonurl },
@@ -102,6 +105,10 @@ export function getAllVisualisaties(): { title: string, visualisatie: Visualisat
     }
 
     else {
+      if (value=="BRTAchtergrondStandaard")
+      {//skip
+
+      }
       if (value=='DKKKwaliteit' || value == "DKKStandaard")
         {
           if (demoSettings.previewFeature){

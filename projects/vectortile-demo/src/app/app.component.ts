@@ -14,7 +14,7 @@ import { environment } from '../environments/environment'
 export const demoSettings = {
   demoVisualisatieRotate: false,
   demoLocatieRotate: false,
-  previewFeature: !environment.production,
+  previewFeature: false,  // !environment.production,
   demoLocationApi: true
 }
 
@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
 
   visualisatie = getAllVisualisaties();
   currentVis = Visualisatie.BGTachtergrond;
+  //currentVis = Visualisatie.BRTAchtergrondStandaard;
   isShow: boolean = false;
   styleurl!: string
 

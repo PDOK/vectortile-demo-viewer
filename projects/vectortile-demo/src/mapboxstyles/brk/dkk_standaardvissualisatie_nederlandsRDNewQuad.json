@@ -20,12 +20,13 @@
   "layers": [
     {
       "id": "Bebouwing",
-      "type": "fill",
+      "type": "line",
       "source": "dkk",
       "source-layer": "pand",
       "paint": {
-        "fill-outline-color": "#C10101",
-        "fill-color": "rgba(0, 0, 0, 0)"
+        "line-color": "#C10101",
+        "line-width": 1
+
       }
     },
     {
@@ -68,7 +69,7 @@
       "source": "dkk",
       "source-layer": "openbareruimtelabel",
       "paint": {
-        "text-color": "#002750"
+        "text-color": "#000000"
       },
       "filter": [
         "all",
@@ -88,7 +89,14 @@
           "Noto Color Emoji"
         ],
 
-        "text-size": 15,
+        "text-size": {
+          "stops": [
+            [12, 11],
+            [13, 11],
+            [14, 12],
+            [15, 14]
+          ]
+        },
         "text-rotate": ["-", 360, ["get", "mshoek"]]
       }
     },
@@ -98,7 +106,7 @@
       "source": "dkk",
       "source-layer": "openbareruimtelabel",
       "paint": {
-        "text-color": "#002750"
+        "text-color": "#000000"
       },
       "filter": [
         "all",
@@ -108,7 +116,7 @@
       "layout": {
         "text-field": "{tekst}",
         "text-font": [
-          "Liberation Sans Italic",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -119,7 +127,7 @@
         ],
         "text-size": {
           "stops": [
-            [12, 10],
+            [12, 11],
             [13, 11],
             [14, 12],
             [15, 14]
@@ -170,8 +178,8 @@
         "icon-allow-overlap": true,
         "text-size": {
           "stops": [
-            [12, 6],
-            [13, 6],
+            [12, 8],
+            [13, 8],
             [14, 9],
             [15, 12],
             [16, 14]

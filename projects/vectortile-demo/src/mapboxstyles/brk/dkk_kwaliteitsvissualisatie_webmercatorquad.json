@@ -125,7 +125,7 @@
       "source": "dkk",
       "source-layer": "openbareruimtelabel",
       "paint": {
-        "text-color": "#002750"
+        "text-color": "#000000"
       },
       "filter": [
         "all",
@@ -155,7 +155,7 @@
       "source": "dkk",
       "source-layer": "openbareruimtelabel",
       "paint": {
-        "text-color": "#002750"
+        "text-color": "#000000"
       },
       "filter": [
         "all",

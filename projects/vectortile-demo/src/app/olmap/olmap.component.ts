@@ -54,6 +54,7 @@ import {
   tileurlBAG,
   tileurlBestuur,
   tileurlBGT,
+  tileurlBRTAchtergrondLocal,
   tileurlDKK,
   tileurlTop10,
   VectorTileUrl,
@@ -71,10 +72,12 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   @Output() titelEmit: EventEmitter<Visualisatie> = new EventEmitter();
   private SelectedVisualisation: Visualisatie = Visualisatie.BGTachtergrond;
+  //private SelectedVisualisation: Visualisatie = Visualisatie.BRTAchtergrondStandaard
   private stfunction: StyleFunction | undefined
   colorMap = new ColorMap(LegendLevel.d1_layer);
   showUrl = '';
   zoom: number = 13;
+  //zoom: number = 2;
   private _tileurlCustom: VectorTileUrl | undefined
 
 
@@ -346,6 +349,9 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.BESTUURWithLabels:
       //  case Visualisatie.BESTUURLabelOnly:
       // fallsthrough
+      case Visualisatie.BRTAchtergrondStandaard:
+        minzoom = 0
+        break
       case Visualisatie.BESTUURstd:
         minzoom = 3
         break
@@ -354,6 +360,8 @@ export class OlmapComponent implements OnInit, OnChanges {
         minzoom = 13
         break
       case Visualisatie.Custom1Blanko:
+        case Visualisatie.Custom1Kleurrijk:
+          case Visualisatie.Custom1Tegels:
         minzoom = this.tileurlCustomMinZoom
         break
 
@@ -416,6 +424,16 @@ export class OlmapComponent implements OnInit, OnChanges {
         this.vectorTileLayerRD,
         tileurlBestuur,
         2
+      )
+      this.showUrl = tileurlBestuur.vectorTileUrl
+    }
+
+    if (JsonUrl.source == 'brt') {
+      this.setTileSource(
+        this.rdProjection,
+        this.vectorTileLayerRD,
+        tileurlBRTAchtergrondLocal,
+        0
       )
       this.showUrl = tileurlBestuur.vectorTileUrl
     }
@@ -536,6 +554,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     const isText = GetLabelAnnotation(prop, prop['layer'])
     switch (this.SelectedVisualisation) {
       // case Visualisatie.BGTtactiel:
+      case Visualisatie.BRTAchtergrondStandaard:
       case Visualisatie.DKKStandaard:
       case Visualisatie.DKKKwaliteit:
       case Visualisatie.Top10nlStandaard:

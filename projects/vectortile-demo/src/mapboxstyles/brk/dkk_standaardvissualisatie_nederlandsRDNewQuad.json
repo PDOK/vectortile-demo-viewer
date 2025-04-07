@@ -141,7 +141,7 @@
       "type": "line",
       "source": "dkk",
       "source-layer": "perceel_bijpijling",
-      "paint": {"line-color": "#000001", "line-width": 0.5}
+      "paint": {"line-color": "#000001", "line-width": 1}
     },
     {
       "id": "Kadastrale grens Voorlopig",

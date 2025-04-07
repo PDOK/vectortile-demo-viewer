@@ -8,13 +8,15 @@ describe('ShowlinkComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShowlinkComponent ]
+      declarations: [],
+      imports: [ ShowlinkComponent ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(ShowlinkComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // Trigger Angular's change detection to initialize the component's template and bindings
+        fixture.detectChanges();
   });
 
   it('should create', () => {

@@ -9,7 +9,7 @@ describe('MapstylerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MapstylerComponent ]
+      imports: [ MapstylerComponent ]
     })
     .compileComponents();
   });

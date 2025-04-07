@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import VectorTileLayer from 'ol/layer/VectorTile';
 import { Visualisatie } from '../enumVisualisatie';
@@ -13,14 +13,21 @@ describe('OlmapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [OlmapComponent],
-      imports: [HttpClientModule],
-      providers: [LocalStorageService]
+
+      imports: [OlmapComponent],
+      providers: [LocalStorageService, provideHttpClient()]
     }).compileComponents();
 
     fixture = TestBed.createComponent(OlmapComponent);
     component = fixture.componentInstance;
     localStorageService = TestBed.inject(LocalStorageService);
+    component.zoom = 10; // Ensure zoom is initialized
+    component.map1 = {
+      getLayers: () => ({
+        getArray: () => []
+      }),
+      addLayer: jasmine.createSpy('addLayer')
+    } as any; // Mock map1
     fixture.detectChanges();
   });
 

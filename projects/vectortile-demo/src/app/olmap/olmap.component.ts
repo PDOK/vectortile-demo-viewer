@@ -341,7 +341,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
 
 
-    let minzoom = 13
+    let minzoom = this.zoom
 
     switch (this.SelectedVisualisation) {
       case Visualisatie.BESTUURBlanko:

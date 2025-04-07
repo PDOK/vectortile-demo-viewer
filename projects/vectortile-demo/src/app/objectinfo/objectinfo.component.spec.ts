@@ -8,7 +8,7 @@ describe('ObjectinfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ObjectinfoComponent ]
+      imports: [ ObjectinfoComponent ]
     })
     .compileComponents();
   });

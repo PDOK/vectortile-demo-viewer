@@ -1,7 +1,7 @@
 {
   "version": 8,
   "metadata": {
-    "ol:webfonts": "http://localhost:4200/assets/fonts/{font-family}/{fontweight}{-fontstyle}.css"
+    "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css"
 
   },
   "name": "BRT Achtergrondkaart Standaard Nederlands RD New Quad",
@@ -81,12 +81,19 @@
     ,
 
     {
-      "id": "wegdeellijn contour",
+      "id": "wegdeellijn-contour",
       "type": "line",
       "source": "brt",
       "source-layer": "wegdeellijn",
       "paint": {
-        "line-width": 5,
+        "line-width":     ["match",
+        ["get", "vistext"],
+        "E-weg", 5,
+
+        "autosnelweg", 4,
+          "autosnelweg op brug", 4,
+          1]
+,
         "line-color": [
           "match",
           ["get", "vistext"],
@@ -125,7 +132,14 @@
       "source": "brt",
       "source-layer": "wegdeellijn",
       "paint": {
-        "line-width": 3,
+
+          "line-width":     ["match",
+          ["get", "vistext"],
+          "E-weg", 3,
+
+          "autosnelweg", 2,
+            "autosnelweg op brug", 2,
+            1],
         "line-color": [
           "match",
           ["get", "vistext"],
@@ -265,7 +279,47 @@
               ]
             ]
             }
+          },
+          {
+            "id": "annotatie",
+            "type": "symbol",
+            "source": "brt",
+            "source-layer": "annotaties",
+                     "layout": {
+              "text-field": "{label}",
+              "text-size": 12,
+              "text-font":[ "Liberation Sans"]           },
+            "paint": {
+                "text-color": [
+                "match",
+                ["get", "vistext"],
+                "plaatsnamen", "#000000",
+                "wijknamen", "#000000",
+                "buurtnamen", "#000000",
+                "A-wegnummers", "#FFFFFF",
+                "N-wegnummers", "#000000",
+                "fingerprint", "#004de3",
+                "transparent"],
+                "text-halo-color": [
+                  "match",
+                  ["get", "viscode"],
+                  "A-wegnummers", "#FF7F7F",
+                  "N-wegnummers", "#FFFFBE",
+                  "transparent"
+                  ],
+                  "text-halo-width": [
+                  "match",
+                  ["get", "viscode"],
+                  "A-wegnummers", 4,
+                  "N-wegnummers", 14,
+                  0
+                  ]
+
+
+
+            }
           }
+
          ],
   "sources": {
     "brt": {

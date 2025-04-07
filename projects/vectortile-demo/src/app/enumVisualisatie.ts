@@ -105,14 +105,14 @@ export function getAllVisualisaties(): { title: string, visualisatie: Visualisat
     }
 
     else {
-      if (value=="BRTAchtergrondStandaard")
-      {//skip
 
-      }
-      if (value=='DKKKwaliteit' || value == "DKKStandaard")
+      if (value=='DKKKwaliteit' || value == "DKKStandaard"||value=="BRTAchtergrondStandaard")
         {
           if (demoSettings.previewFeature){
+            if (value=='DKKKwaliteit' || value == "DKKStandaard") {
             array.push({ title: Visualisatie[value], visualisatie: Visualisatie[value] })
+            }
+            // skip "BRTAchtergrondStandaard" for now
           }
 
         }else

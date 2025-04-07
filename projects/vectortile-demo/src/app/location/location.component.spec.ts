@@ -11,7 +11,7 @@ describe('LocationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LocationComponent],
+      imports: [LocationComponent],
       providers: [
 
         provideHttpClient(),

@@ -20,12 +20,13 @@
   "layers": [
     {
       "id": "Bebouwing",
-      "type": "fill",
+      "type": "line",
       "source": "dkk",
       "source-layer": "pand",
       "paint": {
-        "fill-outline-color": "#C10101",
-        "fill-color": "rgba(0, 0, 0, 0)"
+        "line-color": "#C10101",
+        "line-width": 1
+
       }
     },
     {
@@ -40,11 +41,12 @@
           "stops": [
             [17, 4],
             [18, 6],
-            [19, 10],
-            [20, 14]
+            [19, 7],
+            [20, 12]
           ]
         },
         "text-rotate": ["get", "hoek"],
+
         "text-font": [
           "Liberation Sans",
           "system-ui",
@@ -57,6 +59,7 @@
         ],
         "text-allow-overlap": true,
         "icon-allow-overlap": true
+
       },
       "paint": { "text-color": "#C10101" }
     },
@@ -86,7 +89,14 @@
           "Noto Color Emoji"
         ],
 
-        "text-size": 15,
+        "text-size": {
+          "stops": [
+            [17, 11],
+            [18, 11],
+            [19, 12],
+            [20, 14]
+          ]
+        },
         "text-rotate": ["-", 360, ["get", "mshoek"]]
       }
     },
@@ -106,7 +116,7 @@
       "layout": {
         "text-field": "{tekst}",
         "text-font": [
-          "Liberation Sans Italic",
+          "Liberation Sans",
           "system-ui",
           "Roboto",
           "Arial",
@@ -117,7 +127,7 @@
         ],
         "text-size": {
           "stops": [
-            [17, 10],
+            [17, 11],
             [18, 11],
             [19, 12],
             [20, 14]
@@ -139,7 +149,7 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "type_grens_waarde", "Voorlopig"],
-      "paint": {"line-color": "#CC9900", "line-width": 2}
+      "paint": {"line-color": "#CC9900", "line-width": 1.5}
     },
     {
       "id": "Kadastrale grens Administratief",
@@ -147,7 +157,7 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "type_grens_waarde", "Administratief"],
-      "paint": {"line-color": "#5CF6D1", "line-width": 2}
+      "paint": {"line-color": "#5CF6D1", "line-width": 1.5}
     },
     {
       "id": "Kadastrale grens Definitief",
@@ -155,7 +165,7 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "type_grens_waarde", "Definitief"],
-      "paint": {"line-color": "#000001", "line-width": 2}
+      "paint": {"line-color": "#000001", "line-width": 1.5}
     },
     {
       "id": "Perceel Label",
@@ -168,8 +178,8 @@
         "icon-allow-overlap": true,
         "text-size": {
           "stops": [
-            [17, 6],
-            [18, 6],
+            [17, 8],
+            [18, 8],
             [19, 9],
             [20, 12],
             [21, 14]

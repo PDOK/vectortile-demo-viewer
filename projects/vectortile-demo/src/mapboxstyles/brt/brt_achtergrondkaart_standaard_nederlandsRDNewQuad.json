@@ -280,6 +280,20 @@
             ]
             }
           },
+
+          {
+            "id": "straatnamen",
+            "type": "symbol",
+            "source": "brt",
+            "source-layer": "straatnamen",
+            "layout": {
+              "text-field": "{label}",
+              "text-size":["*", ["coalesce", ["get", "size"], 0], 1.3],
+              "text-font":[ "Liberation Sans"],
+                "symbol-placement": "line"
+              }
+         }
+        ,
           {
             "id": "annotatie",
             "type": "symbol",
@@ -287,8 +301,8 @@
             "source-layer": "annotaties",
                      "layout": {
               "text-field": "{label}",
-              "text-size": 12,
-              "text-font":[ "Liberation Sans"]           },
+              "text-size":["*", ["coalesce", ["get", "size"], 0], 1.3],
+              "text-font":[ "Liberation Sans"]        },
             "paint": {
                 "text-color": [
                 "match",

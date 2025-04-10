@@ -296,7 +296,7 @@
                     "tram", "#828282",
                     "spoor in tunnel", "#828282",
                     "metro / sneltram in tunnel", "#828282",
-                    "overig", "#828282",
+                    "overig", "#AEA9A9",
                     "#828282"
                 ],
                 "line-width":     ["match",
@@ -313,7 +313,7 @@
         "id": "treinspoor" ,
         "type": "line",
         "source": "brt",
-        "filter": ["in", "vistext",   "treinspoor","overig"], 
+        "filter": ["in", "vistext",   "treinspoor","overig"],
       "source-layer": "spoorbaandeellijn",
          "layout": {
           "line-join": "round"
@@ -328,7 +328,7 @@
         "id": "metro" ,
         "type": "line",
         "source": "brt",
-        "filter": ["in", "vistext",    "metro / sneltram", "overig"],
+        "filter": ["in", "vistext",    "metro / sneltram"],
       "source-layer": "spoorbaandeellijn",
          "layout": {
           "line-join": "round"

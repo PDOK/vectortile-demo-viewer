@@ -11,7 +11,7 @@
     "dkk": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v5-demo/tiles/WebMercatorQuad/{z}/{y}/{x}?f=mvt"
+        "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v1-demo/tiles/WebMercatorQuad/{z}/{y}/{x}?f=mvt"
       ]
 
     }

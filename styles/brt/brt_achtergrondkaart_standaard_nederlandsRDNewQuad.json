@@ -1,7 +1,8 @@
 {
   "version": 8,
   "metadata": {
-    "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css"
+    "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
+    "gokoala:title-items": "id"
 
   },
   "name": "BRT Achtergrondkaart Standaard Nederlands RD New Quad",
@@ -281,6 +282,115 @@
             ]
             }
           },
+
+          {
+            "id": "spoorbaandeellijn" ,
+            "type": "line",
+            "source": "brt",
+            "source-layer": "spoorbaandeellijn",
+            "paint": {
+                "line-color": [
+                    "match",
+                    ["get", "vistext"],
+                    "treinspoor", "#828282",
+                    "metro / sneltram", "#828282",
+                    "tram", "#828282",
+                    "spoor in tunnel", "#828282",
+                    "metro / sneltram in tunnel", "#828282",
+                    "overig", "#AEA9A9",
+                    "#828282"
+                ],
+                "line-width":     ["match",
+                ["get", "vistext"],
+                "tram", 1,
+                "metro / sneltram in tunnel",6,
+
+                  4]   }
+
+        }
+
+        ,
+      {
+        "id": "treinspoor" ,
+        "type": "line",
+        "source": "brt",
+        "filter": ["in", "vistext",   "treinspoor","overig"],
+      "source-layer": "spoorbaandeellijn",
+         "layout": {
+          "line-join": "round"
+        },
+        "paint": {
+            "line-dasharray": [ 12,10 ],
+                    "line-color": "#FFFFFF",
+          "line-width": 4
+        }
+      },
+      {
+        "id": "metro" ,
+        "type": "line",
+        "source": "brt",
+        "filter": ["in", "vistext",    "metro / sneltram"],
+      "source-layer": "spoorbaandeellijn",
+         "layout": {
+          "line-join": "round"
+        },
+        "paint": {
+            "line-dasharray": [ 12, 12],
+                    "line-color":   "#828282",
+          "line-width": 6
+        }
+      },
+
+      {
+        "id": "tram",
+        "type": "line",
+        "source": "brt",
+        "source-layer": "spoorbaandeellijn",
+        "filter": ["in", "vistext",    "tram"],
+        "layout": {
+          "line-join": "miter"
+        },
+        "paint": {
+          "line-dasharray": [0.2, 8],
+          "line-color": "#3F4029",
+          "line-width": 8
+        }
+      },
+
+      {
+        "id": "metro / sneltram in tunnel",
+        "type": "line",
+        "source": "brt",
+        "source-layer": "spoorbaandeellijn",
+        "filter": ["in", "vistext",    "metro / sneltram in tunnel"],
+        "layout": {
+          "line-join": "miter"
+        },
+        "paint": {
+          "line-dasharray": [0.8, 2],
+          "line-color": "#FFFFFF",
+          "line-width": 8
+        }
+      },
+
+      {
+        "id": "metro / sneltram in tunnel 2",
+        "type": "line",
+        "source": "brt",
+        "source-layer": "spoorbaandeellijn",
+        "filter": ["in", "vistext",    "metro / sneltram in tunnel"],
+        "layout": {
+          "line-join": "miter"
+        },
+        "paint": {
+          "line-color": "#FFFFFF",
+          "line-width": 4
+        }
+      },
+
+
+
+
 
           {
             "id": "straatnamen",

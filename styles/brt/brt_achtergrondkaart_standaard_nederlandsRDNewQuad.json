@@ -186,20 +186,25 @@
           "autosnelweg oprit/afrit", "#F9E11E",
           "hoofdweg oprit/afrit", "#FCEF84",
           "regionale weg", "#FCEF84",
-          "regionale weg op brug", "#FCEF84",
+           "regionale weg op brug", "#FCEF84",
           "autosnelweg in tunnel", "#E1E1E1",
           "regionale weg in tunnel", "#E1E1E1",
           "lokale weg in tunnel", "#E1E1E1",
           "hoofdweg in tunnel", "#E1E1E1",
-          "lokale weg", "#FFFFFF",
+          "lokale weg", "#FCEF84",
           "lokale weg op brug", "#FFFFFF",
           "regionale weg oprit/afrit", "#FCEF84",
           "straat in tunnel", "#E1E1E1",
           "straat", "#FFFFFF",
           "straat op brug", "#FFFFFF",
-          "overig", "#D1C1BE",
+          "overig", "#FFFFFF",
           "fietspad", "#B2B2B2",
           "transparent"]
+
+
+
+
+
 
 
         ,
@@ -237,11 +242,7 @@
 
       "source": "brt",
       "source-layer": "wegdeelvlak"
-    },
-
-
-
-
+        },
 
         {
           "id": "registratiefgebiedlijn",
@@ -280,6 +281,20 @@
             ]
             }
           },
+
+          {
+            "id": "straatnamen",
+            "type": "symbol",
+            "source": "brt",
+            "source-layer": "straatnamen",
+            "layout": {
+              "text-field": "{label}",
+              "text-size":["*", ["coalesce", ["get", "size"], 0], 1.3],
+              "text-font":[ "Liberation Sans"],
+                "symbol-placement": "line"
+              }
+         }
+        ,
           {
             "id": "annotatie",
             "type": "symbol",
@@ -287,8 +302,8 @@
             "source-layer": "annotaties",
                      "layout": {
               "text-field": "{label}",
-              "text-size": 12,
-              "text-font":[ "Liberation Sans"]           },
+              "text-size":["*", ["coalesce", ["get", "size"], 0], 1.3],
+              "text-font":[ "Liberation Sans"]        },
             "paint": {
                 "text-color": [
                 "match",

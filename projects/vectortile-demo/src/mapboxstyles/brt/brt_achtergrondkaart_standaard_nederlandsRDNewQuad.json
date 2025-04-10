@@ -1,7 +1,8 @@
 {
   "version": 8,
   "metadata": {
-    "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css"
+    "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
+    "gokoala:title-items": "id"
 
   },
   "name": "BRT Achtergrondkaart Standaard Nederlands RD New Quad",
@@ -319,7 +320,7 @@
           "line-join": "round"
         },
         "paint": {
-            "line-dasharray": [ 14, 12 ],
+            "line-dasharray": [ 12,10 ],
                     "line-color": "#FFFFFF",
           "line-width": 4
         }
@@ -334,7 +335,7 @@
           "line-join": "round"
         },
         "paint": {
-            "line-dasharray": [ 12, 2 ],
+            "line-dasharray": [ 12, 12],
                     "line-color":   "#828282",
           "line-width": 6
         }

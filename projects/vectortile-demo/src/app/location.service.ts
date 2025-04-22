@@ -59,13 +59,36 @@ export class LocationService {
   public set projection(value) {
     this._Projection = value
   }
+
   public initialView = new View({
     projection: this._Projection,
-    center: [155000, 463000],
-    zoom: 13,
+    center: this.getInitialCenter(),
+    zoom: this.getInitialZoom(),
     enableRotation: false
-
   });
+  private getInitialCenter(): [number, number] {
+    const urlParams = new URLSearchParams(window.location.search);
+    const xParam = urlParams.get('x');
+    const yParam = urlParams.get('y');
+    if (xParam && yParam) {
+      const x = Number(xParam);
+      const y = Number(yParam);
+      if (!isNaN(x) && !isNaN(y)) {
+        return [x, y];
+      }
+    }
+    return [155000, 463000]; // Fallback value
+  }
+
+  private getInitialZoom(): number {
+    const urlParams = new URLSearchParams(window.location.search);
+    const zoomParam = urlParams.get('z');
+    const zoom = Number(zoomParam);
+    if (!isNaN(zoom)) {
+      return zoom;
+    }
+    return 13; // Fallback value
+  }
 
   readonly initialViewLocation: ViewLocation = {
     change: ChangeType.move,

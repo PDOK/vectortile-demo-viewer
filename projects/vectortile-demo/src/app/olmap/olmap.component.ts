@@ -76,7 +76,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   private stfunction: StyleFunction | undefined
   colorMap = new ColorMap(LegendLevel.d1_layer);
   showUrl = '';
-  zoom: number = 13;
+  zoom: number = 0;
   //zoom: number = 2;
   private _tileurlCustom: VectorTileUrl | undefined
 
@@ -341,7 +341,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
 
 
-    let minzoom = this.zoom
+    let minzoom = 0
 
     switch (this.SelectedVisualisation) {
       case Visualisatie.BESTUURBlanko:
@@ -350,6 +350,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       //  case Visualisatie.BESTUURLabelOnly:
       // fallsthrough
       case Visualisatie.BRTAchtergrondStandaard:
+      case Visualisatie.BRTAchtergrondStandaard_blanco:
         minzoom = 0
         break
       case Visualisatie.BESTUURstd:
@@ -373,6 +374,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         break
 
       default:
+        minzoom=13
         break
     }
 
@@ -501,6 +503,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         case Visualisatie.Bagblanko:
         case Visualisatie.BGTzerodefaultA_blanco:
         case Visualisatie.Top10nlBlanco:
+        case Visualisatie.BRTAchtergrondStandaard_blanco:
 
           vectorTileLayer.setStyle(this.GetBlancoDefaultStyle())
           break
@@ -658,6 +661,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.BGTzerodefaultA_blanco:
       case Visualisatie.Top10nlBlanco:
       case Visualisatie.BESTUURBlanko:
+      case Visualisatie.BRTAchtergrondStandaard_blanco:
         return new DrawColor(
           'default zero',
           feature,

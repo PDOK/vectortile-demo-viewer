@@ -1,5 +1,6 @@
+import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
+
 import {
   Visualisatie,
   getAllVisualisaties,
@@ -7,22 +8,27 @@ import {
 } from './enumVisualisatie'
 import { LocationComponent } from './location/location.component'
 import { OlmapComponent } from './olmap/olmap.component'
-import { ShowlinkComponent } from './showlink/showlink.component'
-import { CommonModule } from '@angular/common'
 import { SearchComponent } from './search/search.component'
+import { ShowlinkComponent } from './showlink/showlink.component'
 import { environment } from '../environments/environment'
 export const demoSettings = {
   demoVisualisatieRotate: false,
   demoLocatieRotate: false,
-  previewFeature: false,  // !environment.production,
+  previewFeature: !environment.production,
   demoLocationApi: true
 }
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    imports:[CommonModule, LocationComponent, OlmapComponent, ShowlinkComponent, SearchComponent]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  imports: [
+    CommonModule,
+    LocationComponent,
+    OlmapComponent,
+    ShowlinkComponent,
+    SearchComponent
+  ]
 
 })
 export class AppComponent implements OnInit {
@@ -39,16 +45,31 @@ export class AppComponent implements OnInit {
   };
 
   visualisatie = getAllVisualisaties();
-  currentVis = Visualisatie.BGTachtergrond;
-  //currentVis = Visualisatie.BRTAchtergrondStandaard;
-  isShow: boolean = false;
-  styleurl!: string
+  currentVis!: Visualisatie
 
-  constructor(private router: Router) {
+  defaultVisualisatie = Visualisatie.BRTAchtergrondStandaard;
+  isShow: boolean = false;
+  styleurl: string = ''
+
+  constructor() {
     /* do nothing*/
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    const urlParams = new URLSearchParams(window.location.search)
+    const visParam = urlParams.get('visualisatie')
+    if (visParam !== null && visParam !== undefined) {
+      try {
+        this.currentVis = this.enumFromValue(visParam, Visualisatie)
+      } catch (error) {
+        console.error(error)
+        this.currentVis = Visualisatie.BGTachtergrond // Fallback to default
+      }
+    } else {
+      this.currentVis = Visualisatie.BGTachtergrond // Default value
+    }
+  }
+
 
   toggleShow() {
     this.isShow = !this.isShow
@@ -63,6 +84,10 @@ export class AppComponent implements OnInit {
 
   onSelect(vis: Visualisatie): void {
     this.currentVis = vis
-    this.isShow = false
+    const url = new URL(window.location.href)
+    url.searchParams.set('visualisatie', vis)
+    window.history.replaceState({}, '', url.toString())
+    this.toggleShow()
   }
 }
+

@@ -28,8 +28,9 @@ export const environment = {
   BGTmapboxtactieljsonurl: 'styles/tactielevisualisatie.json',
   BESTUURWithLabels: 'styles/bestuurlijkegebieden_annotated.json',
   BESTUURstd:    'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0/styles/bestuurlijkegebieden_standaardvisualisatie?f=json',
-  DKKstandaard:'styles/brk/dkk_standaardvissualisatie_nederlandsRDNewQuad.json',
-  DKKkwaliteit: 'styles/brk/dkk_kwaliteitsvissualisatie_nederlandsRDNewQuad.json',
+  DKKstandaard:'https://api.pdok.nl/kadaster/kadastralekaart/ogc/v1-demo/styles/standaardvisualisatie__netherlandsrdnewquad',
+  DKKkwaliteit: 'https://api.pdok.nl/kadaster/kadastralekaart/ogc/v1-demo/styles/kwaliteitsvisualisatie__netherlandsrdnewquad',
+  
   BrtAchtergrondStandaard: 'styles/brt/brt_achtergrondkaart_standaard_nederlandsRDNewQuad.json'
 
 }

@@ -34,7 +34,7 @@ export enum Visualisatie {
 
 }
 export type Quad = 'netherlandsrdnewquad' | 'europeanetrs89_laeaquad' | 'webmercatorquad'
-type SourceType = 'bag' | 'bgt' | 'dkk' | 'bestuurlijkegebieden' | 'top10nl' | 'custom'|'brt'
+type SourceType = 'bag' | 'bgt' | 'dkk' | 'bestuurlijkegebieden' | 'top10nl' | 'custom' | 'brt'
 
 export type StyleUrl = {
   source: SourceType
@@ -106,19 +106,16 @@ export function getAllVisualisaties(): { title: string, visualisatie: Visualisat
 
     else {
 
-      if (value=='DKKKwaliteit' || value == "DKKStandaard"||value=="BRTAchtergrondStandaard")
-        {
-          if (demoSettings.previewFeature){
-            if (value=='DKKKwaliteit' || value == "DKKStandaard") {
-            array.push({ title: Visualisatie[value], visualisatie: Visualisatie[value] })
-            }
-            // skip "BRTAchtergrondStandaard" for now
-          }
+      if (value == 'DKKKwaliteit' || value == "DKKStandaard" || value == "BRTAchtergrondStandaard") {
+        if (demoSettings.previewFeature) {
 
-        }else
-        {
-      array.push({ title: Visualisatie[value], visualisatie: Visualisatie[value] })
+          array.push({ title: Visualisatie[value], visualisatie: Visualisatie[value] })
         }
+
+      }
+      else {
+        array.push({ title: Visualisatie[value], visualisatie: Visualisatie[value] })
+      }
     }
   }
   return array

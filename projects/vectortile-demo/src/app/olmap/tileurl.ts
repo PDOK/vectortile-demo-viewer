@@ -46,11 +46,11 @@ export const tileurlBestuur: VectorTileUrl = {
   }
 }
 
-export const tileurlBRTAchtergrondLocal: VectorTileUrl = {
-  vectorTileUrl: 'http://localhost/brt/',
-  tileMatrixPart:'' ,
-  extension: '.pbf',
-  xyzTemplate: '/{z}/{x}/{y}',
+export const tileurlBRTAchtergrond: VectorTileUrl = {
+  vectorTileUrl: 'https://api.pdok.nl/brt/achtergrondkaart/ogc/v1-preprod/tiles',
+  tileMatrixPart:RDPART ,
+  extension: '?f=mvt',
+  xyzTemplate: '/{z}/{y}/{x}',
   ogcApiRootUrl: undefined
 }
 

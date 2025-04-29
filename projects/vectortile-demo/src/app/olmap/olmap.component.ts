@@ -54,7 +54,7 @@ import {
   tileurlBAG,
   tileurlBestuur,
   tileurlBGT,
-  tileurlBRTAchtergrondLocal,
+  tileurlBRTAchtergrond,
   tileurlDKK,
   tileurlTop10,
   VectorTileUrl,
@@ -432,7 +432,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       this.setTileSource(
         this.rdProjection,
         this.vectorTileLayerRD,
-        tileurlBRTAchtergrondLocal,
+        tileurlBRTAchtergrond,
         0
       )
       this.showUrl = tileurlBestuur.vectorTileUrl

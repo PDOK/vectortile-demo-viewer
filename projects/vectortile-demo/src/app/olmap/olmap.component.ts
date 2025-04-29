@@ -350,18 +350,33 @@ export class OlmapComponent implements OnInit, OnChanges {
       //  case Visualisatie.BESTUURLabelOnly:
       // fallsthrough
       case Visualisatie.BRTAchtergrondStandaard:
+      case Visualisatie.BRTAchtergrondStandaard_blanco:
+      case Visualisatie.BRTAchtergrondStandaard_kleurrijk:
+      case Visualisatie.BRTAchtergrondStandaard_tegels:
         minzoom = 0
         break
       case Visualisatie.BESTUURstd:
         minzoom = 3
         break
+      case Visualisatie.Bagstd:
+      case Visualisatie.BagCompleet:
+      case Visualisatie.BagKleurrijk_tegels:
+      case Visualisatie.Bagkleurrijk:
+      case Visualisatie.Bagblanko:
+      case Visualisatie.BGTstandaard:
+      case Visualisatie.BGTachtergrond:
+      case Visualisatie.BGTzerodefaultA_blanco:
+      case Visualisatie.BGTzerodefaultB_tegels:
+      case Visualisatie.BGTzerodefaultC_Bron:
+      case Visualisatie.BGTzerodefaultD_kleur:
+
       case Visualisatie.DKKKwaliteit:
       case Visualisatie.DKKStandaard:
         minzoom = 13
         break
       case Visualisatie.Custom1Blanko:
-        case Visualisatie.Custom1Kleurrijk:
-          case Visualisatie.Custom1Tegels:
+      case Visualisatie.Custom1Kleurrijk:
+      case Visualisatie.Custom1Tegels:
         minzoom = this.tileurlCustomMinZoom
         break
 
@@ -372,8 +387,10 @@ export class OlmapComponent implements OnInit, OnChanges {
         minzoom = 9.05
         break
 
-      default:
+      default: {
+        exhaustiveGuard(this.SelectedVisualisation)
         break
+      }
     }
 
     this.calcMatrixAndResolutions(this.rdProjection)
@@ -447,7 +464,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       )
       this.showUrl = tileurlTop10.vectorTileUrl
     }
-      if (JsonUrl.source == 'dkk') {
+    if (JsonUrl.source == 'dkk') {
       this.setTileSource(
         this.rdProjection,
         this.vectorTileLayerRD,
@@ -499,6 +516,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         case Visualisatie.Custom1Blanko:
         case Visualisatie.BESTUURBlanko:
         case Visualisatie.Bagblanko:
+        case Visualisatie.BRTAchtergrondStandaard_blanco:
         case Visualisatie.BGTzerodefaultA_blanco:
         case Visualisatie.Top10nlBlanco:
 
@@ -599,19 +617,17 @@ export class OlmapComponent implements OnInit, OnChanges {
         }
         break
       }
-
-      //tempory disabled  case Visualisatie.BGTzerodefaultB_tegels:
       case Visualisatie.BagKleurrijk_tegels:
       case Visualisatie.Top10nlTegels:
       case Visualisatie.BGTzerodefaultB_tegels:
       case Visualisatie.Custom1Tegels:
+      case Visualisatie.BRTAchtergrondStandaard_tegels:
         return new DrawColor(
           'default zero',
           feature,
           false,
           false
         ).showfreshstyle(isText)
-
       case Visualisatie.BGTzerodefaultC_Bron: {
         // const colorprop = 'bronhouder';
         const bronLegendTitle = this.colorMap.selectorBron(prop)
@@ -634,6 +650,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         return zcolor.showfreshstyle(isText)
       }
       case Visualisatie.Bagkleurrijk:
+      case Visualisatie.BRTAchtergrondStandaard_kleurrijk:
       case Visualisatie.Top10nlKleurrijk:
       case Visualisatie.BGTzerodefaultD_kleur:
       case Visualisatie.Custom1Kleurrijk: {
@@ -654,6 +671,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       }
 
       case Visualisatie.Bagblanko:
+      case Visualisatie.BRTAchtergrondStandaard_blanco:
       case Visualisatie.Custom1Blanko:
       case Visualisatie.BGTzerodefaultA_blanco:
       case Visualisatie.Top10nlBlanco:
@@ -691,7 +709,6 @@ export class OlmapComponent implements OnInit, OnChanges {
             rotation: rot,
             font: '',
             backgroundfill: new Fill({ color: 'white' })
-
           }
           return anno
         } else {
@@ -700,9 +717,6 @@ export class OlmapComponent implements OnInit, OnChanges {
             rotation: 0,
             font: '',
             backgroundfill: new Fill({ color: 'white' })
-
-
-
           }
           return anno
         }
@@ -712,66 +726,66 @@ export class OlmapComponent implements OnInit, OnChanges {
       }
     }
   }
-    getVectorTileSource(
-      projection: Projection,
-      tileEndpoint: VectorTileUrl,
-      zoom: number
-    ) {
-      this.resolutions = this.getResolutionsVt(12)
-      return new VectorTileSource({
-        format: new MVT(),
-        projection: projection,
-        tileGrid: new TileGrid({
-          extent: projection.getExtent(),
-          resolutions: this.resolutions,
-          tileSize: [256, 256],
-          origin: getTopLeft(projection.getExtent()),
-        }),
-        url: this.getVectorTileUrl(tileEndpoint),
-        cacheSize: 0,
-      })
-    }
+  getVectorTileSource(
+    projection: Projection,
+    tileEndpoint: VectorTileUrl,
+    zoom: number
+  ) {
+    this.resolutions = this.getResolutionsVt(12)
+    return new VectorTileSource({
+      format: new MVT(),
+      projection: projection,
+      tileGrid: new TileGrid({
+        extent: projection.getExtent(),
+        resolutions: this.resolutions,
+        tileSize: [256, 256],
+        origin: getTopLeft(projection.getExtent()),
+      }),
+      url: this.getVectorTileUrl(tileEndpoint),
+      cacheSize: 0,
+    })
+  }
 
-    getVectorTileUrl(tileurl: VectorTileUrl) {
-      return `${tileurl.vectorTileUrl}${tileurl.tileMatrixPart}${tileurl.xyzTemplate}${tileurl.extension}`
-    }
+  getVectorTileUrl(tileurl: VectorTileUrl) {
+    return `${tileurl.vectorTileUrl}${tileurl.tileMatrixPart}${tileurl.xyzTemplate}${tileurl.extension}`
+  }
 
-    getShowTileUrl() {
-      return this.showUrl
-    }
+  getShowTileUrl() {
+    return this.showUrl
+  }
 
-    getShowStyleUrl() {
-      const url = getStyleUrl(this.SelectedVisualisation, 'netherlandsrdnewquad').styleUrl
-      if (url) {
-        return url
-      } else {
-        {
-          return ''
-        }
+  getShowStyleUrl() {
+    const url = getStyleUrl(this.SelectedVisualisation, 'netherlandsrdnewquad').styleUrl
+    if (url) {
+      return url
+    } else {
+      {
+        return ''
       }
     }
+  }
 
 
-    setTileSource(
-      projection: Projection,
-      vectorTileLayer: VectorTileLayer<FeatureLike>,
-      tileEndpoint: VectorTileUrl,
-      zoom: number
-    ) {
-      const vtSource = this.getVectorTileSource(projection, tileEndpoint, zoom)
-      this.ogcUrl = tileEndpoint.ogcApiRootUrl
-      if (this.ogcUrl) {
-        this.locationService.OgcAPI = this.ogcUrl
-      }
-
-      // set invisible to prevent unstyled flashing of vectorTileLayer
-      vectorTileLayer.setVisible(false)
-      vectorTileLayer.setSource(vtSource)
-      vectorTileLayer.setVisible(true)
-      vectorTileLayer.set('renderMode', 'hybrid')
-      this.debuglayer()
-
+  setTileSource(
+    projection: Projection,
+    vectorTileLayer: VectorTileLayer<FeatureLike>,
+    tileEndpoint: VectorTileUrl,
+    zoom: number
+  ) {
+    const vtSource = this.getVectorTileSource(projection, tileEndpoint, zoom)
+    this.ogcUrl = tileEndpoint.ogcApiRootUrl
+    if (this.ogcUrl) {
+      this.locationService.OgcAPI = this.ogcUrl
     }
+
+    // set invisible to prevent unstyled flashing of vectorTileLayer
+    vectorTileLayer.setVisible(false)
+    vectorTileLayer.setSource(vtSource)
+    vectorTileLayer.setVisible(true)
+    vectorTileLayer.set('renderMode', 'hybrid')
+    this.debuglayer()
+
+  }
 
   private debuglayer() {
     const debugLayer = new Tile({

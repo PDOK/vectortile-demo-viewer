@@ -7,9 +7,13 @@ export enum Visualisatie {
   Custom1Kleurrijk = 'Aanpasbare Vectortile URL (kleurrijk)',
   Custom1Tegels = 'Aanpasbare Vectortile URL (Kleurrijk tegels zichtbaar)',
   BRTAchtergrondStandaard = 'BRT Achtergrond standaard',
+  BRTAchtergrondStandaard_blanco = 'BRT Achtergrond (Blanco)',
+  BRTAchtergrondStandaard_kleurrijk = 'BRT Achtergrond (Kleurrijk)',
+  BRTAchtergrondStandaard_tegels = 'BRT Achtergrond (Kleurrijk tegels zichtbaar)',
   DKKStandaard = 'Kadastrale kaart Standaard visualisatie',
   DKKKwaliteit = 'Kadastrale kaart Kwaliteits visualisatie',
   BGTachtergrond = 'BGT Achtergrond',
+
   BGTstandaard = 'BGT Standaard',
   Bagstd = 'BAG standaard',
   BagCompleet = 'BAG compleet',
@@ -45,6 +49,9 @@ export type StyleUrl = {
 export function getStyleUrl(vis: Visualisatie, quad: Quad): StyleUrl {
   const styleMap: { [key in Visualisatie]: { source: SourceType; styleUrl?: string } } = {
     [Visualisatie.BRTAchtergrondStandaard]: { source: 'brt', styleUrl: environment.BrtAchtergrondStandaard },
+    [Visualisatie.BRTAchtergrondStandaard_blanco]: { source: 'brt', styleUrl: undefined },
+    [Visualisatie.BRTAchtergrondStandaard_kleurrijk]: { source: 'brt', styleUrl: environment.BrtAchtergrondStandaard },
+    [Visualisatie.BRTAchtergrondStandaard_tegels]: { source: 'brt', styleUrl: environment.BrtAchtergrondStandaard },
     [Visualisatie.DKKStandaard]: { source: 'dkk', styleUrl: environment.DKKstandaard },
     [Visualisatie.DKKKwaliteit]: { source: 'dkk', styleUrl: environment.DKKkwaliteit },
     [Visualisatie.BGTachtergrond]: { source: 'bgt', styleUrl: environment.BGTmapboxachtergrondjsonurl },
@@ -106,7 +113,7 @@ export function getAllVisualisaties(): { title: string, visualisatie: Visualisat
 
     else {
 
-      if (value == 'DKKKwaliteit' || value == "DKKStandaard" || value == "BRTAchtergrondStandaard") {
+      if (value == 'DKKKwaliteit' || value == "DKKStandaard" || value == "BRTAchtergrondStandaard" || value=="BRTAchtergrondStandaard_blanco"|| value =="BRTAchtergrondStandaard_kleurrijk"|| value =="BRTAchtergrondStandaard_tegels" ) {
         if (demoSettings.previewFeature) {
 
           array.push({ title: Visualisatie[value], visualisatie: Visualisatie[value] })

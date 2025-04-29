@@ -506,7 +506,7 @@
   "sources": {
     "brt": {
       "type": "vector",
-      "tiles": ["https://production-url.example.com/brt/{z}/{x}/{y}?f=mvt"],
+      "tiles": ["https://api.pdok.nl/brt/achtergrondkaart/ogc/v1-preprod/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"],
       "minzoom": 0,
       "maxzoom": 14
     }

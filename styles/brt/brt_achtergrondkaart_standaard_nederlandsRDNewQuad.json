@@ -323,7 +323,7 @@
         "paint": {
             "line-dasharray": [ 12,10 ],
                     "line-color": "#FFFFFF",
-          "line-width": 4
+          "line-width": 1.8
         }
       },
       {

@@ -436,7 +436,26 @@
       "circle-radius": 2
     }
   }
-
+  ,{
+    "id": "waterdeelvlak_label",
+    "type": "symbol",
+    "source": "brt",
+    "source-layer": "waterdeelvlak_label",
+    "layout": {
+      "text-field": ["get", "naam"],
+      "text-font": ["Liberation Sans Italic"],
+      "text-size": [
+        "case",
+        [">", ["get", "area"], 1000000000], 15,
+        ["all", ["<", ["get", "area"], 1000000000], [">", ["get", "area"], 800000]], 11,
+        ["all", ["<", ["get", "area"], 800000], [">", ["get", "area"], 700000]], 10,
+       9
+      ]
+    },
+    "paint": {
+      "text-color":"#004de3"
+    }
+  }
 
   ,
 
@@ -501,6 +520,7 @@
 
             }
           }
+
 
          ],
   "sources": {

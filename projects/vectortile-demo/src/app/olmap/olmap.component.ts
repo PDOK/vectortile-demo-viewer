@@ -345,6 +345,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       //  case Visualisatie.BESTUURLabelOnly:
       // fallsthrough
       case Visualisatie.BRTAchtergrondStandaard:
+      case Visualisatie.BRTAchtergrondStandaard_Annotated:
       case Visualisatie.BRTAchtergrondStandaard_blanco:
       case Visualisatie.BRTAchtergrondStandaard_kleurrijk:
       case Visualisatie.BRTAchtergrondStandaard_tegels:
@@ -568,6 +569,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     switch (this.SelectedVisualisation) {
       // case Visualisatie.BGTtactiel:
       case Visualisatie.BRTAchtergrondStandaard:
+      case Visualisatie.BRTAchtergrondStandaard_Annotated:
       case Visualisatie.DKKStandaard:
       case Visualisatie.DKKKwaliteit:
       case Visualisatie.Top10nlStandaard:

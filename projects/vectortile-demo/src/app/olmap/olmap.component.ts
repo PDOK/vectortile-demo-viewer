@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -6,47 +7,38 @@ import {
   OnInit,
   Output,
   ViewEncapsulation,
-} from '@angular/core'
-
-import { Router } from '@angular/router'
-import { Feature, Map as olMap, View } from 'ol'
-import Link from 'ol/interaction/Link.js'
-
-import { stylefunction } from 'ol-mapbox-style'
-import { getTopLeft, getWidth } from 'ol/extent.js'
-import MVT from 'ol/format/MVT.js'
-import { Geometry } from 'ol/geom'
-import VectorTileLayer from 'ol/layer/VectorTile'
-
+} from '@angular/core';
+import { Router } from '@angular/router';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { MatTooltip } from '@angular/material/tooltip';
+import { Feature, Map as olMap, View } from 'ol';
 import { FeatureLike } from 'ol/Feature'
-import { DEVICE_PIXEL_RATIO } from 'ol/has'
-import Projection from 'ol/proj/Projection'
-import VectorTileSource from 'ol/source/VectorTile.js'
-import Fill from 'ol/style/Fill'
-import Style, { StyleFunction } from 'ol/style/Style'
-import TileGrid from 'ol/tilegrid/TileGrid'
-import { Annotation, DrawColor, getFillColor, LabelType } from '../color'
-import { ColorMap, LegendLevel } from '../colorMap'
-import {
-  exhaustiveGuard,
-  getStyleUrl,
-  Visualisatie,
-} from '../enumVisualisatie'
-import { LocationService, ViewLocation } from '../location.service'
-
-import { CommonModule } from '@angular/common'
-import { MatSlideToggle } from '@angular/material/slide-toggle'
-import { MatTooltip } from '@angular/material/tooltip'
-import { Tile } from 'ol/layer'
-import { TileDebug } from 'ol/source'
-import { Circle, Stroke } from 'ol/style'
-import { CustomTileComponent } from '../custom-tile/custom-tile.component'
-import { DemoboxComponent } from '../demobox/demobox.component'
-import { LocalStorageService } from '../local-storage-service'
-import { MapexportComponent } from '../mapexport/mapexport.component'
-import { MapstylerComponent } from '../mapstyler/mapstyler.component'
-import { ObjectinfoComponent } from '../objectinfo/objectinfo.component'
-import { ShowlinkComponent } from '../showlink/showlink.component'
+import { getTopLeft, getWidth } from 'ol/extent.js';
+import MVT from 'ol/format/MVT.js';
+import { Geometry } from 'ol/geom';
+import Link from 'ol/interaction/Link.js';
+import Projection from 'ol/proj/Projection';
+import { DEVICE_PIXEL_RATIO } from 'ol/has';
+import TileGrid from 'ol/tilegrid/TileGrid';
+import { TileDebug } from 'ol/source';
+import TileLayer from 'ol/layer/Tile';
+import VectorTileLayer from 'ol/layer/VectorTile';
+import VectorTileSource from 'ol/source/VectorTile';
+import Fill from 'ol/style/Fill';
+import { Circle, Stroke } from 'ol/style';
+import Style, { StyleFunction } from 'ol/style/Style';
+import { stylefunction } from 'ol-mapbox-style';
+import { Annotation, DrawColor, getFillColor, LabelType } from '../color';
+import { ColorMap, LegendLevel } from '../colorMap';
+import { exhaustiveGuard, getStyleUrl, Visualisatie } from '../enumVisualisatie';
+import { LocationService, ViewLocation } from '../location.service';
+import { LocalStorageService } from '../local-storage-service';
+import { CustomTileComponent } from '../custom-tile/custom-tile.component';
+import { DemoboxComponent } from '../demobox/demobox.component';
+import { MapexportComponent } from '../mapexport/mapexport.component';
+import { MapstylerComponent } from '../mapstyler/mapstyler.component';
+import { ObjectinfoComponent } from '../objectinfo/objectinfo.component';
+import { ShowlinkComponent } from '../showlink/showlink.component';
 import {
   getSpriteDataUrl,
   getSpriteImageUrl,
@@ -59,6 +51,9 @@ import {
   tileurlTop10,
   VectorTileUrl,
 } from './tileurl'
+
+
+
 
 @Component({
   selector: 'app-olmap',
@@ -136,7 +131,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
 
 
-  CurrentVectorTileLayer: VectorTileLayer<FeatureLike> = this.vectorTileLayerRD;
+  CurrentVectorTileLayer: VectorTileLayer = this.vectorTileLayerRD;
 
   readonly rdProjection: Projection = new Projection({
     code: 'EPSG:28992',
@@ -290,7 +285,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     }
   }
 
-  getFillColor(feature: Feature<Geometry>, layer: VectorTileLayer<FeatureLike>, view: View) {
+  getFillColor(feature: Feature<Geometry>, layer: VectorTileLayer, view: View) {
     const mpstyle = layer.getStyleFunction()
     const reso = view.getResolution()
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -768,7 +763,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   setTileSource(
     projection: Projection,
-    vectorTileLayer: VectorTileLayer<FeatureLike>,
+    vectorTileLayer: VectorTileLayer,
     tileEndpoint: VectorTileUrl,
     zoom: number
   ) {
@@ -788,7 +783,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   }
 
   private debuglayer() {
-    const debugLayer = new Tile({
+    const debugLayer = new TileLayer({
       source: new TileDebug({
         projection: this.rdProjection,
         tileGrid: new TileGrid({

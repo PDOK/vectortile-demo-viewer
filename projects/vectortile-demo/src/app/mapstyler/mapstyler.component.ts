@@ -37,7 +37,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 })
 export class MapstylerComponent implements AfterViewInit {
 
-  @Input() Layer!: VectorTileLayer<FeatureLike>
+  @Input() Layer!: VectorTileLayer
   @Input() ColorMap!: IColorMap
   @Input() StyleUrl: string = '';
   @ViewChild('lview')

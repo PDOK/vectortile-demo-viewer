@@ -24,6 +24,7 @@ export class CustomTileComponent {
       customUrlxyzTemplate: new FormControl(this.getLocalStorageValue('customUrlxyzTemplate')),
       customUrlMinZoom: new FormControl(this.getLocalStorageValue('customUrlMinZoom')),
       showDebugLayer: new FormControl(this.getLocalStorageValue('showDebugLayer')),
+      showLuchtFotoLayer: new FormControl(this.getLocalStorageValue('showLuchtFotoLayer')),
       customTileMatrixPart: new FormControl(this.getLocalStorageValue('customTileMatrixPart'))
     })
   }
@@ -33,21 +34,32 @@ export class CustomTileComponent {
   }
 
   onSubmit() {
-    const { customUrl, customTileMatrixPart, customUrlExtension, customUrlxyzTemplate, customUrlMinZoom, showDebugLayer } = this.customtForm.value
+    const { customUrl, customTileMatrixPart, customUrlExtension, customUrlxyzTemplate, customUrlMinZoom, showDebugLayer, showLuchtFotoLayer } = this.customtForm.value
     this.localStorageService.set({ key: 'customUrl', value: customUrl })
     this.localStorageService.set({ key: 'customTileMatrixPart', value: customTileMatrixPart })
     this.localStorageService.set({ key: 'customUrlExtension', value: customUrlExtension })
     this.localStorageService.set({ key: 'customUrlxyzTemplate', value: customUrlxyzTemplate })
     this.localStorageService.set({ key: 'customUrlMinZoom', value: customUrlMinZoom })
     this.localStorageService.set({ key: 'showDebugLayer', value: showDebugLayer })
+    this.localStorageService.set({ key: 'showLuchtFotoLayer', value: showLuchtFotoLayer })
 
     this.visEmit.emit(Visualisatie.Custom1Blanko)
   }
 
   showDebugLayer() {
 
-    const { customUrl, customTileMatrixPart, customUrlExtension, customUrlxyzTemplate, customUrlMinZoom, showDebugLayer } = this.customtForm.value
+    const { customUrl, customTileMatrixPart, customUrlExtension, customUrlxyzTemplate, customUrlMinZoom, showDebugLayer, showLuchtFotoLayer } = this.customtForm.value
     this.localStorageService.set({ key: 'showDebugLayer', value: showDebugLayer })
+    this.gridEmit.emit()
+
+
+
+  }
+
+  showLuchtFotoLayer() {
+
+    const { customUrl, customTileMatrixPart, customUrlExtension, customUrlxyzTemplate, customUrlMinZoom, showDebugLayer, showLuchtFotoLayer } = this.customtForm.value
+    this.localStorageService.set({ key: 'showLuchtFotoLayer', value: showLuchtFotoLayer })
     this.gridEmit.emit()
 
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 
-export type storageKey = "customUrl" | "customUrlExtension" | "customUrlMinZoom" | "customUrlxyzTemplate" | "showDebugLayer" |"customTileMatrixPart"
+export type storageKey = "customUrl" | "customUrlExtension" | "customUrlMinZoom" | "customUrlxyzTemplate" | "showDebugLayer"| "showLuchtFotoLayer"  |"customTileMatrixPart"
 export type storageItem = {
   key: storageKey,
   value: string | boolean
@@ -54,8 +54,8 @@ export class LocalStorageService {
       return ''
     }
 
-    try {  
-      const parsed = JSON.parse(store)    
+    try {
+      const parsed = JSON.parse(store)
       return parsed.value
     } catch (error) {
       console.error('Error parsing JSON:', store, error)
@@ -74,6 +74,6 @@ export class LocalStorageService {
   }
 
   public removeAll() {
-    (['customUrl', 'customUrlExtension', 'customUrlMinZoom', 'customUrlxyzTemplate', 'showDebugLayer', 'customTileMatrixPart'] as storageKey[]).forEach(key => this.remove(key))
+    (['customUrl', 'customUrlExtension', 'customUrlMinZoom', 'customUrlxyzTemplate', 'showDebugLayer', 'showLuchtFotoLayer', 'customTileMatrixPart'] as storageKey[]).forEach(key => this.remove(key))
   }
 }

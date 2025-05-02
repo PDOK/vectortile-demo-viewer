@@ -1,14 +1,19 @@
 <form [formGroup]="customtForm" (ngSubmit)="onSubmit()">
-  <table> 
+  <table>
   <tr>
     <td><label for="showDebugLayer">showDebugLayer:</label></td>
-    <td><mat-slide-toggle (change)="showDebugLayer()" formControlName="showDebugLayer"></mat-slide-toggle> 
+    <td><mat-slide-toggle (change)="showDebugLayer()" formControlName="showDebugLayer"></mat-slide-toggle>
+   </td>
+  </tr>
+  <tr>
+    <td><label for="showLuchtFotoLayer">showLuchtFotoLayer:</label></td>
+    <td><mat-slide-toggle (change)="showLuchtFotoLayer()" formControlName="showLuchtFotoLayer"></mat-slide-toggle>
    </td>
   </tr>
   </table>
 
 <table>
- 
+
   <caption class="techcaption">
     Aanpasbare Vectortile URL:
   </caption>
@@ -17,8 +22,8 @@
       <td><label for="customUrlMinZoom">MinZoom:</label></td>
       <td><input type="text" id="customUrlMinZoom" formControlName="customUrlMinZoom"/></td>
     </tr>
-  
-   
+
+
     <tr>
       <td><label for="customUrl">URL:</label></td>
       <td><input type="text" id="customUrl" formControlName="customUrl"/></td>

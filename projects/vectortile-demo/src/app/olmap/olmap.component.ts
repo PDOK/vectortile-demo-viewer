@@ -20,7 +20,7 @@ import Link from 'ol/interaction/Link.js';
 import Projection from 'ol/proj/Projection';
 import { DEVICE_PIXEL_RATIO } from 'ol/has';
 import TileGrid from 'ol/tilegrid/TileGrid';
-import { TileDebug } from 'ol/source';
+import { TileDebug, WMTS} from 'ol/source';
 import TileLayer from 'ol/layer/Tile';
 import VectorTileLayer from 'ol/layer/VectorTile';
 import VectorTileSource from 'ol/source/VectorTile';
@@ -51,6 +51,7 @@ import {
   tileurlTop10,
   VectorTileUrl,
 } from './tileurl'
+import WMTSTileGrid from 'ol/tilegrid/WMTS'
 
 
 
@@ -232,7 +233,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       this.map1.getTargetElement().style.cursor =
         found && this.detailsupdate ? 'pointer' : ''
     })
-    this.debuglayer()
+    this.dolayers
 
   }
 
@@ -279,7 +280,7 @@ export class OlmapComponent implements OnInit, OnChanges {
   private calcMatrixAndResolutions(rdProjection: Projection) {
     const tileSizePixels = 256
     const tileSizeMtrs = getWidth(rdProjection.getExtent()) / tileSizePixels
-    for (let i = 0; i <= 15; i++) {
+    for (let i = 0; i <= 20; i++) {
       this.matrixIds[i] = i.toString()
       this.resolutions[i] = tileSizeMtrs / Math.pow(2, i)
     }
@@ -329,7 +330,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
   private changeStyleJson() {
 
-    this.debuglayer()
+    this.dolayers
 
 
 
@@ -346,6 +347,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       // fallsthrough
       case Visualisatie.BRTAchtergrondStandaard:
       case Visualisatie.BRTAchtergrondStandaard_Annotated:
+      case Visualisatie.BRTLuchtfoto_Annotation:
       case Visualisatie.BRTAchtergrondStandaard_blanco:
       case Visualisatie.BRTAchtergrondStandaard_kleurrijk:
       case Visualisatie.BRTAchtergrondStandaard_tegels:
@@ -570,6 +572,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       // case Visualisatie.BGTtactiel:
       case Visualisatie.BRTAchtergrondStandaard:
       case Visualisatie.BRTAchtergrondStandaard_Annotated:
+      case Visualisatie.BRTLuchtfoto_Annotation:
       case Visualisatie.DKKStandaard:
       case Visualisatie.DKKKwaliteit:
       case Visualisatie.Top10nlStandaard:
@@ -780,11 +783,13 @@ export class OlmapComponent implements OnInit, OnChanges {
     vectorTileLayer.setSource(vtSource)
     vectorTileLayer.setVisible(true)
     vectorTileLayer.set('renderMode', 'hybrid')
-    this.debuglayer()
+
+    this.dolayers()
+
 
   }
 
-  private debuglayer() {
+  dolayers() {
     const debugLayer = new TileLayer({
       source: new TileDebug({
         projection: this.rdProjection,
@@ -797,20 +802,45 @@ export class OlmapComponent implements OnInit, OnChanges {
       })
     })
 
-    const debugvisible = this.localStorageService.getBoolean('showDebugLayer')
 
 
-    if (debugvisible) {
-      this.map1.setLayers([this.vectorTileLayerRD, debugLayer])
+    const luchtfotoLayer = new TileLayer({
+      source: new WMTS({
+        url: 'https://service.pdok.nl/hwh/luchtfotorgb/wmts/v1_0',
+        layer: 'Actueel_orthoHR',
+        style: 'default',
+        format: 'image/png',
+        matrixSet: 'EPSG:28992',
+        projection: this.rdProjection,
+        tileGrid: new WMTSTileGrid({
+          extent: this.rdProjection.getExtent(),
+          resolutions: this.resolutions,
+          tileSize: [256, 256],
+          origin: getTopLeft(this.rdProjection.getExtent()),
+          matrixIds: this.matrixIds,
+        })
+      })
+    });
 
-    } else {
-      this.map1.setLayers([this.vectorTileLayerRD])
+
+
+    const layers = [];
+    if (this.localStorageService.getBoolean('showLuchtFotoLayer')) {
+      layers.push(luchtfotoLayer);
     }
+    layers.push(this.vectorTileLayerRD);
+    if (  this.localStorageService.getBoolean('showDebugLayer')) {
+      layers.push(debugLayer);
+    }
+
+    this.map1.setLayers(layers);
+
     this.map1.changed()
-
-
-
   }
+
+
+
+
 
   showselectedFeatures(): boolean {
     return this.selectedFeatures.length > 0

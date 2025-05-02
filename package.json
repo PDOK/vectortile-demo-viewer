@@ -42,7 +42,7 @@
     "@types/geojson": "^7946.0.16",
     "ngx-color-picker": "^16.0.0",
     "ol": "9.2.4",
-    "ol-mapbox-style": "12.5.0",
+    "ol-mapbox-style": "12.6.0",
     "rxjs": "~7.8.2",
     "tslib": "^2.8.1"
   },

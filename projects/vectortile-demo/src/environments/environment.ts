@@ -32,9 +32,9 @@ export const environment = {
   BESTUURstd:    'https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0/styles/bestuurlijkegebieden_standaardvisualisatie?f=json',
   DKKstandaard:'https://api.pdok.nl/kadaster/kadastralekaart/ogc/v1-demo/styles/standaardvisualisatie__netherlandsrdnewquad',
   DKKkwaliteit: 'https://api.pdok.nl/kadaster/kadastralekaart/ogc/v1-demo/styles/kwaliteitsvisualisatie__netherlandsrdnewquad',
-  BrtAchtergrondStandaard_annotated: 'styles/brt/brt_achtergrondkaart_standaard_annotated_nederlandsRDNewQuad.json',
-  BrtAchtergrondStandaard: 'styles/brt/brt_achtergrondkaart_standaard_nederlandsRDNewQuad.json',
-  BrtLuchtfoto_Annotation: 'styles/brt/brt_luchtfoto_annotated_nederlandsRDNewQuad.json',
+  BrtAchtergrondStandaard_annotated: 'styles/brt/brt_achtergrondkaart_standaard_annotated_nederlandsrdnewquad.json',
+  BrtAchtergrondStandaard: 'styles/brt/brt_achtergrondkaart_standaard_nederlandsrdnewquad.json',
+  BrtLuchtfoto_Annotation: 'styles/brt/brt_luchtfoto_annotated_nederlandsrdnewquad.json',
 
 }
 

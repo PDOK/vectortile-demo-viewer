@@ -9,6 +9,7 @@ export enum Visualisatie {
   BRTAchtergrondStandaard_Annotated = 'BRT Achtergrond standaard Annotated',
   BRTAchtergrondStandaard = 'BRT Achtergrond standaard (zonder labels)',
   BRTLuchtfoto_Annotation = "BRT Luchtfoto Annotatie",
+  BRTStandaardDarkmode_Annotation = "BRT Darkmode Annotatie",
   BRTAchtergrondStandaard_blanco = 'BRT Achtergrond (Blanco)',
   BRTAchtergrondStandaard_kleurrijk = 'BRT Achtergrond (Kleurrijk)',
   BRTAchtergrondStandaard_tegels = 'BRT Achtergrond (Kleurrijk tegels zichtbaar)',
@@ -38,6 +39,7 @@ export enum Visualisatie {
 
 
 
+
 }
 export type Quad = 'netherlandsrdnewquad' | 'europeanetrs89_laeaquad' | 'webmercatorquad'
 type SourceType = 'bag' | 'bgt' | 'dkk' | 'bestuurlijkegebieden' | 'top10nl' | 'custom' | 'brt'
@@ -53,6 +55,7 @@ export function getStyleUrl(vis: Visualisatie, quad: Quad): StyleUrl {
     [Visualisatie.BRTAchtergrondStandaard]: { source: 'brt', styleUrl: environment.BrtAchtergrondStandaard },
     [Visualisatie.BRTAchtergrondStandaard_Annotated]: { source: 'brt', styleUrl: environment.BrtAchtergrondStandaard_annotated },
     [Visualisatie.BRTLuchtfoto_Annotation]: { source: 'brt', styleUrl: environment.BrtLuchtfoto_Annotation },
+    [Visualisatie.BRTStandaardDarkmode_Annotation]: { source: 'brt', styleUrl: environment.BrtAchtergrondDarkmode_annotated },
     [Visualisatie.BRTAchtergrondStandaard_blanco]: { source: 'brt', styleUrl: undefined },
     [Visualisatie.BRTAchtergrondStandaard_kleurrijk]: { source: 'brt', styleUrl: undefined },
     [Visualisatie.BRTAchtergrondStandaard_tegels]: { source: 'brt', styleUrl: undefined},
@@ -117,7 +120,7 @@ export function getAllVisualisaties(): { title: string, visualisatie: Visualisat
 
     else {
 
-      if (value == 'DKKKwaliteit' || value == "DKKStandaard" || value == "BRTAchtergrondStandaard" || value == "BRTAchtergrondStandaard_Annotated" ||value=="BRTLuchtfoto_Annotation"|| value=="BRTAchtergrondStandaard_blanco"|| value =="BRTAchtergrondStandaard_kleurrijk"|| value =="BRTAchtergrondStandaard_tegels" ) {
+      if (value == 'DKKKwaliteit' || value == "DKKStandaard" || value == "BRTAchtergrondStandaard" || value == "BRTAchtergrondStandaard_Annotated" ||value=="BRTLuchtfoto_Annotation"|| value=="BRTAchtergrondStandaardDarkmode_Annotation"|| value=="BRTAchtergrondStandaard_blanco"|| value =="BRTAchtergrondStandaard_kleurrijk"|| value =="BRTAchtergrondStandaard_tegels" ) {
         if (demoSettings.previewFeature) {
 
           array.push({ title: Visualisatie[value], visualisatie: Visualisatie[value] })

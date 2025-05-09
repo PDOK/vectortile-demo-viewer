@@ -348,6 +348,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.BRTAchtergrondStandaard:
       case Visualisatie.BRTAchtergrondStandaard_Annotated:
       case Visualisatie.BRTLuchtfoto_Annotation:
+      case Visualisatie.BRTStandaardDarkmode_Annotation:
       case Visualisatie.BRTAchtergrondStandaard_blanco:
       case Visualisatie.BRTAchtergrondStandaard_kleurrijk:
       case Visualisatie.BRTAchtergrondStandaard_tegels:
@@ -573,6 +574,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.BRTAchtergrondStandaard:
       case Visualisatie.BRTAchtergrondStandaard_Annotated:
       case Visualisatie.BRTLuchtfoto_Annotation:
+      case Visualisatie.BRTStandaardDarkmode_Annotation:
       case Visualisatie.DKKStandaard:
       case Visualisatie.DKKKwaliteit:
       case Visualisatie.Top10nlStandaard:

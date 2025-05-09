@@ -33,4 +33,5 @@ export const environment = {
   BrtAchtergrondStandaard_annotated: 'styles/brt/brt_achtergrondkaart_standaard_annotated_nederlandsrdnewquad.json',
   BrtAchtergrondStandaard: 'styles/brt/brt_achtergrondkaart_standaard_nederlandsrdnewquad.json',
   BrtLuchtfoto_Annotation: 'styles/brt/brt_luchtfoto_annotated_nederlandsrdnewquad.json',
+  BrtAchtergrondDarkmode_annotated: 'styles/brt/brt_achtergrondkaart_darkmode_annotated_nederlandsrdnewquad.json',
 }

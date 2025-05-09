@@ -120,7 +120,7 @@ export function getAllVisualisaties(): { title: string, visualisatie: Visualisat
 
     else {
 
-      if (value == 'DKKKwaliteit' || value == "DKKStandaard" || value == "BRTAchtergrondStandaard" || value == "BRTAchtergrondStandaard_Annotated" ||value=="BRTLuchtfoto_Annotation"|| value=="BRTAchtergrondStandaardDarkmode_Annotation"|| value=="BRTAchtergrondStandaard_blanco"|| value =="BRTAchtergrondStandaard_kleurrijk"|| value =="BRTAchtergrondStandaard_tegels" ) {
+      if (value == 'DKKKwaliteit' || value == "DKKStandaard" || value == "BRTAchtergrondStandaard" || value == "BRTAchtergrondStandaard_Annotated" ||value=="BRTLuchtfoto_Annotation"|| value=="BRTStandaardDarkmode_Annotation"|| value=="BRTAchtergrondStandaard_blanco"|| value =="BRTAchtergrondStandaard_kleurrijk"|| value =="BRTAchtergrondStandaard_tegels" ) {
         if (demoSettings.previewFeature) {
 
           array.push({ title: Visualisatie[value], visualisatie: Visualisatie[value] })

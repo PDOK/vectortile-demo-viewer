@@ -11,9 +11,10 @@
     "dkk": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v1-demo/tiles/NederlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
-      ]
-
+        "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v1-demo/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+      ],
+      "minzoom": 12,
+      "maxzoom": 12
     }
   },
   "glyphs": "https://pdok.github.io/vectortile-demo-viewer/styles/brk/fonts/{fontstack}/{range}.pbf",
@@ -44,7 +45,8 @@
             [14, 8],
             [15, 11],
             [16, 13]
-          ]
+          ],
+          "default": 13
         },
         "text-rotate": ["get", "hoek"],
 
@@ -96,7 +98,8 @@
             [13, 11],
             [14, 12],
             [15, 14]
-          ]
+          ],
+          "default": 14
         },
         "text-rotate": ["-", 360, ["get", "mshoek"]]
       }
@@ -132,7 +135,8 @@
             [13, 11],
             [14, 12],
             [15, 14]
-          ]
+          ],
+          "default": 14
         },
         "text-rotate": ["-", 360, ["get", "mshoek"]]
       }
@@ -208,7 +212,8 @@
             [14, 12],
             [15, 14],
             [16, 16]
-          ]
+          ],
+          "default": 16
         }
       }
     }

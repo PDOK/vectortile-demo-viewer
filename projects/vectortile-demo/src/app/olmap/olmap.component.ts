@@ -451,7 +451,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         tileurlBRTAchtergrond,
         0
       )
-      this.showUrl = tileurlBestuur.vectorTileUrl
+      this.showUrl = tileurlBRTAchtergrond.vectorTileUrl
     }
 
     if (JsonUrl.source == 'top10nl') {

@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Liberation Sans Bold Italic";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+
+  src: url("LiberationSans-BoldItalic.woff2") format("woff2"),
+    url("LiberationSans-BoldItalic.woff") format("woff"),
+    url("LiberationSans-BoldItalic.ttf") format("truetype");
+}

@@ -1,7 +1,7 @@
 {
   "version": 8,
   "metadata": {
-    "ol:webfonts": "http://127.0.0.1:4200/assets/fonts/{font-family}/{fontweight}{-fontstyle}.css",
+    "ol:webfonts": "https://pdok.github.io/vectortile-demo-viewer/styles/brt/fonts/{font-family}/{fontweight}{-fontstyle}.css",
     "gokoala:title-items": "id"
 
   },
@@ -10,7 +10,7 @@
   "pitch": 0,
   "center": [5.3878, 52.1561],
 
-  "glyphs": "http://127.0.0.1:4200/assets/font/{fontstack}/{range}.pbf",
+  "glyphs": "https://pdok.github.io/vectortile-demo-viewer/styles/brt/font/{fontstack}/{range}.pbf",
   "layers": [
 
     {

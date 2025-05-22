@@ -16,6 +16,7 @@
     {
       "id": "waterdeelvlak",
       "type": "fill",
+      "maxzoom": 15,
       "paint": {
         "fill-opacity":
         {

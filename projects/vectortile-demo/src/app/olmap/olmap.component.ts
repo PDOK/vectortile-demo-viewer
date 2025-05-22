@@ -371,7 +371,7 @@ export class OlmapComponent implements OnInit, OnChanges {
 
       case Visualisatie.DKKKwaliteit:
       case Visualisatie.DKKStandaard:
-        minzoom = 13
+        minzoom = 12.01
         break
       case Visualisatie.Custom1Blanko:
       case Visualisatie.Custom1Kleurrijk:

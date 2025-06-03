@@ -856,7 +856,7 @@
     "brt": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/brt/achtergrondkaart/ogc/v1-preprod/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+        "https://api.pdok.nl/brt/achtergrondkaart/ogc/v1-demo/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
       ],
       "minzoom": 0,
       "maxzoom": 14

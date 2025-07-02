@@ -2,7 +2,6 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import { demoSettings } from '../app/app.component'
 import { Quad } from '../app/enumVisualisatie'
 
 
@@ -21,7 +20,7 @@ const urlQuad = (base: string, constantPath: string, constantQuery: string): { [
 export const environment = {
   production: false,
 
-  //'https://api.pdok.nl/brt/top10nl/ogc/v1-demo/styles'
+  //'https://api.pdok.nl/brt/top10nl/ogc/v1/styles'
   BRTTop10Standaardjsonurl: urlQuad( 'https://api.pdok.nl/brt/top10nl/ogc/v1/styles', '/brt_top10nl__', 'f=mapbox'),
   BGTmapboxachtergrondjsonurl: 'styles/bgt_achtergrondvisualisatie.json',
   BGTmapboxstandaardjsonurl: 'styles/bgt_standaardvisualisatie.json',
@@ -46,6 +45,6 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-import 'zone.js/plugins/zone-error' // Included with Angular CLI.import { Quad } from '../app/enumVisualisatie'
+import 'zone.js/plugins/zone-error'; // Included with Angular CLI.import { Quad } from '../app/enumVisualisatie'
 
 

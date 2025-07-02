@@ -17,12 +17,12 @@ export const tileurlBGT: VectorTileUrl = {
   }
 }
 export const tileurlDKK: VectorTileUrl = {
-  vectorTileUrl: 'https://api.pdok.nl/kadaster/kadastralekaart/ogc/v1-demo/tiles',
+  vectorTileUrl: 'https://api.pdok.nl/kadaster/brk-kadastrale-kaart/ogc/v1/tiles',
   tileMatrixPart:RDPART ,
   extension: '.pbf',
   xyzTemplate: '/{z}/{y}/{x}',
   ogcApiRootUrl: {
-    url: "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v1-demo",
+    url: "https://api.pdok.nl/kadaster/brk-kadastrale-kaart/ogc/v1",
     lokaalIdRegex: /[GPWL]{1}\d{4}\.[a-f0-9]{32}/g
   }
 }
@@ -47,7 +47,7 @@ export const tileurlBestuur: VectorTileUrl = {
 }
 
 export const tileurlBRTAchtergrond: VectorTileUrl = {
-  vectorTileUrl: 'https://api.pdok.nl/brt/achtergrondkaart/ogc/v1-demo/tiles',
+  vectorTileUrl: 'https://api.pdok.nl/brt/achtergrondkaart/ogc/v1/tiles',
   tileMatrixPart:RDPART ,
   extension: '?f=mvt',
   xyzTemplate: '/{z}/{y}/{x}',

@@ -13,7 +13,7 @@
     "dkk": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v1-demo/tiles/WebMercatorQuad/{z}/{y}/{x}?f=mvt"
+        "https://api.pdok.nl/kadaster/brk-kadastrale-kaart/ogc/v1-demo/tiles/WebMercatorQuad/{z}/{y}/{x}?f=mvt"
       ],
       "minzoom": 12,
       "maxzoom": 12

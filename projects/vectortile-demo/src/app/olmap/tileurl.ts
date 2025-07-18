@@ -47,7 +47,7 @@ export const tileurlBestuur: VectorTileUrl = {
 }
 
 export const tileurlBRTAchtergrond: VectorTileUrl = {
-  vectorTileUrl: 'https://api.pdok.nl/brt/achtergrondkaart/ogc/v1-demo/tiles',
+  vectorTileUrl: 'https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1/tiles',
   tileMatrixPart:RDPART ,
   extension: '?f=mvt',
   xyzTemplate: '/{z}/{y}/{x}',

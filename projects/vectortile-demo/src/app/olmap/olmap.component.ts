@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'
 import {
   Component,
   EventEmitter,
@@ -7,38 +7,39 @@ import {
   OnInit,
   Output,
   ViewEncapsulation,
-} from '@angular/core';
-import { Router } from '@angular/router';
-import { MatSlideToggle } from '@angular/material/slide-toggle';
-import { MatTooltip } from '@angular/material/tooltip';
-import { Feature, Map as olMap, View } from 'ol';
+} from '@angular/core'
+import { MatSlideToggle } from '@angular/material/slide-toggle'
+import { MatTooltip } from '@angular/material/tooltip'
+import { Router } from '@angular/router'
+import { Feature, Map as olMap, View } from 'ol'
+import { stylefunction } from 'ol-mapbox-style'
 import { FeatureLike } from 'ol/Feature'
-import { getTopLeft, getWidth } from 'ol/extent.js';
-import MVT from 'ol/format/MVT.js';
-import { Geometry } from 'ol/geom';
-import Link from 'ol/interaction/Link.js';
-import Projection from 'ol/proj/Projection';
-import { DEVICE_PIXEL_RATIO } from 'ol/has';
-import TileGrid from 'ol/tilegrid/TileGrid';
-import { TileDebug, WMTS} from 'ol/source';
-import TileLayer from 'ol/layer/Tile';
-import VectorTileLayer from 'ol/layer/VectorTile';
-import VectorTileSource from 'ol/source/VectorTile';
-import Fill from 'ol/style/Fill';
-import { Circle, Stroke } from 'ol/style';
-import Style, { StyleFunction } from 'ol/style/Style';
-import { stylefunction } from 'ol-mapbox-style';
-import { Annotation, DrawColor, getFillColor, LabelType } from '../color';
-import { ColorMap, LegendLevel } from '../colorMap';
-import { exhaustiveGuard, getStyleUrl, Visualisatie } from '../enumVisualisatie';
-import { LocationService, ViewLocation } from '../location.service';
-import { LocalStorageService } from '../local-storage-service';
-import { CustomTileComponent } from '../custom-tile/custom-tile.component';
-import { DemoboxComponent } from '../demobox/demobox.component';
-import { MapexportComponent } from '../mapexport/mapexport.component';
-import { MapstylerComponent } from '../mapstyler/mapstyler.component';
-import { ObjectinfoComponent } from '../objectinfo/objectinfo.component';
-import { ShowlinkComponent } from '../showlink/showlink.component';
+import { getTopLeft, getWidth } from 'ol/extent.js'
+import MVT from 'ol/format/MVT.js'
+import { Geometry } from 'ol/geom'
+import { DEVICE_PIXEL_RATIO } from 'ol/has'
+import Link from 'ol/interaction/Link.js'
+import TileLayer from 'ol/layer/Tile'
+import VectorTileLayer from 'ol/layer/VectorTile'
+import Projection from 'ol/proj/Projection'
+import { TileDebug, WMTS } from 'ol/source'
+import VectorTileSource from 'ol/source/VectorTile'
+import { Circle, Stroke } from 'ol/style'
+import Fill from 'ol/style/Fill'
+import Style, { StyleFunction } from 'ol/style/Style'
+import TileGrid from 'ol/tilegrid/TileGrid'
+import WMTSTileGrid from 'ol/tilegrid/WMTS'
+import { Annotation, DrawColor, getFillColor, LabelType } from '../color'
+import { ColorMap, LegendLevel } from '../colorMap'
+import { CustomTileComponent } from '../custom-tile/custom-tile.component'
+import { DemoboxComponent } from '../demobox/demobox.component'
+import { exhaustiveGuard, getStyleUrl, Visualisatie } from '../enumVisualisatie'
+import { LocalStorageService } from '../local-storage-service'
+import { LocationService, ViewLocation } from '../location.service'
+import { MapexportComponent } from '../mapexport/mapexport.component'
+import { MapstylerComponent } from '../mapstyler/mapstyler.component'
+import { ObjectinfoComponent } from '../objectinfo/objectinfo.component'
+import { ShowlinkComponent } from '../showlink/showlink.component'
 import {
   getSpriteDataUrl,
   getSpriteImageUrl,
@@ -49,9 +50,9 @@ import {
   tileurlBRTAchtergrond,
   tileurlDKK,
   tileurlTop10,
+  tileurlWKPB,
   VectorTileUrl,
 } from './tileurl'
-import WMTSTileGrid from 'ol/tilegrid/WMTS'
 
 
 
@@ -352,9 +353,16 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.BRTAchtergrondStandaard_blanco:
       case Visualisatie.BRTAchtergrondStandaard_kleurrijk:
       case Visualisatie.BRTAchtergrondStandaard_tegels:
+
+
         minzoom = 0
         break
       case Visualisatie.BESTUURstd:
+         case Visualisatie.Wkpb_blanco:
+      case Visualisatie.Wkpb_kleurrijk:
+      case Visualisatie.Wkpb_standaard:
+      case Visualisatie.Wkpb_tegels:
+
         minzoom = 3
         break
       case Visualisatie.Bagstd:
@@ -452,6 +460,15 @@ export class OlmapComponent implements OnInit, OnChanges {
         0
       )
       this.showUrl = tileurlBRTAchtergrond.vectorTileUrl
+    }
+    if (JsonUrl.source == 'wkpb') {
+      this.setTileSource(
+        this.rdProjection,
+        this.vectorTileLayerRD,
+        tileurlWKPB,
+        1
+      )
+      this.showUrl =  tileurlWKPB.vectorTileUrl
     }
 
     if (JsonUrl.source == 'top10nl') {
@@ -583,47 +600,50 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.Bagstd:
       case Visualisatie.BagCompleet:
       case Visualisatie.BESTUURWithLabels:
-      case Visualisatie.BESTUURstd: {
-        const legendTitle = this.colorMap.selector(prop)
+      case Visualisatie.BESTUURstd:
+      case Visualisatie.Wkpb_standaard:
+        {
+          const legendTitle = this.colorMap.selector(prop)
 
-        //   if (this.SelectedVisualisation === Visualisatie.BGTtactiel && isText) {
-        //    isText = this.toBraile(isText);
-        //  }
+          //   if (this.SelectedVisualisation === Visualisatie.BGTtactiel && isText) {
+          //    isText = this.toBraile(isText);
+          //  }
 
-        if (this.stfunction) {
-          const tmpstyle = this.stfunction(feature, resolution)
+          if (this.stfunction) {
+            const tmpstyle = this.stfunction(feature, resolution)
 
-          if (this.colorMap.has(legendTitle)) {
-            const exitingColor = this.colorMap.get(legendTitle)
-            if (exitingColor?.show) {
-              return exitingColor.showfreshstyle(isText, tmpstyle)
+            if (this.colorMap.has(legendTitle)) {
+              const exitingColor = this.colorMap.get(legendTitle)
+              if (exitingColor?.show) {
+                return exitingColor.showfreshstyle(isText, tmpstyle)
+              }
+            } else {
+              //set style
+
+              const newcolor = new DrawColor(legendTitle, feature, true, isText)
+              // if (
+              //  this.SelectedVisualisation === Visualisatie.BGTtactiel &&
+              //  isText
+              //  ) {
+              //   newcolor.mapbox = false
+              //}
+              // console.log(tmpstyle)
+              if (tmpstyle) {
+                newcolor.rbgString = getFillColor(tmpstyle) as string
+                this.colorMap.set(legendTitle, newcolor)
+              }
+
+              return tmpstyle
             }
-          } else {
-            //set style
-
-            const newcolor = new DrawColor(legendTitle, feature, true, isText)
-            // if (
-            //  this.SelectedVisualisation === Visualisatie.BGTtactiel &&
-            //  isText
-            //  ) {
-            //   newcolor.mapbox = false
-            //}
-            // console.log(tmpstyle)
-            if (tmpstyle) {
-              newcolor.rbgString = getFillColor(tmpstyle) as string
-              this.colorMap.set(legendTitle, newcolor)
-            }
-
-            return tmpstyle
           }
+          break
         }
-        break
-      }
       case Visualisatie.BagKleurrijk_tegels:
       case Visualisatie.Top10nlTegels:
       case Visualisatie.BGTzerodefaultB_tegels:
       case Visualisatie.Custom1Tegels:
       case Visualisatie.BRTAchtergrondStandaard_tegels:
+      case Visualisatie.Wkpb_tegels:
         return new DrawColor(
           'default zero',
           feature,
@@ -655,6 +675,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.BRTAchtergrondStandaard_kleurrijk:
       case Visualisatie.Top10nlKleurrijk:
       case Visualisatie.BGTzerodefaultD_kleur:
+      case Visualisatie.Wkpb_kleurrijk:
       case Visualisatie.Custom1Kleurrijk: {
         const layer = prop['layer']
         const zerodefaultText = GetLabelAnnotation(prop, layer)
@@ -678,6 +699,7 @@ export class OlmapComponent implements OnInit, OnChanges {
       case Visualisatie.BGTzerodefaultA_blanco:
       case Visualisatie.Top10nlBlanco:
       case Visualisatie.BESTUURBlanko:
+      case Visualisatie.Wkpb_blanco:
         return new DrawColor(
           'default zero',
           feature,
@@ -822,20 +844,20 @@ export class OlmapComponent implements OnInit, OnChanges {
           matrixIds: this.matrixIds,
         })
       })
-    });
+    })
 
 
 
-    const layers = [];
+    const layers = []
     if (this.localStorageService.getBoolean('showLuchtFotoLayer')) {
-      layers.push(luchtfotoLayer);
+      layers.push(luchtfotoLayer)
     }
-    layers.push(this.vectorTileLayerRD);
-    if (  this.localStorageService.getBoolean('showDebugLayer')) {
-      layers.push(debugLayer);
+    layers.push(this.vectorTileLayerRD)
+    if (this.localStorageService.getBoolean('showDebugLayer')) {
+      layers.push(debugLayer)
     }
 
-    this.map1.setLayers(layers);
+    this.map1.setLayers(layers)
 
     this.map1.changed()
   }

@@ -3,6 +3,10 @@ import { demoSettings } from './app.component'
 import { LocalStorageService } from './local-storage-service'
 
 export enum Visualisatie {
+  Wkpb_standaard = 'Publiekrechtelijke beperkingen (Wkpb)',
+  Wkpb_blanco = 'Publiekrechtelijke beperkingen (Wkpb) Blanco',
+  Wkpb_tegels = 'Publiekrechtelijke beperkingen (Wkpb) (tegels zichtbaar)',
+  Wkpb_kleurrijk = 'Publiekrechtelijke beperkingen (Wkpb) Kleurrijk',
   Custom1Blanko = 'Aanpasbare Vectortile URL (Blanco)',
   Custom1Kleurrijk = 'Aanpasbare Vectortile URL (kleurrijk)',
   Custom1Tegels = 'Aanpasbare Vectortile URL (Kleurrijk tegels zichtbaar)',
@@ -27,6 +31,13 @@ export enum Visualisatie {
   Top10nlBlanco = 'TOP10NL Blanco',
   Top10nlTegels = 'TOP10NL (tegels zichtbaar)',
   Top10nlKleurrijk = 'TOP10NL Kleurrijk',
+
+
+
+
+
+
+
   BGTzerodefaultA_blanco = 'BGT (Blanco)',
   BGTzerodefaultB_tegels = 'BGT (Kleurrijk tegels zichtbaar)',
   BGTzerodefaultC_Bron = 'BGT Bronhouder',
@@ -42,7 +53,7 @@ export enum Visualisatie {
 
 }
 export type Quad = 'netherlandsrdnewquad' | 'europeanetrs89_laeaquad' | 'webmercatorquad'
-type SourceType = 'bag' | 'bgt' | 'dkk' | 'bestuurlijkegebieden' | 'top10nl' | 'custom' | 'brt'
+type SourceType = 'bag' | 'bgt' | 'dkk' | 'bestuurlijkegebieden' | 'top10nl' | 'custom' | 'brt' | 'wkpb'
 
 export type StyleUrl = {
   source: SourceType
@@ -58,7 +69,7 @@ export function getStyleUrl(vis: Visualisatie, quad: Quad): StyleUrl {
     [Visualisatie.BRTStandaardDarkmode_Annotation]: { source: 'brt', styleUrl: environment.BrtAchtergrondDarkmode_annotated },
     [Visualisatie.BRTAchtergrondStandaard_blanco]: { source: 'brt', styleUrl: undefined },
     [Visualisatie.BRTAchtergrondStandaard_kleurrijk]: { source: 'brt', styleUrl: undefined },
-    [Visualisatie.BRTAchtergrondStandaard_tegels]: { source: 'brt', styleUrl: undefined},
+    [Visualisatie.BRTAchtergrondStandaard_tegels]: { source: 'brt', styleUrl: undefined },
     [Visualisatie.DKKStandaard]: { source: 'dkk', styleUrl: environment.DKKstandaard },
     [Visualisatie.DKKKwaliteit]: { source: 'dkk', styleUrl: environment.DKKkwaliteit },
     [Visualisatie.BGTachtergrond]: { source: 'bgt', styleUrl: environment.BGTmapboxachtergrondjsonurl },
@@ -82,6 +93,14 @@ export function getStyleUrl(vis: Visualisatie, quad: Quad): StyleUrl {
     [Visualisatie.Custom1Blanko]: { source: 'custom', styleUrl: undefined },
     [Visualisatie.Custom1Kleurrijk]: { source: 'custom', styleUrl: undefined },
     [Visualisatie.Custom1Tegels]: { source: 'custom', styleUrl: undefined },
+    [Visualisatie.Wkpb_standaard]: { source: 'wkpb', styleUrl: environment.BrkWKPBStandaardjsonurl },
+    [Visualisatie.Wkpb_kleurrijk]: { source: 'wkpb', styleUrl: undefined },
+    [Visualisatie.Wkpb_blanco]: { source: 'wkpb', styleUrl: undefined },
+    [Visualisatie.Wkpb_tegels]: { source: 'wkpb', styleUrl: undefined },
+
+
+
+
 
   }
 
@@ -108,21 +127,24 @@ export function getAllVisualisaties(): { title: string, visualisatie: Visualisat
   const localStorageService = new LocalStorageService()
 
   for (const value of enumKeys(Visualisatie)) {
-
     if (value === 'Custom1Blanko' || value === 'Custom1Kleurrijk' || value === 'Custom1Tegels') {
 
 
       if (localStorageService.Exists('customUrl')) {
         array.push({ title: Visualisatie[value], visualisatie: Visualisatie[value] })
       }
-
     }
 
     else {
-
-    
+      if (demoSettings.previewFeature) {
         array.push({ title: Visualisatie[value], visualisatie: Visualisatie[value] })
-      
+      } else {
+        if (value.includes("Wkpb")) {
+          // Wkpb is a preview feature
+        } else {
+          array.push({ title: Visualisatie[value], visualisatie: Visualisatie[value] })
+        }
+      }
     }
   }
   return array

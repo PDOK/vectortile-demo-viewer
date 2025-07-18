@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host=127.0.0.1",
+    "startp": "ng serve --host=127.0.0.1 --configuration production",
     "build": "npm run val && run ngtestci && ng build",
     "watch": "ng build --watch --configuration development",
     "ngtest": "ng test",

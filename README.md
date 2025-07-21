@@ -1,6 +1,6 @@
 # VectortileDemoViewer
 
-This [viewer](https://pdok.github.io/vectortile-demo-viewer/) is made to demonstrate the capabilities of the BGT Vectortiles to developers.
+This [viewer](https://pdok.github.io/vectortile-demo-viewer/) is made to demonstrate the capabilities of the Vectortiles to developers.
 Enjoy the [demo online](https://pdok.github.io/vectortile-demo-viewer/).
 
 ## Development server

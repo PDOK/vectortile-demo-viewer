@@ -283,12 +283,43 @@
         ]
       }
     },
+     {
+      "id": "beperkingen line",
+      "type": "line",
+      "source": "wkpb",
+      "source-layer": "pb_multilinestring",
+      "paint": {
+        "line-width": 2,
+        "line-color": "#000000"
+
+
+      }
+    },
 
 {
-  "id": "label",
+  "id": "polygonlabel",
   "type": "symbol",
   "source": "wkpb",
   "source-layer": "pb_multipolygon",
+  "minzoom": 12,
+  "maxzoom": 16,
+  "layout": {
+    "text-field": "{code_groep}:{grondslag_code} {gebaseerd_op_stuk}",
+    "text-size":10,
+    "text-allow-overlap": false,
+    "icon-allow-overlap": true
+  },
+  "paint": {
+    "text-color":"#0E0D0D",
+    "text-halo-color": "#EDECE6",
+    "text-halo-width": 2
+  }
+},
+{
+  "id": "linelabel",
+  "type": "symbol",
+  "source": "wkpb",
+  "source-layer": "pb_multilinestring",
   "minzoom": 12,
   "maxzoom": 16,
   "layout": {

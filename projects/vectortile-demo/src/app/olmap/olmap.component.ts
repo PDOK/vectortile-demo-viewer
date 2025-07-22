@@ -535,6 +535,7 @@ export class OlmapComponent implements OnInit, OnChanges {
         case Visualisatie.BRTAchtergrondStandaard_blanco:
         case Visualisatie.BGTzerodefaultA_blanco:
         case Visualisatie.Top10nlBlanco:
+        case Visualisatie.Wkpb_blanco:
 
           vectorTileLayer.setStyle(this.GetBlancoDefaultStyle())
           break

@@ -105,6 +105,7 @@ export class LocationService {
     const point = this.wktToCoordinates(wkt)
     const location = this.initialViewLocation
     location.view!.setCenter(point)
+    location.view!.setZoom(14)
     location.name = name
     location.change = ChangeType.search
     this.messageSource.next((location))

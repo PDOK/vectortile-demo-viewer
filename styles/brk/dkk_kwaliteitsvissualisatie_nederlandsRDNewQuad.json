@@ -1,24 +1,25 @@
 {
   "version": 8,
   "name": "",
-  "id": "Kadastrale kaart kwaliteitsvisualisatie NetherlandsRDNewQuad",
+  "id": "kadastrale kaart kwaliteitsvissualisatie nederlandsRDNewQuad",
   "metadata": {
-    "ol:webfonts": "https://api.pdok.nl/kadaster/brk-kadastrale-kaart/ogc/v1-demo/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
+    "ol:webfonts": "https://pdok.github.io/vectortile-demo-viewer/styles/fonts/{font-family}/{fontweight}{-fontstyle}.css",
     "gokoala:title-items": "id"
   },
+
   "center": [],
   "pitch": 0,
   "sources": {
     "dkk": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/kadaster/brk-kadastrale-kaart/ogc/v1-demo/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+        "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v5-preprod/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
       ],
       "minzoom": 12,
       "maxzoom": 12
     }
   },
-  "glyphs": "https://api.pdok.nl/kadaster/brk-kadastrale-kaart/ogc/v1-demo/resources/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "https://pdok.github.io/vectortile-demo-viewer/styles/brk/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "Bebouwing",
@@ -27,6 +28,7 @@
       "source-layer": "pand",
       "paint": { "fill-color": "#E6E6E6", "fill-outline-color": "#CDCDCD" }
     },
+
     {
       "id": "Kwaliteitslabel Onbekend",
       "type": "line",
@@ -37,7 +39,7 @@
       "paint": {
         "line-dasharray": [4, 2],
         "line-color": "#bbbbbb",
-        "line-width": 1.5
+        "line-width": 3
       }
     },
     {
@@ -46,7 +48,7 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "classificatie_kwaliteit_waarde", "E"],
-      "paint": { "line-color": "#fe9c33", "line-width": 1.5 }
+      "paint": { "line-color": "#fe9c33", "line-width": 3 }
     },
     {
       "id": "Kwaliteitslabel D",
@@ -54,7 +56,7 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "classificatie_kwaliteit_waarde", "D"],
-      "paint": { "line-color": "#fed98e", "line-width": 1.5 }
+      "paint": { "line-color": "#fed98e", "line-width": 3 }
     },
     {
       "id": "Kwaliteitslabel C",
@@ -62,7 +64,7 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "classificatie_kwaliteit_waarde", "C"],
-      "paint": { "line-color": "#bae4bc", "line-width": 1.5 }
+      "paint": { "line-color": "#bae4bc", "line-width": 3 }
     },
     {
       "id": "Kwaliteitslabel B",
@@ -70,8 +72,9 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "classificatie_kwaliteit_waarde", "B"],
-      "paint": { "line-color": "#008200", "line-width": 1.5 }
+      "paint": { "line-color": "#008200", "line-width": 3 }
     },
+
     {
       "id": "Bijpijling",
       "type": "line",
@@ -79,25 +82,25 @@
       "source-layer": "perceel_bijpijling",
       "paint": { "line-color": "#000001", "line-width": 1 }
     },
+
     {
       "id": "Nummeraanduidingreeks",
       "type": "symbol",
       "source": "dkk",
       "source-layer": "pand_nummeraanduiding",
+
       "layout": {
         "text-field": "{tekst}",
-        "text-size": [
-      "step",
-      ["zoom"],
-      6,
-            12, 6,
-            13, 7,
-            14, 8,
-            15, 11,
-            16, 13
+        "text-size": {
+          "stops": [
+            [12, 4],
+            [13, 6],
+            [14, 10],
+            [15, 14]
           ]
-        ,
+        },
         "text-rotate": ["get", "hoek"],
+
         "text-font": [
           "Liberation Sans",
           "system-ui",
@@ -120,7 +123,7 @@
       "source": "dkk",
       "source-layer": "openbareruimtelabel",
       "paint": {
-        "text-color": "#000000"
+        "text-color": "#002750"
       },
       "filter": [
         "all",
@@ -139,15 +142,8 @@
           "sans-serif",
           "Noto Color Emoji"
         ],
-          "text-size": [
-      "step",
-      ["zoom"],
-      11,
-            12, 11,
-            13, 11,
-            14, 12,
-            15, 14
-          ],
+
+        "text-size": 15,
         "text-rotate": ["-", 360, ["get", "mshoek"]]
       }
     },
@@ -157,7 +153,7 @@
       "source": "dkk",
       "source-layer": "openbareruimtelabel",
       "paint": {
-        "text-color": "#000000"
+        "text-color": "#002750"
       },
       "filter": [
         "all",
@@ -167,7 +163,7 @@
       "layout": {
         "text-field": "{tekst}",
         "text-font": [
-          "Liberation Sans",
+          "Liberation Sans Italic",
           "system-ui",
           "Roboto",
           "Arial",
@@ -176,15 +172,14 @@
           "sans-serif",
           "Noto Color Emoji"
         ],
-         "text-size": [
-      "step",
-      ["zoom"],
-      11,
-            12, 11,
-            13, 11,
-            14, 12,
-            15, 14
-          ],
+        "text-size": {
+          "stops": [
+            [12, 10],
+            [13, 11],
+            [14, 12],
+            [15, 14]
+          ]
+        },
         "text-rotate": ["-", 360, ["get", "mshoek"]]
       }
     },
@@ -197,16 +192,16 @@
         "text-field": "{perceelnummer}",
         "text-allow-overlap": true,
         "icon-allow-overlap": true,
-        "text-size": [
-      "step",
-      ["zoom"],
-      9,
-            12, 9,
-            13, 9,
-            14, 12,
-            15, 14,
-            16, 15
+        "text-size": {
+          "stops": [
+            [12, 6],
+            [13, 6],
+            [14, 9],
+            [15, 12],
+            [16, 14]
           ],
+          "default": 14
+        },
         "text-font": [
           "Liberation Sans Italic",
           "system-ui",
@@ -221,16 +216,15 @@
       "paint": {
         "text-color": "#000000",
         "text-halo-color": "#FFFFFF",
-        "text-halo-width": [
-      "step",
-      ["zoom"],
-      10,
-            12, 10,
-            13, 10,
-            14, 13,
-            15, 15,
-            16, 16
+        "text-halo-width": {
+          "stops": [
+            [12, 6],
+            [13, 65],
+            [14, 12],
+            [15, 14],
+            [16, 16]
           ]
+        }
       }
     }
   ]

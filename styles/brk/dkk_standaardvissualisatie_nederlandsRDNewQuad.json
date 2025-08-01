@@ -1,9 +1,8 @@
 {
   "version": 8,
-  "name": "",
-  "id": "Kadastrale kaart standaardvisualisatie NetherlandsRDNewQuad",
+  "name": "Kadastrale kaart standaardvissualisatie nederlandsRDNewQuad",
   "metadata": {
-    "ol:webfonts": "https://api.pdok.nl/kadaster/brk-kadastrale-kaart/ogc/v1-demo/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
+    "ol:webfonts": "https://pdok.github.io/vectortile-demo-viewer/styles/fonts/{font-family}/{fontweight}{-fontstyle}.css",
     "gokoala:title-items": "id"
   },
   "center": [],
@@ -12,22 +11,21 @@
     "dkk": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/kadaster/brk-kadastrale-kaart/ogc/v1-demo/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
-      ],
-      "minzoom": 12,
-      "maxzoom": 12
+        "https://api.pdok.nl/kadaster/kadastralekaart/ogc/v5-preprod/tiles/NederlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+      ]
+
     }
   },
-  "glyphs": "https://api.pdok.nl/kadaster/brk-kadastrale-kaart/ogc/v1-demo/resources/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "https://pdok.github.io/vectortile-demo-viewer/styles/brk/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "Bebouwing",
-      "type": "line",
+      "type": "fill",
       "source": "dkk",
       "source-layer": "pand",
       "paint": {
-        "line-color": "#C10101",
-        "line-width": 1
+        "fill-outline-color": "#C10101",
+        "fill-color": "rgba(0, 0, 0, 0)"
       }
     },
     {
@@ -35,19 +33,19 @@
       "type": "symbol",
       "source": "dkk",
       "source-layer": "pand_nummeraanduiding",
+
       "layout": {
         "text-field": "{tekst}",
-        "text-size": [
-         "step",
-         ["zoom"],
-            6,
-            12, 6,
-            13, 7,
-            14, 8,
-            15, 11,
-            16, 13
-          ],
+        "text-size": {
+          "stops": [
+            [12, 4],
+            [13, 6],
+            [14, 10],
+            [15, 14]
+          ]
+        },
         "text-rotate": ["get", "hoek"],
+
         "text-font": [
           "Liberation Sans",
           "system-ui",
@@ -60,6 +58,7 @@
         ],
         "text-allow-overlap": true,
         "icon-allow-overlap": true
+
       },
       "paint": { "text-color": "#C10101" }
     },
@@ -69,7 +68,7 @@
       "source": "dkk",
       "source-layer": "openbareruimtelabel",
       "paint": {
-        "text-color": "#000000"
+        "text-color": "#002750"
       },
       "filter": [
         "all",
@@ -88,17 +87,8 @@
           "sans-serif",
           "Noto Color Emoji"
         ],
-       "text-size": [
-      "step",
-      ["zoom"],
-      11,
-            12, 11,
-            13, 11,
-            14, 12,
-            15, 14
-          ]
 
-       ,
+        "text-size": 15,
         "text-rotate": ["-", 360, ["get", "mshoek"]]
       }
     },
@@ -108,7 +98,7 @@
       "source": "dkk",
       "source-layer": "openbareruimtelabel",
       "paint": {
-        "text-color": "#000000"
+        "text-color": "#002750"
       },
       "filter": [
         "all",
@@ -118,7 +108,7 @@
       "layout": {
         "text-field": "{tekst}",
         "text-font": [
-          "Liberation Sans",
+          "Liberation Sans Italic",
           "system-ui",
           "Roboto",
           "Arial",
@@ -127,16 +117,14 @@
           "sans-serif",
           "Noto Color Emoji"
         ],
-      "text-size": [
-      "step",
-      ["zoom"],
-      11,
-            12, 11,
-            13, 11,
-            14, 12,
-            15, 14
+        "text-size": {
+          "stops": [
+            [12, 10],
+            [13, 11],
+            [14, 12],
+            [15, 14]
           ]
-        ,
+        },
         "text-rotate": ["-", 360, ["get", "mshoek"]]
       }
     },
@@ -153,7 +141,7 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "type_grens_waarde", "Voorlopig"],
-      "paint": {"line-color": "#CC9900", "line-width": 1.5}
+      "paint": {"line-color": "#CC9900", "line-width": 2}
     },
     {
       "id": "Kadastrale grens Administratief",
@@ -161,7 +149,7 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "type_grens_waarde", "Administratief"],
-      "paint": {"line-color": "#5CF6D1", "line-width": 1.5}
+      "paint": {"line-color": "#5CF6D1", "line-width": 2}
     },
     {
       "id": "Kadastrale grens Definitief",
@@ -169,7 +157,7 @@
       "source": "dkk",
       "source-layer": "kadastrale_grens",
       "filter": ["==", "type_grens_waarde", "Definitief"],
-      "paint": {"line-color": "#000001", "line-width": 1.5}
+      "paint": {"line-color": "#000001", "line-width": 2}
     },
     {
       "id": "Perceel Label",
@@ -180,16 +168,16 @@
         "text-field": "{perceelnummer}",
         "text-allow-overlap": true,
         "icon-allow-overlap": true,
-     "text-size": [
-      "step",
-      ["zoom"],
-      6,
-            12, 8,
-            13, 8,
-            14, 9,
-            15, 12,
-            16, 14
+        "text-size": {
+          "stops": [
+            [12, 6],
+            [13, 6],
+            [14, 9],
+            [15, 12],
+            [16, 14]
           ],
+          "default": 14
+        },
         "text-font": [
           "Liberation Sans Italic",
           "system-ui",
@@ -204,17 +192,18 @@
       "paint": {
         "text-color": "#000000",
         "text-halo-color": "#FFFFFF",
-        "text-halo-width":  [
-         "step",
-         ["zoom"],
-            6,
-            12, 6,
-            13, 6,
-            14, 12,
-            15, 14,
-            16, 16
+        "text-halo-width": {
+          "stops": [
+            [12, 6],
+            [13, 65],
+            [14, 12],
+            [15, 14],
+            [16, 16]
           ]
+        }
       }
     }
-  ]
+
+  ],
+  "id": ""
 }

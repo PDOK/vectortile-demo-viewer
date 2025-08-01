@@ -1,7 +1,7 @@
 {
   "version": 8,
   "metadata": {
-    "ol:webfonts": "http://localhost:4200/assets/fonts/{font-family}/{fontweight}{-fontstyle}.css",
+    "ol:webfonts": "http://localhost:4200/assets/fonts/{font-family}/{fontweight}{-fontstyle}.css", 
     "gokoala:title-items": "id"
   },
   "name": "",
@@ -11,7 +11,7 @@
     "top10nl": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/brt/top10nl/ogc/v1/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+        "https://api.pdok.nl/brt/top10nl/ogc/v1-preprod/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
       ],
       "minzoom": 9,
       "maxzoom": 11

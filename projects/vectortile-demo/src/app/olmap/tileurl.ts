@@ -34,7 +34,10 @@ export const tileurlWKPB: VectorTileUrl = {
   tileMatrixPart:RDPART ,
   extension: '.pbf',
   xyzTemplate: '/{z}/{y}/{x}',
-  ogcApiRootUrl: undefined
+    ogcApiRootUrl: {
+    url: "https://api.pdok.nl/kadaster/wkpb/ogc/v1-preprod",
+    lokaalIdRegex: /[GPWL]{1}\d{4}\.[a-f0-9]{32}/g
+  }
 
 
 }

@@ -83,7 +83,7 @@ export class ObjectinfoComponent {
           }
           let collection = prop["layer"]
           if (val === "identificatie_lokaal_id") {
-            collection = this.renameDKK(prop, collection)
+            collection = this.renameDKK(prop, collection, this.ogcurl)
 
 
           }
@@ -96,7 +96,7 @@ export class ObjectinfoComponent {
       if (val === "external_fid") {
         if (this.ogcurl) {
           let collection = prop["layer"]
-          collection = this.renameDKK(prop, collection)
+          collection = this.renameDKK(prop, collection, this.ogcurl)
 
 
           ogcApiUrl = getOgcApiImtemUrlExternalFid(this.ogcurl, collection, "externalFid", prop[val])
@@ -111,21 +111,24 @@ export class ObjectinfoComponent {
   }
 
 
-  private renameDKK(prop: { [x: string]: any }, collection: any) {
-    if (prop["layer"] === "pand") {
-      collection = "bebouwing"
+  private renameDKK(prop: { [x: string]: any }, collection: any, ogcUrl: string): any {
+    if (ogcUrl.includes("brk-kadastrale-kaart")) {
+      if (prop["layer"] === "pand") {
+        collection = "bebouwing"
+      }
+
+      if (prop["layer"] === "openbareruimtelabel") {
+        collection = "openbareruimtenaam"
+      }
+      if (prop["layer"] === "kadastrale_grens") {
+        collection = "kadastralegrens"
+      }
+
+      if (prop["layer"] === "pand_nummeraanduiding") {
+        collection = "nummeraanduidingreeks"
+      }
     }
 
-    if (prop["layer"] === "openbareruimtelabel") {
-      collection = "openbareruimtenaam"
-    }
-    if (prop["layer"] === "kadastrale_grens") {
-      collection = "kadastralegrens"
-    }
-
-    if (prop["layer"] === "pand_nummeraanduiding") {
-      collection = "nummeraanduidingreeks"
-    }
     return collection
   }
 
@@ -159,7 +162,7 @@ function getOgcApiImtemUrl(OGCurl: string, layer: string, field: string, lokaal_
   return OGCurl + "/collections/" + layer + "/items?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F28992&" + field + "=" + lokaal_id
 }
 
-function getOgcApiImtemUrlExternalFid(OGCurl: string, layer: string, field: string, externalFid:string): string {
+function getOgcApiImtemUrlExternalFid(OGCurl: string, layer: string, field: string, externalFid: string): string {
 
 
 

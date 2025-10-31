@@ -61,13 +61,23 @@ export const tileurlBestuur: VectorTileUrl = {
   }
 }
 
-export const tileurlBRTAchtergrond: VectorTileUrl = {
+ export const tileurlBRTAchtergrond: VectorTileUrl = {
   vectorTileUrl: 'https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1/tiles',
   tileMatrixPart:RDPART ,
   extension: '?f=mvt',
   xyzTemplate: '/{z}/{y}/{x}',
   ogcApiRootUrl: undefined
 }
+
+/*
+ export const tileurlBRTAchtergrond: VectorTileUrl = {
+  vectorTileUrl: 'http://127.0.0.1//brt',
+  tileMatrixPart:'' ,
+  extension: '.pbf',
+  xyzTemplate: '/{z}/{x}/{y}',
+  ogcApiRootUrl: undefined
+ }
+ */
 
 export const tileurlTop10: VectorTileUrl = {
   vectorTileUrl: 'https://api.pdok.nl/brt/top10nl/ogc/v1/tiles',

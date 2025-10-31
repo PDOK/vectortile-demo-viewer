@@ -508,7 +508,7 @@
                 "A-wegnummers", "#FFFFFF",
                 "N-wegnummers", "#000000",
                 "fingerprint", "#004de3",
-                "#FFFFFF00"],
+                "#00000000"],
                 "text-halo-color": [
                   "match",
                   ["get", "vistext"],

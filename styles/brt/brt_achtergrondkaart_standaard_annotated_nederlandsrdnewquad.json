@@ -478,6 +478,15 @@
         ,
           {
             "id": "annotatie",
+            "filter": [ "in",
+            "vistext",
+            "plaatsnamen",
+            "wijknamen",
+            "buurtnamen",
+            "A-wegnummers",
+            "N-wegnummers",
+            "fingerprint"
+            ],
             "type": "symbol",
             "source": "brt",
             "source-layer": "annotaties",

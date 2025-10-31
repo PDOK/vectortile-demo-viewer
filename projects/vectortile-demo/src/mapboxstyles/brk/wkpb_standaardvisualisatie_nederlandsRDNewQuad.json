@@ -139,7 +139,7 @@
           "Wet Inzake Luchtverontreiniging",
           "#edf2bb",
           "Wet Natuurbescherming",
-          "#fff176",
+          "#6C7E2A",
           "Wet Ruimtelijke Ordening",
           "#eb8080",
           "Wet Voorkeursrecht Gemeenten",
@@ -147,6 +147,16 @@
           "Woningwet",
           "#e91e63",
           "#0B0B0B"
+        ],
+        "fill-pattern": [
+          "match",
+          [
+            "get",
+            "naam_groep"
+          ],
+          "Wet Natuurbescherming",
+          "wet-natuurbescherming",
+          "none"
         ]
       }
     },
@@ -272,7 +282,7 @@
           "Wet Inzake Luchtverontreiniging",
           "#edf2bb",
           "Wet Natuurbescherming",
-          "#fff176",
+          "#00B050",
           "Wet Ruimtelijke Ordening",
           "#eb8080",
           "Wet Voorkeursrecht Gemeenten",

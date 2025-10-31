@@ -50,7 +50,6 @@
       "source": "brt",
       "source-layer": "waterdeelvlak"
     },
-
     {
       "id": "Bodemgebruik",
       "type": "fill",
@@ -86,7 +85,6 @@
       "source": "brt",
       "source-layer": "terreinvlak"
     },
-
     {
       "id": "Gebouw",
       "type": "fill",
@@ -96,7 +94,6 @@
       "source": "brt",
       "source-layer": "gebouwvlak"
     },
-
     {
       "id": "wegdeellijn-contour",
       "type": "line",
@@ -108,7 +105,6 @@
           ["get", "vistext"],
           "E-weg",
           5,
-
           "autosnelweg",
           4,
           "autosnelweg op brug",
@@ -120,7 +116,6 @@
           ["get", "vistext"],
           "E-weg",
           "#E69800",
-
           "autosnelweg",
           "#E69800",
           "autosnelweg op brug",
@@ -163,7 +158,7 @@
           "#D1C1BE",
           "fietspad",
           "#D1C1BE",
-          "#FFFFFF"
+          "#D1C1BE"
         ]
       }
     },
@@ -178,7 +173,6 @@
           ["get", "vistext"],
           "E-weg",
           3,
-
           "autosnelweg",
           2,
           "autosnelweg op brug",
@@ -218,8 +212,6 @@
           "#FFFFFF",
           "lokale weg op brug",
           "#FFFFFF",
-          "lokale weg oprit/afrit",
-          "#FFFFFF",
           "regionale weg oprit/afrit",
           "#FCEF84",
           "straat in tunnel",
@@ -232,7 +224,7 @@
           "#D1C1BE",
           "fietspad",
           "#B2B2B2",
-          "#FFFFFF"
+          "transparent"
         ]
       }
     },
@@ -269,8 +261,6 @@
           "#E1E1E1",
           "hoofdweg in tunnel",
           "#E1E1E1",
-          "weg in tunnel",
-          "#E1E1E1",
           "lokale weg",
           "#FCEF84",
           "lokale weg op brug",
@@ -287,16 +277,13 @@
           "#FFFFFF",
           "fietspad",
           "#B2B2B2",
-          "#FFFFFF"
+          "transparent"
         ],
-
         "fill-outline-color": [
           "match",
           ["get", "vistext"],
-
           "E-weg",
           "#E69800",
-
           "autosnelweg",
           "#E69800",
           "autosnelweg op brug",
@@ -321,8 +308,6 @@
           "#CCCCCC",
           "hoofdweg in tunnel",
           "#CCCCCC",
-          "weg in tunnel",
-          "#CCCCCC",
           "lokale weg",
           "#D1C1BE",
           "lokale weg op brug",
@@ -339,14 +324,12 @@
           "#D1C1BE",
           "fietspad",
           "#D1C1BE",
-          "#FFFFFF"
+           "#D1C1BE"
         ]
       },
-
       "source": "brt",
       "source-layer": "wegdeelvlak"
     },
-
     {
       "id": "registratiefgebiedlijn",
       "type": "line",
@@ -362,7 +345,7 @@
           "#B2B2B2",
           "provinciegrens",
           "#B2B2B2",
-          "#FFFFFF"
+         "#B2B2B2"
         ],
         "line-width": [
           "interpolate",
@@ -395,7 +378,6 @@
         ]
       }
     },
-
     {
       "id": "spoorbaandeellijn",
       "type": "line",
@@ -413,13 +395,11 @@
           "#828282",
           "spoor in tunnel",
           "#828282",
-          "spoor onder ander object",
-          "#82828200",
           "metro / sneltram in tunnel",
           "#828282",
           "overig",
           "#AEA9A9",
-          "#82828200"
+          "#828282"
         ],
         "line-width": [
           "match",
@@ -428,12 +408,10 @@
           1,
           "metro / sneltram in tunnel",
           6,
-
           4
         ]
       }
     },
-
     {
       "id": "treinspoor",
       "type": "line",
@@ -464,7 +442,6 @@
         "line-width": 6
       }
     },
-
     {
       "id": "tram",
       "type": "line",
@@ -480,7 +457,6 @@
         "line-width": 8
       }
     },
-
     {
       "id": "metro / sneltram in tunnel",
       "type": "line",
@@ -496,7 +472,6 @@
         "line-width": 8
       }
     },
-
     {
       "id": "metro / sneltram in tunnel 2",
       "type": "line",
@@ -516,7 +491,6 @@
       "type": "line",
       "source": "brt",
       "source-layer": "inrichtingselementlijn",
-
       "paint": {
         "line-color": [
           "match",
@@ -554,7 +528,6 @@
         0.5
       ]
     },
-
     {
       "id": "hoogspanningsmast inrichtingselement_punt",
       "type": "circle",
@@ -572,7 +545,7 @@
       "source": "brt",
       "source-layer": "waterdeelvlak_label",
       "layout": {
-        "text-field": ["get", "naam"],
+        "text-field": "{naam}",
         "text-font": ["Liberation Sans Italic"],
         "text-size": [
           "case",
@@ -597,7 +570,6 @@
         "text-color": "#004de3"
       }
     },
-
     {
       "id": "straatnamen",
       "type": "symbol",
@@ -606,19 +578,28 @@
       "layout": {
         "text-field": "{label}",
         "text-size": ["*", ["coalesce", ["get", "size"], 0], 1.3],
-        "text-font": ["Liberation Sans"],
+        "text-font": ["Liberation Sans Regular"],
         "symbol-placement": "line"
       }
     },
     {
       "id": "annotatie",
+      "filter": [
+          "in",
+          "vistext",
+          "plaatsnamen",
+          "wijknamen",
+          "buurtnamen",
+          "A-wegnummers",
+          "N-wegnummers",
+          "fingerprint"
+        ],
       "type": "symbol",
       "source": "brt",
       "source-layer": "annotaties",
       "layout": {
         "text-allow-overlap": true,
         "text-ignore-placement": true,
-
         "text-field": " {label} ",
         "text-size": ["*", ["coalesce", ["get", "size"], 10], 1.3],
         "text-font": [
@@ -633,7 +614,7 @@
           "N-wegnummers",
           ["literal", ["Liberation Sans Bold"]],
           "fingerprint",
-          ["literal", ["Liberation Sans"]],
+          ["literal", ["Liberation Sans Regular"]],
           ["literal", ["Liberation Sans Regular"]]
         ]
       },
@@ -653,7 +634,7 @@
           "#000000",
           "fingerprint",
           "#004de3",
-          "#FFFFFF"
+           "#000000"
         ],
         "text-halo-color": [
           "match",
@@ -664,7 +645,6 @@
           "#FFFFBE",
           "#FFFFFF"
         ],
-
         "text-halo-width": [
           "match",
           ["get", "vistext"],
@@ -684,7 +664,7 @@
         "https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
       ],
       "minzoom": 0,
-      "maxzoom": 14
+      "maxzoom": 12
     }
   }
 }

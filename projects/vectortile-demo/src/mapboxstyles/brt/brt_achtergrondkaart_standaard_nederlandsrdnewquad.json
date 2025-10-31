@@ -23,7 +23,7 @@
         "land/grens (NL)", "#FFFFFF",
         "(zee)water", "#80BDE3",
         "onderlegger Nederland", "#FFFFFF",
-       "transparent" ]
+       "#FFFFFF" ]
       },
       "source": "brt",
       "source-layer": "nederland"
@@ -39,7 +39,7 @@
         "meer, plas", "#80BDE3",
         "droogvallend", "#90C0E4",
         "waterloop",  "#80BDE3",
-        "transparent"
+        "#FFFFFF"
       ]
       },
       "source": "brt",
@@ -63,7 +63,7 @@
           "bebouwd gebied", "#E3DCE7",
           "aanlegsteiger", "#B2B2B2",
           "zee", "#80BDE3",
-          "meer, plas", "#80BDE3", "transparent"]
+          "meer, plas", "#80BDE3", "#FFFFFF"]
         },
         "source": "brt",
         "source-layer": "terreinvlak"
@@ -114,6 +114,7 @@
             "lokale weg in tunnel", "#CCCCCC",
             "hoofdweg in tunnel", "#CCCCCC",
             "lokale weg", "#D1C1BE",
+            "lokale weg oprit/afrit", "#D1C1BE",
             "lokale weg op brug", "#D1C1BE",
             "regionale weg oprit/afrit", "#D1C1BE",
             "straat in tunnel", "#CCCCCC",
@@ -121,7 +122,7 @@
             "straat op brug", "#E3DCE7",
             "overig", "#D1C1BE",
             "fietspad", "#D1C1BE",
-            "transparent"
+            "#FFFFFF"
         ]
 
 
@@ -160,13 +161,14 @@
           "hoofdweg in tunnel", "#E1E1E1",
           "lokale weg", "#FFFFFF",
           "lokale weg op brug", "#FFFFFF",
+          "lokale weg oprit/afrit", "#FFFFFF",
           "regionale weg oprit/afrit", "#FCEF84",
           "straat in tunnel", "#E1E1E1",
           "straat", "#FFFFFF",
           "straat op brug", "#FFFFFF",
           "overig", "#D1C1BE",
           "fietspad", "#B2B2B2",
-          "transparent"
+          "#FFFFFF"
         ]
 
 
@@ -193,6 +195,7 @@
           "regionale weg in tunnel", "#E1E1E1",
           "lokale weg in tunnel", "#E1E1E1",
           "hoofdweg in tunnel", "#E1E1E1",
+          "weg in tunnel", "#E1E1E1",
           "lokale weg", "#FCEF84",
           "lokale weg op brug", "#FFFFFF",
           "regionale weg oprit/afrit", "#FCEF84",
@@ -201,7 +204,7 @@
           "straat op brug", "#FFFFFF",
           "overig", "#FFFFFF",
           "fietspad", "#B2B2B2",
-          "transparent"]
+          "#FFFFFF"]
 
 
 
@@ -229,6 +232,7 @@
               "regionale weg in tunnel", "#CCCCCC",
               "lokale weg in tunnel", "#CCCCCC",
               "hoofdweg in tunnel", "#CCCCCC",
+              "weg in tunnel", "#CCCCCC",
               "lokale weg", "#D1C1BE",
               "lokale weg op brug", "#D1C1BE",
               "regionale weg oprit/afrit", "#D1C1BE",
@@ -237,7 +241,7 @@
               "straat op brug", "#E3DCE7",
               "overig", "#D1C1BE",
               "fietspad", "#D1C1BE",
-              "transparent"]
+              "#FFFFFF"]
 
 
         },
@@ -258,7 +262,7 @@
               "land/grens (NL)", "#808080",
               "landsgrens (NL-BE, NL-DE)", "#B2B2B2",
               "provinciegrens", "#B2B2B2",
-              "transparent"
+              "#FFFFFF"
             ],
             "line-width": [
               "interpolate",
@@ -297,9 +301,10 @@
                     "metro / sneltram", "#828282",
                     "tram", "#828282",
                     "spoor in tunnel", "#828282",
+                    "spoor onder ander object","#82828200",
                     "metro / sneltram in tunnel", "#828282",
                     "overig", "#AEA9A9",
-                    "#828282"
+                    "#82828200"
                 ],
                 "line-width":     ["match",
                 ["get", "vistext"],
@@ -404,7 +409,7 @@
               "hoogspanningsleiding", "#828282",
               "kabelbaan", "#000000",
               "muur", "#A4A4A4",
-              "transparent"
+              "#FFFFFF"
             ]
       },
       "line-width": [

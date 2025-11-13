@@ -21,7 +21,7 @@ export const environment = {
   production: true,
 
   BRTTop10Standaardjsonurl: urlQuad( 'https://api.pdok.nl/brt/top10nl/ogc/v1/styles', '/brt_top10nl__', 'f=mapbox'),
-  BrkWKPBStandaardjsonurl: 'styles/brk/wkpb_standaardvisualisatie_nederlandsRDNewQuad.json',
+  BrkWKPBStandaardjsonurl: 'styles/brk/wkpb/wkpb_standaardvisualisatie_nederlandsRDNewQuad.json',
   BGTmapboxachtergrondjsonurl: 'styles/bgt_achtergrondvisualisatie.json',
   BGTmapboxstandaardjsonurl: 'styles/bgt_standaardvisualisatie.json',
   BAGmapboxbagstd:    urlQuad('https://api.pdok.nl/lv/bag/ogc/v1/styles', '/bag_standaardvisualisatie__', 'f=json'),

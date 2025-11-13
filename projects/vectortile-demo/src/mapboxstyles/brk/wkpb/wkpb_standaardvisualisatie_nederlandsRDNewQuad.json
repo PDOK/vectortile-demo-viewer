@@ -15,6 +15,7 @@
       "maxzoom": 14
     }
   },
+   "sprite": "http://127.0.0.1:4200/styles/brk/wkpb/sprite/sprite@1",
   "glyphs": "https://api.pdok.nl/lv/bgt/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
@@ -138,9 +139,7 @@
           "#f49200",
           "Wet Inzake Luchtverontreiniging",
           "#edf2bb",
-          "Wet Natuurbescherming",
-          "#6C7E2A",
-          "Wet Ruimtelijke Ordening",
+                    "Wet Ruimtelijke Ordening",
           "#eb8080",
           "Wet Voorkeursrecht Gemeenten",
           "#9e9e9e",
@@ -148,17 +147,8 @@
           "#e91e63",
           "#0B0B0B"
         ],
-        "fill-pattern": [
-          "match",
-          [
-            "get",
-            "naam_groep"
-          ],
-          "Wet Natuurbescherming",
-          "wet-natuurbescherming",
-          "none"
-        ]
-      }
+        "fill-pattern":  "wet-natuurbescherming"
+          }
     },
     {
       "id": "beperkingen outline",

@@ -14,8 +14,8 @@
       "maxzoom": 14
     }
   },
-  "sprite": "http://127.0.0.1:4200/styles/brk/wkpb/sprite/sprite@1",
-  "glyphs": "https://api.pdok.nl/lv/bgt/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
+  "sprite": "https://pdok.github.io/vectortile-demo-viewer/styles/brk/wkpb/sprite/sprite@1",
+  "glyphs": "https://pdok.github.io/vectortile-demo-viewer/styles/brk/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "grondslag fill",

@@ -25,6 +25,7 @@ export class CustomTileComponent {
       customUrlMinZoom: new FormControl(this.getLocalStorageValue('customUrlMinZoom')),
       showDebugLayer: new FormControl(this.getLocalStorageValue('showDebugLayer')),
       showLuchtFotoLayer: new FormControl(this.getLocalStorageValue('showLuchtFotoLayer')),
+      showBrtLayer: new FormControl(this.getLocalStorageValue('showBrtLayer')),
       customTileMatrixPart: new FormControl(this.getLocalStorageValue('customTileMatrixPart'))
     })
   }
@@ -34,7 +35,7 @@ export class CustomTileComponent {
   }
 
   onSubmit() {
-    const { customUrl, customTileMatrixPart, customUrlExtension, customUrlxyzTemplate, customUrlMinZoom, showDebugLayer, showLuchtFotoLayer } = this.customtForm.value
+    const { customUrl, customTileMatrixPart, customUrlExtension, customUrlxyzTemplate, customUrlMinZoom, showDebugLayer, showLuchtFotoLayer, showBrtLayer } = this.customtForm.value
     this.localStorageService.set({ key: 'customUrl', value: customUrl })
     this.localStorageService.set({ key: 'customTileMatrixPart', value: customTileMatrixPart })
     this.localStorageService.set({ key: 'customUrlExtension', value: customUrlExtension })
@@ -42,6 +43,7 @@ export class CustomTileComponent {
     this.localStorageService.set({ key: 'customUrlMinZoom', value: customUrlMinZoom })
     this.localStorageService.set({ key: 'showDebugLayer', value: showDebugLayer })
     this.localStorageService.set({ key: 'showLuchtFotoLayer', value: showLuchtFotoLayer })
+    this.localStorageService.set({ key: 'showBrtLayer', value: showBrtLayer })
 
     this.visEmit.emit(Visualisatie.Custom1Blanko)
   }
@@ -64,6 +66,11 @@ export class CustomTileComponent {
 
 
 
+  }
+ showBrtLayer() {
+     const { customUrl, customTileMatrixPart, customUrlExtension, customUrlxyzTemplate, customUrlMinZoom, showDebugLayer, showBrtLayer } = this.customtForm.value
+     this.localStorageService.set({ key: 'showBrtLayer', value: showBrtLayer })
+     this.gridEmit.emit()
   }
 
   onReset() {

@@ -1,13 +1,18 @@
 <form [formGroup]="customtForm" (ngSubmit)="onSubmit()">
   <table>
   <tr>
-    <td><label for="showDebugLayer">showDebugLayer:</label></td>
+    <td><label for="showDebugLayer">Debug raster vectortiles tonen:</label></td>
     <td><mat-slide-toggle (change)="showDebugLayer()" formControlName="showDebugLayer"></mat-slide-toggle>
    </td>
   </tr>
   <tr>
-    <td><label for="showLuchtFotoLayer">showLuchtFotoLayer:</label></td>
+    <td><label for="showLuchtFotoLayer">Luchtfoto achtergrond gebruiken:</label></td>
     <td><mat-slide-toggle (change)="showLuchtFotoLayer()" formControlName="showLuchtFotoLayer"></mat-slide-toggle>
+   </td>
+  </tr>
+  <tr>
+    <td><label for="showBrtLayer">BRT Standaard achtergrond gebruiken:</label></td>
+    <td><mat-slide-toggle (change)="showBrtLayer()" formControlName="showBrtLayer"></mat-slide-toggle>
    </td>
   </tr>
   </table>

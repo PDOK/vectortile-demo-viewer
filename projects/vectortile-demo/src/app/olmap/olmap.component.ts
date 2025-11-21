@@ -847,11 +847,56 @@ export class OlmapComponent implements OnInit, OnChanges {
       })
     })
 
+    const brtBackgroundLayer = new VectorTileLayer({
+      renderMode: 'hybrid',
+      declutter: true,
+      source: this.getVectorTileSource(this.rdProjection, tileurlBRTAchtergrond, 0),
+    })
+
+    // apply BRTAchtergrondStandaard visualization styling to this layer
+    const brtJson = getStyleUrl(Visualisatie.BRTAchtergrondStandaard, 'netherlandsrdnewquad')
+    if (brtJson.styleUrl) {
+      fetch(brtJson.styleUrl).then((response) => {
+      response.json().then((glStyle) => {
+        if (glStyle.sprite) {
+        fetch(getSpriteDataUrl(glStyle.sprite)).then((response2) => {
+          response2.json().then((spritedata) => {
+          const imageUrl = getSpriteImageUrl(glStyle.sprite)
+          const brtStyleFn = stylefunction(
+            brtBackgroundLayer,
+            glStyle,
+            brtJson.source,
+            this.resolutions,
+            spritedata,
+            imageUrl
+          ) as StyleFunction
+          brtBackgroundLayer.setStyle(brtStyleFn)
+          })
+        })
+        } else {
+        const brtStyleFn = stylefunction(
+          brtBackgroundLayer,
+          glStyle,
+          brtJson.source,
+          this.resolutions
+        ) as StyleFunction
+        brtBackgroundLayer.setStyle(brtStyleFn)
+        }
+      })
+      })
+    } else {
+      // fallback: use same doStyle logic so BRTAchtergrondStandaard still gets processed by doStyle
+      brtBackgroundLayer.setStyle(this.doStyle.bind(this) as StyleFunction)
+    }
+
 
 
     const layers = []
     if (this.localStorageService.getBoolean('showLuchtFotoLayer')) {
       layers.push(luchtfotoLayer)
+    }
+    if (this.localStorageService.getBoolean('showBrtLayer')) {
+      layers.push(brtBackgroundLayer)
     }
     layers.push(this.vectorTileLayerRD)
     if (this.localStorageService.getBoolean('showDebugLayer')) {

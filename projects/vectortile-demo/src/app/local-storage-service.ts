@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 
-export type storageKey = "customUrl" | "customUrlExtension" | "customUrlMinZoom" | "customUrlxyzTemplate" | "showDebugLayer"| "showLuchtFotoLayer"  |"customTileMatrixPart"
+export type storageKey = "customUrl" | "customUrlExtension" | "customUrlMinZoom" | "customUrlxyzTemplate" | "showDebugLayer"| "showLuchtFotoLayer"| "showBrtLayer"  |"customTileMatrixPart"
 export type storageItem = {
   key: storageKey,
   value: string | boolean
@@ -74,6 +74,6 @@ export class LocalStorageService {
   }
 
   public removeAll() {
-    (['customUrl', 'customUrlExtension', 'customUrlMinZoom', 'customUrlxyzTemplate', 'showDebugLayer', 'showLuchtFotoLayer', 'customTileMatrixPart'] as storageKey[]).forEach(key => this.remove(key))
+    (['customUrl', 'customUrlExtension', 'customUrlMinZoom', 'customUrlxyzTemplate', 'showDebugLayer', 'showLuchtFotoLayer',"showBrtLayer",  'customTileMatrixPart'] as storageKey[]).forEach(key => this.remove(key))
   }
 }

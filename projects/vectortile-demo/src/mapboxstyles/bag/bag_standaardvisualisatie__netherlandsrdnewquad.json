@@ -7,8 +7,8 @@
     0,
     0
   ],
-  "sprite": "https://api.pdok.nl/lv/bag/ogc/v2-preprod/resources/standaardsprites/sprites",
-  "glyphs": "https://api.pdok.nl/lv/bag/ogc/v2-preprod/resources/fonts/{fontstack}/{range}.pbf",
+  "sprite": "https://api.pdok.nl/kadaster/bag/ogc/v2/resources/standaardsprites/sprites",
+  "glyphs": "https://api.pdok.nl/kadaster/bag/ogc/v2/resources/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "filter": [
@@ -307,7 +307,7 @@
     "bag": {
       "type": "vector",
       "tiles": [
-        "https://api.pdok.nl/lv/bag/ogc/v2-preprod/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+        "https://api.pdok.nl/kadaster/bag/ogc/v2/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
       ],
       "minzoom": 12,
       "maxzoom": 12

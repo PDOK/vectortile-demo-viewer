@@ -22,11 +22,9 @@
           <span>{{ r.weergavenaam }}</span>
         </button>
       </div>
-      <div *ngFor="let i of getids($ids | async)" (click)="onSelectSearchID(i)">
-        <button class="selectbutton">
-          <span>{{ i.displayName }}</span>
-        </button>
-      </div>
+      <button *ngFor="let i of getids($ids | async)" (click)="onSelectSearchID(i)" (keyup.enter)="onSelectSearchID(i)" class="selectbutton">
+        <span>{{ i.displayName }}</span>
+      </button>
     </div>
   </div>
 

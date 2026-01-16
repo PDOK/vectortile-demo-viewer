@@ -140,14 +140,14 @@ export class IdlookupService {
     )
   }
 
-  getFeaturesById(item: DisplayItem, lokaal_id: string): Observable<false | DisplayItem> {
-    const params = new HttpParams().set('lokaal_id', lokaal_id)
+  getFeaturesById(item: DisplayItem, lokaal_id: string, fieldname:string ): Observable<false | DisplayItem> {
+    const params = new HttpParams().set(fieldname, lokaal_id)
     return this.checkFeatures(item, params)
   }
 
-  existsId(href: string, lokaal_id: string) {
+  existsId(href: string, lokaal_id: string , fieldname: string) {
     return this.getItemLinks(href).pipe(
-      switchMap(links => links.map(link => this.getFeaturesById(link, lokaal_id))),
+      switchMap(links => links.map(link => this.getFeaturesById(link, lokaal_id, fieldname))),
       mergeAll(),
       toArray()
     )

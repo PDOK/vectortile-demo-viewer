@@ -55,6 +55,15 @@ export enum Visualisatie {
 export type Quad = 'netherlandsrdnewquad' | 'europeanetrs89_laeaquad' | 'webmercatorquad'
 type SourceType = 'bag' | 'bgt' | 'dkk' | 'bestuurlijkegebieden' | 'top10nl' | 'custom' | 'brt' | 'wkpb'
 
+export const urlQuad = (base: string, constantPath: string, constantQuery: string): { [key in Quad]: URL } => {
+  const urls: { [key in Quad]: URL }
+  = {netherlandsrdnewquad: new URL(`${base}/styles${constantPath}netherlandsrdnewquad?${constantQuery}`),
+  europeanetrs89_laeaquad: new URL(`${base}/styles${constantPath}europeanetrs89_laeaquad?${constantQuery}`),
+  webmercatorquad: new URL(`${base}/styles${constantPath}webmercatorquad?${constantQuery}`)}
+  return urls;
+};
+
+
 export type StyleUrl = {
   source: SourceType
   styleUrl: string | undefined
@@ -75,7 +84,7 @@ export function getStyleUrl(vis: Visualisatie, quad: Quad): StyleUrl {
     [Visualisatie.BGTachtergrond]: { source: 'bgt', styleUrl: environment.BGTmapboxachtergrondjsonurl },
     [Visualisatie.Top10nlStandaard]: { source: 'top10nl', styleUrl: environment.BRTTop10Standaardjsonurl[quad].href },
     [Visualisatie.BGTstandaard]: { source: 'bgt', styleUrl: environment.BGTmapboxstandaardjsonurl },
-    [Visualisatie.Bagstd]: { source: 'bag', styleUrl: environment.BAGmapboxbagstd[quad].href },
+    [Visualisatie.Bagstd]: { source: 'bag', styleUrl: environment.BAGmapboxbagstd },
     [Visualisatie.BagCompleet]: { source: 'bag', styleUrl: environment.BAGmapboxbagCompleet[quad].href },
     [Visualisatie.BESTUURstd]: { source: 'bestuurlijkegebieden', styleUrl: environment.BESTUURstd },
     [Visualisatie.BESTUURWithLabels]: { source: 'bestuurlijkegebieden', styleUrl: environment.BESTUURWithLabels },

@@ -1,5 +1,5 @@
 export type OGCApiRootUrl = {
-  url: string, lokaalIdRegex: RegExp
+  url: string, lokaalIdRegex: RegExp, fieldname: string
 } | undefined
 export type VectorTileUrl = {
   vectorTileUrl: string; tileMatrixPart: string, extension: string, ogcApiRootUrl: OGCApiRootUrl, xyzTemplate:string
@@ -13,7 +13,8 @@ export const tileurlBGT: VectorTileUrl = {
   xyzTemplate: '/{z}/{y}/{x}',
   ogcApiRootUrl: {
     url: "https://api.pdok.nl/lv/bgt/ogc/v1",
-    lokaalIdRegex: /[GPWL]{1}\d{4}\.[a-f0-9]{32}/g
+    lokaalIdRegex: /^[GPWL]{1}\d{4}\.[a-f0-9]{32}$/,
+    fieldname: 'lokaal_id'
   }
 }
 export const tileurlDKK: VectorTileUrl = {
@@ -23,7 +24,8 @@ export const tileurlDKK: VectorTileUrl = {
   xyzTemplate: '/{z}/{y}/{x}',
   ogcApiRootUrl: {
     url: "https://api.pdok.nl/kadaster/brk-kadastrale-kaart/ogc/v1",
-    lokaalIdRegex: /[GPWL]{1}\d{4}\.[a-f0-9]{32}/g
+    lokaalIdRegex: /[GPWL]{1}\d{4}\.[a-f0-9]{32}/g,
+    fieldname: 'lokaal_id'
   }
 
 
@@ -34,20 +36,22 @@ export const tileurlWKPB: VectorTileUrl = {
   tileMatrixPart:RDPART ,
   extension: '.pbf',
   xyzTemplate: '/{z}/{y}/{x}',
-    ogcApiRootUrl: {
-    url: "https://api.pdok.nl/kadaster/wkpb/ogc/v1-preprod",
-    lokaalIdRegex: /[GPWL]{1}\d{4}\.[a-f0-9]{32}/g
+    ogcApiRootUrl: undefined
   }
 
 
-}
+
 
 export const tileurlBAG: VectorTileUrl = {
-  vectorTileUrl: 'https://api.pdok.nl/lv/bag/ogc/v1_0/tiles',
+  vectorTileUrl: 'https://api.pdok.nl/kadaster/bag/ogc/v2/tiles',
   tileMatrixPart:RDPART ,
   extension: '.pbf',
   xyzTemplate: '/{z}/{y}/{x}',
-  ogcApiRootUrl: undefined
+  ogcApiRootUrl: { url: 'https://api.pdok.nl/kadaster/bag/ogc/v2',
+  lokaalIdRegex: /\d{16}/,
+  fieldname: 'identificatie'
+  }
+
 }
 
 export const tileurlBestuur: VectorTileUrl = {
@@ -57,7 +61,8 @@ export const tileurlBestuur: VectorTileUrl = {
   xyzTemplate: '/{z}/{y}/{x}',
    ogcApiRootUrl: {
     url: "https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1_0",
-    lokaalIdRegex: /^\d{1,16}$/
+    lokaalIdRegex: /^\d{1,16}$/,
+    fieldname: 'identificatie'
   }
 }
 
@@ -66,7 +71,8 @@ export const tileurlBestuur: VectorTileUrl = {
   tileMatrixPart:RDPART ,
   extension: '?f=mvt',
   xyzTemplate: '/{z}/{y}/{x}',
-  ogcApiRootUrl: undefined
+  ogcApiRootUrl: undefined,
+
 }
 
 /*
@@ -86,7 +92,8 @@ export const tileurlTop10: VectorTileUrl = {
   xyzTemplate: '/{z}/{y}/{x}',
   ogcApiRootUrl: {
     url: "https://api.pdok.nl/brt/top10nl/ogc/v1",
-    lokaalIdRegex: /^\d{1,16}$/
+    lokaalIdRegex: /^\d{1,16}$/,
+    fieldname : 'lokaal_id'
   }
 }
 

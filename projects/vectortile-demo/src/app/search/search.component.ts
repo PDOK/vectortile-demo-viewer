@@ -101,9 +101,11 @@ ngAfterViewInit(): void {
     const ogc = this.locationService.OgcAPI
     if (ogc) {
       const t = this.findTokens(search, ogc.lokaalIdRegex)
-      if (t.length > 6) {
+      if (search.length > 9) {
         const lokaalid = t[0]
-        this.$ids = this.idlookupService.existsId(ogc.url, lokaalid)
+        if (lokaalid){
+        this.$ids = this.idlookupService.existsId(ogc.url, lokaalid, ogc.fieldname )
+        }
       }
     }
     if (search.length > 2) {
@@ -116,7 +118,7 @@ ngAfterViewInit(): void {
 
   findTokens(input: string, regex: RegExp): string[] {
 
-    const matches = input.match(regex)
+    const matches = regex.exec(input)
     return matches || []
   }
 
@@ -126,7 +128,7 @@ ngAfterViewInit(): void {
     this.searchLocation = row.weergavenaam
   }
 
-  onSelectSearchID(row: false | DisplayItem) {
+  onSelectSearchID(row: DisplayItem) {
     if (row) {
       this.locationService.zoomToFeatures(row.link, row.displayName)
       this.searchListVisible = false

@@ -113,17 +113,19 @@ export class LocationService {
 
   zoomToFeatures(url: OGCApiLink, name: string) {
     const params = new HttpParams().set('crs', 'http://www.opengis.net/def/crs/EPSG/0/28992')
+    params.append( 'f', 'json')
     this.idlookupService.getFeatures({ displayName: name, link: url }, params).subscribe((data) => {
       const vectorsource = new Vector({
         features: new GeoJSON().readFeatures(data, {
-          featureProjection: this._Projection
+          featureProjection: this._Projection,
+          dataProjection: this._Projection,
         }),
 
         attributions: name
       })
 
       const location = this.initialViewLocation
-      location.view!.fit(vectorsource.getExtent())
+      location.view!.fit(vectorsource.getExtent(),  {maxZoom: 16} )
       location.name = name
       location.change = ChangeType.search
       this.messageSource.next((location))

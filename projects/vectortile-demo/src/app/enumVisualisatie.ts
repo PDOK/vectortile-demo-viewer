@@ -55,14 +55,6 @@ export enum Visualisatie {
 export type Quad = 'netherlandsrdnewquad' | 'europeanetrs89_laeaquad' | 'webmercatorquad'
 type SourceType = 'bag' | 'bgt' | 'dkk' | 'bestuurlijkegebieden' | 'top10nl' | 'custom' | 'brt' | 'wkpb'
 
-export const urlQuad = (base: string, constantPath: string, constantQuery: string): { [key in Quad]: URL } => {
-  const urls: { [key in Quad]: URL }
-  = {netherlandsrdnewquad: new URL(`${base}/styles${constantPath}netherlandsrdnewquad?${constantQuery}`),
-  europeanetrs89_laeaquad: new URL(`${base}/styles${constantPath}europeanetrs89_laeaquad?${constantQuery}`),
-  webmercatorquad: new URL(`${base}/styles${constantPath}webmercatorquad?${constantQuery}`)}
-  return urls;
-};
-
 
 export type StyleUrl = {
   source: SourceType

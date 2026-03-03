@@ -48,10 +48,9 @@ describe('OlmapComponent', () => {
   });
 
 
-
   it('should initialize map with correct view and layers', () => {
-    expect(component.map1.getView().getZoom()).toBe(component.zoom);
-    expect(component.map1.getLayers().getArray()).toContain(component.vectorTileLayerRD);
+    expect(component.map1.getView().getZoom() ).toBe(component.zoom);
+    expect(component.map1.getLayers().getArray() ).toContain(component.vectorTileLayerRD);
   });
 
 

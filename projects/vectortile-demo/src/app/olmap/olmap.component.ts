@@ -82,7 +82,7 @@ export class OlmapComponent implements OnInit, OnChanges {
     const minzoomString: string | null = this.localStorageService.get('customUrlMinZoom')
 
     if (minzoomString) {
-      const minzoom: number = parseInt(minzoomString, 10)
+      const minzoom: number = parseInt(minzoomString, this.zoom)
 
       if (!isNaN(minzoom)) {
         return minzoom

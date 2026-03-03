@@ -32,7 +32,7 @@ export const tileurlDKK: VectorTileUrl = {
 }
 
 export const tileurlWKPB: VectorTileUrl = {
-  vectorTileUrl: 'https://api.pdok.nl/kadaster/wkpb/ogc/v1-preprod/tiles',
+  vectorTileUrl: 'https://api.pdok.nl/kadaster/brk-publiekrechtelijke-beperkingen-wkpb/ogc/v1-preprod/tiles',
   tileMatrixPart:RDPART ,
   extension: '.pbf',
   xyzTemplate: '/{z}/{y}/{x}',

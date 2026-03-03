@@ -25,7 +25,7 @@ describe('CustomTileComponent', () => {
 
 
     localStorageService.Exists.and.callFake((key: storageKey) => key === 'customUrl' || key === 'customUrlxyzTemplate' ||
-      key === 'customUrlExtension' || key === 'customUrlMinZoom' || key === 'showDebugLayer' || key === 'customTileMatrixPart')
+      key === 'customUrlExtension' || key === 'customUrlMinZoom' || key === 'showDebugLayer' || key === 'customTileMatrixPart' || key=== 'showBrtLayer'||key=== 'showLuchtFotoLayer')
     localStorageService.get.and.callFake((key: string) => {
       switch (key) {
         case 'customUrl': return 'http://example.com'
@@ -34,6 +34,8 @@ describe('CustomTileComponent', () => {
         case 'customUrlMinZoom': return '10'
         case 'customUrlxyzTemplate': return 'T{z}{x}{y}'
         case 'showDebugLayer': return 'True'
+        case 'showBrtLayer': return 'False'
+        case 'showLuchtFotoLayer': return 'False'
 
         default: return ''
       }
@@ -56,7 +58,9 @@ describe('CustomTileComponent', () => {
       customUrlMinZoom: '10',
       customUrlxyzTemplate: 'T{z}{x}{y}',
       showDebugLayer: "True",
-      customTileMatrixPart: ''
+      customTileMatrixPart: '',
+      showLuchtFotoLayer: "False",
+      showBrtLayer: "False"
     })
   })
 
@@ -67,7 +71,10 @@ describe('CustomTileComponent', () => {
       customUrlxyzTemplate: 'N{z}{x}{y}',
       customUrlMinZoom: '12',
       showDebugLayer: "False",
-      customTileMatrixPart: ''
+      customTileMatrixPart: '',
+      showLuchtFotoLayer: "False",
+      showBrtLayer: "False"
+    })
     })
 
     component.onSubmit()
@@ -77,6 +84,8 @@ describe('CustomTileComponent', () => {
     expect(localStorageService.set).toHaveBeenCalledWith({ key: 'customUrlMinZoom', value: '12' })
     expect(localStorageService.set).toHaveBeenCalledWith({ key: 'customUrlxyzTemplate', value: 'N{z}{x}{y}' })
     expect(localStorageService.set).toHaveBeenCalledWith({ key: 'showDebugLayer', value: 'False' })
+    expect(localStorageService.set).toHaveBeenCalledWith({ key: 'showLuchtFotoLayer', value: 'False' })
+    expect(localStorageService.set).toHaveBeenCalledWith({ key: 'showBrtLayer', value: 'False' })
   })
 
   it('should emit visEmit event on form submit', () => {

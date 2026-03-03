@@ -57,7 +57,7 @@ describe('IdlookupService', () => {
     service.GetId('notexists', '').subscribe((response: unknown) => {
       expect(response).toEqual(mockResponse)
     })
-  
+
     const req = httpMock.expectOne(`https://api.example.com/collections/notexists`)
     expect(req.request.method).toBe('GET')
     req.flush(mockResponse) // Simulate a response from the server
@@ -126,7 +126,7 @@ describe('IdlookupService', () => {
     }
 
 
-    service.getFeaturesById(d, '1').subscribe((response) => {
+    service.getFeaturesById(d, '1', 'lokaal_id').subscribe((response) => {
       expect(response).toEqual(false)
     })
     const req = httpMock.expectOne(`https://demo/collections/xxx/items?f=a&lokaal_id=1`)
@@ -163,7 +163,7 @@ describe('IdlookupService', () => {
 
 
 
-    service.getFeaturesById(d, '1').subscribe((response) => {
+    service.getFeaturesById(d, '1', 'lokaal_id').subscribe((response) => {
       expect(response).toEqual(r)
     })
     const req = httpMock.expectOne(`https://demo/collections/xxx/items?f=a&lokaal_id=1`)
@@ -191,7 +191,7 @@ describe('IdlookupService', () => {
      expect(req.request.method).toBe('GET')
      req.flush(mockResponse2)
      req.flush(mockResponse)
-  
+
    })
      */
 })

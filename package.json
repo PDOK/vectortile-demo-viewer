@@ -42,6 +42,8 @@
     "@angular/router": "20.3.16",
     "@maplibre/maplibre-gl-style-spec": "24.4.1",
     "@types/geojson": "7946.0.16",
+    "cypress": "15.9.0",
+    "cypress-image-diff-js": "2.5.0",
     "ngx-color-picker": "16.0.0",
     "ol": "10.5.0",
     "ol-mapbox-style": "12.6.0",

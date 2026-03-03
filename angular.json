@@ -99,7 +99,7 @@
           "builder": "@angular/build:karma",
           "options": {
             "main": "projects/vectortile-demo/src/test.ts",
-            "polyfills": "projects/vectortile-demo/src/polyfills.ts",
+            "polyfills": ["projects/vectortile-demo/src/polyfills.ts"],
             "tsConfig": "projects/vectortile-demo/tsconfig.spec.json",
             "karmaConfig": "projects/vectortile-demo/karma.conf.cjs",
             "inlineStyleLanguage": "scss",

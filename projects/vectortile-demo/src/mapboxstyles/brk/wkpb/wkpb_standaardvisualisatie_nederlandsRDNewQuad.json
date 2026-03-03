@@ -14,8 +14,8 @@
       "maxzoom": 14
     }
   },
-  "sprite": "https://pdok.github.io/vectortile-demo-viewer/styles/brk/wkpb/sprite/sprite",
-  "glyphs": "https://pdok.github.io/vectortile-demo-viewer/styles/brk/fonts/{fontstack}/{range}.pbf",
+  "sprite": "styles/brk/wkpb/sprite/sprite",
+  "glyphs": "styles/brk/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "Belemmeringenwet Landsverdediging",

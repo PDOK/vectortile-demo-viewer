@@ -76,7 +76,7 @@ export function getStyleUrl(vis: Visualisatie, quad: Quad): StyleUrl {
     [Visualisatie.BGTachtergrond]: { source: 'bgt', styleUrl: environment.BGTmapboxachtergrondjsonurl },
     [Visualisatie.Top10nlStandaard]: { source: 'top10nl', styleUrl: environment.BRTTop10Standaardjsonurl[quad].href },
     [Visualisatie.BGTstandaard]: { source: 'bgt', styleUrl: environment.BGTmapboxstandaardjsonurl },
-    [Visualisatie.Bagstd]: { source: 'bag', styleUrl: environment.BAGmapboxbagstd },
+    [Visualisatie.Bagstd]: { source: 'bag', styleUrl: environment.BAGmapboxbagstd[quad].href },
     [Visualisatie.BagCompleet]: { source: 'bag', styleUrl: environment.BAGmapboxbagCompleet[quad].href },
     [Visualisatie.BESTUURstd]: { source: 'bestuurlijkegebieden', styleUrl: environment.BESTUURstd },
     [Visualisatie.BESTUURWithLabels]: { source: 'bestuurlijkegebieden', styleUrl: environment.BESTUURWithLabels },

@@ -5,7 +5,6 @@
     "ol:webfonts": "https://pdok.github.io/vectortile-demo-viewer/styles/fonts/{font-family}/{fontweight}{-fontstyle}.css",
     "gokoala:title-items": "id"
   },
-  "center": [],
   "pitch": 0,
   "sources": {
     "dkk": {

@@ -1,0 +1,250 @@
+{
+  "version": 8,
+  "name": "BAG Standaard Visualisatie compleet",
+  "id": "bag_standaardvisualisatie_compleet",
+  "pitch": 50,
+  "center": [
+    0,
+    0
+  ],
+  "sprite": "https://api.pdok.nl/kadaster/bag/ogc/v2/resources/standaardsprites/sprites",
+  "glyphs": "https://api.pdok.nl/kadaster/bag/ogc/v2/resources/fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "fill woonplaats",
+      "type": "fill",
+      "paint": {
+        "fill-color": "rgb(255, 255, 255)",
+        "fill-opacity": 0.0
+      },
+      "source": "bag",
+      "source-layer": "woonplaats"
+    },
+    {
+      "id": "woonplaats",
+      "type": "line",
+      "paint": {
+        "line-color": "rgb(170, 170, 170)",
+        "line-width": 2
+      },
+      "source": "bag",
+      "source-layer": "woonplaats"
+    },
+
+    {
+      "id": "standplaats",
+      "type": "fill",
+      "paint": {
+        "fill-color": "rgb(220,169,208)",
+        "fill-outline-color": "rgb(85,85, 85)",
+        "fill-opacity": 1
+      },
+      "source": "bag",
+      "source-layer": "standplaats"
+    },
+    {
+      "id": "outline standplaats",
+      "type": "line",
+      "paint": {
+        "line-color": "rgb(85,85,85)",
+        "line-width": 1
+      },
+      "source": "bag",
+      "source-layer": "standplaats"
+    },
+    {
+      "id": "ligplaats",
+      "type": "fill",
+      "paint": {
+        "fill-color": "rgb(247, 163, 52)",
+        "fill-outline-color": "rgb(85,85, 85)",
+        "fill-opacity": 1
+      },
+      "source": "bag",
+      "source-layer": "ligplaats"
+    },
+    {
+      "id": "outline ligplaats",
+      "type": "line",
+      "paint": {
+        "line-color": "rgb(85,85, 85)",
+        "line-width": 0.5
+      },
+      "source": "bag",
+      "source-layer": "ligplaats"
+    },
+    {
+      "id": "pand",
+      "type": "fill",
+      "paint": {
+        "fill-opacity": 0.6,
+        "fill-color": {
+          "property": "status",
+          "type": "categorical",
+          "stops": [
+            [
+              "Bouwvergunning verleend",
+              "rgb(105,213,156)"
+            ],
+            [
+              "Bouw gestart",
+              "rgb(105,213,156)"
+            ],
+            [
+              "Pand in gebruik (niet ingemeten)",
+              "rgb(146,146,146)"
+            ],
+            [
+              "Pand in gebruik",
+              "rgb(146,146,146)"
+            ],
+            [
+              "Verbouwing pand",
+              "rgb(81,156,156)"
+            ],
+            [
+              "Sloopvergunning verleend",
+              "rgb(255,204,204)"
+            ],
+            [
+              "Pand buiten gebruik",
+              "rgb(255,255,255)"
+            ],
+            [
+              "Pand ten onrechte opgevoerd",
+              "rgb(255,255,255)"
+            ],
+            [
+              "Niet gerealiseerd pand",
+              "rgb(255,255,255)"
+            ],
+            [
+              "Pand geselecteerd",
+              "rgb(195, 195, 205)"
+            ]
+          ]
+        }
+      },
+      "source": "bag",
+      "source-layer": "pand"
+    },
+    {
+      "id": "pattern pand",
+      "type": "fill",
+      "paint": {
+        "fill-pattern": {
+          "property": "status",
+          "type": "categorical",
+          "stops": [
+            [
+              "Pand gesloopt",
+              "gesloopt"
+            ]
+          ]
+        }
+      },
+      "source": "bag",
+      "source-layer": "pand"
+    },
+    {
+      "id": "outline pand",
+      "type": "line",
+      "paint": {
+        "line-color": "rgb(0,0,0)",
+        "line-width": 0.5
+      },
+      "source": "bag",
+      "source-layer": "pand"
+    },
+    {
+      "id": "verblijfsobject outline",
+      "type": "circle",
+      "paint": {
+        "circle-radius": 5,
+        "circle-color": "rgb(0,0,0)"
+      },
+      "source": "bag",
+      "source-layer": "verblijfsobject"
+    },
+    {
+      "id": "verblijfsobject",
+      "type": "circle",
+      "paint": {
+        "circle-radius": 4,
+        "circle-color": {
+          "property": "status",
+          "type": "categorical",
+          "stops": [
+            [
+              "Verblijfsobject gevormd",
+              "rgb(153,204,255)"
+            ],
+            [
+              "Verblijfsobject in gebruik (niet ingemeten)",
+              "rgb(0,126,169)"
+            ],
+            [
+              "Verblijfsobject in gebruik",
+              "rgb(0,126,169)"
+            ],
+            [
+              "Verbouwing verblijfsobject",
+              "rgb(81,156,156)"
+            ],
+            [
+              "Verblijfsobject ingetrokken",
+              "rgb(255,255,255)"
+            ],
+            [
+              "Verblijfsobject buiten gebruik",
+              "rgb(255,255,255)"
+            ],
+            [
+              "Verblijfsobject ten onrechte opgevoerd",
+              "rgb(255,255,255)"
+            ],
+            [
+              "Niet gerealiseerd verblijfsobject",
+              "rgb(255,255,255)"
+            ]
+          ]
+        }
+      },
+      "source": "bag",
+      "source-layer": "verblijfsobject"
+    },
+    {
+      "id": "Huisnummer adres",
+      "type": "symbol",
+      "paint": {
+        "text-opacity": 1,
+        "text-color":   "rgb(0,0,0)",
+        "text-halo-color":    "rgb(255,255,255)",
+        "text-halo-width": 2
+      },
+          "layout": { "symbol-placement": "point",
+          "text-anchor": "bottom",
+          "text-line-height": 1.2,
+          "text-field": "{huisnummer}",
+          "text-font": ["sans-serif"],
+          "text-size": 13,
+          "text-justify": "center"
+        }
+
+
+      ,
+      "source": "bag",
+      "source-layer": "adres"
+    }
+    ],
+    "sources": {
+      "bag": {
+        "type": "vector",
+        "tiles": [
+          "https://api.pdok.nl/kadaster/bag/ogc/v2/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt"
+        ],
+        "minzoom": 12,
+        "maxzoom": 12
+      }
+    }
+  }

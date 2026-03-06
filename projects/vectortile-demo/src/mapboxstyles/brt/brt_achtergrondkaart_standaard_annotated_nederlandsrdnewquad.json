@@ -397,6 +397,8 @@
           "#828282",
           "metro / sneltram in tunnel",
           "#828282",
+          "tram in tunnel",
+          "#828282",
           "overig",
           "#AEA9A9",
           "#828282"
@@ -407,6 +409,8 @@
           "tram",
           1,
           "metro / sneltram in tunnel",
+          6,
+           "tram in tunnel",
           6,
           4
         ]
@@ -462,7 +466,11 @@
       "type": "line",
       "source": "brt",
       "source-layer": "spoorbaandeellijn",
-      "filter": ["in", "vistext", "metro / sneltram in tunnel"],
+      "filter": [
+        "any",
+        ["==", ["get", "vistext"], "metro / sneltram in tunnel"],
+        ["==", ["get", "vistext"], "tram in tunnel"]
+      ],
       "layout": {
         "line-join": "miter"
       },
@@ -477,7 +485,12 @@
       "type": "line",
       "source": "brt",
       "source-layer": "spoorbaandeellijn",
-      "filter": ["in", "vistext", "metro / sneltram in tunnel"],
+      "filter": [
+        "any",
+        ["==", ["get", "vistext"], "metro / sneltram in tunnel"],
+        ["==", ["get", "vistext"], "tram in tunnel"]
+      ]
+      ,
       "layout": {
         "line-join": "miter"
       },

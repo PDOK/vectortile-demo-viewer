@@ -591,8 +591,7 @@
           "muur",
           "#A4A4A4",
           "transparent"
-        ]
-      },
+        ],     
       "line-width": [
         "match",
         [
@@ -613,7 +612,8 @@
         0.5,
         0.5
       ]
-    },
+    }
+  },
     {
       "id": "hoogspanningsmast inrichtingselement_punt",
       "type": "circle",

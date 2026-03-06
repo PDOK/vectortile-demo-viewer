@@ -536,7 +536,7 @@
               "muur", "#A4A4A4",
               "transparent"
             ]
-      },
+      ,
       "line-width": [
         "match",
         ["get", "vistext"],
@@ -548,7 +548,7 @@
         "muur", 0.5,
         0.5
       ]
-
+    }
   },
 
   {

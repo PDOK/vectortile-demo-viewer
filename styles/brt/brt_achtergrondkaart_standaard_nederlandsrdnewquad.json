@@ -411,7 +411,7 @@
               "muur", "#A4A4A4",
               "#FFFFFF"
             ]
-      },
+      ,
       "line-width": [
         "match",
         ["get", "vistext"],
@@ -424,6 +424,7 @@
         0.5
       ]
 
+    }
   },
 
   {

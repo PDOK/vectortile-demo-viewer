@@ -2,7 +2,8 @@
   "version": 8,
   "name": "wkpb2:pb_multipolygon",
   "metadata": {
-    "ol:webfonts": "https://pdok.github.io/vectortile-demo-viewer/styles/brt/fonts/{font-family}/{fontweight}{-fontstyle}.css"
+    "ol:webfonts": "https://pdok.github.io/vectortile-demo-viewer/styles/brt/fonts/{font-family}/{fontweight}{-fontstyle}.css", 
+    "gokoala:title-items": "id"
   },
   "sources": {
     "wkpb": {

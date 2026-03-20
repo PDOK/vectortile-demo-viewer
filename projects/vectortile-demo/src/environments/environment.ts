@@ -6,7 +6,8 @@ export const environment = {
   BrkWKPBStandaardjsonurl: 'styles/brk/wkpb/wkpb_standaardvisualisatie_nederlandsRDNewQuad.json',
   BGTmapboxachtergrondjsonurl: 'styles/bgt_achtergrondvisualisatie.json',
   BGTmapboxstandaardjsonurl: 'styles/bgt_standaardvisualisatie.json',
-  BAGmapboxbagstd:   "styles/bag/bag_standaardvisualisatie__netherlandsrdnewquad.json",
+  BAGmapboxbagstd:    urlQuad('https://api.pdok.nl/kadaster/bag/ogc/v2', '/bag_standaardvisualisatie__', 'f=json'),
+  /*BAGmapboxbagstd:   "styles/bag/bag_standaardvisualisatie__netherlandsrdnewquad.json",*/ 
   BAGmapboxbagCompleet:  urlQuad( 'https://api.pdok.nl/kadaster/bag/ogc/v2', '/bag_standaardvisualisatie_compleet__', 'f=json'),
   /* (BAGmapboxbagCompleet:   'styles/bag/bag_standaardvisualisatie_compleet__netherlandsrdnewquad.json',*/
     BGTmapboxtactieljsonurl: 'styles/tactielevisualisatie.json',

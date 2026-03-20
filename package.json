@@ -25,8 +25,11 @@
     "valbrkformat": "gl-style-format projects/vectortile-demo/src/mapboxstyles/brk/dkk_kwaliteitsvissualisatie_webmercatorquad.json > projects/vectortile-demo/src/mapboxstyles/brk/dkk_kwaliteitsvissualisatie_webmercatorquad2json ",
     "valbrt": "gl-style-validate projects/vectortile-demo/src/mapboxstyles/brt/*.json",
     "valbrtAFormat": "gl-style-format projects/vectortile-demo/src/mapboxstyles/brt/brt_achtergrondkaart_standaard_nederlandsRDNewQuad.json > projects/vectortile-demo/src/mapboxstyles/brt/brt_achtergrondkaart_standaard_nederlandsRDNewQuad_Formatted.json",
-    "runupdate": "ng update  @angular/core @angular/cli @angular/cdk @angular/material"
+    "runupdate": "ng update  @angular/core @angular/cli @angular/cdk @angular/material",
+    "format:styles": "bash -c 'find projects/vectortile-demo/src/mapboxstyles -type f -name \"*.json\" -not -path \"*/fonts/*\" -not -path \"*/sprite/*\" -exec sh -c \"gl-style-format \\\"{}\\\" > \\\"{}.tmp\\\" && mv \\\"{}.tmp\\\" \\\"{}\\\"\" \\;'"
+
   },
+
   "private": true,
   "dependencies": {
     "@angular/animations": "20.3.16",
